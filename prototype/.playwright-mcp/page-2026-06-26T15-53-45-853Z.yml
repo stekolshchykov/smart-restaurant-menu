@@ -1,0 +1,61 @@
+- generic [ref=e931]:
+  - banner [ref=e932]:
+    - link "Skip to content" [ref=e933] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e934]: Skip to content
+      - text: Skip to content
+    - generic [ref=e935]:
+      - button "Go back" [ref=e937]:
+        - img [ref=e938]
+      - heading "Your order" [level=5] [ref=e941]
+  - main [ref=e942]:
+    - generic [ref=e946]:
+      - generic [ref=e947]:
+        - generic [ref=e948]:
+          - img [ref=e950]
+          - generic [ref=e953]:
+            - heading "Your Order" [level=2] [ref=e954]
+            - paragraph [ref=e955]: 1 item
+        - button "Back to menu" [ref=e956]:
+          - img [ref=e957]
+      - generic [ref=e963]:
+        - generic [ref=e964]:
+          - generic [ref=e965]:
+            - heading "The Jobber" [level=3] [ref=e966]
+            - generic [ref=e967]: €17.95
+          - generic [ref=e968]:
+            - generic [ref=e969]:
+              - paragraph [ref=e970]: + Extra cheese
+              - generic [ref=e971]: €1.50
+            - generic [ref=e972]:
+              - paragraph [ref=e973]: + Bacon
+              - generic [ref=e974]: €2.00
+          - separator [ref=e975]
+          - generic [ref=e976]:
+            - paragraph [ref=e977]: Line total
+            - generic [ref=e978]: €21.45
+        - button "Remove The Jobber" [ref=e979]:
+          - img [ref=e980]
+      - generic [ref=e984]:
+        - generic [ref=e985]:
+          - paragraph [ref=e986]: Subtotal
+          - generic [ref=e987]: €21.45
+        - separator [ref=e988]
+        - generic [ref=e989]:
+          - paragraph [ref=e990]: Total
+          - generic [ref=e991]: €21.45
+        - generic [ref=e992]:
+          - button "Place Order" [ref=e993]
+          - button "Back to Menu" [ref=e994]
+  - contentinfo [ref=e995]:
+    - generic [ref=e997]:
+      - paragraph [ref=e999]: The Golden Nugget
+      - generic [ref=e1000]:
+        - button "Open fullscreen" [ref=e1001]:
+          - img [ref=e1002]
+          - text: Open fullscreen
+        - button "Admin unlock" [ref=e1007]:
+          - img [ref=e1008]
+  - button "Service" [ref=e1012]:
+    - img [ref=e1013]
+    - generic [ref=e1016]: Service

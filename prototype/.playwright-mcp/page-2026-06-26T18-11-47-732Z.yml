@@ -1,0 +1,94 @@
+- generic [ref=e2043]:
+  - banner [ref=e2044]:
+    - link "Skip to content" [ref=e2045] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e2046]: Skip to content
+      - text: Skip to content
+    - heading "Order confirmed" [level=2] [ref=e2049]
+  - main [ref=e2050]:
+    - generic [ref=e2052]:
+      - generic [ref=e2053]:
+        - generic [ref=e2054]:
+          - img [ref=e2056]
+          - img [ref=e2060]
+        - generic [ref=e2065]:
+          - heading "Order confirmed" [level=1] [ref=e2066]
+          - generic [ref=e2067]:
+            - generic [ref=e2068]:
+              - img [ref=e2069]
+              - text: Confirmed
+            - generic [ref=e2072]:
+              - img [ref=e2073]
+              - text: "Order #HKLM2H"
+      - generic [ref=e2076]:
+        - paragraph [ref=e2077]: Estimated waiting time
+        - generic [ref=e2079]:
+          - img [ref=e2080]
+          - generic [ref=e2084]:
+            - img [ref=e2086]
+            - generic [ref=e2089]: 07:56
+        - paragraph [ref=e2090]: Preparing your order
+      - generic [ref=e2093]:
+        - paragraph [ref=e2097]: Order received
+        - paragraph [ref=e2100]: Being prepared
+        - paragraph [ref=e2103]: Almost ready
+      - generic [ref=e2105]:
+        - generic [ref=e2107]:
+          - generic [ref=e2108]:
+            - img [ref=e2110]
+            - generic [ref=e2113]:
+              - heading "Your order" [level=2] [ref=e2114]
+              - paragraph [ref=e2115]: 1 item
+          - generic [ref=e2116]: Table 07
+        - generic [ref=e2121]:
+          - generic [ref=e2122]:
+            - generic [ref=e2123]: 1×
+            - paragraph [ref=e2125]: The Jobber
+          - paragraph [ref=e2126]: €17.95
+        - generic [ref=e2128]:
+          - paragraph [ref=e2129]: Total
+          - generic [ref=e2130]: €17.95
+      - generic [ref=e2133]:
+        - img [ref=e2135]
+        - generic [ref=e2138]:
+          - paragraph [ref=e2139]: Need anything else?
+          - paragraph [ref=e2140]: Call your waiter, ask for water, napkins, cutlery or the bill using the Service button.
+      - button "Start new order" [ref=e2143]:
+        - img [ref=e2144]
+        - text: Start new order
+  - contentinfo [ref=e2149]:
+    - generic [ref=e2151]:
+      - paragraph [ref=e2153]: The Golden Nugget
+      - generic [ref=e2154]:
+        - button "Open fullscreen" [ref=e2155]:
+          - img [ref=e2156]
+          - generic [ref=e2161]: Open fullscreen
+        - button "Admin unlock" [ref=e2162]:
+          - img [ref=e2163]
+  - button "Service" [active] [ref=e2167]:
+    - img [ref=e2168]
+    - generic [ref=e2171]: Service
+  - dialog "How can we help?" [ref=e2176]:
+    - generic [ref=e2177]:
+      - heading "How can we help?" [level=3] [ref=e2178]
+      - button "Close service menu" [ref=e2179]:
+        - img [ref=e2180]
+    - generic [ref=e2183]:
+      - button "Call Waiter" [ref=e2185]:
+        - img [ref=e2186]
+        - text: Call Waiter
+      - button "Ask for Water" [ref=e2190]:
+        - img [ref=e2191]
+        - text: Ask for Water
+      - button "Ask for Napkins" [ref=e2195]:
+        - img [ref=e2196]
+        - text: Ask for Napkins
+      - button "Ask for Cutlery" [ref=e2200]:
+        - img [ref=e2201]
+        - text: Ask for Cutlery
+      - button "Ask for the Bill" [ref=e2205]:
+        - img [ref=e2206]
+        - text: Ask for the Bill
+      - button "Need Help" [ref=e2210]:
+        - img [ref=e2211]
+        - text: Need Help

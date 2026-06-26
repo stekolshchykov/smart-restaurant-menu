@@ -1,0 +1,455 @@
+- generic [ref=e3]:
+  - generic [ref=e636]:
+    - banner [ref=e637]:
+      - generic [ref=e638]:
+        - button "The Golden Nugget" [ref=e639]:
+          - generic [ref=e640]: The Golden Nugget
+        - button "Shopping cart with 1 items" [ref=e641]:
+          - img [ref=e642]
+          - generic [ref=e645]: "1"
+    - main [ref=e646]:
+      - generic [ref=e647]:
+        - generic [ref=e648]:
+          - paragraph [ref=e649]: Welcome to The Golden Nugget
+          - heading "Bar & Restaurant, Fossa, Killarney" [level=2] [ref=e650]
+          - paragraph [ref=e651]: A cosy bar & restaurant in the heart of Fossa, Killarney, serving hearty Irish classics, fresh seafood, stone-baked pizza and a great pint.
+        - navigation "Category navigation" [ref=e652]:
+          - generic [ref=e654]:
+            - button "Soups" [pressed] [ref=e655]
+            - button "Starters" [ref=e656]
+            - button "Salads" [ref=e657]
+            - button "Meat" [ref=e658]
+            - button "Fish" [ref=e659]
+            - button "Pasta" [ref=e660]
+            - button "Pizza" [ref=e661]
+            - button "Vegetarian" [ref=e662]
+            - button "Drinks" [ref=e663]
+            - button "Desserts" [ref=e664]
+        - generic [ref=e665]:
+          - region "Soups" [ref=e666]:
+            - generic [ref=e667]:
+              - heading "Soups" [level=2] [ref=e668]
+              - generic [ref=e669]:
+                - button "Soup of the Day Soup of the Day €5.95 Fresh creamy soup of the day served with a crusty white roll." [ref=e671] [cursor=pointer]:
+                  - img "Soup of the Day" [ref=e673]
+                  - generic [ref=e674]:
+                    - generic [ref=e675]:
+                      - heading "Soup of the Day" [level=3] [ref=e676]
+                      - generic [ref=e677]: €5.95
+                    - paragraph [ref=e678]: Fresh creamy soup of the day served with a crusty white roll.
+                - button "Seafood Chowder Seafood Chowder €9.95 Creamy seafood chowder with a hint of dill, served with a crusty roll." [ref=e680] [cursor=pointer]:
+                  - img "Seafood Chowder" [ref=e682]
+                  - generic [ref=e683]:
+                    - generic [ref=e684]:
+                      - heading "Seafood Chowder" [level=3] [ref=e685]
+                      - generic [ref=e686]: €9.95
+                    - paragraph [ref=e687]: Creamy seafood chowder with a hint of dill, served with a crusty roll.
+                - button "Minestrone Soup Minestrone Soup €6.50 Hearty Italian vegetable soup with pasta and fresh herbs." [ref=e689] [cursor=pointer]:
+                  - img "Minestrone Soup" [ref=e691]
+                  - generic [ref=e692]:
+                    - generic [ref=e693]:
+                      - heading "Minestrone Soup" [level=3] [ref=e694]
+                      - generic [ref=e695]: €6.50
+                    - paragraph [ref=e696]: Hearty Italian vegetable soup with pasta and fresh herbs.
+                - button "Tomato & Basil Soup Tomato & Basil Soup €5.95 Slow-roasted tomato soup finished with fresh basil and a swirl of cream." [ref=e698] [cursor=pointer]:
+                  - img "Tomato & Basil Soup" [ref=e700]
+                  - generic [ref=e701]:
+                    - generic [ref=e702]:
+                      - heading "Tomato & Basil Soup" [level=3] [ref=e703]
+                      - generic [ref=e704]: €5.95
+                    - paragraph [ref=e705]: Slow-roasted tomato soup finished with fresh basil and a swirl of cream.
+          - region "Starters" [ref=e706]:
+            - generic [ref=e707]:
+              - heading "Starters" [level=2] [ref=e708]
+              - generic [ref=e709]:
+                - button "Garlic Bread Garlic Bread €5.50 Grilled ciabatta with seasonal garnish; add cheese for a little extra." [ref=e711] [cursor=pointer]:
+                  - img "Garlic Bread" [ref=e713]
+                  - generic [ref=e714]:
+                    - generic [ref=e715]:
+                      - heading "Garlic Bread" [level=3] [ref=e716]
+                      - generic [ref=e717]: €5.50
+                    - paragraph [ref=e718]: Grilled ciabatta with seasonal garnish; add cheese for a little extra.
+                - button "The Golden Wings The Golden Wings €8.95 Chicken wings tossed in our own special sauce. Gluten-free option available. Spicy" [ref=e720] [cursor=pointer]:
+                  - img "The Golden Wings" [ref=e722]
+                  - generic [ref=e723]:
+                    - generic [ref=e724]:
+                      - heading "The Golden Wings" [level=3] [ref=e725]
+                      - generic [ref=e726]: €8.95
+                    - paragraph [ref=e727]: Chicken wings tossed in our own special sauce. Gluten-free option available.
+                    - generic [ref=e729]: Spicy
+                - button "Deep Fried Brie Deep Fried Brie €9.95 Crispy deep-fried brie served with berry compote and seasonal garnish." [ref=e731] [cursor=pointer]:
+                  - img "Deep Fried Brie" [ref=e733]
+                  - generic [ref=e734]:
+                    - generic [ref=e735]:
+                      - heading "Deep Fried Brie" [level=3] [ref=e736]
+                      - generic [ref=e737]: €9.95
+                    - paragraph [ref=e738]: Crispy deep-fried brie served with berry compote and seasonal garnish.
+                - button "Vol au Vent Vol au Vent €8.95 Sautéed chicken strips and bacon in a light puff-pastry case with a creamy sauce." [ref=e740] [cursor=pointer]:
+                  - img "Vol au Vent" [ref=e742]
+                  - generic [ref=e743]:
+                    - generic [ref=e744]:
+                      - heading "Vol au Vent" [level=3] [ref=e745]
+                      - generic [ref=e746]: €8.95
+                    - paragraph [ref=e747]: Sautéed chicken strips and bacon in a light puff-pastry case with a creamy sauce.
+                - button "BBQ Golden Ribs BBQ Golden Ribs €9.50 Tender BBQ ribs served with salad, chips and coleslaw." [ref=e749] [cursor=pointer]:
+                  - img "BBQ Golden Ribs" [ref=e751]
+                  - generic [ref=e752]:
+                    - generic [ref=e753]:
+                      - heading "BBQ Golden Ribs" [level=3] [ref=e754]
+                      - generic [ref=e755]: €9.50
+                    - paragraph [ref=e756]: Tender BBQ ribs served with salad, chips and coleslaw.
+                - button "Homemade Breaded Scampi Homemade Breaded Scampi €9.95 Golden breaded scampi served with salad and a sweet chilli dip." [ref=e758] [cursor=pointer]:
+                  - img "Homemade Breaded Scampi" [ref=e760]
+                  - generic [ref=e761]:
+                    - generic [ref=e762]:
+                      - heading "Homemade Breaded Scampi" [level=3] [ref=e763]
+                      - generic [ref=e764]: €9.95
+                    - paragraph [ref=e765]: Golden breaded scampi served with salad and a sweet chilli dip.
+          - region "Salads" [ref=e766]:
+            - generic [ref=e767]:
+              - heading "Salads" [level=2] [ref=e768]
+              - generic [ref=e769]:
+                - button "Toasted Goat's Cheese Salad Toasted Goat's Cheese Salad €15.95 Toasted goat's cheese with beetroot, walnut and house salad." [ref=e771] [cursor=pointer]:
+                  - img "Toasted Goat's Cheese Salad" [ref=e773]
+                  - generic [ref=e774]:
+                    - generic [ref=e775]:
+                      - heading "Toasted Goat's Cheese Salad" [level=3] [ref=e776]
+                      - generic [ref=e777]: €15.95
+                    - paragraph [ref=e778]: Toasted goat's cheese with beetroot, walnut and house salad.
+                - button "Classic Caesar Salad Classic Caesar Salad €15.95 Grilled chicken, strips of bacon, parmesan shavings and croutons on crisp romaine." [ref=e780] [cursor=pointer]:
+                  - img "Classic Caesar Salad" [ref=e782]
+                  - generic [ref=e783]:
+                    - generic [ref=e784]:
+                      - heading "Classic Caesar Salad" [level=3] [ref=e785]
+                      - generic [ref=e786]: €15.95
+                    - paragraph [ref=e787]: Grilled chicken, strips of bacon, parmesan shavings and croutons on crisp romaine.
+                - button "House Garden Salad House Garden Salad €8.95 Fresh mixed leaves, tomato, cucumber and red onion with our house dressing. Vegetarian" [ref=e789] [cursor=pointer]:
+                  - img "House Garden Salad" [ref=e791]
+                  - generic [ref=e792]:
+                    - generic [ref=e793]:
+                      - heading "House Garden Salad" [level=3] [ref=e794]
+                      - generic [ref=e795]: €8.95
+                    - paragraph [ref=e796]: Fresh mixed leaves, tomato, cucumber and red onion with our house dressing.
+                    - generic [ref=e798]: Vegetarian
+                - button "Greek Salad Greek Salad €10.95 Feta cheese, olives, tomato, cucumber and red onion with oregano dressing. Vegetarian" [ref=e800] [cursor=pointer]:
+                  - img "Greek Salad" [ref=e802]
+                  - generic [ref=e803]:
+                    - generic [ref=e804]:
+                      - heading "Greek Salad" [level=3] [ref=e805]
+                      - generic [ref=e806]: €10.95
+                    - paragraph [ref=e807]: Feta cheese, olives, tomato, cucumber and red onion with oregano dressing.
+                    - generic [ref=e809]: Vegetarian
+                - button "Bacon & Avocado Salad Bacon & Avocado Salad €12.95 Crispy bacon, ripe avocado, cherry tomatoes and mixed leaves with honey-mustard dressing." [ref=e811] [cursor=pointer]:
+                  - img "Bacon & Avocado Salad" [ref=e813]
+                  - generic [ref=e814]:
+                    - generic [ref=e815]:
+                      - heading "Bacon & Avocado Salad" [level=3] [ref=e816]
+                      - generic [ref=e817]: €12.95
+                    - paragraph [ref=e818]: Crispy bacon, ripe avocado, cherry tomatoes and mixed leaves with honey-mustard dressing.
+          - region "Meat" [ref=e819]:
+            - generic [ref=e820]:
+              - heading "Meat" [level=2] [ref=e821]
+              - generic [ref=e822]:
+                - button "The Jobber The Jobber €17.95 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce." [ref=e824] [cursor=pointer]:
+                  - img "The Jobber" [ref=e826]
+                  - generic [ref=e827]:
+                    - generic [ref=e828]:
+                      - heading "The Jobber" [level=3] [ref=e829]
+                      - generic [ref=e830]: €17.95
+                    - paragraph [ref=e831]: 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce.
+                - button "The Valley Steak Sandwich The Valley Steak Sandwich €19.95 Sautéed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter." [ref=e833] [cursor=pointer]:
+                  - img "The Valley Steak Sandwich" [ref=e835]
+                  - generic [ref=e836]:
+                    - generic [ref=e837]:
+                      - heading "The Valley Steak Sandwich" [level=3] [ref=e838]
+                      - generic [ref=e839]: €19.95
+                    - paragraph [ref=e840]: Sautéed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter.
+                - button "Steak of the Day Steak of the Day €29.95 Sirloin, ribeye or fillet from our specials board, served with chips, mash, sautéed onions and mushrooms, pepper sauce or garlic butter." [ref=e842] [cursor=pointer]:
+                  - img "Steak of the Day" [ref=e844]
+                  - generic [ref=e845]:
+                    - generic [ref=e846]:
+                      - heading "Steak of the Day" [level=3] [ref=e847]
+                      - generic [ref=e848]: €29.95
+                    - paragraph [ref=e849]: Sirloin, ribeye or fillet from our specials board, served with chips, mash, sautéed onions and mushrooms, pepper sauce or garlic butter.
+                - button "Southern Fried Chicken Burger Southern Fried Chicken Burger €16.95 Crispy chicken fillet with lettuce, tomato, cheese, red onion and relish." [ref=e851] [cursor=pointer]:
+                  - img "Southern Fried Chicken Burger" [ref=e853]
+                  - generic [ref=e854]:
+                    - generic [ref=e855]:
+                      - heading "Southern Fried Chicken Burger" [level=3] [ref=e856]
+                      - generic [ref=e857]: €16.95
+                    - paragraph [ref=e858]: Crispy chicken fillet with lettuce, tomato, cheese, red onion and relish.
+                - button "Thai Red Curry Chicken Thai Red Curry Chicken €18.95 Aromatic Thai red curry chicken served with basmati rice and naan bread. Spicy" [ref=e860] [cursor=pointer]:
+                  - img "Thai Red Curry Chicken" [ref=e862]
+                  - generic [ref=e863]:
+                    - generic [ref=e864]:
+                      - heading "Thai Red Curry Chicken" [level=3] [ref=e865]
+                      - generic [ref=e866]: €18.95
+                    - paragraph [ref=e867]: Aromatic Thai red curry chicken served with basmati rice and naan bread.
+                    - generic [ref=e869]: Spicy
+                - button "Half Roast Duck Half Roast Duck €19.95 Roast duck with orange and star anise sauce, mashed potatoes and mixed vegetables." [ref=e871] [cursor=pointer]:
+                  - img "Half Roast Duck" [ref=e873]
+                  - generic [ref=e874]:
+                    - generic [ref=e875]:
+                      - heading "Half Roast Duck" [level=3] [ref=e876]
+                      - generic [ref=e877]: €19.95
+                    - paragraph [ref=e878]: Roast duck with orange and star anise sauce, mashed potatoes and mixed vegetables.
+          - region "Fish" [ref=e879]:
+            - generic [ref=e880]:
+              - heading "Fish" [level=2] [ref=e881]
+              - generic [ref=e882]:
+                - button "Traditional Fish & Chips Traditional Fish & Chips €18.95 Fresh white fish in a homemade batter served with chips and peas. Gluten-free option available." [ref=e884] [cursor=pointer]:
+                  - img "Traditional Fish & Chips" [ref=e886]
+                  - generic [ref=e887]:
+                    - generic [ref=e888]:
+                      - heading "Traditional Fish & Chips" [level=3] [ref=e889]
+                      - generic [ref=e890]: €18.95
+                    - paragraph [ref=e891]: Fresh white fish in a homemade batter served with chips and peas. Gluten-free option available.
+                - button "Grilled Salmon Fillet Grilled Salmon Fillet €19.95 Lightly grilled salmon fillet with lemon butter, seasonal vegetables and potatoes." [ref=e893] [cursor=pointer]:
+                  - img "Grilled Salmon Fillet" [ref=e895]
+                  - generic [ref=e896]:
+                    - generic [ref=e897]:
+                      - heading "Grilled Salmon Fillet" [level=3] [ref=e898]
+                      - generic [ref=e899]: €19.95
+                    - paragraph [ref=e900]: Lightly grilled salmon fillet with lemon butter, seasonal vegetables and potatoes.
+                - button "Seafood Linguine Seafood Linguine €18.50 Linguine pasta tossed with mixed seafood in a white wine, garlic and tomato sauce." [ref=e902] [cursor=pointer]:
+                  - img "Seafood Linguine" [ref=e904]
+                  - generic [ref=e905]:
+                    - generic [ref=e906]:
+                      - heading "Seafood Linguine" [level=3] [ref=e907]
+                      - generic [ref=e908]: €18.50
+                    - paragraph [ref=e909]: Linguine pasta tossed with mixed seafood in a white wine, garlic and tomato sauce.
+                - button "Garlic King Prawns Garlic King Prawns €16.95 Sizzling king prawns in garlic butter, served with crusty bread and a fresh salad." [ref=e911] [cursor=pointer]:
+                  - img "Garlic King Prawns" [ref=e913]
+                  - generic [ref=e914]:
+                    - generic [ref=e915]:
+                      - heading "Garlic King Prawns" [level=3] [ref=e916]
+                      - generic [ref=e917]: €16.95
+                    - paragraph [ref=e918]: Sizzling king prawns in garlic butter, served with crusty bread and a fresh salad.
+          - region "Pasta" [ref=e919]:
+            - generic [ref=e920]:
+              - heading "Pasta" [level=2] [ref=e921]
+              - generic [ref=e922]:
+                - button "Penne Carbonara Penne Carbonara €16.95 Sautéed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread." [ref=e924] [cursor=pointer]:
+                  - img "Penne Carbonara" [ref=e926]
+                  - generic [ref=e927]:
+                    - generic [ref=e928]:
+                      - heading "Penne Carbonara" [level=3] [ref=e929]
+                      - generic [ref=e930]: €16.95
+                    - paragraph [ref=e931]: Sautéed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread.
+                - button "Spaghetti Bolognese Spaghetti Bolognese €15.95 Slow-cooked beef ragu with tomatoes and herbs tossed through spaghetti." [ref=e933] [cursor=pointer]:
+                  - img "Spaghetti Bolognese" [ref=e935]
+                  - generic [ref=e936]:
+                    - generic [ref=e937]:
+                      - heading "Spaghetti Bolognese" [level=3] [ref=e938]
+                      - generic [ref=e939]: €15.95
+                    - paragraph [ref=e940]: Slow-cooked beef ragu with tomatoes and herbs tossed through spaghetti.
+                - button "Penne Arrabbiata Penne Arrabbiata €14.95 Penne in a spicy tomato sauce with garlic, chilli and fresh basil. Spicy Vegan" [ref=e942] [cursor=pointer]:
+                  - img "Penne Arrabbiata" [ref=e944]
+                  - generic [ref=e945]:
+                    - generic [ref=e946]:
+                      - heading "Penne Arrabbiata" [level=3] [ref=e947]
+                      - generic [ref=e948]: €14.95
+                    - paragraph [ref=e949]: Penne in a spicy tomato sauce with garlic, chilli and fresh basil.
+                    - generic [ref=e950]:
+                      - generic [ref=e951]: Spicy
+                      - generic [ref=e952]: Vegan
+                - button "Lasagne al Forno Lasagne al Forno €16.50 Layers of pasta with slow-cooked beef ragu, béchamel sauce and melted cheese." [ref=e954] [cursor=pointer]:
+                  - img "Lasagne al Forno" [ref=e956]
+                  - generic [ref=e957]:
+                    - generic [ref=e958]:
+                      - heading "Lasagne al Forno" [level=3] [ref=e959]
+                      - generic [ref=e960]: €16.50
+                    - paragraph [ref=e961]: Layers of pasta with slow-cooked beef ragu, béchamel sauce and melted cheese.
+                - button "Creamy Chicken & Mushroom Pasta Creamy Chicken & Mushroom Pasta €16.95 Tender chicken and mushrooms in a creamy parmesan sauce with tagliatelle." [ref=e963] [cursor=pointer]:
+                  - img "Creamy Chicken & Mushroom Pasta" [ref=e965]
+                  - generic [ref=e966]:
+                    - generic [ref=e967]:
+                      - heading "Creamy Chicken & Mushroom Pasta" [level=3] [ref=e968]
+                      - generic [ref=e969]: €16.95
+                    - paragraph [ref=e970]: Tender chicken and mushrooms in a creamy parmesan sauce with tagliatelle.
+          - region "Pizza" [ref=e971]:
+            - generic [ref=e972]:
+              - heading "Pizza" [level=2] [ref=e973]
+              - generic [ref=e974]:
+                - button "Margherita Margherita €15.00 Neapolitan tomato sauce and melted mozzarella on a stone-baked base. Vegetarian" [ref=e976] [cursor=pointer]:
+                  - img "Margherita" [ref=e978]
+                  - generic [ref=e979]:
+                    - generic [ref=e980]:
+                      - heading "Margherita" [level=3] [ref=e981]
+                      - generic [ref=e982]: €15.00
+                    - paragraph [ref=e983]: Neapolitan tomato sauce and melted mozzarella on a stone-baked base.
+                    - generic [ref=e985]: Vegetarian
+                - button "Triple Cheese Triple Cheese €16.00 Red cheddar, mozzarella and goat's cheese on a rich tomato base. Vegetarian" [ref=e987] [cursor=pointer]:
+                  - img "Triple Cheese" [ref=e989]
+                  - generic [ref=e990]:
+                    - generic [ref=e991]:
+                      - heading "Triple Cheese" [level=3] [ref=e992]
+                      - generic [ref=e993]: €16.00
+                    - paragraph [ref=e994]: Red cheddar, mozzarella and goat's cheese on a rich tomato base.
+                    - generic [ref=e996]: Vegetarian
+                - button "The BMC The BMC €16.00 Bacon, mushroom and cheese on our house tomato base." [ref=e998] [cursor=pointer]:
+                  - img "The BMC" [ref=e1000]
+                  - generic [ref=e1001]:
+                    - generic [ref=e1002]:
+                      - heading "The BMC" [level=3] [ref=e1003]
+                      - generic [ref=e1004]: €16.00
+                    - paragraph [ref=e1005]: Bacon, mushroom and cheese on our house tomato base.
+                - button "Nduja Nduja €16.00 Spicy Italian sausage, tomato, peppers and mozzarella. Spicy" [ref=e1007] [cursor=pointer]:
+                  - img "Nduja" [ref=e1009]
+                  - generic [ref=e1010]:
+                    - generic [ref=e1011]:
+                      - heading "Nduja" [level=3] [ref=e1012]
+                      - generic [ref=e1013]: €16.00
+                    - paragraph [ref=e1014]: Spicy Italian sausage, tomato, peppers and mozzarella.
+                    - generic [ref=e1016]: Spicy
+                - button "Classic Pepperoni Classic Pepperoni €16.00 Pepperoni and mozzarella on a classic tomato base." [ref=e1018] [cursor=pointer]:
+                  - img "Classic Pepperoni" [ref=e1020]
+                  - generic [ref=e1021]:
+                    - generic [ref=e1022]:
+                      - heading "Classic Pepperoni" [level=3] [ref=e1023]
+                      - generic [ref=e1024]: €16.00
+                    - paragraph [ref=e1025]: Pepperoni and mozzarella on a classic tomato base.
+                - button "Veggie Delight Veggie Delight €15.50 Mushrooms, peppers, red onion, sweetcorn and mozzarella. Vegetarian" [ref=e1027] [cursor=pointer]:
+                  - img "Veggie Delight" [ref=e1029]
+                  - generic [ref=e1030]:
+                    - generic [ref=e1031]:
+                      - heading "Veggie Delight" [level=3] [ref=e1032]
+                      - generic [ref=e1033]: €15.50
+                    - paragraph [ref=e1034]: Mushrooms, peppers, red onion, sweetcorn and mozzarella.
+                    - generic [ref=e1036]: Vegetarian
+          - region "Vegetarian" [ref=e1037]:
+            - generic [ref=e1038]:
+              - heading "Vegetarian" [level=2] [ref=e1039]
+              - generic [ref=e1040]:
+                - button "Chickpea & Butterbean Curry Chickpea & Butterbean Curry €15.95 Chickpea and butterbean curry served with rice and poppadom. Vegan" [ref=e1042] [cursor=pointer]:
+                  - img "Chickpea & Butterbean Curry" [ref=e1044]
+                  - generic [ref=e1045]:
+                    - generic [ref=e1046]:
+                      - heading "Chickpea & Butterbean Curry" [level=3] [ref=e1047]
+                      - generic [ref=e1048]: €15.95
+                    - paragraph [ref=e1049]: Chickpea and butterbean curry served with rice and poppadom.
+                    - generic [ref=e1051]: Vegan
+                - button "Mixed Vegetable Stir Fry Mixed Vegetable Stir Fry €15.95 Fresh mixed vegetable stir fry served with rice. Gluten-free. Vegan Gluten-free" [ref=e1053] [cursor=pointer]:
+                  - img "Mixed Vegetable Stir Fry" [ref=e1055]
+                  - generic [ref=e1056]:
+                    - generic [ref=e1057]:
+                      - heading "Mixed Vegetable Stir Fry" [level=3] [ref=e1058]
+                      - generic [ref=e1059]: €15.95
+                    - paragraph [ref=e1060]: Fresh mixed vegetable stir fry served with rice. Gluten-free.
+                    - generic [ref=e1061]:
+                      - generic [ref=e1062]: Vegan
+                      - generic [ref=e1063]: Gluten-free
+                - button "Mixed Vegetable Curry Mixed Vegetable Curry €15.95 Mixed vegetable curry served with rice and poppadom. Gluten-free. Vegan Gluten-free" [ref=e1065] [cursor=pointer]:
+                  - img "Mixed Vegetable Curry" [ref=e1067]
+                  - generic [ref=e1068]:
+                    - generic [ref=e1069]:
+                      - heading "Mixed Vegetable Curry" [level=3] [ref=e1070]
+                      - generic [ref=e1071]: €15.95
+                    - paragraph [ref=e1072]: Mixed vegetable curry served with rice and poppadom. Gluten-free.
+                    - generic [ref=e1073]:
+                      - generic [ref=e1074]: Vegan
+                      - generic [ref=e1075]: Gluten-free
+                - button "Roasted Vegetable Lasagne Roasted Vegetable Lasagne €15.95 Layers of roasted vegetables, tomato sauce, béchamel and cheese baked until golden. Vegetarian" [ref=e1077] [cursor=pointer]:
+                  - img "Roasted Vegetable Lasagne" [ref=e1079]
+                  - generic [ref=e1080]:
+                    - generic [ref=e1081]:
+                      - heading "Roasted Vegetable Lasagne" [level=3] [ref=e1082]
+                      - generic [ref=e1083]: €15.95
+                    - paragraph [ref=e1084]: Layers of roasted vegetables, tomato sauce, béchamel and cheese baked until golden.
+                    - generic [ref=e1086]: Vegetarian
+                - button "Grilled Halloumi & Avocado Wrap Grilled Halloumi & Avocado Wrap €14.95 Grilled halloumi, avocado, roasted peppers and hummus in a warm tortilla. Vegetarian" [ref=e1088] [cursor=pointer]:
+                  - img "Grilled Halloumi & Avocado Wrap" [ref=e1090]
+                  - generic [ref=e1091]:
+                    - generic [ref=e1092]:
+                      - heading "Grilled Halloumi & Avocado Wrap" [level=3] [ref=e1093]
+                      - generic [ref=e1094]: €14.95
+                    - paragraph [ref=e1095]: Grilled halloumi, avocado, roasted peppers and hummus in a warm tortilla.
+                    - generic [ref=e1097]: Vegetarian
+          - region "Drinks" [ref=e1098]:
+            - generic [ref=e1099]:
+              - heading "Drinks" [level=2] [ref=e1100]
+              - generic [ref=e1101]:
+                - button "Guinness Draught Guinness Draught €5.50 A creamy pint of the black stuff." [ref=e1103] [cursor=pointer]:
+                  - img "Guinness Draught" [ref=e1105]
+                  - generic [ref=e1106]:
+                    - generic [ref=e1107]:
+                      - heading "Guinness Draught" [level=3] [ref=e1108]
+                      - generic [ref=e1109]: €5.50
+                    - paragraph [ref=e1110]: A creamy pint of the black stuff.
+                - button "Heineken Heineken €6.00 Crisp, refreshing draught lager." [ref=e1112] [cursor=pointer]:
+                  - img "Heineken" [ref=e1114]
+                  - generic [ref=e1115]:
+                    - generic [ref=e1116]:
+                      - heading "Heineken" [level=3] [ref=e1117]
+                      - generic [ref=e1118]: €6.00
+                    - paragraph [ref=e1119]: Crisp, refreshing draught lager.
+                - button "Orchard Thieves Cider Orchard Thieves Cider €6.50 Refreshing Irish cider served ice-cold." [ref=e1121] [cursor=pointer]:
+                  - img "Orchard Thieves Cider" [ref=e1123]
+                  - generic [ref=e1124]:
+                    - generic [ref=e1125]:
+                      - heading "Orchard Thieves Cider" [level=3] [ref=e1126]
+                      - generic [ref=e1127]: €6.50
+                    - paragraph [ref=e1128]: Refreshing Irish cider served ice-cold.
+                - button "Coca-Cola Coca-Cola €2.80 Classic Coca-Cola served over ice." [ref=e1130] [cursor=pointer]:
+                  - img "Coca-Cola" [ref=e1132]
+                  - generic [ref=e1133]:
+                    - generic [ref=e1134]:
+                      - heading "Coca-Cola" [level=3] [ref=e1135]
+                      - generic [ref=e1136]: €2.80
+                    - paragraph [ref=e1137]: Classic Coca-Cola served over ice.
+                - button "Fresh Orange Juice Fresh Orange Juice €2.80 Chilled freshly squeezed orange juice." [ref=e1139] [cursor=pointer]:
+                  - img "Fresh Orange Juice" [ref=e1141]
+                  - generic [ref=e1142]:
+                    - generic [ref=e1143]:
+                      - heading "Fresh Orange Juice" [level=3] [ref=e1144]
+                      - generic [ref=e1145]: €2.80
+                    - paragraph [ref=e1146]: Chilled freshly squeezed orange juice.
+                - button "Sparkling Water Sparkling Water €2.00 Chilled sparkling water with a slice of lemon." [ref=e1148] [cursor=pointer]:
+                  - img "Sparkling Water" [ref=e1150]
+                  - generic [ref=e1151]:
+                    - generic [ref=e1152]:
+                      - heading "Sparkling Water" [level=3] [ref=e1153]
+                      - generic [ref=e1154]: €2.00
+                    - paragraph [ref=e1155]: Chilled sparkling water with a slice of lemon.
+          - region "Desserts" [ref=e1156]:
+            - generic [ref=e1157]:
+              - heading "Desserts" [level=2] [ref=e1158]
+              - generic [ref=e1159]:
+                - button "Warm Chocolate Fudge Cake Warm Chocolate Fudge Cake €7.50 Rich chocolate fudge cake served warm with vanilla ice cream." [ref=e1161] [cursor=pointer]:
+                  - img "Warm Chocolate Fudge Cake" [ref=e1163]
+                  - generic [ref=e1164]:
+                    - generic [ref=e1165]:
+                      - heading "Warm Chocolate Fudge Cake" [level=3] [ref=e1166]
+                      - generic [ref=e1167]: €7.50
+                    - paragraph [ref=e1168]: Rich chocolate fudge cake served warm with vanilla ice cream.
+                - button "Apple Crumble Apple Crumble €6.95 Bramley apple crumble served with custard." [ref=e1170] [cursor=pointer]:
+                  - img "Apple Crumble" [ref=e1172]
+                  - generic [ref=e1173]:
+                    - generic [ref=e1174]:
+                      - heading "Apple Crumble" [level=3] [ref=e1175]
+                      - generic [ref=e1176]: €6.95
+                    - paragraph [ref=e1177]: Bramley apple crumble served with custard.
+                - button "New York Cheesecake New York Cheesecake €7.50 Creamy vanilla cheesecake with a berry compote." [ref=e1179] [cursor=pointer]:
+                  - img "New York Cheesecake" [ref=e1181]
+                  - generic [ref=e1182]:
+                    - generic [ref=e1183]:
+                      - heading "New York Cheesecake" [level=3] [ref=e1184]
+                      - generic [ref=e1185]: €7.50
+                    - paragraph [ref=e1186]: Creamy vanilla cheesecake with a berry compote.
+                - button "Sticky Toffee Pudding Sticky Toffee Pudding €7.50 Sticky date sponge with butterscotch sauce and vanilla ice cream." [ref=e1188] [cursor=pointer]:
+                  - img "Sticky Toffee Pudding" [ref=e1190]
+                  - generic [ref=e1191]:
+                    - generic [ref=e1192]:
+                      - heading "Sticky Toffee Pudding" [level=3] [ref=e1193]
+                      - generic [ref=e1194]: €7.50
+                    - paragraph [ref=e1195]: Sticky date sponge with butterscotch sauce and vanilla ice cream.
+                - button "Ice Cream Selection Ice Cream Selection €5.95 Three scoops of vanilla, chocolate and strawberry ice cream." [ref=e1197] [cursor=pointer]:
+                  - img "Ice Cream Selection" [ref=e1199]
+                  - generic [ref=e1200]:
+                    - generic [ref=e1201]:
+                      - heading "Ice Cream Selection" [level=3] [ref=e1202]
+                      - generic [ref=e1203]: €5.95
+                    - paragraph [ref=e1204]: Three scoops of vanilla, chocolate and strawberry ice cream.
+  - button "1 items €19.95" [ref=e1205]:
+    - generic [ref=e1206]: 1 items
+    - generic [ref=e1208]: €19.95

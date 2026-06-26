@@ -1,0 +1,71 @@
+- generic [ref=e2044]:
+  - banner [ref=e2045]:
+    - link "Skip to content" [ref=e2046] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e2047]: Skip to content
+      - text: Skip to content
+    - generic [ref=e2048]:
+      - button "Back to menu" [ref=e2050]:
+        - img [ref=e2051]
+      - heading "Order confirmed" [level=5] [ref=e2054]
+  - main [ref=e2055]:
+    - generic [ref=e2057]:
+      - generic [ref=e2058]:
+        - generic [ref=e2059]:
+          - img [ref=e2061]
+          - img [ref=e2065]
+        - generic [ref=e2070]:
+          - heading "Order confirmed" [level=1] [ref=e2071]
+          - generic [ref=e2072]:
+            - generic [ref=e2073]:
+              - img [ref=e2074]
+              - text: Confirmed
+            - generic [ref=e2077]:
+              - img [ref=e2078]
+              - text: "Order #HDJ1CS"
+      - generic [ref=e2081]:
+        - paragraph [ref=e2082]: Estimated waiting time
+        - generic [ref=e2084]:
+          - img [ref=e2085]
+          - generic [ref=e2089]:
+            - img [ref=e2091]
+            - generic [ref=e2094]: 09:51
+        - paragraph [ref=e2095]: Preparing your order
+      - generic [ref=e2098]:
+        - paragraph [ref=e2102]: Order received
+        - paragraph [ref=e2105]: Being prepared
+        - paragraph [ref=e2108]: Almost ready
+      - generic [ref=e2110]:
+        - generic [ref=e2112]:
+          - generic [ref=e2113]:
+            - img [ref=e2115]
+            - generic [ref=e2118]:
+              - heading "Your order" [level=2] [ref=e2119]
+              - paragraph [ref=e2120]: 1 item
+          - generic [ref=e2121]: Table 07
+        - generic [ref=e2126]:
+          - generic [ref=e2127]:
+            - generic [ref=e2128]: "1"
+            - paragraph [ref=e2130]: Soup of the Day
+          - paragraph [ref=e2131]: €5.95
+        - generic [ref=e2133]:
+          - paragraph [ref=e2134]: Total
+          - generic [ref=e2135]: €5.95
+      - generic [ref=e2138]:
+        - img [ref=e2140]
+        - generic [ref=e2143]:
+          - paragraph [ref=e2144]: Need anything else?
+          - paragraph [ref=e2145]: Call your waiter, ask for water, napkins, cutlery or the bill using the Service button.
+      - button "Start new order" [ref=e2148]:
+        - img [ref=e2149]
+        - text: Start new order
+  - contentinfo [ref=e2154]:
+    - generic [ref=e2156]:
+      - paragraph [ref=e2158]: The Golden Nugget
+      - generic [ref=e2159]:
+        - button [ref=e2160]:
+          - img [ref=e2161]
+        - button "Admin unlock" [ref=e2166]:
+          - img [ref=e2167]
+  - button "Service" [ref=e2171]:
+    - img [ref=e2172]

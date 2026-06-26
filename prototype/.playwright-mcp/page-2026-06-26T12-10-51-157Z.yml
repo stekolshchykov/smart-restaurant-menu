@@ -1,0 +1,52 @@
+- generic [ref=e993]:
+  - banner [ref=e994]:
+    - link "Skip to content" [ref=e995] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e996]: Skip to content
+      - text: Skip to content
+    - button "Go back" [ref=e998]:
+      - img [ref=e999]
+  - main [ref=e1001]:
+    - generic [ref=e1003]:
+      - img "Soup of the Day" [ref=e1007]
+      - generic [ref=e1009]:
+        - generic [ref=e1011]:
+          - heading "Soup of the Day" [level=1] [ref=e1012]
+          - generic [ref=e1013]: €5.95
+          - paragraph [ref=e1014]: Fresh creamy soup of the day served with a crusty white roll.
+        - generic [ref=e1016]:
+          - heading "Ingredients" [level=2] [ref=e1017]
+          - generic [ref=e1018]:
+            - generic [ref=e1019]: seasonal vegetables
+            - generic [ref=e1020]: cream
+            - generic [ref=e1021]: crusty white roll
+        - generic [ref=e1023]:
+          - heading "Allergens" [level=2] [ref=e1024]
+          - generic [ref=e1025]:
+            - generic [ref=e1026]: Celery
+            - generic [ref=e1027]: Dairy
+            - generic [ref=e1028]: Wheat
+        - generic [ref=e1030]:
+          - heading "Extras" [level=2] [ref=e1031]
+          - generic [ref=e1034]:
+            - generic [ref=e1035]:
+              - paragraph [ref=e1036]: Extra bread roll
+              - generic [ref=e1037]: €0.80
+            - generic [ref=e1038]:
+              - button "Decrease" [disabled] [ref=e1039]:
+                - img [ref=e1040]
+              - generic [ref=e1041]: "0"
+              - button "Increase" [ref=e1042]:
+                - img [ref=e1043]
+        - separator [ref=e1045]
+        - generic [ref=e1048]:
+          - paragraph [ref=e1049]: Quantity
+          - generic [ref=e1050]:
+            - button "Decrease" [disabled] [ref=e1051]:
+              - img [ref=e1052]
+            - generic [ref=e1053]: "1"
+            - button "Increase" [ref=e1054]:
+              - img [ref=e1055]
+        - button "Add to order €5.95" [ref=e1057]:
+          - generic [ref=e1058]: Add to order
+          - generic [ref=e1059]: €5.95

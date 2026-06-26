@@ -1,0 +1,151 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - link "Skip to content" [ref=e7] [cursor=pointer]:
+        - /url: "#main-content"
+        - generic [ref=e8]: Skip to content
+        - text: Skip to content
+      - generic [ref=e9]:
+        - button "The Golden Nugget" [ref=e10]:
+          - heading "The Golden Nugget" [level=5] [ref=e13]
+        - button "Shopping cart with 1 items" [ref=e14]:
+          - generic [ref=e15]:
+            - img [ref=e16]
+            - generic [ref=e19]: "1"
+    - main [ref=e20]:
+      - generic [ref=e23]:
+        - paragraph [ref=e25]: Welcome to The Golden Nugget
+        - heading "Bar & Restaurant, Fossa, Killarney" [level=1] [ref=e27]
+        - paragraph [ref=e29]: A cosy bar & restaurant in the heart of Fossa, Killarney, serving hearty Irish classics, fresh seafood, stone-baked pizza and a great pint.
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: Search
+            - generic:
+              - img
+            - searchbox "Search" [active] [ref=e35]: chicken
+            - button "Clear search" [ref=e1012]:
+              - img [ref=e1013]
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - switch "Spicy" [ref=e38]:
+                - img [ref=e40]
+                - generic [ref=e42]: Spicy
+              - switch "Vegetarian" [ref=e43]:
+                - img [ref=e45]
+                - generic [ref=e48]: Vegetarian
+              - switch "Vegan" [ref=e49]:
+                - img [ref=e51]
+                - generic [ref=e55]: Vegan
+              - switch "Gluten-free" [ref=e56]:
+                - img [ref=e58]
+                - generic [ref=e69]: Gluten-free
+            - button "Clear" [ref=e1016]:
+              - text: Clear
+              - img [ref=e1017]
+        - paragraph [ref=e71]: 7 dishes found
+      - navigation "Category navigation" [ref=e72]:
+        - tablist [ref=e75]:
+          - tab "Soups" [disabled] [ref=e76]
+          - tab "Starters" [selected] [ref=e78]: Starters
+          - tab "Salads" [ref=e79]
+          - tab "Meat" [ref=e80]
+          - tab "Fish" [disabled] [ref=e81]
+          - tab "Pasta" [ref=e82]
+          - tab "Pizza" [disabled] [ref=e83]
+          - tab "Vegetarian" [disabled] [ref=e84]
+          - tab "Drinks" [disabled] [ref=e85]
+          - tab "Desserts" [disabled] [ref=e86]
+      - region "Starters" [ref=e156]:
+        - generic [ref=e157]:
+          - heading "Starters" [level=2] [ref=e159]
+          - generic [ref=e160]:
+            - button "The Golden Wings The Golden Wings €8.95 Chicken wings tossed in our own special sauce. Gluten-free option available. View Spicy" [ref=e179] [cursor=pointer]:
+              - img "The Golden Wings" [ref=e182]
+              - generic [ref=e183]:
+                - generic [ref=e184]:
+                  - heading "The Golden Wings" [level=3] [ref=e185]
+                  - generic [ref=e186]: €8.95
+                - paragraph [ref=e187]: Chicken wings tossed in our own special sauce. Gluten-free option available.
+                - generic [ref=e188]:
+                  - paragraph [ref=e189]: View
+                  - img [ref=e191]
+                - generic [ref=e194]: Spicy
+            - button "Vol au Vent Vol au Vent €8.95 Sautéed chicken strips and bacon in a light puff-pastry case with a creamy sauce. View" [ref=e213] [cursor=pointer]:
+              - img "Vol au Vent" [ref=e216]
+              - generic [ref=e217]:
+                - generic [ref=e218]:
+                  - heading "Vol au Vent" [level=3] [ref=e219]
+                  - generic [ref=e220]: €8.95
+                - paragraph [ref=e221]: Sautéed chicken strips and bacon in a light puff-pastry case with a creamy sauce.
+                - generic [ref=e222]:
+                  - paragraph [ref=e223]: View
+                  - img [ref=e225]
+      - region "Salads" [ref=e259]:
+        - generic [ref=e260]:
+          - heading "Salads" [level=2] [ref=e262]
+          - button "Classic Caesar Salad Classic Caesar Salad €15.95 Grilled chicken, strips of bacon, parmesan shavings and croutons on crisp romaine. View" [ref=e282] [cursor=pointer]:
+            - img "Classic Caesar Salad" [ref=e285]
+            - generic [ref=e286]:
+              - generic [ref=e287]:
+                - heading "Classic Caesar Salad" [level=3] [ref=e288]
+                - generic [ref=e289]: €15.95
+              - paragraph [ref=e290]: Grilled chicken, strips of bacon, parmesan shavings and croutons on crisp romaine.
+              - generic [ref=e291]:
+                - paragraph [ref=e292]: View
+                - img [ref=e294]
+      - region "Meat" [ref=e348]:
+        - generic [ref=e349]:
+          - heading "Meat" [level=2] [ref=e351]
+          - generic [ref=e352]:
+            - button "Southern Fried Chicken Burger Southern Fried Chicken Burger €16.95 Crispy chicken fillet with lettuce, tomato, cheese, red onion and relish. View" [ref=e403] [cursor=pointer]:
+              - img "Southern Fried Chicken Burger" [ref=e406]
+              - generic [ref=e407]:
+                - generic [ref=e408]:
+                  - heading "Southern Fried Chicken Burger" [level=3] [ref=e409]
+                  - generic [ref=e410]: €16.95
+                - paragraph [ref=e411]: Crispy chicken fillet with lettuce, tomato, cheese, red onion and relish.
+                - generic [ref=e412]:
+                  - paragraph [ref=e413]: View
+                  - img [ref=e415]
+            - button "Thai Red Curry Chicken Thai Red Curry Chicken €18.95 Aromatic Thai red curry chicken served with basmati rice and naan bread. View Spicy" [ref=e419] [cursor=pointer]:
+              - img "Thai Red Curry Chicken" [ref=e422]
+              - generic [ref=e423]:
+                - generic [ref=e424]:
+                  - heading "Thai Red Curry Chicken" [level=3] [ref=e425]
+                  - generic [ref=e426]: €18.95
+                - paragraph [ref=e427]: Aromatic Thai red curry chicken served with basmati rice and naan bread.
+                - generic [ref=e428]:
+                  - paragraph [ref=e429]: View
+                  - img [ref=e431]
+                - generic [ref=e434]: Spicy
+      - region "Pasta" [ref=e520]:
+        - generic [ref=e521]:
+          - heading "Pasta" [level=2] [ref=e523]
+          - generic [ref=e524]:
+            - button "Penne Carbonara Penne Carbonara €16.95 Sautéed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread. View" [ref=e527] [cursor=pointer]:
+              - img "Penne Carbonara" [ref=e530]
+              - generic [ref=e531]:
+                - generic [ref=e532]:
+                  - heading "Penne Carbonara" [level=3] [ref=e533]
+                  - generic [ref=e534]: €16.95
+                - paragraph [ref=e535]: Sautéed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread.
+                - generic [ref=e536]:
+                  - paragraph [ref=e537]: View
+                  - img [ref=e539]
+            - button "Creamy Chicken & Mushroom Pasta Creamy Chicken & Mushroom Pasta €16.95 Tender chicken and mushrooms in a creamy parmesan sauce with tagliatelle. View" [ref=e594] [cursor=pointer]:
+              - img "Creamy Chicken & Mushroom Pasta" [ref=e597]
+              - generic [ref=e598]:
+                - generic [ref=e599]:
+                  - heading "Creamy Chicken & Mushroom Pasta" [level=3] [ref=e600]
+                  - generic [ref=e601]: €16.95
+                - paragraph [ref=e602]: Tender chicken and mushrooms in a creamy parmesan sauce with tagliatelle.
+                - generic [ref=e603]:
+                  - paragraph [ref=e604]: View
+                  - img [ref=e606]
+  - button "1 item €5.95" [ref=e1001]:
+    - img [ref=e1002]
+    - generic [ref=e1005]:
+      - paragraph [ref=e1007]: 1 item
+      - generic [ref=e1008]: €5.95
+    - img [ref=e1009]

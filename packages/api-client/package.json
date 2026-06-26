@@ -1,0 +1,20 @@
+{
+  "name": "@digital-menu/api-client",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "dependencies": {
+    "@digital-menu/shared-types": "^0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

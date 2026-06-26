@@ -1,0 +1,56 @@
+- generic [ref=e938]:
+  - banner [ref=e939]:
+    - link "Skip to content" [ref=e940] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e941]: Skip to content
+      - text: Skip to content
+    - generic [ref=e942]:
+      - button "Back to menu" [ref=e944]:
+        - img [ref=e945]
+      - heading "Your order" [level=5] [ref=e948]
+  - main [ref=e949]:
+    - generic [ref=e953]:
+      - generic [ref=e954]:
+        - img [ref=e956]
+        - generic [ref=e959]:
+          - heading "Your Order" [level=2] [ref=e960]
+          - paragraph [ref=e961]: 1 item
+      - generic [ref=e966]:
+        - generic [ref=e967]:
+          - generic [ref=e968]:
+            - heading "The Jobber" [level=3] [ref=e969]
+            - generic [ref=e970]: €17.95
+          - generic [ref=e971]:
+            - generic [ref=e972]:
+              - paragraph [ref=e973]: + Extra cheese
+              - generic [ref=e974]: €1.50
+            - generic [ref=e975]:
+              - paragraph [ref=e976]: + Bacon
+              - generic [ref=e977]: €2.00
+          - separator [ref=e978]
+          - generic [ref=e979]:
+            - paragraph [ref=e980]: Line total
+            - generic [ref=e981]: €21.45
+        - button "Remove The Jobber" [ref=e982]:
+          - img [ref=e983]
+      - generic [ref=e987]:
+        - generic [ref=e988]:
+          - paragraph [ref=e989]: Subtotal
+          - generic [ref=e990]: €21.45
+        - separator [ref=e991]
+        - generic [ref=e992]:
+          - paragraph [ref=e993]: Total
+          - generic [ref=e994]: €21.45
+        - button "Place Order" [ref=e995]
+  - contentinfo [ref=e996]:
+    - generic [ref=e998]:
+      - paragraph [ref=e1000]: The Golden Nugget
+      - generic [ref=e1001]:
+        - button "Open fullscreen" [ref=e1002]:
+          - img [ref=e1003]
+          - text: Open fullscreen
+        - button "Admin unlock" [ref=e1008]:
+          - img [ref=e1009]
+  - button "Service" [ref=e1013]:
+    - img [ref=e1014]
+    - generic [ref=e1017]: Service

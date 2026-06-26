@@ -1,0 +1,43 @@
+- generic [ref=e1969]:
+  - banner [ref=e1970]:
+    - link "Skip to content" [ref=e1971] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e1972]: Skip to content
+      - text: Skip to content
+    - generic [ref=e1973]:
+      - button "Back to menu" [ref=e1975]:
+        - img [ref=e1976]
+      - heading "Your order" [level=2] [ref=e1979]
+  - main [ref=e1980]:
+    - generic [ref=e1983]:
+      - generic [ref=e1984]:
+        - img [ref=e1986]
+        - paragraph [ref=e1990]: 1 item
+      - generic [ref=e1995]:
+        - generic [ref=e1996]:
+          - paragraph [ref=e1998]: Soup of the Day
+          - separator [ref=e1999]
+          - generic [ref=e2000]:
+            - paragraph [ref=e2001]: Line total
+            - generic [ref=e2002]: €5.95
+        - button "Remove Soup of the Day" [ref=e2003]:
+          - img [ref=e2004]
+      - generic [ref=e2008]:
+        - generic [ref=e2009]:
+          - paragraph [ref=e2010]: Subtotal
+          - generic [ref=e2011]: €5.95
+        - separator [ref=e2012]
+        - generic [ref=e2013]:
+          - paragraph [ref=e2014]: Total
+          - generic [ref=e2015]: €5.95
+        - button "Place Order" [ref=e2016]
+  - contentinfo [ref=e2017]:
+    - generic [ref=e2019]:
+      - paragraph [ref=e2021]: The Golden Nugget
+      - generic [ref=e2022]:
+        - button [ref=e2023]:
+          - img [ref=e2024]
+        - button "Admin unlock" [ref=e2029]:
+          - img [ref=e2030]
+  - button "Service" [ref=e2034]:
+    - img [ref=e2035]

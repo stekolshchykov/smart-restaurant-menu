@@ -1,0 +1,73 @@
+- generic [ref=e3]:
+  - generic [ref=e1212]:
+    - banner [ref=e1213]:
+      - generic:
+        - button
+    - main [ref=e1214]:
+      - generic [ref=e1215]:
+        - button "Back to menu" [ref=e1216]:
+          - img [ref=e1217]
+          - text: Back to menu
+        - generic [ref=e1219]:
+          - generic [ref=e1220]:
+            - img [ref=e1222]
+            - generic [ref=e1225]:
+              - heading "Your Order" [level=2] [ref=e1226]
+              - paragraph [ref=e1227]: 3 items
+          - list "Order items" [ref=e1229]:
+            - listitem [ref=e1230]:
+              - article [ref=e1231]:
+                - generic [ref=e1232]:
+                  - generic [ref=e1233]:
+                    - heading "2×The Jobber" [level=3] [ref=e1234]:
+                      - generic [ref=e1235]: 2×
+                      - text: The Jobber
+                    - generic [ref=e1236]: €35.90
+                  - list [ref=e1237]:
+                    - listitem [ref=e1238]:
+                      - generic [ref=e1239]: +Extra cheese
+                      - generic [ref=e1240]: €1.50
+                    - listitem [ref=e1241]:
+                      - generic [ref=e1242]: +Bacon
+                      - generic [ref=e1243]: €2.00
+                  - paragraph [ref=e1244]: €42.90
+                - button "Remove The Jobber" [ref=e1245]:
+                  - img [ref=e1246]
+            - listitem [ref=e1249]:
+              - article [ref=e1250]:
+                - generic [ref=e1251]:
+                  - generic [ref=e1252]:
+                    - heading "The Jobber" [level=3] [ref=e1253]
+                    - generic [ref=e1254]: €17.95
+                  - list [ref=e1255]:
+                    - listitem [ref=e1256]:
+                      - generic [ref=e1257]: +Extra cheese
+                      - generic [ref=e1258]: €1.50
+                  - paragraph [ref=e1259]: €19.45
+                - button "Remove The Jobber" [ref=e1260]:
+                  - img [ref=e1261]
+            - listitem [ref=e1264]:
+              - article [ref=e1265]:
+                - generic [ref=e1266]:
+                  - generic [ref=e1267]:
+                    - heading "The Jobber" [level=3] [ref=e1268]
+                    - generic [ref=e1269]: €17.95
+                  - list [ref=e1270]:
+                    - listitem [ref=e1271]:
+                      - generic [ref=e1272]: +Bacon
+                      - generic [ref=e1273]: €2.00
+                  - paragraph [ref=e1274]: €19.95
+                - button "Remove The Jobber" [ref=e1275]:
+                  - img [ref=e1276]
+          - generic [ref=e1279]:
+            - generic [ref=e1280]:
+              - generic [ref=e1281]: Total
+              - generic [ref=e1282]: €82.30
+            - generic [ref=e1283]:
+              - button "Place Order" [ref=e1284]
+              - button "Back to Menu" [ref=e1285]:
+                - img [ref=e1286]
+                - text: Back to Menu
+  - button "4 items €82.30" [ref=e1210]:
+    - generic [ref=e575]: 4 items
+    - generic [ref=e577]: €82.30

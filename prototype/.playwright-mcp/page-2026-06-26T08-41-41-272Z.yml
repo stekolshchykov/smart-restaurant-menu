@@ -1,0 +1,34 @@
+- generic [ref=e1253]:
+  - banner [ref=e1254]:
+    - generic:
+      - button
+  - main [ref=e1255]:
+    - generic [ref=e1256]:
+      - img [ref=e1258]
+      - generic [ref=e1261]:
+        - heading "Your order is being prepared" [level=1] [ref=e1262]
+        - paragraph [ref=e1263]: Order VWA6WQ
+      - generic [ref=e1264]:
+        - generic [ref=e1265]:
+          - img [ref=e1266]
+          - generic [ref=e1269]:
+            - img [ref=e1270]
+            - generic [ref=e1273]: 09:51
+        - paragraph [ref=e1274]: Time remaining to place your order
+      - generic [ref=e1275]:
+        - heading "Ordered items" [level=2] [ref=e1276]:
+          - img [ref=e1277]
+          - text: Ordered items
+        - list [ref=e1282]:
+          - listitem [ref=e1283]:
+            - generic [ref=e1284]: 1× The Jobber
+            - generic [ref=e1285]: €19.95
+        - generic [ref=e1286]:
+          - generic [ref=e1287]: Total
+          - generic [ref=e1288]: €19.95
+      - generic [ref=e1289]:
+        - button "Back to menu" [ref=e1290]:
+          - generic [ref=e1291]:
+            - img [ref=e1292]
+            - text: Back to menu
+        - button "Start new order" [ref=e1294]

@@ -1,0 +1,58 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - link "Skip to content" [ref=e7] [cursor=pointer]:
+        - /url: "#main-content"
+        - generic [ref=e8]: Skip to content
+        - text: Skip to content
+      - generic [ref=e9]:
+        - button "The Golden Nugget" [ref=e10]:
+          - heading "The Golden Nugget" [level=5] [ref=e13]
+        - button "Shopping cart with 1 items" [ref=e14]:
+          - generic [ref=e15]:
+            - img [ref=e16]
+            - generic [ref=e19]: "1"
+    - main [ref=e20]:
+      - generic [ref=e23]:
+        - paragraph [ref=e25]: Welcome to The Golden Nugget
+        - heading "Bar & Restaurant, Fossa, Killarney" [level=1] [ref=e27]
+        - paragraph [ref=e29]: A cosy bar & restaurant in the heart of Fossa, Killarney, serving hearty Irish classics, fresh seafood, stone-baked pizza and a great pint.
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: Search
+            - generic:
+              - img
+            - searchbox "Search" [ref=e35]: chicken
+            - button "Clear search" [ref=e1012]:
+              - img [ref=e1013]
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - switch "Spicy" [ref=e38]:
+                - img [ref=e40]
+                - generic [ref=e42]: Spicy
+              - switch "Vegetarian" [ref=e43]:
+                - img [ref=e45]
+                - generic [ref=e48]: Vegetarian
+              - switch "Vegan" [checked] [active] [ref=e49]:
+                - img [ref=e51]
+                - generic [ref=e55]: Vegan
+              - switch "Gluten-free" [ref=e56]:
+                - img [ref=e58]
+                - generic [ref=e69]: Gluten-free
+            - button "Clear" [ref=e1016]:
+              - text: Clear
+              - img [ref=e1017]
+        - paragraph [ref=e71]: 0 dishes found
+      - generic [ref=e1024]:
+        - img [ref=e1026]
+        - generic [ref=e1031]:
+          - heading "No dishes found" [level=3] [ref=e1032]
+          - paragraph [ref=e1033]: Try a different search term or adjust your dietary filters.
+        - button "Clear filters" [ref=e1034]
+  - button "1 item €5.95" [ref=e1001]:
+    - img [ref=e1002]
+    - generic [ref=e1005]:
+      - paragraph [ref=e1007]: 1 item
+      - generic [ref=e1008]: €5.95
+    - img [ref=e1009]

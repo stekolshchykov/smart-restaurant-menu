@@ -1,0 +1,60 @@
+- generic [ref=e1838]:
+  - banner [ref=e1839]:
+    - generic:
+      - button
+  - main [ref=e1840]:
+    - generic [ref=e1841]:
+      - button "Back to menu" [ref=e1842]:
+        - img [ref=e1843]
+        - text: Back to menu
+      - generic [ref=e1845]:
+        - img "The Jobber" [ref=e1847]
+        - generic [ref=e1848]:
+          - heading "The Jobber" [level=1] [ref=e1849]
+          - paragraph [ref=e1850]: 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce.
+        - generic [ref=e1851]: "Allergens: Dairy, Eggs, Mustard, Sulphites, Wheat"
+        - generic [ref=e1852]:
+          - heading "Extras" [level=2] [ref=e1853]
+          - generic [ref=e1854]:
+            - generic [ref=e1855]:
+              - paragraph [ref=e1856]: Extra cheese
+              - paragraph [ref=e1857]: €1.50 each
+            - generic [ref=e1858]:
+              - button "Decrease Extra cheese" [ref=e1859]:
+                - img [ref=e1860]
+              - generic [ref=e1861]: "1"
+              - button "Increase Extra cheese" [active] [ref=e1862]:
+                - img [ref=e1863]
+          - generic [ref=e1864]:
+            - generic [ref=e1865]:
+              - paragraph [ref=e1866]: Bacon
+              - paragraph [ref=e1867]: €2.00 each
+            - generic [ref=e1868]:
+              - button "Decrease Bacon" [ref=e1869]:
+                - img [ref=e1870]
+              - generic [ref=e1871]: "0"
+              - button "Increase Bacon" [ref=e1872]:
+                - img [ref=e1873]
+          - generic [ref=e1874]:
+            - generic [ref=e1875]:
+              - paragraph [ref=e1876]: Garlic sauce
+              - paragraph [ref=e1877]: €0.80 each
+            - generic [ref=e1878]:
+              - button "Decrease Garlic sauce" [ref=e1879]:
+                - img [ref=e1880]
+              - generic [ref=e1881]: "0"
+              - button "Increase Garlic sauce" [ref=e1882]:
+                - img [ref=e1883]
+        - generic [ref=e1884]:
+          - generic [ref=e1885]: Quantity
+          - generic [ref=e1886]:
+            - button "Decrease quantity" [disabled] [ref=e1887]:
+              - img [ref=e1888]
+            - generic [ref=e1889]: "1"
+            - button "Increase quantity" [ref=e1890]:
+              - img [ref=e1891]
+        - generic [ref=e1892]:
+          - generic [ref=e1897]: 1× Extra cheese
+          - button "Add to order €19.45" [ref=e1898]:
+            - generic [ref=e1894]: Add to order
+            - generic [ref=e1895]: €19.45

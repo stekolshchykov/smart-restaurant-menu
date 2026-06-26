@@ -1,101 +1,114 @@
-# Agent Instructions — Digital Menu
+# Agent Instructions — Digital Menu SaaS
 
 ## Project
 
-A premium, themeable digital restaurant menu prototype for The Golden Nugget (Killarney, Ireland). Built as a static React app for phone/tablet/desktop, deployed to GitHub Pages.
+A premium digital restaurant menu SaaS. Three surfaces:
+
+- **Marketing site** — sells the service to venue owners.
+- **Admin panel** — SaaS workspace to create projects, menus, tables, QR codes and publish.
+- **Customer-facing venue site** — branded public menu/order interface for guests.
+
+Stack: SvelteKit 2 + Svelte 5 Runes + TypeScript + Tailwind CSS v4 (frontend), Rust axum + tokio + sqlx + PostgreSQL (backend).
 
 ## Tech stack
 
-- React 19 + TypeScript
-- Vite 8
-- Tailwind CSS v4
-- Framer Motion
-- Lucide React
-- Oxlint
+- **Frontend**: SvelteKit 2, Svelte 5 Runes, TypeScript, Tailwind CSS v4, Vite 6, `@lucide/svelte`.
+- **Backend**: Rust axum, tokio, sqlx (PostgreSQL), serde, config, tracing, argon2, jsonwebtoken, tower-http.
+- **Shared packages**: `@digital-menu/shared-types`, `@digital-menu/api-client`.
+- **Database**: PostgreSQL 16.
+- **Local infrastructure**: Docker Compose.
+
+## Monorepo layout
+
+```
+digital-menu/
+├── apps/
+│   ├── web/              # SvelteKit: marketing + admin + public venue
+│   └── api/              # Rust axum backend
+├── packages/
+│   ├── shared-types/     # TypeScript DTOs
+│   └── api-client/       # Typed fetch client
+├── prototype/            # legacy React/Vite prototype (reference only)
+├── docker-compose.yml
+└── AGENTS.md
+```
 
 ## Commands
 
 ```bash
-npm install        # install dependencies
-npm run dev        # local dev server
-npm run build      # type-check + production build (base /)
-npm run lint       # oxlint
-npm run preview    # preview the production build
-GITHUB_PAGES=true npm run build   # build with GitHub Pages base path
+# Install all workspace dependencies
+npm install
+
+# Start local database
+npm run db:up
+
+# Run backend (needs DATABASE_URL and JWT_SECRET in apps/api/.env)
+cd apps/api && cp .env.example .env
+# Default ports: API 3001, PostgreSQL 5433 (5432 may be used by other projects)
+cargo run
+
+# Run frontend dev server
+npm run web:dev
+
+# Type-check / lint / build
+npm run check     # svelte-check + cargo check via workspaces (add scripts as needed)
+npm run lint      # oxlint for web, clippy for api
+npm run build     # build all workspaces
+
+# Full local stack
+npm run db:up
+cargo run --manifest-path apps/api/Cargo.toml
+npm run web:dev
 ```
 
-## Architecture
+## Backend architecture
 
-Strict three-layer architecture:
+Routes → Services → Repositories → sqlx.
 
-1. **`src/screens/`** — top-level pages. They wire components and hold no layout styling or business logic beyond screen switching.
-2. **`src/components/`** — feature components grouped by domain:
-   - `ui/` — UI Kit primitives (`Button`, `Card`, `Image`, `Badge`, `Price`, `Stepper`, `IconButton`, `SearchInput`, `FilterChip`, `Toast`, etc.)
-   - `menu/` — menu-specific components (`MenuItemCard`, `CategorySection`, `MenuItemDetails`, `MenuFilterBar`, `AddonSelector`, etc.)
-   - `order/` — cart/order components (`OrderSummary`, `OrderItem`, `OrderTimer`, etc.)
-   - `layout/` — shell components (`Layout`, `Header`, `MenuHeader`, `FloatingCartButton`, `ToastProvider`, `ToastContext`)
-3. **`src/lib/`** — pure helpers, formatters, and hooks (`calculations.ts`, `useMenuFilters.ts`, `useToast.ts`).
+Modules:
+- `auth` — register, login, refresh, logout.
+- `projects` — project CRUD, themes, publication.
+- `menu` — categories, menu items, modifier groups/options, allergens, tags.
+- `tables` — tables, public tokens, QR links.
+- `orders` — cart sessions, orders, order items.
+- `service_requests` — waiter/water/bill/napkins requests.
+- `media` — image upload/storage (local disk for MVP).
 
-Rules:
-- Screens import from components; components import from UI Kit or `lib`. No reverse imports.
+Auth: JWT access token + httpOnly refresh cookie. Argon2id password hashing.
+
+## Frontend architecture
+
+Route groups:
+- `(marketing)/` — landing, product, solutions, demo, login, register, faq.
+- `(admin)/app/` — protected admin panel.
+- `(venue)/` — public surfaces:
+  - `/venue/[slug]` — promo page
+  - `/venue/[slug]/menu` — general menu
+  - `/table/[token]` — table-specific menu/order
+  - `/order/[token]` — public order status
+
+Use Svelte 5 runes. Domain stores live in `apps/web/src/lib/stores/domains/*.svelte.ts`.
+
+## Shared packages
+
+- `packages/shared-types` — source of truth for API DTOs. Both API and web should reference these TypeScript contracts. Rust types mirror them; keep in sync.
+- `packages/api-client` — typed fetch wrapper with credentials and error handling. Used by web.
+
+## Rules
+
 - Keep files under 300 lines.
-- No inline one-off elements inside screens.
-- Use Tailwind utility classes only; theme values must come from `src/theme.css` CSS variables.
-- Global chrome (header, cart button, service button, toasts) is owned by `Layout` and `App.tsx`; individual screens do not re-implement it.
-- Empty states are full UI components (e.g. `EmptyMenuState`) built from the UI Kit, not inline placeholders.
+- Use Tailwind utility classes only; theme values come from `apps/web/src/lib/theme.css` CSS variables.
+- No inline one-off elements inside SvelteKit routes; extract to components or UI Kit.
+- UI Kit primitives live in `apps/web/src/lib/components/ui/`.
+- Empty states are full components, not inline placeholders.
+- Focus-visible, reduced motion and ARIA live regions are required for premium UI.
+- Rust: prefer runtime-checked `sqlx::query`/`query_as` for velocity; repository pattern for SQL.
+- Never commit `.env`, GitHub tokens, or `target/` / `build/` / `.svelte-kit`.
 
-## State
+## Prototype
 
-All app state lives in `src/App.tsx`:
+The `prototype/` directory contains the legacy React/Vite implementation. It is reference only; do not modify it unless explicitly asked. The SaaS is a full rewrite in SvelteKit + Rust.
 
-- `screen` — current screen (`menu` | `detail` | `cart` | `waiting`)
-- `selectedItem` — dish shown on detail screen
-- `order` — cart/order state, persisted to `localStorage`
-- `menu` / `loading` — menu data fetched from `public/menu.json` with `src/data/menu.json` fallback
+## Environment
 
-## Menu data
-
-`public/menu.json` is fetched at runtime and is the file to edit for live content. `src/data/menu.json` is the fallback used during development or when the fetch fails. Keep both in sync when adding fields.
-
-Rich fields available on each item:
-
-```ts
-{
-  id, name, description, price, image, ingredients, allergens,
-  addons: [{ id, name, price }],
-  tags, isSpicy, isVegetarian, isVegan, isGlutenFree,
-  featured?: boolean,
-  badges?: string[],
-  chefNote?: string,
-  perfectWith?: [{ id, name, image }],
-  relatedIds?: string[]
-}
-```
-
-Images live in `public/images/` and are referenced as `images/<file>.jpg` in the JSON.
-
-Service-request actions live in `src/data/serviceRequests.json` and are consumed by `ServiceRequestButton` / `ServiceRequestPanel`.
-
-## Theming
-
-Edit `src/theme.css` to re-skin. Key variables:
-
-- `--color-primary`, `--color-accent`
-- `--font-sans`, `--font-heading`
-- `--radius-*`
-- `--shadow-*`
-
-## Deployment
-
-GitHub Pages via `.github/workflows/deploy.yml`:
-
-- Trigger: push to `main`
-- Steps: install, lint, build with `GITHUB_PAGES=true`, deploy `dist/`
-- Live URL: https://stekolshchykov.github.io/smart-restaurant-menu/
-
-## Important notes
-
-- `base` in `vite.config.ts` is conditional: `/` locally, `/smart-restaurant-menu/` for GitHub Pages.
-- All asset paths in `menu.json` must remain relative so they work under the GitHub Pages subpath.
-- Always run `npm run lint` and both `npm run build` / `GITHUB_PAGES=true npm run build` before pushing.
-- Do not commit the GitHub token, `.env` files, or `dist/`.
+Copy `apps/api/.env.example` to `apps/api/.env` and fill in real values before running the API. `JWT_SECRET` must be at least 32 characters.

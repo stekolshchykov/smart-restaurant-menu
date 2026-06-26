@@ -1,0 +1,45 @@
+- generic [ref=e1971]:
+  - banner [ref=e1972]:
+    - link "Skip to content" [ref=e1973] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e1974]: Skip to content
+      - text: Skip to content
+    - generic [ref=e1975]:
+      - button "Back to menu" [ref=e1977]:
+        - img [ref=e1978]
+      - heading "Your order" [level=2] [ref=e1981]
+  - main [ref=e1982]:
+    - generic [ref=e1985]:
+      - generic [ref=e1986]:
+        - img [ref=e1988]
+        - paragraph [ref=e1992]: 1 item
+      - generic [ref=e1997]:
+        - generic [ref=e1998]:
+          - paragraph [ref=e2000]: The Jobber
+          - separator [ref=e2001]
+          - generic [ref=e2002]:
+            - paragraph [ref=e2003]: Line total
+            - generic [ref=e2004]: €17.95
+        - button "Remove The Jobber" [ref=e2005]:
+          - img [ref=e2006]
+      - generic [ref=e2010]:
+        - generic [ref=e2011]:
+          - paragraph [ref=e2012]: Subtotal
+          - generic [ref=e2013]: €17.95
+        - separator [ref=e2014]
+        - generic [ref=e2015]:
+          - paragraph [ref=e2016]: Total
+          - generic [ref=e2017]: €17.95
+        - button "Place Order" [ref=e2018]
+  - contentinfo [ref=e2019]:
+    - generic [ref=e2021]:
+      - paragraph [ref=e2023]: The Golden Nugget
+      - generic [ref=e2024]:
+        - button "Open fullscreen" [ref=e2025]:
+          - img [ref=e2026]
+          - generic [ref=e2031]: Open fullscreen
+        - button "Admin unlock" [ref=e2032]:
+          - img [ref=e2033]
+  - button "Service" [ref=e2037]:
+    - img [ref=e2038]
+    - generic [ref=e2041]: Service

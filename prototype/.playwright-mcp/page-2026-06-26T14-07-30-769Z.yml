@@ -1,0 +1,83 @@
+- generic [ref=e911]:
+  - banner [ref=e912]:
+    - link "Skip to content" [ref=e913] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e914]: Skip to content
+      - text: Skip to content
+    - generic [ref=e915]:
+      - button "Go back" [ref=e917]:
+        - img [ref=e918]
+      - heading "The Golden Nugget" [level=5] [ref=e921]
+  - main [ref=e922]:
+    - generic [ref=e924]:
+      - img "The Golden Wings" [ref=e930]
+      - generic [ref=e932]:
+        - generic [ref=e934]:
+          - generic [ref=e935]:
+            - generic [ref=e936]: Chef's choice
+            - generic [ref=e937]: Popular
+            - generic [ref=e938]: Spicy
+          - heading "The Golden Wings" [level=1] [ref=e939]
+          - generic [ref=e940]: €8.95
+          - paragraph [ref=e941]: Chicken wings tossed in our own special sauce. Gluten-free option available.
+        - generic [ref=e944]:
+          - img [ref=e945]
+          - paragraph [ref=e947]: Tossed in our secret house glaze for the perfect sweet-heat balance.
+        - generic [ref=e949]:
+          - heading "Ingredients" [level=2] [ref=e950]
+          - generic [ref=e951]:
+            - generic [ref=e952]: chicken wings
+            - generic [ref=e953]: special sauce
+        - generic [ref=e955]:
+          - heading "Allergens" [level=2] [ref=e956]
+          - generic [ref=e957]:
+            - generic [ref=e958]: Mustard
+            - generic [ref=e959]: Sesame
+            - generic [ref=e960]: Soya Bean
+        - generic [ref=e962]:
+          - heading "Extras" [level=2] [ref=e963]
+          - generic [ref=e964]:
+            - generic [ref=e966]:
+              - generic [ref=e967]:
+                - paragraph [ref=e968]: Blue cheese dip
+                - generic [ref=e969]: €1.00
+              - generic [ref=e970]:
+                - button "Decrease" [disabled] [ref=e971]:
+                  - img [ref=e972]
+                - generic [ref=e973]: "0"
+                - button "Increase" [ref=e974]:
+                  - img [ref=e975]
+            - generic [ref=e977]:
+              - generic [ref=e978]:
+                - paragraph [ref=e979]: Extra sauce
+                - generic [ref=e980]: €0.80
+              - generic [ref=e981]:
+                - button "Decrease" [disabled] [ref=e982]:
+                  - img [ref=e983]
+                - generic [ref=e984]: "0"
+                - button "Increase" [ref=e985]:
+                  - img [ref=e986]
+        - separator [ref=e988]
+        - generic [ref=e991]:
+          - paragraph [ref=e992]: Quantity
+          - generic [ref=e993]:
+            - button "Decrease" [disabled] [ref=e994]:
+              - img [ref=e995]
+            - generic [ref=e996]: "1"
+            - button "Increase" [ref=e997]:
+              - img [ref=e998]
+        - button "Add to order €8.95" [ref=e1000]:
+          - generic [ref=e1001]: Add to order
+          - generic [ref=e1002]: €8.95
+  - contentinfo [ref=e1003]:
+    - generic [ref=e1005]:
+      - paragraph [ref=e1007]: The Golden Nugget
+      - generic [ref=e1008]:
+        - button "Open fullscreen" [ref=e1009]:
+          - img [ref=e1010]
+          - text: Open fullscreen
+        - button "Admin unlock" [ref=e1015]:
+          - img [ref=e1016]
+  - button "Service" [ref=e1020]:
+    - img [ref=e1021]
+    - generic [ref=e1024]: Service

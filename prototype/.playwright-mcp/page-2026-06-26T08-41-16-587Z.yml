@@ -1,0 +1,42 @@
+- generic [ref=e3]:
+  - generic [ref=e1210]:
+    - banner [ref=e1211]:
+      - generic:
+        - button
+    - main [ref=e1212]:
+      - generic [ref=e1213]:
+        - button "Back to menu" [ref=e1214]:
+          - img [ref=e1215]
+          - text: Back to menu
+        - generic [ref=e1217]:
+          - generic [ref=e1218]:
+            - img [ref=e1220]
+            - generic [ref=e1223]:
+              - heading "Your Order" [level=2] [ref=e1224]
+              - paragraph [ref=e1225]: 1 item
+          - list "Order items" [ref=e1227]:
+            - listitem [ref=e1228]:
+              - article [ref=e1229]:
+                - generic [ref=e1230]:
+                  - generic [ref=e1231]:
+                    - heading "The Jobber" [level=3] [ref=e1232]
+                    - generic [ref=e1233]: €17.95
+                  - list [ref=e1234]:
+                    - listitem [ref=e1235]:
+                      - generic [ref=e1236]: +Bacon
+                      - generic [ref=e1237]: €2.00
+                  - paragraph [ref=e1238]: €19.95
+                - button "Remove The Jobber" [ref=e1239]:
+                  - img [ref=e1240]
+          - generic [ref=e1243]:
+            - generic [ref=e1244]:
+              - generic [ref=e1245]: Total
+              - generic [ref=e1246]: €19.95
+            - generic [ref=e1247]:
+              - button "Place Order" [ref=e1248]
+              - button "Back to Menu" [ref=e1249]:
+                - img [ref=e1250]
+                - text: Back to Menu
+  - button "1 items €19.95" [ref=e1205]:
+    - generic [ref=e1206]: 1 items
+    - generic [ref=e1208]: €19.95

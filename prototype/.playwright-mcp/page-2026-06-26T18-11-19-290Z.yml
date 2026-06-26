@@ -1,0 +1,43 @@
+- generic [ref=e1966]:
+  - banner [ref=e1967]:
+    - link "Skip to content" [ref=e1968] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e1969]: Skip to content
+      - text: Skip to content
+    - generic [ref=e1970]:
+      - button "Back to menu" [ref=e1972]:
+        - img [ref=e1973]
+      - heading "Your order" [level=2] [ref=e1976]
+  - main [ref=e1977]:
+    - generic [ref=e1980]:
+      - generic [ref=e1981]:
+        - img [ref=e1983]
+        - paragraph [ref=e1987]: 1 item
+      - generic [ref=e1992]:
+        - generic [ref=e1993]:
+          - paragraph [ref=e1995]: Garlic Bread
+          - separator [ref=e1996]
+          - generic [ref=e1997]:
+            - paragraph [ref=e1998]: Line total
+            - generic [ref=e1999]: €5.50
+        - button "Remove Garlic Bread" [ref=e2000]:
+          - img [ref=e2001]
+      - generic [ref=e2005]:
+        - generic [ref=e2006]:
+          - paragraph [ref=e2007]: Subtotal
+          - generic [ref=e2008]: €5.50
+        - separator [ref=e2009]
+        - generic [ref=e2010]:
+          - paragraph [ref=e2011]: Total
+          - generic [ref=e2012]: €5.50
+        - button "Place Order" [ref=e2013]
+  - contentinfo [ref=e2014]:
+    - generic [ref=e2016]:
+      - paragraph [ref=e2018]: The Golden Nugget
+      - generic [ref=e2019]:
+        - button [ref=e2020]:
+          - img [ref=e2021]
+        - button "Admin unlock" [ref=e2026]:
+          - img [ref=e2027]
+  - button "Service" [ref=e2031]:
+    - img [ref=e2032]

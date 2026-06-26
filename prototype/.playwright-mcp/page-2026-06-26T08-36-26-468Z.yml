@@ -1,0 +1,38 @@
+- generic [ref=e3]:
+  - generic [ref=e1187]:
+    - banner [ref=e1188]:
+      - generic:
+        - button
+    - main [ref=e1189]:
+      - generic [ref=e1190]:
+        - button "Back to menu" [ref=e1191]:
+          - img [ref=e1192]
+          - text: Back to menu
+        - generic [ref=e1194]:
+          - generic [ref=e1195]:
+            - img [ref=e1197]
+            - generic [ref=e1200]:
+              - heading "Your Order" [level=2] [ref=e1201]
+              - paragraph [ref=e1202]: 1 item
+          - list "Order items" [ref=e1204]:
+            - listitem [ref=e1205]:
+              - article [ref=e1206]:
+                - generic [ref=e1207]:
+                  - generic [ref=e1208]:
+                    - heading "Soup of the Day" [level=3] [ref=e1209]
+                    - generic [ref=e1210]: €5.95
+                  - paragraph [ref=e1211]: €5.95
+                - button "Remove Soup of the Day" [ref=e1212]:
+                  - img [ref=e1213]
+          - generic [ref=e1216]:
+            - generic [ref=e1217]:
+              - generic [ref=e1218]: Total
+              - generic [ref=e1219]: €5.95
+            - generic [ref=e1220]:
+              - button "Place Order" [ref=e1221]
+              - button "Back to Menu" [ref=e1222]:
+                - img [ref=e1223]
+                - text: Back to Menu
+  - button "1 items €5.95" [active] [ref=e1182]:
+    - generic [ref=e1183]: 1 items
+    - generic [ref=e1185]: €5.95

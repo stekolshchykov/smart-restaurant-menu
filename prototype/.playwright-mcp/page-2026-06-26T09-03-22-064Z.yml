@@ -1,0 +1,55 @@
+- generic [ref=e3]:
+  - generic [ref=e1212]:
+    - banner [ref=e1213]:
+      - generic:
+        - button
+    - main [ref=e1214]:
+      - generic [ref=e1215]:
+        - button "Back to menu" [ref=e1216]:
+          - img [ref=e1217]
+          - text: Back to menu
+        - generic [ref=e1219]:
+          - generic [ref=e1220]:
+            - img [ref=e1222]
+            - generic [ref=e1225]:
+              - heading "Your Order" [level=2] [ref=e1226]
+              - paragraph [ref=e1227]: 2 items
+          - list "Order items" [ref=e1229]:
+            - listitem [ref=e1230]:
+              - article [ref=e1231]:
+                - generic [ref=e1232]:
+                  - generic [ref=e1233]:
+                    - heading "The Jobber" [level=3] [ref=e1234]
+                    - generic [ref=e1235]: €17.95
+                  - list [ref=e1236]:
+                    - listitem [ref=e1237]:
+                      - generic [ref=e1238]: +Bacon
+                      - generic [ref=e1239]: €2.00
+                  - paragraph [ref=e1240]: €19.95
+                - button "Remove The Jobber" [ref=e1241]:
+                  - img [ref=e1242]
+            - listitem [ref=e1245]:
+              - article [ref=e1246]:
+                - generic [ref=e1247]:
+                  - generic [ref=e1248]:
+                    - heading "The Jobber" [level=3] [ref=e1249]
+                    - generic [ref=e1250]: €17.95
+                  - list [ref=e1251]:
+                    - listitem [ref=e1252]:
+                      - generic [ref=e1253]: +Bacon
+                      - generic [ref=e1254]: €2.00
+                  - paragraph [ref=e1255]: €19.95
+                - button "Remove The Jobber" [ref=e1256]:
+                  - img [ref=e1257]
+          - generic [ref=e1260]:
+            - generic [ref=e1261]:
+              - generic [ref=e1262]: Total
+              - generic [ref=e1263]: €39.90
+            - generic [ref=e1264]:
+              - button "Place Order" [ref=e1265]
+              - button "Back to Menu" [ref=e1266]:
+                - img [ref=e1267]
+                - text: Back to Menu
+  - button "2 items €39.90" [ref=e1210]:
+    - generic [ref=e575]: 2 items
+    - generic [ref=e577]: €39.90

@@ -1,0 +1,34 @@
+- generic [ref=e1199]:
+  - banner [ref=e1200]:
+    - button "Menu" [ref=e1202]:
+      - heading "Menu" [level=5] [ref=e1203]
+  - main [ref=e1204]:
+    - generic [ref=e1206]:
+      - img [ref=e1208]
+      - generic [ref=e1211]:
+        - heading "Your order is being prepared" [level=1] [ref=e1212]
+        - paragraph [ref=e1213]: Order 5AS13E
+      - generic [ref=e1214]:
+        - heading "Time Remaining" [level=2] [ref=e1215]
+        - generic [ref=e1216]:
+          - img [ref=e1217]
+          - generic [ref=e1220]:
+            - img [ref=e1221]
+            - generic [ref=e1224]: 10:00
+        - paragraph [ref=e1225]: Time remaining to place your order
+      - generic [ref=e1226]:
+        - generic [ref=e1227]:
+          - img [ref=e1228]
+          - heading "Ordered items" [level=2] [ref=e1233]
+        - generic [ref=e1235]:
+          - paragraph [ref=e1236]: 1× The Jobber
+          - generic [ref=e1237]: €17.95
+        - separator [ref=e1238]
+        - generic [ref=e1239]:
+          - heading "Total" [level=3] [ref=e1240]
+          - generic [ref=e1241]: €17.95
+      - generic [ref=e1242]:
+        - button "Back to menu" [ref=e1243]:
+          - img [ref=e1244]
+          - text: Back to menu
+        - button "Start new order" [ref=e1246]

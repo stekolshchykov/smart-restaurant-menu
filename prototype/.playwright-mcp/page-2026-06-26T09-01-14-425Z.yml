@@ -1,0 +1,40 @@
+- generic [ref=e1289]:
+  - banner [ref=e1290]:
+    - generic:
+      - button
+  - main [ref=e1291]:
+    - generic [ref=e1292]:
+      - img [ref=e1294]
+      - generic [ref=e1297]:
+        - heading "Your order is being prepared" [level=1] [ref=e1298]
+        - paragraph [ref=e1299]: Order UUWY8Q
+      - generic [ref=e1300]:
+        - generic [ref=e1301]:
+          - img [ref=e1302]
+          - generic [ref=e1305]:
+            - img [ref=e1306]
+            - generic [ref=e1309]: 10:00
+        - paragraph [ref=e1310]: Time remaining to place your order
+      - generic [ref=e1311]:
+        - heading "Ordered items" [level=2] [ref=e1312]:
+          - img [ref=e1313]
+          - text: Ordered items
+        - list [ref=e1318]:
+          - listitem [ref=e1319]:
+            - generic [ref=e1320]: 2× The Jobber
+            - generic [ref=e1321]: €42.90
+          - listitem [ref=e1322]:
+            - generic [ref=e1323]: 1× The Jobber
+            - generic [ref=e1324]: €19.45
+          - listitem [ref=e1325]:
+            - generic [ref=e1326]: 1× The Jobber
+            - generic [ref=e1327]: €19.95
+        - generic [ref=e1328]:
+          - generic [ref=e1329]: Total
+          - generic [ref=e1330]: €82.30
+      - generic [ref=e1331]:
+        - button "Back to menu" [ref=e1332]:
+          - generic [ref=e1333]:
+            - img [ref=e1334]
+            - text: Back to menu
+        - button "Start new order" [ref=e1336]

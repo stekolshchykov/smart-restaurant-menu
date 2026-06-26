@@ -7,10 +7,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build outputs
 dist
 dist-ssr
 *.local
+.svelte-kit
+build
+
+# Rust
+target
+
+# Env files
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
@@ -26,8 +39,7 @@ dist-ssr
 # Agent artifacts
 .kimi/tmp
 .kimi/output
-.playwright-mcp
 
-# Verification screenshots
-screenshots
-*.png
+# Legacy prototype assets (kept in repo but ignored from tooling)
+prototype/node_modules
+prototype/dist

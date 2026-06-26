@@ -1,0 +1,53 @@
+- generic [ref=e2]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - link "Skip to content" [ref=e7] [cursor=pointer]:
+        - /url: "#main-content"
+        - generic [ref=e8]: Skip to content
+        - text: Skip to content
+      - generic [ref=e9]:
+        - button "Back to menu" [ref=e11]:
+          - img [ref=e12]
+        - heading "Your order" [level=2] [ref=e15]
+    - main [ref=e16]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - img [ref=e22]
+          - paragraph [ref=e26]: 1 item
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - paragraph [ref=e34]: Garlic Bread
+            - separator [ref=e35]
+            - generic [ref=e36]:
+              - generic [ref=e37]:
+                - button "Decrease" [disabled] [ref=e38]:
+                  - img [ref=e39]
+                - generic [ref=e40]: "1"
+                - button "Increase" [ref=e41]:
+                  - img [ref=e42]
+              - generic [ref=e43]:
+                - paragraph [ref=e44]: Line total
+                - generic [ref=e45]: €5.50
+          - button "Remove Garlic Bread" [ref=e46]:
+            - img [ref=e47]
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - paragraph [ref=e53]: Subtotal
+            - generic [ref=e54]: €5.50
+          - separator [ref=e55]
+          - generic [ref=e56]:
+            - paragraph [ref=e57]: Total
+            - generic [ref=e58]: €5.50
+          - paragraph [ref=e59]: Your order will be sent straight to the kitchen.
+          - button "Place Order" [ref=e60]
+    - contentinfo [ref=e61]:
+      - generic [ref=e63]:
+        - paragraph [ref=e65]: The Golden Nugget
+        - generic [ref=e66]:
+          - button [ref=e67]:
+            - img [ref=e68]
+          - button "Admin unlock" [ref=e73]:
+            - img [ref=e74]
+    - button "Service" [ref=e78]:
+      - img [ref=e79]
+  - status

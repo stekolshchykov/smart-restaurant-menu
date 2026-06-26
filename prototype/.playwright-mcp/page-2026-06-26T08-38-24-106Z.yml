@@ -1,0 +1,47 @@
+- generic [ref=e3]:
+  - generic [ref=e2477]:
+    - banner [ref=e2478]:
+      - generic:
+        - button
+    - main [ref=e2479]:
+      - generic [ref=e2480]:
+        - button "Back to menu" [ref=e2481]:
+          - img [ref=e2482]
+          - text: Back to menu
+        - generic [ref=e2484]:
+          - generic [ref=e2485]:
+            - img [ref=e2487]
+            - generic [ref=e2490]:
+              - heading "Your Order" [level=2] [ref=e2491]
+              - paragraph [ref=e2492]: 1 item
+          - list "Order items" [ref=e2494]:
+            - listitem [ref=e2495]:
+              - article [ref=e2496]:
+                - generic [ref=e2497]:
+                  - generic [ref=e2498]:
+                    - heading "2×The Jobber" [level=3] [ref=e2499]:
+                      - generic [ref=e2500]: 2×
+                      - text: The Jobber
+                    - generic [ref=e2501]: €35.90
+                  - list [ref=e2502]:
+                    - listitem [ref=e2503]:
+                      - generic [ref=e2504]: +Extra cheese
+                      - generic [ref=e2505]: €1.50
+                    - listitem [ref=e2506]:
+                      - generic [ref=e2507]: +Bacon
+                      - generic [ref=e2508]: €2.00
+                  - paragraph [ref=e2509]: €42.90
+                - button "Remove The Jobber" [ref=e2510]:
+                  - img [ref=e2511]
+          - generic [ref=e2514]:
+            - generic [ref=e2515]:
+              - generic [ref=e2516]: Total
+              - generic [ref=e2517]: €42.90
+            - generic [ref=e2518]:
+              - button "Place Order" [ref=e2519]
+              - button "Back to Menu" [ref=e2520]:
+                - img [ref=e2521]
+                - text: Back to Menu
+  - button "2 items €42.90" [ref=e2472]:
+    - generic [ref=e2473]: 2 items
+    - generic [ref=e2475]: €42.90

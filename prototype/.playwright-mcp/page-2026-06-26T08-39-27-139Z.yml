@@ -1,0 +1,64 @@
+- generic [ref=e3]:
+  - generic [ref=e3094]:
+    - banner [ref=e3095]:
+      - generic:
+        - button
+    - main [ref=e3096]:
+      - generic [ref=e3097]:
+        - button "Back to menu" [ref=e3098]:
+          - img [ref=e3099]
+          - text: Back to menu
+        - generic [ref=e3101]:
+          - img "The Jobber" [ref=e3103]
+          - generic [ref=e3104]:
+            - heading "The Jobber" [level=1] [ref=e3105]
+            - paragraph [ref=e3106]: 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce.
+          - generic [ref=e3107]: "Allergens: Dairy, Eggs, Mustard, Sulphites, Wheat"
+          - generic [ref=e3108]:
+            - heading "Extras" [level=2] [ref=e3109]
+            - generic [ref=e3110]:
+              - generic [ref=e3111]:
+                - paragraph [ref=e3112]: Extra cheese
+                - paragraph [ref=e3113]: €1.50 each
+              - generic [ref=e3114]:
+                - button "Decrease Extra cheese" [ref=e3115]:
+                  - img [ref=e3116]
+                - generic [ref=e3117]: "1"
+                - button "Increase Extra cheese" [active] [ref=e3118]:
+                  - img [ref=e3119]
+            - generic [ref=e3120]:
+              - generic [ref=e3121]:
+                - paragraph [ref=e3122]: Bacon
+                - paragraph [ref=e3123]: €2.00 each
+              - generic [ref=e3124]:
+                - button "Decrease Bacon" [ref=e3125]:
+                  - img [ref=e3126]
+                - generic [ref=e3127]: "0"
+                - button "Increase Bacon" [ref=e3128]:
+                  - img [ref=e3129]
+            - generic [ref=e3130]:
+              - generic [ref=e3131]:
+                - paragraph [ref=e3132]: Garlic sauce
+                - paragraph [ref=e3133]: €0.80 each
+              - generic [ref=e3134]:
+                - button "Decrease Garlic sauce" [ref=e3135]:
+                  - img [ref=e3136]
+                - generic [ref=e3137]: "0"
+                - button "Increase Garlic sauce" [ref=e3138]:
+                  - img [ref=e3139]
+          - generic [ref=e3140]:
+            - generic [ref=e3141]: Quantity
+            - generic [ref=e3142]:
+              - button "Decrease quantity" [disabled] [ref=e3143]:
+                - img [ref=e3144]
+              - generic [ref=e3145]: "1"
+              - button "Increase quantity" [ref=e3146]:
+                - img [ref=e3147]
+          - generic [ref=e3148]:
+            - generic [ref=e3153]: 1× Extra cheese
+            - button "Add to order €19.45" [ref=e3154]:
+              - generic [ref=e3150]: Add to order
+              - generic [ref=e3151]: €19.45
+  - button "2 items €42.90" [ref=e2472]:
+    - generic [ref=e2473]: 2 items
+    - generic [ref=e2475]: €42.90

@@ -1,0 +1,77 @@
+- generic [ref=e1998]:
+  - banner [ref=e1999]:
+    - link "Skip to content" [ref=e2000] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e2001]: Skip to content
+      - text: Skip to content
+    - generic [ref=e2002]:
+      - button "Go back" [ref=e2004]:
+        - img [ref=e2005]
+      - heading "Order confirmed" [level=5] [ref=e2008]
+  - main [ref=e2009]:
+    - generic [ref=e2011]:
+      - generic [ref=e2012]:
+        - generic [ref=e2013]:
+          - img [ref=e2015]
+          - img [ref=e2019]
+        - generic [ref=e2024]:
+          - heading "Order confirmed" [level=1] [ref=e2025]
+          - generic [ref=e2026]:
+            - generic [ref=e2027]:
+              - img [ref=e2028]
+              - text: Confirmed
+            - generic [ref=e2031]:
+              - img [ref=e2032]
+              - text: "Order #0AI0NJ"
+      - generic [ref=e2035]:
+        - paragraph [ref=e2036]: Estimated waiting time
+        - generic [ref=e2038]:
+          - img [ref=e2039]
+          - generic [ref=e2043]:
+            - img [ref=e2045]
+            - generic [ref=e2048]: 10:00
+        - paragraph [ref=e2049]: Preparing your order
+      - generic [ref=e2052]:
+        - paragraph [ref=e2056]: Order received
+        - paragraph [ref=e2059]: Being prepared
+        - paragraph [ref=e2062]: Almost ready
+      - generic [ref=e2064]:
+        - generic [ref=e2066]:
+          - generic [ref=e2067]:
+            - img [ref=e2069]
+            - generic [ref=e2072]:
+              - heading "Your order" [level=2] [ref=e2073]
+              - paragraph [ref=e2074]: 1 item
+          - generic [ref=e2075]: Table 07
+        - generic [ref=e2080]:
+          - generic [ref=e2081]:
+            - generic [ref=e2082]: "1"
+            - paragraph [ref=e2084]: The Golden Wings
+          - paragraph [ref=e2085]: €8.95
+        - generic [ref=e2087]:
+          - heading "Total" [level=3] [ref=e2088]
+          - generic [ref=e2089]: €8.95
+      - generic [ref=e2092]:
+        - img [ref=e2094]
+        - generic [ref=e2097]:
+          - heading "Need anything else?" [level=3] [ref=e2098]
+          - paragraph [ref=e2099]: Call your waiter, ask for water, napkins, cutlery or the bill using the Service button.
+      - generic [ref=e2101]:
+        - button "Back to menu" [ref=e2102]:
+          - img [ref=e2103]
+          - text: Back to menu
+        - button "Start new order" [ref=e2105]:
+          - img [ref=e2106]
+          - text: Start new order
+  - contentinfo [ref=e2111]:
+    - generic [ref=e2113]:
+      - paragraph [ref=e2115]: The Golden Nugget
+      - generic [ref=e2116]:
+        - button "Open fullscreen" [ref=e2117]:
+          - img [ref=e2118]
+          - text: Open fullscreen
+        - button "Admin unlock" [ref=e2123]:
+          - img [ref=e2124]
+  - button "Service" [ref=e2128]:
+    - img [ref=e2129]
+    - generic [ref=e2132]: Service

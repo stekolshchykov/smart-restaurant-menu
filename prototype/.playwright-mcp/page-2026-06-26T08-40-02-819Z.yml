@@ -1,0 +1,37 @@
+- generic [ref=e3789]:
+  - banner [ref=e3790]:
+    - generic:
+      - button
+  - main [ref=e3791]:
+    - generic [ref=e3792]:
+      - img [ref=e3794]
+      - generic [ref=e3797]:
+        - heading "Your order is being prepared" [level=1] [ref=e3798]
+        - paragraph [ref=e3799]: Order M1BDIT
+      - generic [ref=e3800]:
+        - generic [ref=e3801]:
+          - img [ref=e3802]
+          - generic [ref=e3805]:
+            - img [ref=e3806]
+            - generic [ref=e3809]: 10:00
+        - paragraph [ref=e3810]: Time remaining to place your order
+      - generic [ref=e3811]:
+        - heading "Ordered items" [level=2] [ref=e3812]:
+          - img [ref=e3813]
+          - text: Ordered items
+        - list [ref=e3818]:
+          - listitem [ref=e3819]:
+            - generic [ref=e3820]: 2× The Jobber
+            - generic [ref=e3821]: €42.90
+          - listitem [ref=e3822]:
+            - generic [ref=e3823]: 1× The Jobber
+            - generic [ref=e3824]: €19.45
+        - generic [ref=e3825]:
+          - generic [ref=e3826]: Total
+          - generic [ref=e3827]: €62.35
+      - generic [ref=e3828]:
+        - button "Back to menu" [ref=e3829]:
+          - generic [ref=e3830]:
+            - img [ref=e3831]
+            - text: Back to menu
+        - button "Start new order" [ref=e3833]

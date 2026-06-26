@@ -1,0 +1,40 @@
+- generic [ref=e9]:
+  - banner [ref=e10]:
+    - button "Go back" [ref=e12]:
+      - img [ref=e13]
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - img "Seafood Chowder" [ref=e21]
+      - generic [ref=e23]:
+        - generic [ref=e25]:
+          - heading "Seafood Chowder" [level=1] [ref=e26]
+          - generic [ref=e27]: €9.95
+          - paragraph [ref=e28]: Creamy seafood chowder with a hint of dill, served with a crusty roll.
+        - generic [ref=e30]:
+          - heading "Ingredients" [level=2] [ref=e31]
+          - generic [ref=e32]:
+            - generic [ref=e33]: mixed seafood
+            - generic [ref=e34]: cream
+            - generic [ref=e35]: dill
+            - generic [ref=e36]: crusty roll
+        - generic [ref=e38]:
+          - heading "Allergens" [level=2] [ref=e39]
+          - generic [ref=e40]:
+            - generic [ref=e41]: Crustaceans
+            - generic [ref=e42]: Dairy
+            - generic [ref=e43]: Fish
+            - generic [ref=e44]: Molluscs
+            - generic [ref=e45]: Sulphites
+            - generic [ref=e46]: Wheat
+        - separator [ref=e48]
+        - generic [ref=e51]:
+          - paragraph [ref=e52]: Quantity
+          - generic [ref=e53]:
+            - button "Decrease" [disabled] [ref=e54]:
+              - img [ref=e55]
+            - generic [ref=e56]: "1"
+            - button "Increase" [ref=e57]:
+              - img [ref=e58]
+        - button "Add to order €9.95" [ref=e60]:
+          - generic [ref=e61]: Add to order
+          - generic [ref=e62]: €9.95

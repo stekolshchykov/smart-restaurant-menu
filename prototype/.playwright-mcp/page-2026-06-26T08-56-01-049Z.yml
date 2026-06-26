@@ -1,0 +1,37 @@
+- generic [ref=e1719]:
+  - banner [ref=e1720]:
+    - generic:
+      - button
+  - main [ref=e1721]:
+    - generic [ref=e1722]:
+      - img [ref=e1724]
+      - generic [ref=e1727]:
+        - heading "Your order is being prepared" [level=1] [ref=e1728]
+        - paragraph [ref=e1729]: Order FU6OA6
+      - generic [ref=e1730]:
+        - generic [ref=e1731]:
+          - img [ref=e1732]
+          - generic [ref=e1735]:
+            - img [ref=e1736]
+            - generic [ref=e1739]: 09:50
+        - paragraph [ref=e1740]: Time remaining to place your order
+      - generic [ref=e1741]:
+        - heading "Ordered items" [level=2] [ref=e1742]:
+          - img [ref=e1743]
+          - text: Ordered items
+        - list [ref=e1748]:
+          - listitem [ref=e1749]:
+            - generic [ref=e1750]: 1× Seafood Chowder
+            - generic [ref=e1751]: €9.95
+          - listitem [ref=e1752]:
+            - generic [ref=e1753]: 1× Seafood Chowder
+            - generic [ref=e1754]: €9.95
+        - generic [ref=e1755]:
+          - generic [ref=e1756]: Total
+          - generic [ref=e1757]: €19.90
+      - generic [ref=e1758]:
+        - button "Back to menu" [ref=e1759]:
+          - generic [ref=e1760]:
+            - img [ref=e1761]
+            - text: Back to menu
+        - button "Start new order" [ref=e1763]

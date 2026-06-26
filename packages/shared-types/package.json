@@ -1,0 +1,17 @@
+{
+  "name": "@digital-menu/shared-types",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

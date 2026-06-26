@@ -1,0 +1,74 @@
+- generic [ref=e2074]:
+  - banner [ref=e2075]:
+    - link "Skip to content" [ref=e2076] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e2077]: Skip to content
+      - text: Skip to content
+    - button "Menu" [ref=e2079]:
+      - heading "Menu" [level=5] [ref=e2080]
+  - main [ref=e2081]:
+    - generic [ref=e2084]:
+      - generic [ref=e2086]:
+        - img [ref=e2088]
+        - img [ref=e2092]
+      - generic [ref=e2098]:
+        - heading "Your order is being prepared" [level=1] [ref=e2099]
+        - generic [ref=e2100]:
+          - img [ref=e2101]
+          - paragraph [ref=e2103]: "Order #2WYLSM"
+      - generic [ref=e2105]:
+        - heading "Estimated ready time" [level=2] [ref=e2106]
+        - generic [ref=e2107]:
+          - img [ref=e2108]
+          - generic [ref=e2112]:
+            - img [ref=e2113]
+            - generic [ref=e2116]: 09:49
+        - paragraph [ref=e2117]: We will bring it to your table soon
+      - generic [ref=e2120]:
+        - paragraph [ref=e2124]: Order received
+        - paragraph [ref=e2127]: Being prepared
+        - paragraph [ref=e2130]: Almost ready
+      - generic [ref=e2132]:
+        - generic [ref=e2133]:
+          - img [ref=e2134]
+          - heading "Your order" [level=2] [ref=e2136]
+        - generic [ref=e2138]:
+          - heading "1×Soup of the Day" [level=4] [ref=e2140]:
+            - generic [ref=e2141]: 1×
+            - text: Soup of the Day
+          - generic [ref=e2142]: €5.95
+        - separator [ref=e2143]
+        - generic [ref=e2144]:
+          - heading "Total" [level=3] [ref=e2145]
+          - generic [ref=e2146]: €5.95
+      - generic [ref=e2148]:
+        - button "Back to menu" [ref=e2149]:
+          - img [ref=e2150]
+          - text: Back to menu
+        - button "Start new order" [ref=e2152]
+  - button "Service" [active] [ref=e2154]:
+    - img [ref=e2155]
+  - dialog "How can we help?" [ref=e2161]:
+    - generic [ref=e2162]:
+      - heading "How can we help?" [level=3] [ref=e2163]
+      - button "Close service menu" [ref=e2164]:
+        - img [ref=e2165]
+    - generic [ref=e2168]:
+      - button "Call Waiter" [ref=e2170]:
+        - img [ref=e2171]
+        - text: Call Waiter
+      - button "Ask for Water" [ref=e2175]:
+        - img [ref=e2176]
+        - text: Ask for Water
+      - button "Ask for Napkins" [ref=e2180]:
+        - img [ref=e2181]
+        - text: Ask for Napkins
+      - button "Ask for Cutlery" [ref=e2185]:
+        - img [ref=e2186]
+        - text: Ask for Cutlery
+      - button "Ask for the Bill" [ref=e2190]:
+        - img [ref=e2191]
+        - text: Ask for the Bill
+      - button "Need Help" [ref=e2195]:
+        - img [ref=e2196]
+        - text: Need Help

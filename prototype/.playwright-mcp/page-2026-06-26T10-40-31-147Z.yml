@@ -1,0 +1,51 @@
+- generic [ref=e7]:
+  - generic [ref=e549]:
+    - banner [ref=e550]:
+      - button "Go back" [ref=e552]:
+        - img [ref=e553]
+    - main [ref=e555]:
+      - generic [ref=e558]:
+        - img "The Valley Steak Sandwich" [ref=e560]
+        - generic [ref=e562]:
+          - generic [ref=e563]:
+            - heading "The Valley Steak Sandwich" [level=1] [ref=e564]
+            - generic [ref=e565]: €19.95
+            - paragraph [ref=e566]: Sautéed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter.
+          - generic [ref=e567]:
+            - heading "Ingredients" [level=2] [ref=e568]
+            - generic [ref=e569]:
+              - generic [ref=e570]: sirloin steak
+              - generic [ref=e571]: onions
+              - generic [ref=e572]: mushrooms
+              - generic [ref=e573]: bread
+              - generic [ref=e574]: pepper sauce
+          - generic [ref=e575]:
+            - heading "Allergens" [level=2] [ref=e576]
+            - generic [ref=e577]:
+              - generic [ref=e578]: Dairy
+              - generic [ref=e579]: Lupin
+              - generic [ref=e580]: Wheat
+          - generic [ref=e581]:
+            - heading "Extras" [level=2] [ref=e582]
+            - checkbox "Extra pepper sauce €1.50" [ref=e584] [cursor=pointer]:
+              - generic [ref=e587]:
+                - generic [ref=e588]: Extra pepper sauce
+                - generic [ref=e589]: €1.50
+          - separator [ref=e590]
+          - generic [ref=e592]:
+            - paragraph [ref=e593]: Quantity
+            - generic [ref=e594]:
+              - button "Decrease" [disabled] [ref=e595]:
+                - img [ref=e596]
+              - generic [ref=e597]: "1"
+              - button "Increase" [ref=e598]:
+                - img [ref=e599]
+          - button "Add to order €19.95" [ref=e600]:
+            - generic [ref=e601]: Add to order
+            - generic [ref=e602]: €19.95
+  - button "1 item €17.95" [ref=e539]:
+    - img [ref=e540]
+    - generic [ref=e543]:
+      - paragraph [ref=e544]: 1 item
+      - generic [ref=e545]: €17.95
+    - img [ref=e546]

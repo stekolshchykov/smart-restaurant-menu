@@ -1,0 +1,58 @@
+- generic [ref=e574]:
+  - banner [ref=e575]:
+    - generic:
+      - button
+  - main [ref=e576]:
+    - generic [ref=e577]:
+      - button "Back to menu" [ref=e578]:
+        - img [ref=e579]
+        - text: Back to menu
+      - generic [ref=e581]:
+        - img "The Jobber" [ref=e583]
+        - generic [ref=e584]:
+          - heading "The Jobber" [level=1] [ref=e585]
+          - paragraph [ref=e586]: 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce.
+        - generic [ref=e587]: "Allergens: Dairy, Eggs, Mustard, Sulphites, Wheat"
+        - generic [ref=e588]:
+          - heading "Extras" [level=2] [ref=e589]
+          - generic [ref=e590]:
+            - generic [ref=e591]:
+              - paragraph [ref=e592]: Extra cheese
+              - paragraph [ref=e593]: €1.50 each
+            - generic [ref=e594]:
+              - button "Decrease Extra cheese" [ref=e595]:
+                - img [ref=e596]
+              - generic [ref=e597]: "0"
+              - button "Increase Extra cheese" [ref=e598]:
+                - img [ref=e599]
+          - generic [ref=e600]:
+            - generic [ref=e601]:
+              - paragraph [ref=e602]: Bacon
+              - paragraph [ref=e603]: €2.00 each
+            - generic [ref=e604]:
+              - button "Decrease Bacon" [ref=e605]:
+                - img [ref=e606]
+              - generic [ref=e607]: "0"
+              - button "Increase Bacon" [ref=e608]:
+                - img [ref=e609]
+          - generic [ref=e610]:
+            - generic [ref=e611]:
+              - paragraph [ref=e612]: Garlic sauce
+              - paragraph [ref=e613]: €0.80 each
+            - generic [ref=e614]:
+              - button "Decrease Garlic sauce" [ref=e615]:
+                - img [ref=e616]
+              - generic [ref=e617]: "0"
+              - button "Increase Garlic sauce" [ref=e618]:
+                - img [ref=e619]
+        - generic [ref=e620]:
+          - generic [ref=e621]: Quantity
+          - generic [ref=e622]:
+            - button "Decrease quantity" [disabled] [ref=e623]:
+              - img [ref=e624]
+            - generic [ref=e625]: "1"
+            - button "Increase quantity" [ref=e626]:
+              - img [ref=e627]
+        - button "Add to order €17.95" [ref=e629]:
+          - generic [ref=e630]: Add to order
+          - generic [ref=e631]: €17.95

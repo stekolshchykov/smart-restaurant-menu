@@ -1,0 +1,47 @@
+- generic [ref=e929]:
+  - banner [ref=e930]:
+    - link "Skip to content" [ref=e931] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e932]: Skip to content
+      - text: Skip to content
+    - generic [ref=e933]:
+      - button "Back to menu" [ref=e935]:
+        - img [ref=e936]
+      - heading "Your order" [level=5] [ref=e939]
+  - main [ref=e940]:
+    - generic [ref=e943]:
+      - generic [ref=e944]:
+        - img [ref=e946]
+        - paragraph [ref=e950]: 1 item
+      - generic [ref=e955]:
+        - generic [ref=e956]:
+          - generic [ref=e957]:
+            - heading "Soup of the Day" [level=3] [ref=e958]
+            - generic [ref=e959]: €5.95
+          - separator [ref=e960]
+          - generic [ref=e961]:
+            - paragraph [ref=e962]: Line total
+            - generic [ref=e963]: €5.95
+        - button "Remove Soup of the Day" [ref=e964]:
+          - img [ref=e965]
+      - generic [ref=e969]:
+        - generic [ref=e970]:
+          - paragraph [ref=e971]: Subtotal
+          - generic [ref=e972]: €5.95
+        - separator [ref=e973]
+        - generic [ref=e974]:
+          - paragraph [ref=e975]: Total
+          - generic [ref=e976]: €5.95
+        - button "Place Order" [ref=e977]
+  - contentinfo [ref=e978]:
+    - generic [ref=e980]:
+      - paragraph [ref=e982]: The Golden Nugget
+      - generic [ref=e983]:
+        - button "Open fullscreen" [ref=e984]:
+          - img [ref=e985]
+          - generic [ref=e990]: Open fullscreen
+        - button "Admin unlock" [ref=e991]:
+          - img [ref=e992]
+  - button "Service" [ref=e996]:
+    - img [ref=e997]
+    - generic [ref=e1000]: Service

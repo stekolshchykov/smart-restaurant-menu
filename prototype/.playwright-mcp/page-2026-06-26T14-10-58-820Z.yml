@@ -1,0 +1,117 @@
+- generic [ref=e932]:
+  - banner [ref=e933]:
+    - link "Skip to content" [ref=e934] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e935]: Skip to content
+      - text: Skip to content
+    - button "Go back" [ref=e937]:
+      - img [ref=e938]
+  - main [ref=e940]:
+    - generic [ref=e942]:
+      - generic [ref=e944]:
+        - img "The Golden Wings" [ref=e947]
+        - generic [ref=e948]:
+          - img "The Golden Wings" [ref=e950]
+          - generic [ref=e951]:
+            - generic [ref=e952]:
+              - img "Guinness Draught" [ref=e954]
+              - paragraph [ref=e956]: Guinness Draught
+            - generic [ref=e957]:
+              - img "Orchard Thieves Cider" [ref=e959]
+              - paragraph [ref=e961]: Orchard Thieves Cider
+        - generic [ref=e963]:
+          - generic [ref=e964]:
+            - img [ref=e965]
+            - heading "Perfect with" [level=2] [ref=e967]
+          - generic [ref=e968]:
+            - button "Guinness Draught Guinness Draught" [ref=e969]:
+              - img "Guinness Draught" [ref=e971]
+              - paragraph [ref=e973]: Guinness Draught
+            - button "Orchard Thieves Cider Orchard Thieves Cider" [ref=e974]:
+              - img "Orchard Thieves Cider" [ref=e976]
+              - paragraph [ref=e978]: Orchard Thieves Cider
+        - generic [ref=e980]:
+          - heading "You may also like" [level=2] [ref=e981]
+          - generic [ref=e982]:
+            - button "Homemade Breaded Scampi Homemade Breaded Scampi €9.95" [ref=e983]:
+              - img "Homemade Breaded Scampi" [ref=e985]
+              - generic [ref=e986]:
+                - paragraph [ref=e987]: Homemade Breaded Scampi
+                - text: €9.95
+            - button "Garlic Bread Garlic Bread €5.50" [ref=e988]:
+              - img "Garlic Bread" [ref=e990]
+              - generic [ref=e991]:
+                - paragraph [ref=e992]: Garlic Bread
+                - text: €5.50
+      - generic [ref=e994]:
+        - generic [ref=e996]:
+          - generic [ref=e997]:
+            - generic [ref=e998]: Chef's choice
+            - generic [ref=e999]: Popular
+            - generic [ref=e1000]: Spicy
+          - heading "The Golden Wings" [level=1] [ref=e1001]
+          - generic [ref=e1002]: €8.95
+          - paragraph [ref=e1003]: Chicken wings tossed in our own special sauce. Gluten-free option available.
+        - generic [ref=e1006]:
+          - img [ref=e1007]
+          - paragraph [ref=e1009]: Tossed in our secret house glaze for the perfect sweet-heat balance.
+        - generic [ref=e1011]:
+          - heading "Ingredients" [level=2] [ref=e1012]
+          - generic [ref=e1013]:
+            - generic [ref=e1014]: chicken wings
+            - generic [ref=e1015]: special sauce
+        - generic [ref=e1017]:
+          - heading "Allergens" [level=2] [ref=e1018]
+          - generic [ref=e1019]:
+            - generic [ref=e1020]: Mustard
+            - generic [ref=e1021]: Sesame
+            - generic [ref=e1022]: Soya Bean
+        - generic [ref=e1024]:
+          - heading "Extras" [level=2] [ref=e1025]
+          - generic [ref=e1026]:
+            - generic [ref=e1028]:
+              - generic [ref=e1029]:
+                - paragraph [ref=e1030]: Blue cheese dip
+                - generic [ref=e1031]: €1.00
+              - generic [ref=e1032]:
+                - button "Decrease" [disabled] [ref=e1033]:
+                  - img [ref=e1034]
+                - generic [ref=e1035]: "0"
+                - button "Increase" [ref=e1036]:
+                  - img [ref=e1037]
+            - generic [ref=e1039]:
+              - generic [ref=e1040]:
+                - paragraph [ref=e1041]: Extra sauce
+                - generic [ref=e1042]: €0.80
+              - generic [ref=e1043]:
+                - button "Decrease" [disabled] [ref=e1044]:
+                  - img [ref=e1045]
+                - generic [ref=e1046]: "0"
+                - button "Increase" [ref=e1047]:
+                  - img [ref=e1048]
+        - separator [ref=e1050]
+        - generic [ref=e1053]:
+          - paragraph [ref=e1054]: Quantity
+          - generic [ref=e1055]:
+            - button "Decrease" [disabled] [ref=e1056]:
+              - img [ref=e1057]
+            - generic [ref=e1058]: "1"
+            - button "Increase" [ref=e1059]:
+              - img [ref=e1060]
+        - button "Add to order €8.95" [ref=e1062]:
+          - generic [ref=e1063]: Add to order
+          - generic [ref=e1064]: €8.95
+  - contentinfo [ref=e1065]:
+    - generic [ref=e1067]:
+      - generic [ref=e1068]:
+        - paragraph [ref=e1069]: The Golden Nugget
+        - generic [ref=e1070]: Table 07
+      - generic [ref=e1071]:
+        - button "Fullscreen" [ref=e1072]:
+          - img [ref=e1073]
+          - text: Fullscreen
+        - button "Admin unlock" [ref=e1078]:
+          - img [ref=e1079]
+  - button "Service" [ref=e1083]:
+    - img [ref=e1084]
+    - generic [ref=e1087]: Service

@@ -1,0 +1,37 @@
+- generic [ref=e1270]:
+  - banner [ref=e1271]:
+    - generic:
+      - button
+  - main [ref=e1272]:
+    - generic [ref=e1273]:
+      - img [ref=e1275]
+      - generic [ref=e1278]:
+        - heading "Your order is being prepared" [level=1] [ref=e1279]
+        - paragraph [ref=e1280]: Order PFMFNU
+      - generic [ref=e1281]:
+        - generic [ref=e1282]:
+          - img [ref=e1283]
+          - generic [ref=e1286]:
+            - img [ref=e1287]
+            - generic [ref=e1290]: 09:44
+        - paragraph [ref=e1291]: Time remaining to place your order
+      - generic [ref=e1292]:
+        - heading "Ordered items" [level=2] [ref=e1293]:
+          - img [ref=e1294]
+          - text: Ordered items
+        - list [ref=e1299]:
+          - listitem [ref=e1300]:
+            - generic [ref=e1301]: 1× The Jobber
+            - generic [ref=e1302]: €19.95
+          - listitem [ref=e1303]:
+            - generic [ref=e1304]: 1× The Jobber
+            - generic [ref=e1305]: €19.95
+        - generic [ref=e1306]:
+          - generic [ref=e1307]: Total
+          - generic [ref=e1308]: €39.90
+      - generic [ref=e1309]:
+        - button "Back to menu" [ref=e1310]:
+          - generic [ref=e1311]:
+            - img [ref=e1312]
+            - text: Back to menu
+        - button "Start new order" [ref=e1314]

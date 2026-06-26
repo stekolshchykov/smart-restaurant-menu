@@ -1,0 +1,38 @@
+- generic [ref=e574]:
+  - banner [ref=e575]:
+    - generic:
+      - button
+  - main [ref=e576]:
+    - generic [ref=e577]:
+      - button "Back to menu" [ref=e578]:
+        - img [ref=e579]
+        - text: Back to menu
+      - generic [ref=e581]:
+        - img "Soup of the Day" [ref=e583]
+        - generic [ref=e584]:
+          - heading "Soup of the Day" [level=1] [ref=e585]
+          - paragraph [ref=e586]: Fresh creamy soup of the day served with a crusty white roll.
+        - generic [ref=e587]: "Allergens: Celery, Dairy, Wheat"
+        - generic [ref=e588]:
+          - heading "Extras" [level=2] [ref=e589]
+          - generic [ref=e590]:
+            - generic [ref=e591]:
+              - paragraph [ref=e592]: Extra bread roll
+              - paragraph [ref=e593]: €0.80 each
+            - generic [ref=e594]:
+              - button "Decrease Extra bread roll" [ref=e595]:
+                - img [ref=e596]
+              - generic [ref=e597]: "0"
+              - button "Increase Extra bread roll" [ref=e598]:
+                - img [ref=e599]
+        - generic [ref=e600]:
+          - generic [ref=e601]: Quantity
+          - generic [ref=e602]:
+            - button "Decrease quantity" [disabled] [ref=e603]:
+              - img [ref=e604]
+            - generic [ref=e605]: "1"
+            - button "Increase quantity" [ref=e606]:
+              - img [ref=e607]
+        - button "Add to order €5.95" [ref=e609]:
+          - generic [ref=e610]: Add to order
+          - generic [ref=e611]: €5.95

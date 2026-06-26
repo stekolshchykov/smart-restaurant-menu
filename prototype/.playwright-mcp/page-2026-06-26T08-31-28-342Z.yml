@@ -1,0 +1,473 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Áras Living" [ref=e6] [cursor=pointer]:
+        - /url: /en/
+        - img "Áras Living" [ref=e7]:
+          - generic [ref=e8]: Áras Living
+      - navigation "Primary" [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /en/
+        - link "Services" [ref=e11] [cursor=pointer]:
+          - /url: /en/services/
+        - link "Projects" [ref=e12] [cursor=pointer]:
+          - /url: /en/projects/
+        - link "Materials" [ref=e13] [cursor=pointer]:
+          - /url: /en/materials/
+        - link "Insights" [ref=e14] [cursor=pointer]:
+          - /url: /en/insights/
+        - link "Contact" [ref=e15] [cursor=pointer]:
+          - /url: /en/contact/
+        - group "Studio menu" [ref=e16]:
+          - button "Studio" [ref=e17]:
+            - text: Studio
+            - img [ref=e18]
+      - link "Discuss a Project" [ref=e21] [cursor=pointer]:
+        - /url: /en/contact/
+        - text: Discuss a Project
+        - img [ref=e22]
+      - button "Open menu" [ref=e24]:
+        - img [ref=e25]
+  - main [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e33]:
+        - heading "Furniture, measured in millimetres." [level=1] [ref=e34]
+        - paragraph [ref=e35]: Bespoke wardrobes, kitchens, and interior joinery from our Dublin workshop.
+        - generic [ref=e36]:
+          - link "Discuss a Project" [ref=e37] [cursor=pointer]:
+            - /url: /en/contact/
+            - text: Discuss a Project
+            - img [ref=e38]
+          - link "View flagship project" [ref=e40] [cursor=pointer]:
+            - /url: /en/projects/penthouse-wardrobe-suite/
+      - generic [ref=e42]:
+        - link "Recent project Dublin Bay Dressing Room" [ref=e43] [cursor=pointer]:
+          - /url: /en/projects/penthouse-wardrobe-suite/
+          - generic [ref=e44]: Recent project Dublin Bay Dressing Room
+        - link "Featured material American walnut + aged brass" [ref=e45] [cursor=pointer]:
+          - /url: /en/materials/american-walnut/
+          - generic [ref=e46]: Featured material American walnut + aged brass
+        - link "Made in Ireland Measured, built, installed" [ref=e47] [cursor=pointer]:
+          - /url: /en/about/
+          - generic [ref=e48]: Made in Ireland Measured, built, installed
+      - generic [ref=e49]: Scroll
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]: The Studio
+        - heading "Quiet luxury, made to measure" [level=2] [ref=e55]
+        - paragraph [ref=e56]: For over two decades, Áras Living has designed and built furniture for homes and spaces across Ireland. Every piece begins with a conversation and ends with a measured fit.
+        - link "Our Story" [ref=e58] [cursor=pointer]:
+          - /url: /en/about/
+          - text: Our Story
+          - img [ref=e59]
+      - generic [ref=e61]:
+        - img "Áras Living makers reviewing walnut joinery and brass details in the workshop" [ref=e63]
+        - blockquote [ref=e65]:
+          - paragraph [ref=e66]: Furniture, measured in millimetres.
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e72]:
+          - heading "The detail is the design." [level=2] [ref=e73]
+          - paragraph [ref=e74]: Every handle, veneer run and drawer shadow is resolved before a board reaches the saw.
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - text: "01"
+            - paragraph [ref=e77]: Matched grain sets across every visible elevation
+          - generic [ref=e78]:
+            - text: "02"
+            - paragraph [ref=e79]: Brass and stone specified by touch, not catalogue code
+          - generic [ref=e80]:
+            - text: "03"
+            - paragraph [ref=e81]: Workshop drawings checked against the room millimetre by millimetre
+        - link "See the process" [ref=e82] [cursor=pointer]:
+          - /url: /en/process/
+          - text: See the process
+          - img [ref=e83]
+      - generic [ref=e87]:
+        - img "Walnut, brass, stone and lacquer samples arranged for bespoke furniture specification"
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e92]: Materials
+          - heading "The material world" [level=2] [ref=e93]
+          - paragraph [ref=e94]: Timbers, lacquers, stone and metal — chosen for how they age, feel, and fit.
+        - link "Explore Materials" [ref=e96] [cursor=pointer]:
+          - /url: /en/materials/
+          - text: Explore Materials
+          - img [ref=e97]
+      - generic [ref=e99]:
+        - group [ref=e100]:
+          - link "European oak timber swatch solid timbers European Oak The timber most at home in an Irish room." [ref=e102] [cursor=pointer]:
+            - /url: /en/materials/european-oak/
+            - generic [ref=e103]:
+              - img "European oak timber swatch"
+            - generic [ref=e104]:
+              - paragraph [ref=e105]: solid timbers
+              - heading "European Oak" [level=3] [ref=e106]
+              - paragraph [ref=e107]: The timber most at home in an Irish room.
+        - group [ref=e108]:
+          - link "American walnut timber swatch solid timbers American Walnut Depth, drama, and everyday calm." [ref=e110] [cursor=pointer]:
+            - /url: /en/materials/american-walnut/
+            - generic [ref=e111]:
+              - img "American walnut timber swatch"
+            - generic [ref=e112]:
+              - paragraph [ref=e113]: solid timbers
+              - heading "American Walnut" [level=3] [ref=e114]
+              - paragraph [ref=e115]: Depth, drama, and everyday calm.
+        - group [ref=e116]:
+          - link "White ash timber swatch solid timbers White Ash Lightness without sterility." [ref=e118] [cursor=pointer]:
+            - /url: /en/materials/white-ash/
+            - generic [ref=e119]:
+              - img "White ash timber swatch"
+            - generic [ref=e120]:
+              - paragraph [ref=e121]: solid timbers
+              - heading "White Ash" [level=3] [ref=e122]
+              - paragraph [ref=e123]: Lightness without sterility.
+    - generic [ref=e125]:
+      - generic [ref=e126]:
+        - generic [ref=e127]:
+          - generic [ref=e128]: Services
+          - heading "What we make" [level=2] [ref=e129]:
+            - generic "What we make" [ref=e130]:
+              - generic [ref=e131]: What
+              - generic [ref=e132]: we
+              - generic [ref=e133]: make
+        - link "View All Services" [ref=e136] [cursor=pointer]:
+          - /url: /en/services/
+          - text: View All Services
+          - img [ref=e137]
+      - generic [ref=e139]:
+        - group [ref=e141]:
+          - link "Bespoke fitted wardrobe with soft-close drawers and integrated lighting residential Wardrobes & Dressing Rooms Fitted wardrobes designed around the architecture of your room and the rhythm of your day. Explore Service" [ref=e143] [cursor=pointer]:
+            - /url: /en/services/custom-wardrobes/
+            - generic [ref=e144]:
+              - img "Bespoke fitted wardrobe with soft-close drawers and integrated lighting"
+            - generic [ref=e145]:
+              - paragraph [ref=e146]: residential
+              - heading "Wardrobes & Dressing Rooms" [level=3] [ref=e147]
+              - paragraph [ref=e148]: Fitted wardrobes designed around the architecture of your room and the rhythm of your day.
+              - generic [ref=e149]:
+                - text: Explore Service
+                - img [ref=e150]
+        - group [ref=e154]:
+          - link "Modern office reception desk and boardroom joinery commercial Workplaces Reception desks, boardroom tables, and breakout joinery that communicate quality before anyone sits down. Explore Service" [ref=e156] [cursor=pointer]:
+            - /url: /en/services/office-fit-outs/
+            - generic [ref=e157]:
+              - img "Modern office reception desk and boardroom joinery"
+            - generic [ref=e158]:
+              - paragraph [ref=e159]: commercial
+              - heading "Workplaces" [level=3] [ref=e160]
+              - paragraph [ref=e161]: Reception desks, boardroom tables, and breakout joinery that communicate quality before anyone sits down.
+              - generic [ref=e162]:
+                - text: Explore Service
+                - img [ref=e163]
+      - generic [ref=e166]:
+        - paragraph [ref=e167]: View All Services
+        - generic [ref=e168]:
+          - link "Kitchens" [ref=e169] [cursor=pointer]:
+            - /url: /en/services/bespoke-kitchens/
+            - text: Kitchens
+          - link "Dressing Rooms" [ref=e170] [cursor=pointer]:
+            - /url: /en/services/walk-in-closets/
+            - text: Dressing Rooms
+          - link "Living Joinery" [ref=e171] [cursor=pointer]:
+            - /url: /en/services/living-spaces/
+            - text: Living Joinery
+          - link "Retail Spaces" [ref=e172] [cursor=pointer]:
+            - /url: /en/services/retail-interiors/
+            - text: Retail Spaces
+          - link "Hotels & Restaurants" [ref=e173] [cursor=pointer]:
+            - /url: /en/services/hospitality/
+            - text: Hotels & Restaurants
+          - link "One-Off Commissions" [ref=e174] [cursor=pointer]:
+            - /url: /en/services/custom-solutions/
+            - text: One-Off Commissions
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - paragraph [ref=e179]: 20+
+        - paragraph [ref=e180]: Years of craft
+      - generic [ref=e181]:
+        - paragraph [ref=e182]: 500+
+        - paragraph [ref=e183]: Projects delivered
+      - generic [ref=e184]:
+        - paragraph [ref=e185]: "12"
+        - paragraph [ref=e186]: Workshop makers
+      - generic [ref=e187]:
+        - paragraph [ref=e188]: "10"
+        - paragraph [ref=e189]: Year warranty
+    - generic [ref=e191]:
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - generic [ref=e194]: Selected Work
+          - heading "Selected Work" [level=2] [ref=e195]:
+            - generic "Selected Work" [ref=e196]:
+              - generic [ref=e197]: Selected
+              - generic [ref=e198]: Work
+        - link "View All Projects" [ref=e201] [cursor=pointer]:
+          - /url: /en/projects/
+          - text: View All Projects
+          - img [ref=e202]
+      - generic [ref=e204]:
+        - group [ref=e206]:
+          - link "Penthouse walk-in wardrobe suite in American walnut with brass hardware residential / 2024 Dublin Bay Dressing Room View Project" [ref=e208] [cursor=pointer]:
+            - /url: /en/projects/penthouse-wardrobe-suite/
+            - generic [ref=e209]:
+              - img "Penthouse walk-in wardrobe suite in American walnut with brass hardware"
+            - generic [ref=e210]:
+              - paragraph [ref=e211]: residential / 2024
+              - heading "Dublin Bay Dressing Room" [level=3] [ref=e212]
+              - generic [ref=e213]:
+                - text: View Project
+                - img [ref=e214]
+        - group [ref=e218]:
+          - link "Handleless matte charcoal kitchen with island and stone worktop residential / 2024 Blackrock Family Kitchen View Project" [ref=e220] [cursor=pointer]:
+            - /url: /en/projects/blackrock-kitchen/
+            - generic [ref=e221]:
+              - img "Handleless matte charcoal kitchen with island and stone worktop"
+            - generic [ref=e222]:
+              - paragraph [ref=e223]: residential / 2024
+              - heading "Blackrock Family Kitchen" [level=3] [ref=e224]
+              - generic [ref=e225]:
+                - text: View Project
+                - img [ref=e226]
+        - group [ref=e230]:
+          - link "Hotel lobby with walnut reception desk and lounge seating commercial / 2023 Hotel Reception & Lounge View Project" [ref=e232] [cursor=pointer]:
+            - /url: /en/projects/shelbourne-fittings/
+            - generic [ref=e233]:
+              - img "Hotel lobby with walnut reception desk and lounge seating"
+            - generic [ref=e234]:
+              - paragraph [ref=e235]: commercial / 2023
+              - heading "Hotel Reception & Lounge" [level=3] [ref=e236]
+              - generic [ref=e237]:
+                - text: View Project
+                - img [ref=e238]
+    - generic [ref=e242]:
+      - generic [ref=e244]:
+        - generic [ref=e245]: Process
+        - heading "From Sketch to Space" [level=2] [ref=e246]
+      - generic [ref=e248]:
+        - generic [ref=e250]:
+          - generic [ref=e251]: "1"
+          - generic [ref=e252]:
+            - text: "1"
+            - heading "Consult" [level=3] [ref=e253]
+            - paragraph [ref=e254]: We visit your home or site, listen to how you live, and define the brief, budget, and timeline together.
+        - generic [ref=e256]:
+          - generic [ref=e257]: "2"
+          - generic [ref=e258]:
+            - text: "2"
+            - heading "Design" [level=3] [ref=e259]
+            - paragraph [ref=e260]: Drawings, material samples, and 3D visuals let you see every detail before the first piece of timber is cut.
+        - generic [ref=e262]:
+          - generic [ref=e263]: "3"
+          - generic [ref=e264]:
+            - text: "3"
+            - heading "Craft" [level=3] [ref=e265]
+            - paragraph [ref=e266]: Your furniture is made in our Dublin workshop by makers who measure twice, cut once, and finish by hand.
+        - generic [ref=e268]:
+          - generic [ref=e269]: "4"
+          - generic [ref=e270]:
+            - text: "4"
+            - heading "Install" [level=3] [ref=e271]
+            - paragraph [ref=e272]: We deliver and install with the same care we built it with, then leave the space ready to live in.
+    - generic [ref=e274]:
+      - generic [ref=e275]:
+        - generic [ref=e276]:
+          - generic [ref=e277]: Insights
+          - heading "Notes from the studio" [level=2] [ref=e278]
+        - link "Read All Insights" [ref=e280] [cursor=pointer]:
+          - /url: /en/insights/
+          - text: Read All Insights
+          - img [ref=e281]
+      - generic [ref=e283]:
+        - article [ref=e284]:
+          - link "Handleless charcoal kitchen with island and pendant lighting Design 5 min read Why Handleless Kitchens Still Feel Future-Proof Twenty years after they first appeared in European kitchens, handleless cabinets remain the default choice for architects and interior designers who want a room to age gracefully." [ref=e285] [cursor=pointer]:
+            - /url: /en/insights/why-handleless-kitchens-still-feel-future-proof/
+            - generic [ref=e286]:
+              - img "Handleless charcoal kitchen with island and pendant lighting"
+            - generic [ref=e287]:
+              - text: Design
+              - text: 5 min read
+            - heading "Why Handleless Kitchens Still Feel Future-Proof" [level=3] [ref=e288]
+            - paragraph [ref=e289]: Twenty years after they first appeared in European kitchens, handleless cabinets remain the default choice for architects and interior designers who want a room to age gracefully.
+        - article [ref=e290]:
+          - link "American walnut dressing room with brass details Materials 4 min read The Quiet Luxury of American Walnut Few materials communicate luxury as quietly as American walnut. Its depth, stability, and fine grain make it the first timber we reach for when a room needs warmth without ostentation." [ref=e291] [cursor=pointer]:
+            - /url: /en/insights/the-quiet-luxury-of-american-walnut/
+            - generic [ref=e292]:
+              - img "American walnut dressing room with brass details"
+            - generic [ref=e293]:
+              - text: Materials
+              - text: 4 min read
+            - heading "The Quiet Luxury of American Walnut" [level=3] [ref=e294]
+            - paragraph [ref=e295]: Few materials communicate luxury as quietly as American walnut. Its depth, stability, and fine grain make it the first timber we reach for when a room needs warmth without ostentation.
+    - generic [ref=e297]:
+      - generic [ref=e299]:
+        - generic [ref=e300]: Client Words
+        - heading "What They Say" [level=2] [ref=e301]
+      - generic [ref=e302]:
+        - generic [ref=e303]:
+          - article [ref=e305]:
+            - text: “
+            - blockquote [ref=e306]: Every drawer, every light, every joint feels considered. The dressing room has become the calmest room in the house.
+            - generic [ref=e307]:
+              - paragraph [ref=e308]: Sarah M.
+              - paragraph [ref=e309]: Dublin 6
+          - article [ref=e311]:
+            - text: “
+            - blockquote [ref=e312]: They understood the house before they designed the kitchen. The result respects the original rooms and works for how we live.
+            - generic [ref=e313]:
+              - paragraph [ref=e314]: David & Aileen K.
+              - paragraph [ref=e315]: Blackrock
+          - article [ref=e317]:
+            - text: “
+            - blockquote [ref=e318]: Our customers notice the joinery before they notice the product. That is exactly what we wanted.
+            - generic [ref=e319]:
+              - paragraph [ref=e320]: James T.
+              - paragraph [ref=e321]: Dublin 2
+        - generic [ref=e322]: Every drawer, every light, every joint feels considered. The dressing room has become the calmest room in the house. — Sarah M., Dublin 6
+        - generic [ref=e323]:
+          - button "Previous testimonial" [ref=e324]:
+            - img [ref=e325]
+          - text: 01 / 03
+          - button "Next testimonial" [ref=e327]:
+            - img [ref=e328]
+    - generic [ref=e332]:
+      - generic [ref=e335]:
+        - img "Áras Living showroom interior with full-size installations and material samples"
+      - generic [ref=e336]:
+        - generic [ref=e338]:
+          - generic [ref=e339]: Showroom
+          - heading "See it in person" [level=2] [ref=e340]
+          - paragraph [ref=e341]: Visit our Dublin showroom to open drawers, feel handles, and see how timber responds to natural light.
+        - link "Book a Visit" [ref=e342] [cursor=pointer]:
+          - /url: /en/showroom/
+          - text: Book a Visit
+          - img [ref=e343]
+    - generic [ref=e348]:
+      - heading "Begin your project." [level=2] [ref=e349]
+      - paragraph [ref=e350]: Tell us about your space. We will respond within two business days.
+      - link "Start a Conversation" [ref=e351] [cursor=pointer]:
+        - /url: /en/contact/
+        - generic [ref=e352]: Start a Conversation
+        - img [ref=e353]
+  - contentinfo [ref=e356]:
+    - generic [ref=e357]:
+      - generic [ref=e358]:
+        - generic [ref=e359]:
+          - heading "Begin your project." [level=2] [ref=e360]
+          - paragraph [ref=e361]: Furniture, measured in millimetres.
+          - link "Discuss a Project" [ref=e362] [cursor=pointer]:
+            - /url: /en/contact/
+            - text: Discuss a Project
+            - img [ref=e363]
+        - generic [ref=e365]:
+          - generic [ref=e366]:
+            - heading "Navigation" [level=3] [ref=e367]
+            - list [ref=e368]:
+              - listitem [ref=e369]:
+                - link "Home" [ref=e370] [cursor=pointer]:
+                  - /url: /en/
+              - listitem [ref=e371]:
+                - link "About" [ref=e372] [cursor=pointer]:
+                  - /url: /en/about/
+              - listitem [ref=e373]:
+                - link "Services" [ref=e374] [cursor=pointer]:
+                  - /url: /en/services/
+              - listitem [ref=e375]:
+                - link "Projects" [ref=e376] [cursor=pointer]:
+                  - /url: /en/projects/
+              - listitem [ref=e377]:
+                - link "Contact" [ref=e378] [cursor=pointer]:
+                  - /url: /en/contact/
+          - generic [ref=e379]:
+            - heading "Explore" [level=3] [ref=e380]
+            - list [ref=e381]:
+              - listitem [ref=e382]:
+                - link "Materials" [ref=e383] [cursor=pointer]:
+                  - /url: /en/materials/
+              - listitem [ref=e384]:
+                - link "Process" [ref=e385] [cursor=pointer]:
+                  - /url: /en/process/
+              - listitem [ref=e386]:
+                - link "Showroom" [ref=e387] [cursor=pointer]:
+                  - /url: /en/showroom/
+              - listitem [ref=e388]:
+                - link "Commercial" [ref=e389] [cursor=pointer]:
+                  - /url: /en/commercial/
+              - listitem [ref=e390]:
+                - link "Insights" [ref=e391] [cursor=pointer]:
+                  - /url: /en/insights/
+              - listitem [ref=e392]:
+                - link "FAQ" [ref=e393] [cursor=pointer]:
+                  - /url: /en/faq/
+          - generic [ref=e394]:
+            - heading "Services" [level=3] [ref=e395]
+            - list [ref=e396]:
+              - listitem [ref=e397]:
+                - link "Wardrobes & Dressing Rooms" [ref=e398] [cursor=pointer]:
+                  - /url: /en/services/
+              - listitem [ref=e399]:
+                - link "Kitchens" [ref=e400] [cursor=pointer]:
+                  - /url: /en/services/
+              - listitem [ref=e401]:
+                - link "Dressing Rooms" [ref=e402] [cursor=pointer]:
+                  - /url: /en/services/
+              - listitem [ref=e403]:
+                - link "Living Joinery" [ref=e404] [cursor=pointer]:
+                  - /url: /en/services/
+              - listitem [ref=e405]:
+                - link "Workplaces" [ref=e406] [cursor=pointer]:
+                  - /url: /en/services/
+              - listitem [ref=e407]:
+                - link "Retail Spaces" [ref=e408] [cursor=pointer]:
+                  - /url: /en/services/
+          - generic [ref=e409]:
+            - heading "Contact" [level=3] [ref=e410]
+            - list [ref=e411]:
+              - listitem [ref=e412]:
+                - link "hello@arasliving.ie" [ref=e413] [cursor=pointer]:
+                  - /url: mailto:hello@arasliving.ie
+              - listitem [ref=e414]:
+                - link "+353 1 234 5678" [ref=e415] [cursor=pointer]:
+                  - /url: https://wa.me/35312345678
+              - listitem [ref=e416]: Unit 4, Grand Canal Street Lower, Dublin 2, D02 A342, Ireland
+      - separator [ref=e417]
+      - generic [ref=e418]:
+        - generic [ref=e419]:
+          - heading "Latest Insight" [level=3] [ref=e420]
+          - link "Why Handleless Kitchens Still Feel Future-Proof Twenty years after they first appeared in European kitchens, handleless cabinets remain the default choice for architects and interior designers who want a room to age gracefully." [ref=e421] [cursor=pointer]:
+            - /url: /en/insights/why-handleless-kitchens-still-feel-future-proof/
+            - heading "Why Handleless Kitchens Still Feel Future-Proof" [level=4] [ref=e422]
+            - paragraph [ref=e423]: Twenty years after they first appeared in European kitchens, handleless cabinets remain the default choice for architects and interior designers who want a room to age gracefully.
+        - generic [ref=e424]:
+          - link "Handleless charcoal kitchen with island and pendant lighting":
+            - /url: /en/insights/why-handleless-kitchens-still-feel-future-proof/
+            - img "Handleless charcoal kitchen with island and pendant lighting"
+      - separator [ref=e425]
+      - generic [ref=e426]:
+        - generic [ref=e427]: © 2026 Áras Living Furniture & Interiors Ltd trading as Áras Living. All rights reserved. Handcrafted in Ireland.
+        - generic [ref=e428]:
+          - navigation "Legal links" [ref=e429]:
+            - link "Privacy Policy" [ref=e430] [cursor=pointer]:
+              - /url: /en/privacy/
+            - link "Terms of Service" [ref=e431] [cursor=pointer]:
+              - /url: /en/terms/
+            - link "Cookie Policy" [ref=e432] [cursor=pointer]:
+              - /url: /en/cookies/
+          - generic [ref=e433]:
+            - link "Instagram" [ref=e434] [cursor=pointer]:
+              - /url: https://instagram.com/arasliving
+              - img [ref=e435]
+            - link "Pinterest" [ref=e438] [cursor=pointer]:
+              - /url: https://pinterest.com/arasliving
+              - img [ref=e439]
+            - link "LinkedIn" [ref=e441] [cursor=pointer]:
+              - /url: https://linkedin.com/company/aras-living
+              - img [ref=e442]
+  - dialog "We use cookies to understand how visitors use our site and to manage your preferences." [ref=e446]:
+    - generic [ref=e447]:
+      - paragraph [ref=e448]: We use cookies to understand how visitors use our site and to manage your preferences.
+      - generic [ref=e449]:
+        - button "Accept All" [ref=e450]
+        - button "Reject Optional" [ref=e451]
+        - button "Customise" [ref=e452]

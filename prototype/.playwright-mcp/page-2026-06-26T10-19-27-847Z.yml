@@ -1,0 +1,62 @@
+- generic [ref=e534]:
+  - banner [ref=e535]:
+    - button "Go back" [ref=e537]:
+      - img [ref=e538]
+  - main [ref=e540]:
+    - generic [ref=e542]:
+      - button "Back to menu" [ref=e543]:
+        - img [ref=e544]
+        - text: Back to menu
+      - generic [ref=e546]:
+        - img "The Jobber" [ref=e548]
+        - generic [ref=e550]:
+          - generic [ref=e551]:
+            - heading "The Jobber" [level=1] [ref=e552]
+            - generic [ref=e553]: €17.95
+            - paragraph [ref=e554]: 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce.
+          - generic [ref=e555]:
+            - heading "Ingredients" [level=2] [ref=e556]
+            - generic [ref=e557]:
+              - generic [ref=e558]: beef burger
+              - generic [ref=e559]: brioche bun
+              - generic [ref=e560]: bacon
+              - generic [ref=e561]: cheddar
+              - generic [ref=e562]: lettuce
+              - generic [ref=e563]: tomato
+              - generic [ref=e564]: onion
+              - generic [ref=e565]: house sauce
+          - generic [ref=e566]:
+            - heading "Allergens" [level=2] [ref=e567]
+            - generic [ref=e568]:
+              - generic [ref=e569]: Dairy
+              - generic [ref=e570]: Eggs
+              - generic [ref=e571]: Mustard
+              - generic [ref=e572]: Sulphites
+              - generic [ref=e573]: Wheat
+          - generic [ref=e574]:
+            - heading "Extras" [level=2] [ref=e575]
+            - generic [ref=e576]:
+              - checkbox "Extra cheese €1.50" [ref=e577] [cursor=pointer]:
+                - generic [ref=e580]:
+                  - generic [ref=e581]: Extra cheese
+                  - generic [ref=e582]: €1.50
+              - checkbox "Bacon €2.00" [ref=e583] [cursor=pointer]:
+                - generic [ref=e586]:
+                  - generic [ref=e587]: Bacon
+                  - generic [ref=e588]: €2.00
+              - checkbox "Garlic sauce €0.80" [ref=e589] [cursor=pointer]:
+                - generic [ref=e592]:
+                  - generic [ref=e593]: Garlic sauce
+                  - generic [ref=e594]: €0.80
+          - separator [ref=e595]
+          - generic [ref=e597]:
+            - paragraph [ref=e598]: Quantity
+            - generic [ref=e599]:
+              - button "Decrease" [disabled] [ref=e600]:
+                - img [ref=e601]
+              - generic [ref=e602]: "1"
+              - button "Increase" [ref=e603]:
+                - img [ref=e604]
+          - button "Add to order €17.95" [ref=e605]:
+            - generic [ref=e606]: Add to order
+            - generic [ref=e607]: €17.95

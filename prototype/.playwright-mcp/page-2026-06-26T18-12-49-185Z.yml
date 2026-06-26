@@ -1,0 +1,84 @@
+- generic [ref=e2217]:
+  - main [ref=e2218]:
+    - generic [ref=e2221]:
+      - heading "The Golden Nugget" [level=1] [ref=e2223]
+      - paragraph [ref=e2224]: Freshly prepared dishes · Table service · Table 07
+    - generic [ref=e2225]:
+      - generic [ref=e2227]:
+        - generic [ref=e2228]:
+          - generic [ref=e2229]:
+            - generic [ref=e2230]: Search
+            - generic:
+              - img
+            - searchbox "Search" [active] [ref=e2231]: burger
+            - button "Clear search" [ref=e3110]:
+              - img [ref=e3111]
+          - generic [ref=e2232]:
+            - generic [ref=e2233]:
+              - switch "Spicy" [ref=e2234]:
+                - img [ref=e2236]
+                - generic [ref=e2238]: Spicy
+              - switch "Vegetarian" [ref=e2239]:
+                - img [ref=e2241]
+                - generic [ref=e2244]: Vegetarian
+              - switch "Vegan" [ref=e2245]:
+                - img [ref=e2247]
+                - generic [ref=e2251]: Vegan
+              - switch "Gluten-free" [ref=e2252]:
+                - img [ref=e2254]
+                - generic [ref=e2265]: Gluten-free
+            - button "Clear" [ref=e3114]:
+              - text: Clear
+              - img [ref=e3115]
+        - paragraph [ref=e2267]: 2 dishes found
+      - navigation "Category navigation" [ref=e2268]:
+        - tablist [ref=e2271]:
+          - tab "Soups" [disabled] [ref=e2272]
+          - tab "Starters" [disabled] [ref=e2274]
+          - tab "Salads" [disabled] [ref=e2275]
+          - tab "Meat" [selected] [ref=e2276]: Meat
+          - tab "Fish" [disabled] [ref=e2277]
+          - tab "Pasta" [disabled] [ref=e2278]
+          - tab "Pizza" [disabled] [ref=e2279]
+          - tab "Vegetarian" [disabled] [ref=e2280]
+          - tab "Drinks" [disabled] [ref=e2281]
+          - tab "Desserts" [disabled] [ref=e2282]
+    - region "Meat" [ref=e2506]:
+      - generic [ref=e2507]:
+        - heading "Meat" [level=2] [ref=e2509]
+        - generic [ref=e2510]:
+          - button "The Jobber Chef's choice House favourite Quick add The Jobber The Jobber €17.95 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce." [ref=e2512] [cursor=pointer]:
+            - generic [ref=e2513]:
+              - img "The Jobber" [ref=e2515]
+              - generic [ref=e2516]:
+                - generic [ref=e2517]: Chef's choice
+                - generic [ref=e2518]: House favourite
+              - button "Quick add The Jobber" [ref=e2520]:
+                - img [ref=e2521]
+            - generic [ref=e2522]:
+              - generic [ref=e2523]:
+                - heading "The Jobber" [level=3] [ref=e2524]
+                - generic [ref=e2525]: €17.95
+              - paragraph [ref=e2526]: 8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce.
+          - button "Southern Fried Chicken Burger Quick add Southern Fried Chicken Burger Southern Fried Chicken Burger €16.95 Crispy chicken fillet with lettuce, tomato, cheese, red onion and relish." [ref=e2556] [cursor=pointer]:
+            - generic [ref=e2557]:
+              - img "Southern Fried Chicken Burger" [ref=e2559]
+              - button "Quick add Southern Fried Chicken Burger" [ref=e2561]:
+                - img [ref=e2562]
+            - generic [ref=e2563]:
+              - generic [ref=e2564]:
+                - heading "Southern Fried Chicken Burger" [level=3] [ref=e2565]
+                - generic [ref=e2566]: €16.95
+              - paragraph [ref=e2567]: Crispy chicken fillet with lettuce, tomato, cheese, red onion and relish.
+  - contentinfo [ref=e3086]:
+    - generic [ref=e3088]:
+      - paragraph [ref=e3090]: The Golden Nugget
+      - generic [ref=e3091]:
+        - button "Open fullscreen" [ref=e3092]:
+          - img [ref=e3093]
+          - generic [ref=e3098]: Open fullscreen
+        - button "Admin unlock" [ref=e3099]:
+          - img [ref=e3100]
+  - button "Service" [ref=e3104]:
+    - img [ref=e3105]
+    - generic [ref=e3108]: Service

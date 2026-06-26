@@ -1,0 +1,92 @@
+- generic [ref=e2]:
+  - generic [ref=e5]: Call us on 064 6631325
+  - banner [ref=e6]:
+    - generic [ref=e8]:
+      - navigation [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "HOME" [ref=e12] [cursor=pointer]:
+              - /url: https://thegoldennugget.ie/
+          - listitem [ref=e13]:
+            - link "BAR & LOUNGE" [ref=e14] [cursor=pointer]:
+              - /url: https://thegoldennugget.ie/bar-lounge/
+          - listitem [ref=e15]:
+            - link "RESTAURANT" [ref=e16] [cursor=pointer]:
+              - /url: https://thegoldennugget.ie/restaurant/
+          - listitem [ref=e17]:
+            - link "The Golden Nugget" [ref=e19] [cursor=pointer]:
+              - /url: https://thegoldennugget.ie/
+              - img "The Golden Nugget" [ref=e20]
+          - listitem [ref=e21]:
+            - link "MENU" [ref=e22] [cursor=pointer]:
+              - /url: https://thegoldennugget.ie/wp-content/uploads/2026/01/The-Golden-Nugget-new-menu.pdf
+          - listitem [ref=e23]:
+            - link "LOCATION" [ref=e24] [cursor=pointer]:
+              - /url: https://thegoldennugget.ie/location/
+          - listitem [ref=e25]:
+            - link "CONTACT US" [ref=e26] [cursor=pointer]:
+              - /url: https://thegoldennugget.ie/contact-us/
+      - text: a
+  - generic [ref=e27]:
+    - article [ref=e29]:
+      - generic [ref=e32]:
+        - paragraph [ref=e45]: The Golden Nugget Restaurant
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - paragraph [ref=e51]: Our menu caters for all tastes and budgets with simple, wholesome food, vegetarian options and a kid’s menu. Features include our famous ‘Jobber’ Burger, Craft Beer Battered Fish and our renowned Chicken Wings with a mouth-watering house sauce.
+            - paragraph [ref=e55]: All our produce is locally sourced from local suppliers. We cater for private functions including Wedding after-parties, Christenings, Birthday Parties, Anniversaries, Meetings, Funerals, Quizzes etc. We also cater for Stag and Hen Parties, including breakfast to start off!
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - link "The newly refurbished restaurant" [ref=e59] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/restaurant2.jpg
+                - img "The newly refurbished restaurant" [ref=e61]
+              - link "Traditional fish and chips" [ref=e63] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/fish-and-chips.jpg
+                - img "Traditional fish and chips" [ref=e65]
+            - generic [ref=e66]:
+              - link "Our bright and spacious restaurant" [ref=e68] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/restaurant1.jpg
+                - img "Our bright and spacious restaurant" [ref=e70]
+              - link "The Real Jobber" [ref=e72] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/steak.jpg
+                - img "The Real Jobber" [ref=e74]
+            - generic [ref=e75]:
+              - link "Plenty of space for your private function" [ref=e77] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/restaurant3.jpg
+                - img "Plenty of space for your private function" [ref=e79]
+              - link "Southern Fried Chicken Wrap" [ref=e81] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/wrap.jpg
+                - img "Southern Fried Chicken Wrap" [ref=e83]
+            - generic [ref=e84]:
+              - link "Our comfortable leather seating" [ref=e86] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/restaurant4.jpg
+                - img "Our comfortable leather seating" [ref=e88]
+              - link "The Jobber Burger" [ref=e90] [cursor=pointer]:
+                - /url: https://thegoldennugget.ie/wp-content/uploads/2017/09/burger.jpg
+                - img "The Jobber Burger" [ref=e92]
+        - generic [ref=e101]:
+          - paragraph [ref=e106]: See what our customers have to say…
+          - generic [ref=e109]:
+            - text: "|"
+            - generic [ref=e110]:
+              - paragraph [ref=e113]: Went in there just before 9pm on a sat night, it was located right next to our hotel. Service was efficient and friendly enough. We ordered vol au vent as mains, came with salad and chips and The Nugget (southern fried chicken wrap, came with salad and crisps). We thought the wrap would be a small portion due to the price €6.50. It was massive, will fill u up for a few hours. Both dishes were good and tasty. All came to just under €18.
+              - generic [ref=e114]: Lily D
+              - paragraph [ref=e115]: London, UK
+        - link "Make an Enquiry 9" [ref=e121] [cursor=pointer]:
+          - /url: /contact-us/
+    - contentinfo [ref=e123]:
+      - generic [ref=e125]:
+        - list [ref=e126]:
+          - listitem [ref=e127]:
+            - link "" [ref=e128] [cursor=pointer]:
+              - /url: https://www.facebook.com/goldennuggetbar/
+          - listitem [ref=e129]:
+            - link "" [ref=e130] [cursor=pointer]:
+              - /url: https://twitter.com/thegoldennugge3
+          - listitem [ref=e131]:
+            - link "" [ref=e132] [cursor=pointer]:
+              - /url: https://www.instagram.com/thegoldennuggetbar/
+        - generic [ref=e133]:
+          - text: © The Golden Nugget | All Rights Reserved |
+          - link "Privacy Policy" [ref=e134] [cursor=pointer]:
+            - /url: https://thegoldennugget.ie/privacy-policy/

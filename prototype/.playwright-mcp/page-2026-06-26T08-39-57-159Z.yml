@@ -1,0 +1,60 @@
+- generic [ref=e3]:
+  - generic [ref=e3727]:
+    - banner [ref=e3728]:
+      - generic:
+        - button
+    - main [ref=e3729]:
+      - generic [ref=e3730]:
+        - button "Back to menu" [ref=e3731]:
+          - img [ref=e3732]
+          - text: Back to menu
+        - generic [ref=e3734]:
+          - generic [ref=e3735]:
+            - img [ref=e3737]
+            - generic [ref=e3740]:
+              - heading "Your Order" [level=2] [ref=e3741]
+              - paragraph [ref=e3742]: 2 items
+          - list "Order items" [ref=e3744]:
+            - listitem [ref=e3745]:
+              - article [ref=e3746]:
+                - generic [ref=e3747]:
+                  - generic [ref=e3748]:
+                    - heading "2×The Jobber" [level=3] [ref=e3749]:
+                      - generic [ref=e3750]: 2×
+                      - text: The Jobber
+                    - generic [ref=e3751]: €35.90
+                  - list [ref=e3752]:
+                    - listitem [ref=e3753]:
+                      - generic [ref=e3754]: +Extra cheese
+                      - generic [ref=e3755]: €1.50
+                    - listitem [ref=e3756]:
+                      - generic [ref=e3757]: +Bacon
+                      - generic [ref=e3758]: €2.00
+                  - paragraph [ref=e3759]: €42.90
+                - button "Remove The Jobber" [ref=e3760]:
+                  - img [ref=e3761]
+            - listitem [ref=e3764]:
+              - article [ref=e3765]:
+                - generic [ref=e3766]:
+                  - generic [ref=e3767]:
+                    - heading "The Jobber" [level=3] [ref=e3768]
+                    - generic [ref=e3769]: €17.95
+                  - list [ref=e3770]:
+                    - listitem [ref=e3771]:
+                      - generic [ref=e3772]: +Extra cheese
+                      - generic [ref=e3773]: €1.50
+                  - paragraph [ref=e3774]: €19.45
+                - button "Remove The Jobber" [ref=e3775]:
+                  - img [ref=e3776]
+          - generic [ref=e3779]:
+            - generic [ref=e3780]:
+              - generic [ref=e3781]: Total
+              - generic [ref=e3782]: €62.35
+            - generic [ref=e3783]:
+              - button "Place Order" [ref=e3784]
+              - button "Back to Menu" [ref=e3785]:
+                - img [ref=e3786]
+                - text: Back to Menu
+  - button "3 items €62.35" [ref=e3725]:
+    - generic [ref=e2473]: 3 items
+    - generic [ref=e2475]: €62.35

@@ -1,0 +1,91 @@
+- generic [ref=e967]:
+  - banner [ref=e968]:
+    - link "Skip to content" [ref=e969] [cursor=pointer]:
+      - /url: "#main-content"
+      - generic [ref=e970]: Skip to content
+      - text: Skip to content
+    - button "Go back" [ref=e972]:
+      - img [ref=e973]
+  - main [ref=e975]:
+    - generic [ref=e977]:
+      - generic [ref=e979]:
+        - img "Soup of the Day" [ref=e982]
+        - generic [ref=e983]:
+          - img "Soup of the Day" [ref=e985]
+          - generic [ref=e986]:
+            - generic [ref=e987]:
+              - img "Fresh Orange Juice" [ref=e989]
+              - paragraph [ref=e991]: Fresh Orange Juice
+            - generic [ref=e992]:
+              - img "Sparkling Water" [ref=e994]
+              - paragraph [ref=e996]: Sparkling Water
+        - generic [ref=e998]:
+          - generic [ref=e999]:
+            - img [ref=e1000]
+            - heading "Perfect with" [level=2] [ref=e1002]
+          - generic [ref=e1003]:
+            - button "Fresh Orange Juice Fresh Orange Juice" [ref=e1004]:
+              - img "Fresh Orange Juice" [ref=e1006]
+              - paragraph [ref=e1008]: Fresh Orange Juice
+            - button "Sparkling Water Sparkling Water" [ref=e1009]:
+              - img "Sparkling Water" [ref=e1011]
+              - paragraph [ref=e1013]: Sparkling Water
+        - generic [ref=e1015]:
+          - heading "You may also like" [level=2] [ref=e1016]
+          - generic [ref=e1017]:
+            - button "Seafood Chowder Seafood Chowder €9.95" [ref=e1018]:
+              - img "Seafood Chowder" [ref=e1020]
+              - generic [ref=e1021]:
+                - paragraph [ref=e1022]: Seafood Chowder
+                - text: €9.95
+            - button "Minestrone Soup Minestrone Soup €6.50" [ref=e1023]:
+              - img "Minestrone Soup" [ref=e1025]
+              - generic [ref=e1026]:
+                - paragraph [ref=e1027]: Minestrone Soup
+                - text: €6.50
+      - generic [ref=e1029]:
+        - generic [ref=e1031]:
+          - heading "Soup of the Day" [level=1] [ref=e1032]
+          - generic [ref=e1033]: €5.95
+          - paragraph [ref=e1034]: Fresh creamy soup of the day served with a crusty white roll.
+        - generic [ref=e1037]:
+          - img [ref=e1038]
+          - paragraph [ref=e1040]: A rotating favourite — ask your server for today’s selection.
+        - generic [ref=e1042]:
+          - heading "Ingredients" [level=2] [ref=e1043]
+          - generic [ref=e1044]:
+            - generic [ref=e1045]: seasonal vegetables
+            - generic [ref=e1046]: cream
+            - generic [ref=e1047]: crusty white roll
+        - generic [ref=e1049]:
+          - heading "Allergens" [level=2] [ref=e1050]
+          - generic [ref=e1051]:
+            - generic [ref=e1052]: Celery
+            - generic [ref=e1053]: Dairy
+            - generic [ref=e1054]: Wheat
+        - generic [ref=e1056]:
+          - heading "Extras" [level=2] [ref=e1057]
+          - generic [ref=e1060]:
+            - generic [ref=e1061]:
+              - paragraph [ref=e1062]: Extra bread roll
+              - generic [ref=e1063]: €0.80
+            - generic [ref=e1064]:
+              - button "Decrease" [disabled] [ref=e1065]:
+                - img [ref=e1066]
+              - generic [ref=e1067]: "0"
+              - button "Increase" [ref=e1068]:
+                - img [ref=e1069]
+        - separator [ref=e1071]
+        - generic [ref=e1074]:
+          - paragraph [ref=e1075]: Quantity
+          - generic [ref=e1076]:
+            - button "Decrease" [disabled] [ref=e1077]:
+              - img [ref=e1078]
+            - generic [ref=e1079]: "1"
+            - button "Increase" [ref=e1080]:
+              - img [ref=e1081]
+        - button "Add to order €5.95" [ref=e1083]:
+          - generic [ref=e1084]: Add to order
+          - generic [ref=e1085]: €5.95
+  - button "Service" [ref=e1087]:
+    - img [ref=e1088]
