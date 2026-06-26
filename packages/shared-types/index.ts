@@ -271,3 +271,47 @@ export interface CreateTagRequest {
 export interface ImageUploadResponse {
   url: string;
 }
+
+export interface Table {
+  id: string;
+  projectId: string;
+  label: string;
+  token: string;
+  active: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type TableResponse = Table;
+
+export interface CreateTableRequest {
+  label: string;
+  active?: boolean;
+}
+
+export interface UpdateTableRequest {
+  label?: string;
+  active?: boolean;
+}
+
+export interface BulkCreateTablesRequest {
+  prefix: string;
+  start: number;
+  end: number;
+}
+
+export interface ReadinessCheck {
+  id: string;
+  label: string;
+  passed: boolean;
+  message?: string;
+}
+
+export interface PublicationStatusResponse {
+  projectId: string;
+  published: boolean;
+  url?: string;
+  domain?: string;
+  publishedAt?: string;
+  readiness: ReadinessCheck[];
+}

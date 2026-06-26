@@ -2,6 +2,7 @@ import type {
   Allergen,
   ApiError,
   AuthResponse,
+  BulkCreateTablesRequest,
   Category,
   CategoryWithItems,
   CreateAllergenRequest,
@@ -10,6 +11,7 @@ import type {
   CreateModifierGroupRequest,
   CreateModifierOptionRequest,
   CreateProjectRequest,
+  CreateTableRequest,
   CreateTagRequest,
   HealthResponse,
   ImageUploadResponse,
@@ -21,7 +23,9 @@ import type {
   ModifierOption,
   ProjectResponse,
   ProjectThemeResponse,
+  PublicationStatusResponse,
   RegisterRequest,
+  Table,
   Tag,
   UpdateCategoryRequest,
   UpdateMenuItemRequest,
@@ -29,6 +33,7 @@ import type {
   UpdateModifierOptionRequest,
   UpdateProjectRequest,
   UpdateProjectThemeRequest,
+  UpdateTableRequest,
   UserResponse,
 } from '@digital-menu/shared-types';
 export * from '@digital-menu/shared-types';
@@ -272,6 +277,59 @@ export class ApiClient {
       method: 'POST',
       body: formData,
     });
+  }
+
+  getTables(projectId: string): Promise<Table[]> {
+    return this.request<Table[]>(`/projects/${projectId}/tables`);
+  }
+
+  createTable(projectId: string, body: CreateTableRequest): Promise<Table> {
+    return this.request<Table>(`/projects/${projectId}/tables`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+  }
+
+  bulkCreateTables(projectId: string, body: BulkCreateTablesRequest): Promise<Table[]> {
+    return this.request<Table[]>(`/projects/${projectId}/tables/bulk`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+  }
+
+  updateTable(id: string, body: UpdateTableRequest): Promise<Table> {
+    return this.request<Table>(`/tables/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(body),
+    });
+  }
+
+  deleteTable(id: string): Promise<void> {
+    return this.request<void>(`/tables/${id}`, { method: 'DELETE' });
+  }
+
+  getTableQrUrl(id: string): string {
+    return `${this.baseUrl}/tables/${id}/qr`;
+  }
+
+  getTableQrPdfUrl(id: string): string {
+    return `${this.baseUrl}/tables/${id}/qr/pdf`;
+  }
+
+  publishProject(projectId: string): Promise<PublicationStatusResponse> {
+    return this.request<PublicationStatusResponse>(`/projects/${projectId}/publish`, {
+      method: 'POST',
+    });
+  }
+
+  unpublishProject(projectId: string): Promise<PublicationStatusResponse> {
+    return this.request<PublicationStatusResponse>(`/projects/${projectId}/unpublish`, {
+      method: 'POST',
+    });
+  }
+
+  getPublicationStatus(projectId: string): Promise<PublicationStatusResponse> {
+    return this.request<PublicationStatusResponse>(`/projects/${projectId}/publication-status`);
   }
 }
 

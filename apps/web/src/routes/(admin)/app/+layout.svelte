@@ -24,12 +24,19 @@
 		}
 	});
 
-	const navItems = [
-		{ href: '/app', label: 'Заведения' },
-		{ href: '/app/menu', label: 'Меню' },
-		{ href: '/app/tables', label: 'Столики' },
-		{ href: '/app/publish', label: 'Публикация' }
-	];
+	const projectId = $derived(page.params.id ?? '');
+	const projectRoot = $derived(projectId ? `/app/projects/${projectId}` : null);
+
+	const navItems = $derived([
+		{ href: '/app', label: 'Заведения', section: 'projects' },
+		...(projectRoot
+			? [
+					{ href: `${projectRoot}/menu`, label: 'Меню', section: 'menu' },
+					{ href: `${projectRoot}/tables`, label: 'Столики', section: 'tables' },
+					{ href: `${projectRoot}/publish`, label: 'Публикация', section: 'publish' },
+				]
+			: []),
+	]);
 
 	function isActive(href: string): boolean {
 		if (href === '/app') {

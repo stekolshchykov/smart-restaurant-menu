@@ -5,6 +5,7 @@
 		type?: 'button' | 'submit';
 		variant?: 'primary' | 'outline' | 'ghost';
 		href?: string;
+		download?: boolean | string;
 		class?: string;
 		disabled?: boolean;
 		children: Snippet;
@@ -15,6 +16,7 @@
 		type = 'button',
 		variant = 'primary',
 		href,
+		download,
 		class: className = '',
 		disabled = false,
 		children,
@@ -34,7 +36,7 @@
 </script>
 
 {#if href}
-	<a {href} class="{base} {variants[variant]} {className}" aria-disabled={disabled}>
+	<a {href} {download} class="{base} {variants[variant]} {className}" aria-disabled={disabled}>
 		{@render children()}
 	</a>
 {:else}

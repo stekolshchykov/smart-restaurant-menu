@@ -48,7 +48,7 @@ pub struct CreateProjectRequest {
     pub mode: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Default, Deserialize)]
 pub struct UpdateProjectRequest {
     pub name: Option<String>,
     pub slug: Option<String>,
@@ -102,4 +102,30 @@ pub struct ProjectThemeResponse {
     pub use_promo_page: bool,
     pub logo_url: Option<String>,
     pub hero_url: Option<String>,
+}
+
+#[derive(Debug, Serialize)]
+pub struct PublicationChecks {
+    pub has_name: bool,
+    pub has_menu: bool,
+    pub has_tables: bool,
+    pub theme_ready: bool,
+}
+
+#[derive(Debug, Serialize)]
+pub struct PublicationChecklistItem {
+    pub key: String,
+    pub label: String,
+    pub passed: bool,
+}
+
+#[derive(Debug, Serialize)]
+pub struct PublicationStatusResponse {
+    pub project_id: Uuid,
+    pub slug: String,
+    pub status: String,
+    pub mode: String,
+    pub ready: bool,
+    pub checks: PublicationChecks,
+    pub checklist: Vec<PublicationChecklistItem>,
 }

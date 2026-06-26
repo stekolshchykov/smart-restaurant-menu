@@ -11,10 +11,22 @@ pub struct AppConfig {
     pub allowed_origins: String,
     #[serde(default = "default_app_env")]
     pub app_env: String,
+    #[serde(default = "default_web_origin")]
+    pub web_origin: String,
+    #[serde(default = "default_api_origin")]
+    pub api_origin: String,
 }
 
 fn default_app_env() -> String {
     "development".to_string()
+}
+
+fn default_web_origin() -> String {
+    "http://localhost:5173".to_string()
+}
+
+fn default_api_origin() -> String {
+    "http://localhost:3000".to_string()
 }
 
 impl AppConfig {
@@ -32,6 +44,14 @@ impl AppConfig {
             anyhow::bail!("JWT_SECRET must be at least 32 characters long");
         }
         Ok(())
+    }
+
+    pub fn web_origin(&self) -> &str {
+        self.web_origin.trim_end_matches('/')
+    }
+
+    pub fn api_origin(&self) -> &str {
+        self.api_origin.trim_end_matches('/')
     }
 
     pub fn allowed_origins(&self) -> Vec<&str> {

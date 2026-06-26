@@ -67,6 +67,18 @@ pub enum AppError {
     #[error("Tag not found")]
     TagNotFound,
 
+    #[error("Table not found")]
+    TableNotFound,
+
+    #[error("Invalid table range")]
+    InvalidTableRange,
+
+    #[error("QR code generation failed")]
+    QrGenerationError,
+
+    #[error("PDF generation failed")]
+    PdfGenerationError,
+
     #[error("Invalid price")]
     InvalidPrice,
 
@@ -102,6 +114,11 @@ impl AppError {
             AppError::ModifierOptionNotFound => StatusCode::NOT_FOUND,
             AppError::AllergenNotFound => StatusCode::NOT_FOUND,
             AppError::TagNotFound => StatusCode::NOT_FOUND,
+            AppError::TableNotFound => StatusCode::NOT_FOUND,
+            AppError::InvalidTableRange => StatusCode::BAD_REQUEST,
+            AppError::QrGenerationError | AppError::PdfGenerationError => {
+                StatusCode::INTERNAL_SERVER_ERROR
+            }
             AppError::InvalidPrice | AppError::InvalidSelection | AppError::InvalidUpload => {
                 StatusCode::BAD_REQUEST
             }
@@ -130,6 +147,10 @@ impl AppError {
             AppError::ModifierOptionNotFound => "MODIFIER_OPTION_NOT_FOUND",
             AppError::AllergenNotFound => "ALLERGEN_NOT_FOUND",
             AppError::TagNotFound => "TAG_NOT_FOUND",
+            AppError::TableNotFound => "TABLE_NOT_FOUND",
+            AppError::InvalidTableRange => "INVALID_TABLE_RANGE",
+            AppError::QrGenerationError => "QR_GENERATION_ERROR",
+            AppError::PdfGenerationError => "PDF_GENERATION_ERROR",
             AppError::InvalidPrice => "INVALID_PRICE",
             AppError::InvalidSelection => "INVALID_SELECTION",
             AppError::InvalidUpload => "INVALID_UPLOAD",

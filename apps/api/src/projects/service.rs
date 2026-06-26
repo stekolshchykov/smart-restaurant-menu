@@ -6,6 +6,8 @@ use uuid::Uuid;
 
 use crate::auth::middleware::CurrentUser;
 use crate::error::AppError;
+pub mod publication;
+
 use crate::projects::models::{
     CreateProjectRequest, Project, ProjectResponse, ProjectTheme, ProjectThemeResponse,
     UpdateProjectRequest, UpdateProjectThemeRequest,
@@ -179,7 +181,7 @@ fn ensure_owner(project: &Project, current_user: &CurrentUser) -> Result<(), App
     Ok(())
 }
 
-async fn get_or_create_default_theme(
+pub async fn get_or_create_default_theme(
     pool: &PgPool,
     project_id: Uuid,
 ) -> Result<ProjectTheme, AppError> {
@@ -191,7 +193,7 @@ async fn get_or_create_default_theme(
     }
 }
 
-fn to_response(project: Project, theme: ProjectTheme) -> ProjectResponse {
+pub fn to_response(project: Project, theme: ProjectTheme) -> ProjectResponse {
     ProjectResponse {
         id: project.id,
         owner_id: project.owner_id,

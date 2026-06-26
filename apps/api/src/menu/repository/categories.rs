@@ -17,6 +17,14 @@ pub async fn list(pool: &PgPool, project_id: Uuid) -> Result<Vec<Category>, AppE
     .map_err(AppError::from)
 }
 
+pub async fn count_by_project(pool: &PgPool, project_id: Uuid) -> Result<i64, AppError> {
+    query_scalar::<_, i64>("SELECT COUNT(*) FROM categories WHERE project_id = $1")
+        .bind(project_id)
+        .fetch_one(pool)
+        .await
+        .map_err(AppError::from)
+}
+
 pub async fn create<'e, E>(
     executor: E,
     project_id: Uuid,

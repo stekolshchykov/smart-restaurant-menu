@@ -5,3 +5,4 @@ pub mod menu;
 pub mod projects;
 pub mod routes;
 pub mod state;
+pub mod tables;

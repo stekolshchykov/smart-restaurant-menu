@@ -16,6 +16,7 @@ pub mod auth;
 pub mod health;
 pub mod menu;
 pub mod projects;
+pub mod tables;
 pub mod uploads;
 
 pub fn create_app(state: AppState, config: &AppConfig) -> Router {
@@ -29,6 +30,7 @@ pub fn create_app(state: AppState, config: &AppConfig) -> Router {
         .route("/auth/me", get(auth::me))
         .nest("/projects", projects::router())
         .merge(menu::router())
+        .merge(tables::router())
         .route("/uploads/image", post(uploads::upload_image))
         .nest_service("/uploads", ServeDir::new("uploads"))
         .layer(CookieManagerLayer::new())
