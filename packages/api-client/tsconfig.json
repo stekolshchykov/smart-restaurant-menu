@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "paths": {
+      "@digital-menu/shared-types": ["../shared-types/index.ts"]
+    }
+  },
+  "include": ["index.ts"]
+}

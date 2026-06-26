@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Utensils } from '@lucide/svelte';
+	import { auth } from '$lib/stores/auth.svelte';
 	import Button from './Button.svelte';
 </script>
 
@@ -18,8 +19,15 @@
 			<span>Digital Menu</span>
 		</a>
 		<nav class="flex items-center gap-3">
-			<Button variant="ghost" href="/login">Вход</Button>
-			<Button href="/register">Регистрация</Button>
+			{#if auth.user}
+				<Button variant="ghost" href="/app">Кабинет</Button>
+				<Button variant="outline" onclick={() => auth.logout()} disabled={auth.loading}>
+					Выйти
+				</Button>
+			{:else}
+				<Button variant="ghost" href="/login">Вход</Button>
+				<Button href="/register">Регистрация</Button>
+			{/if}
 		</nav>
 	</div>
 </header>

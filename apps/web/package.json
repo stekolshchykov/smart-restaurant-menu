@@ -11,6 +11,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
+    "@digital-menu/api-client": "^0.0.1",
+    "@digital-menu/shared-types": "^0.0.1",
     "@lucide/svelte": "^1.0.0",
     "tailwindcss": "^4.0.0"
   },

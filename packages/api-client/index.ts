@@ -4,21 +4,46 @@ import type {
   HealthResponse,
   LoginRequest,
   RegisterRequest,
+  UserResponse,
 } from '@digital-menu/shared-types';
 export * from '@digital-menu/shared-types';
 
 export class ApiClient {
-  constructor(private readonly baseUrl: string) {}
+  private token: string | null = null;
+
+  constructor(
+    private readonly baseUrl: string,
+    token?: string,
+  ) {
+    if (token) {
+      this.token = token;
+    }
+  }
+
+  setToken(token: string | null): void {
+    this.token = token;
+  }
 
   private async request<T>(path: string, options?: RequestInit): Promise<T> {
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    });
+
+    if (this.token) {
+      headers.set('Authorization', `Bearer ${this.token}`);
+    }
+
+    if (options?.headers) {
+      new Headers(options.headers).forEach((value, key) => {
+        headers.set(key, value);
+      });
+    }
+
     const response = await fetch(`${this.baseUrl}${path}`, {
       ...options,
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        ...options?.headers,
-      },
+      headers,
     });
 
     if (!response.ok) {
@@ -62,4 +87,16 @@ export class ApiClient {
   logout(): Promise<void> {
     return this.request<void>('/auth/logout', { method: 'POST' });
   }
+
+  getMe(): Promise<UserResponse> {
+    return this.request<UserResponse>('/auth/me');
+  }
+
+  refresh(): Promise<AuthResponse> {
+    return this.request<AuthResponse>('/auth/refresh', { method: 'POST' });
+  }
+}
+
+export function createApiClient(baseUrl: string, token?: string): ApiClient {
+  return new ApiClient(baseUrl, token);
 }

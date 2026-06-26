@@ -6,6 +6,7 @@
 		variant?: 'primary' | 'outline' | 'ghost';
 		href?: string;
 		class?: string;
+		disabled?: boolean;
 		children: Snippet;
 		onclick?: (event: MouseEvent) => void;
 	}
@@ -15,6 +16,7 @@
 		variant = 'primary',
 		href,
 		class: className = '',
+		disabled = false,
 		children,
 		onclick
 	}: Props = $props();
@@ -32,11 +34,11 @@
 </script>
 
 {#if href}
-	<a {href} class="{base} {variants[variant]} {className}">
+	<a {href} class="{base} {variants[variant]} {className}" aria-disabled={disabled}>
 		{@render children()}
 	</a>
 {:else}
-	<button {type} {onclick} class="{base} {variants[variant]} {className}">
+	<button {type} {onclick} {disabled} class="{base} {variants[variant]} {className}">
 		{@render children()}
 	</button>
 {/if}

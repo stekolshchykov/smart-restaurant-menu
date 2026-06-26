@@ -24,6 +24,11 @@ target
 .env
 .env.*
 !.env.example
+apps/api/.env
+apps/web/.env
+
+# Vite temp
+.vite
 
 # Editor directories and files
 .vscode/*

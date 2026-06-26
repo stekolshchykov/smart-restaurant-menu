@@ -41,9 +41,20 @@ export interface ProjectResponse {
   createdAt: string;
 }
 
+export type MeResponse = UserResponse;
+
+export type AuthErrorCode =
+  | 'invalid_credentials'
+  | 'user_already_exists'
+  | 'validation_error'
+  | 'unauthorized'
+  | 'token_expired'
+  | 'internal';
+
 export interface ApiError {
-  code: string;
+  code: AuthErrorCode | string;
   message: string;
+  field?: string;
 }
 
 export interface HealthResponse {
