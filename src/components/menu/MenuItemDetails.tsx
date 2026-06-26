@@ -5,6 +5,7 @@ import {
 } from 'framer-motion'
 import type { MenuItem, OrderAddon } from '../../types.ts'
 import { formatCurrency } from '../../lib/formatters.ts'
+import { AddonSelector } from './AddonSelector.tsx'
 import { ChefNote } from './ChefNote.tsx'
 import { DishBadges } from './DishBadges.tsx'
 import { ProductDetailLayout } from './ProductDetailLayout.tsx'
@@ -51,13 +52,7 @@ export function MenuItemDetails({
     .filter((addon) => (selectedAddons[addon.id] || 0) > 0)
     .map((addon) => ({ ...addon, quantity: selectedAddons[addon.id] }))
 
-  const visualPanel = (
-    <ProductVisualPanel
-      item={item}
-      selectedAddons={selectedAddons}
-      onAddonChange={onAddonChange}
-    />
-  )
+  const visualPanel = <ProductVisualPanel item={item} />
 
   const infoPanel = (
     <Surface className="p-4 sm:p-6">
@@ -120,11 +115,28 @@ export function MenuItemDetails({
           </Stack>
         </FadeIn>
 
-        <FadeIn delay={0.2} direction="up">
+        {item.addons.length > 0 && (
+          <FadeIn delay={0.2} direction="up">
+            <Surface inverse className="p-4 sm:p-5">
+              <Stack gap={3}>
+                <Text variant="label" onSurface>
+                  Extras
+                </Text>
+                <AddonSelector
+                  addons={item.addons}
+                  selected={selectedAddons}
+                  onChange={onAddonChange}
+                />
+              </Stack>
+            </Surface>
+          </FadeIn>
+        )}
+
+        <FadeIn delay={0.25} direction="up">
           <Divider onSurface className="bg-[var(--color-border-on-surface-subtle)]" />
         </FadeIn>
 
-        <FadeIn delay={0.25} direction="up">
+        <FadeIn delay={0.3} direction="up">
           <Stack gap={3}>
             <Flex justify="between" align="center">
               <Text variant="body" onSurface className="font-medium">

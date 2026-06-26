@@ -23,9 +23,9 @@ export function EmptyState({
     <Surface className={`flex flex-col items-center justify-center px-6 py-16 text-center ${className}`}>
       <Stack gap={4} align="center">
         {icon && (
-          <Surface className="rounded-full border-0 bg-[var(--color-accent-bg)] p-4">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)]">
             {icon}
-          </Surface>
+          </div>
         )}
 
         <Stack gap={1} align="center">

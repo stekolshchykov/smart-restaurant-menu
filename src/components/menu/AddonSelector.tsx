@@ -1,9 +1,9 @@
-import type { Addon } from '../../types'
-import { Flex } from '../ui/Flex'
-import { Price } from '../ui/Price'
-import { Stack } from '../ui/Stack'
-import { Stepper } from '../ui/Stepper'
-import { Text } from '../ui/Text'
+import type { Addon } from '../../types.ts'
+import { Flex } from '../ui/Flex.tsx'
+import { Price } from '../ui/Price.tsx'
+import { Stack } from '../ui/Stack.tsx'
+import { Stepper } from '../ui/Stepper.tsx'
+import { Text } from '../ui/Text.tsx'
 
 export interface AddonSelectorProps {
   addons: Addon[]

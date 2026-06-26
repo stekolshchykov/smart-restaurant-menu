@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import { Trash2 } from 'lucide-react'
-import type { OrderLineItem } from '../../types'
-import { lineItemTotal } from '../../lib/calculations'
-import { Divider } from '../ui/Divider'
-import { Heading } from '../ui/Heading'
-import { IconButton } from '../ui/IconButton'
-import { Price } from '../ui/Price'
-import { Surface } from '../ui/Surface'
-import { Text } from '../ui/Text'
+import type { OrderLineItem } from '../../types.ts'
+import { lineItemTotal } from '../../lib/calculations.ts'
+import { Divider } from '../ui/Divider.tsx'
+import { Heading } from '../ui/Heading.tsx'
+import { IconButton } from '../ui/IconButton.tsx'
+import { Price } from '../ui/Price.tsx'
+import { Surface } from '../ui/Surface.tsx'
+import { Text } from '../ui/Text.tsx'
 
 export interface OrderItemProps {
   item: OrderLineItem
@@ -62,7 +62,7 @@ export function OrderItem({ item, onRemove }: OrderItemProps) {
           <Divider onSurface className="my-1" />
 
           <div className="flex items-center justify-between">
-            <Text variant="body-sm" onSurface>
+            <Text variant="label" onSurface>
               Line total
             </Text>
             <Price amount={lineTotal} size="md" onSurface />
@@ -74,7 +74,7 @@ export function OrderItem({ item, onRemove }: OrderItemProps) {
           onClick={onRemove}
           variant="ghost"
           size="md"
-          className="shrink-0 rounded-[var(--radius-md)] text-[var(--color-error)] hover:bg-[var(--color-error-bg)] hover:ring-1 hover:ring-[var(--color-error)]/30"
+          className="shrink-0 text-[var(--color-error)] hover:bg-[var(--color-error-bg)]"
         >
           <Trash2 size={20} />
         </IconButton>

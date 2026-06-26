@@ -105,7 +105,7 @@ export function EmptyMenuState({
             className="w-full"
           >
             <Stack gap={3} align="center">
-              <Text variant="body-sm" onSurface>
+              <Text variant="label" onSurface>
                 Or jump to a category
               </Text>
               <Flex

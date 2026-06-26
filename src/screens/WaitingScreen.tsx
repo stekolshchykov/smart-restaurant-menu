@@ -172,7 +172,7 @@ export function WaitingScreen({
               <div className="border-b border-[var(--color-border-on-surface-subtle)] bg-[var(--color-surface-elevated)] p-4 sm:p-5">
                 <Flex align="center" justify="between" gap={3}>
                   <Flex align="center" gap={3}>
-                    <div className="rounded-[var(--radius-md)] border border-[var(--color-border-on-surface-subtle)] bg-[var(--color-surface)] p-2.5">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)]">
                       <Receipt className="h-5 w-5 text-[var(--color-accent)]" />
                     </div>
                     <Stack gap={0}>
@@ -207,9 +207,9 @@ export function WaitingScreen({
 
               <div className="border-t border-[var(--color-border-on-surface-subtle)] bg-[var(--color-surface)] p-4 sm:p-5">
                 <Flex justify="between" align="center">
-                  <Heading level={3} variant="title" onSurface>
+                  <Text variant="label" onSurface>
                     Total
-                  </Heading>
+                  </Text>
                   <Price amount={total} size="lg" onSurface />
                 </Flex>
               </div>
@@ -223,9 +223,9 @@ export function WaitingScreen({
                   <Bell className="h-5 w-5 text-[var(--color-accent)]" />
                 </div>
                 <Stack gap={1} className="text-center sm:text-left">
-                  <Heading level={3} variant="title" onSurface className="text-base">
+                  <Text variant="label" onSurface>
                     Need anything else?
-                  </Heading>
+                  </Text>
                   <Text variant="body-sm" onSurface>
                     Call your waiter, ask for water, napkins, cutlery or the bill using the Service button.
                   </Text>

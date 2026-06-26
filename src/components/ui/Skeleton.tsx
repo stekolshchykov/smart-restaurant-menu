@@ -5,7 +5,7 @@ export interface SkeletonProps {
 
 export function Skeleton({ className = '', variant = 'rect' }: SkeletonProps) {
   const variantClasses = {
-    text: 'h-4 w-full rounded',
+    text: 'h-4 w-full rounded-[var(--radius-sm)]',
     rect: 'rounded-[var(--radius-md)]',
     circle: 'rounded-full',
   }

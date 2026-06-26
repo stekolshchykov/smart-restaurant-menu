@@ -1,19 +1,19 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ShoppingBag, UtensilsCrossed } from 'lucide-react'
-import type { Order } from '../../types'
-import { orderTotal } from '../../lib/calculations'
-import { Button } from '../ui/Button'
-import { Divider } from '../ui/Divider'
-import { EmptyState } from '../ui/EmptyState'
-import { Flex } from '../ui/Flex'
-import { Heading } from '../ui/Heading'
-import { IconButton } from '../ui/IconButton'
-import { Price } from '../ui/Price'
-import { StaggerContainer, StaggerItem } from '../ui/StaggerContainer'
-import { Stack } from '../ui/Stack'
-import { Surface } from '../ui/Surface'
-import { Text } from '../ui/Text'
-import { OrderItem } from './OrderItem'
+import type { Order } from '../../types.ts'
+import { orderTotal } from '../../lib/calculations.ts'
+import { Button } from '../ui/Button.tsx'
+import { Divider } from '../ui/Divider.tsx'
+import { EmptyState } from '../ui/EmptyState.tsx'
+import { Flex } from '../ui/Flex.tsx'
+import { Heading } from '../ui/Heading.tsx'
+import { IconButton } from '../ui/IconButton.tsx'
+import { Price } from '../ui/Price.tsx'
+import { StaggerContainer, StaggerItem } from '../ui/StaggerContainer.tsx'
+import { Stack } from '../ui/Stack.tsx'
+import { Surface } from '../ui/Surface.tsx'
+import { Text } from '../ui/Text.tsx'
+import { OrderItem } from './OrderItem.tsx'
 
 export interface OrderSummaryProps {
   order: Order
@@ -35,9 +35,9 @@ export function OrderSummary({
     <Surface className="grid min-h-[calc(100vh-var(--header-total-height)-theme(spacing.8))] grid-cols-1 lg:min-h-0 lg:grid-cols-[1fr_22rem] lg:grid-rows-[auto_1fr]">
       <Flex align="center" justify="between" className="col-span-full p-4 pb-2">
         <Flex align="center" gap={3} className="flex-1">
-          <Surface className="rounded-[var(--radius-md)] border-0 bg-[var(--color-accent-bg)] p-2">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)]">
             <ShoppingBag size={24} className="text-[var(--color-accent)]" />
-          </Surface>
+          </div>
           <Stack gap={0}>
             <Heading level={2} variant="section" onSurface>
               Your Order
@@ -108,7 +108,7 @@ export function OrderSummary({
         >
           <Surface className="p-4">
             <Flex align="center" justify="between" className="mb-3">
-              <Text variant="body" onSurface>
+              <Text variant="label" onSurface>
                 Subtotal
               </Text>
               <Price amount={total} size="md" onSurface />
@@ -117,9 +117,9 @@ export function OrderSummary({
             <Divider onSurface className="mb-3" />
 
             <Flex align="center" justify="between" className="mb-4">
-              <Heading level={3} variant="title" onSurface>
+              <Text variant="label" onSurface>
                 Total
-              </Heading>
+              </Text>
               <motion.div
                 key={total}
                 initial={{ scale: 0.92, opacity: 0 }}
