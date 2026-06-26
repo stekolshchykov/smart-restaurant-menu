@@ -8,9 +8,10 @@ A responsive, themeable digital restaurant menu prototype built with React, Type
 
 - **Menu from JSON** — categories, dishes, ingredients, allergens, tags, add-ons, chef notes, pairings, related dishes and badges are driven by a single JSON file.
 - **Search & dietary filters** — search by dish name or ingredient, and filter by spicy, vegetarian, vegan and gluten-free.
+- **Premium empty state** — when search or filters return nothing, a polished `EmptyMenuState` offers category shortcuts and one-tap reset.
 - **Dish detail with add-ons** — tap any dish to see details, choose extras, read the chef's note, see recommended pairings and related dishes, and add the configured item to the cart.
 - **Quick-add** — hover or focus any dish card to add it to the cart in one tap; dishes with required add-ons open detail first.
-- **Toast feedback** — subtle confirmation appears after quick-add actions.
+- **Toast feedback** — subtle confirmation appears after quick-add and service-request actions.
 - **Cart** — review selected items, remove lines and see a running total.
 - **Premium waiting screen** — after placing an order, see a large circular countdown, live preparation status, order number, and a polished summary of ordered dishes with add-ons and total.
 - **Service requests** — a floating Service button on every main screen opens quick actions (call waiter, water, napkins, cutlery, bill, help) with elegant toast feedback.
@@ -34,7 +35,7 @@ A responsive, themeable digital restaurant menu prototype built with React, Type
 src/
 ├── components/
 │   ├── ui/          # Reusable UI kit (Button, Card, Badge, Price, Stepper, IconButton, SearchInput, FilterChip, ...)
-│   ├── menu/        # Menu feature components (MenuItemCard, CategorySection, CategoryNavigation, MenuItemDetails, AddonSelector, MenuFilterBar)
+│   ├── menu/        # Menu feature components (MenuItemCard, CategorySection, CategoryNavigation, MenuItemDetails, AddonSelector, MenuFilterBar, EmptyMenuState)
 │   ├── order/       # Order feature components (OrderSummary, OrderItem, OrderTimer, PreparationStatus, OrderLineItemReadOnly)
 │   └── layout/      # Layout shell and header (Layout, Header, MenuHeader, FloatingCartButton, ToastProvider, ServiceRequestButton, ServiceRequestPanel)
 ├── screens/         # Top-level screens (MenuScreen, DetailScreen, CartScreen, WaitingScreen)

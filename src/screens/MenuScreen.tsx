@@ -11,7 +11,7 @@ import { Layout } from '../components/layout/Layout.tsx'
 import { useToast } from '../lib/useToast.ts'
 import { CategoryNavigation } from '../components/menu/CategoryNavigation.tsx'
 import { CategorySection } from '../components/menu/CategorySection.tsx'
-import { FilteredEmptyState } from '../components/menu/FilteredEmptyState.tsx'
+import { EmptyMenuState } from '../components/menu/EmptyMenuState.tsx'
 import { MenuFilterBar } from '../components/menu/MenuFilterBar.tsx'
 import { MenuHeader } from '../components/menu/MenuHeader.tsx'
 import { Container } from '../components/ui/Container.tsx'
@@ -113,6 +113,20 @@ export function MenuScreen({
     }
   }
 
+  const handleSuggestionClick = useCallback(
+    (categoryId: string) => {
+      clearFilters()
+      setActiveCategory(categoryId)
+      requestAnimationFrame(() => {
+        const element = document.getElementById(categoryId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      })
+    },
+    [clearFilters],
+  )
+
   return (
     <Layout
       showCartButton
@@ -144,7 +158,17 @@ export function MenuScreen({
       {resultCount === 0 ? (
         <Section className="py-12">
           <Container size="md">
-            <FilteredEmptyState onClear={clearFilters} />
+            <EmptyMenuState
+              title="No dishes found"
+              description="We couldn’t find anything in this selection. Try another category or reset filters."
+              suggestions={menu.categories.map((category) => ({
+                id: category.id,
+                name: category.name,
+              }))}
+              onSuggestionClick={handleSuggestionClick}
+              onResetFilters={clearFilters}
+              onShowAll={clearFilters}
+            />
           </Container>
         </Section>
       ) : (

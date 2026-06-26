@@ -42,6 +42,7 @@ Rules:
 - No inline one-off elements inside screens.
 - Use Tailwind utility classes only; theme values must come from `src/theme.css` CSS variables.
 - Global chrome (header, cart button, service button, toasts) is owned by `Layout` and `App.tsx`; individual screens do not re-implement it.
+- Empty states are full UI components (e.g. `EmptyMenuState`) built from the UI Kit, not inline placeholders.
 
 ## State
 

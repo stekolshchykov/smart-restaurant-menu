@@ -13,8 +13,9 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 7. **Data**: all menu content comes from a single local JSON file; easy to edit categories and dishes.
 8. **Theming**: colour scheme, typography, radii and shadows configurable via CSS variables for quick re-skinning.
 9. **Search & dietary filters**: guests can search by dish/ingredient and filter by spicy, vegetarian, vegan, and gluten-free.
-10. **Toast feedback**: subtle confirmation toasts appear after quick-add and service-request actions.
-11. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
+10. **Premium empty state**: when filters or search yield no results, guests see a polished `EmptyMenuState` block with category suggestions, reset filters, and show-all actions instead of a bare "not found" message.
+11. **Toast feedback**: subtle confirmation toasts appear after quick-add and service-request actions.
+12. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
 
 ## Non-Functional Requirements
 - Target device: tablet (landscape and portrait), but must also work on desktop and mobile.
@@ -57,3 +58,4 @@ Ship the in-venue service layer and elevate the post-order experience: add the g
 - 2026-06-26: Expanded dish detail with chef notes, "Perfect with" pairings, related dishes, featured badges and card badges. Rationale: increases appetite appeal and helps guests discover combinations.
 - 2026-06-26: Added a global floating Service button connected at `Layout` level with a `ServiceRequestPanel` for quick in-venue requests. Rationale: tablets in a restaurant must let guests call for help without leaving the current screen.
 - 2026-06-26: Redesigned the Waiting screen with a large circular timer, preparation-status stepper, elevated order-summary card and refined typography. Rationale: the post-order moment should reassure guests and feel as premium as the rest of the experience.
+- 2026-06-26: Replaced the bare filtered-empty state with a reusable `EmptyMenuState` component that offers category shortcuts and reset/show-all actions. Rationale: empty states are still part of the restaurant experience and should guide guests back to food, not feel like errors.
