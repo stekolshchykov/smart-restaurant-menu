@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import type { MenuData, MenuItem } from '../types.ts'
+import type { MenuItem } from '../types.ts'
 import { Layout } from '../components/layout/Layout.tsx'
 import { MenuItemDetails } from '../components/menu/MenuItemDetails.tsx'
 import { Container } from '../components/ui/Container.tsx'
 
 export interface DetailScreenProps {
   item: MenuItem
-  menu: MenuData
   onAddToOrder: (
     item: MenuItem,
     quantity: number,
@@ -17,7 +16,6 @@ export interface DetailScreenProps {
 
 export function DetailScreen({
   item,
-  menu,
   onAddToOrder,
   onBack,
 }: DetailScreenProps) {
@@ -35,7 +33,7 @@ export function DetailScreen({
   }
 
   return (
-    <Layout onBack={onBack} title={menu.restaurant.name}>
+    <Layout onBack={onBack} title={item.name}>
       <Container size="lg" className="py-4 sm:py-6 pb-8">
         <MenuItemDetails
           item={item}

@@ -24,7 +24,7 @@ export function CategorySection({
     >
       <Container size="xl">
         <span id={`category-heading-${category.id}`}>
-          <Heading level={2} variant="section" className="mb-4">
+          <Heading level={2} variant="section" className="mb-4 text-xl sm:text-2xl lg:text-3xl">
             {category.name}
           </Heading>
         </span>

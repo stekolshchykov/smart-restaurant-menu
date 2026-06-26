@@ -68,7 +68,7 @@ export function MenuItemDetails({
             >
               {item.name}
             </Heading>
-            <Price amount={item.price} size="xl" onSurface />
+            <Price amount={item.price} size="xl" />
             <Text variant="body" onSurface className="leading-snug">
               {item.description}
             </Text>
@@ -133,7 +133,7 @@ export function MenuItemDetails({
         )}
 
         <FadeIn delay={0.25} direction="up">
-          <Divider onSurface className="bg-[var(--color-border-on-surface-subtle)]" />
+          <Divider onSurface />
         </FadeIn>
 
         <FadeIn delay={0.3} direction="up">

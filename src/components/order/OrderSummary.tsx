@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ShoppingBag, UtensilsCrossed } from 'lucide-react'
 import type { Order } from '../../types.ts'
-import { orderTotal } from '../../lib/calculations.ts'
+import { cartItemCount, orderTotal } from '../../lib/calculations.ts'
 import { Button } from '../ui/Button.tsx'
 import { Divider } from '../ui/Divider.tsx'
 import { EmptyState } from '../ui/EmptyState.tsx'
@@ -17,19 +17,22 @@ export interface OrderSummaryProps {
   order: Order
   onRemoveItem: (id: string) => void
   onPlaceOrder: () => void
+  onBackToMenu?: () => void
 }
 
 export function OrderSummary({
   order,
   onRemoveItem,
   onPlaceOrder,
+  onBackToMenu,
 }: OrderSummaryProps) {
   const total = orderTotal(order)
+  const itemCount = cartItemCount(order)
   const hasItems = order.items.length > 0
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <Surface className="flex h-full flex-col lg:grid lg:h-auto lg:grid-cols-[1fr_22rem] lg:grid-rows-[auto_1fr]">
+    <Surface className="flex h-full flex-col lg:grid lg:h-auto lg:grid-cols-[1fr_22rem] lg:grid-rows-[auto_1fr] lg:gap-6">
       <Flex align="center" gap={3} className="col-span-full p-4 pb-2">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)]">
           <ShoppingBag size={24} className="text-[var(--color-accent)]" />
@@ -37,13 +40,13 @@ export function OrderSummary({
         <Stack gap={0}>
           <Text variant="body" onSurface className="font-medium">
             {hasItems
-              ? `${order.items.length} item${order.items.length === 1 ? '' : 's'}`
+              ? `${itemCount} item${itemCount === 1 ? '' : 's'}`
               : 'Nothing selected yet'}
           </Text>
         </Stack>
       </Flex>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-4 scrollbar-hide lg:max-h-[calc(100svh-var(--header-total-height)-theme(spacing.20))]">
+      <div className="min-h-0 flex-1 overflow-y-auto px-4 scrollbar-hide lg:max-h-[calc(100svh-var(--header-total-height)-var(--spacing-20))]">
         <AnimatePresence mode="popLayout">
           {hasItems ? (
             <StaggerContainer
@@ -72,6 +75,13 @@ export function OrderSummary({
                 icon={<UtensilsCrossed size={32} className="text-[var(--color-accent)]" />}
                 title="Your cart is empty"
                 description="Browse the menu and add your favourite dishes to get started."
+                action={
+                  onBackToMenu && (
+                    <Button variant="primary" size="lg" onClick={onBackToMenu}>
+                      Browse menu
+                    </Button>
+                  )
+                }
               />
             </motion.div>
           )}
@@ -85,12 +95,12 @@ export function OrderSummary({
           transition={{ delay: 0.15 }}
           className="shrink-0 p-4 pt-0 lg:sticky lg:top-[var(--header-total-height)] lg:self-start"
         >
-          <Surface className="p-4">
+          <Surface elevated className="p-4">
             <Flex align="center" justify="between" className="mb-3">
               <Text variant="label" onSurface>
                 Subtotal
               </Text>
-              <Price amount={total} size="md" onSurface />
+              <Price amount={total} size="md" />
             </Flex>
 
             <Divider onSurface className="mb-3" />
@@ -113,7 +123,7 @@ export function OrderSummary({
                       }
                 }
               >
-                <Price amount={total} size="lg" onSurface />
+                <Price amount={total} size="lg" />
               </motion.div>
             </Flex>
 

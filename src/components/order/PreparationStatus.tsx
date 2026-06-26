@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { Text } from '../ui/Text.tsx'
 
 const STEPS = ['Order received', 'Being prepared', 'Almost ready']
@@ -23,7 +23,7 @@ export function PreparationStatus({
         <div
           className="absolute top-[0.6875rem] left-5 h-0.5 rounded-full bg-[var(--color-accent)] transition-all duration-700"
           style={{
-            width: `calc(${(progress * 100).toFixed(1)}% - 2.5rem)`,
+            width: `calc(max(0%, ${(progress * 100).toFixed(1)}% - 2.5rem))`,
           }}
         />
 
@@ -41,7 +41,7 @@ export function PreparationStatus({
                 }`}
               >
                 {isCompleted && (
-                  <CheckCircle2 className="h-2.5 w-2.5 text-[var(--color-surface)]" />
+                  <Check className="h-2.5 w-2.5 text-[var(--color-surface)]" />
                 )}
               </div>
               <Text

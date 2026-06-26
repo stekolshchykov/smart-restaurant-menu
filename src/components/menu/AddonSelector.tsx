@@ -9,6 +9,7 @@ export interface AddonSelectorProps {
   addons: Addon[]
   selected: Record<string, number>
   onChange: (id: string, quantity: number) => void
+  max?: number
 }
 
 type AddonWithDescription = Addon & { description?: string }
@@ -17,6 +18,7 @@ export function AddonSelector({
   addons,
   selected,
   onChange,
+  max = 5,
 }: AddonSelectorProps) {
   if (addons.length === 0) {
     return null
@@ -57,10 +59,11 @@ export function AddonSelector({
               <Stepper
                 value={quantity}
                 min={0}
-                max={5}
+                max={max}
                 onChange={(value) => onChange(addon.id, value)}
                 size="md"
                 onSurface={false}
+                aria-label={`Quantity of ${addon.name}`}
               />
             </div>
           </Flex>

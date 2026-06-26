@@ -35,7 +35,7 @@ export function MenuFilterBar({
   const hasActiveFilters = query.length > 0 || activeFilters.length > 0
 
   return (
-    <div className={`border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 py-4 backdrop-blur-sm ${className}`}>
+    <div className={`py-4 ${className}`}>
       <Container size="xl">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <SearchInput
@@ -72,7 +72,7 @@ export function MenuFilterBar({
           </div>
         </div>
 
-        <div className="mt-3 flex items-center justify-between">
+        <div className="mt-3">
           <Text variant="caption">
             {resultCount} {resultCount === 1 ? 'dish' : 'dishes'} found
           </Text>

@@ -28,11 +28,11 @@ import {
 import { Surface } from '../components/ui/Surface.tsx'
 import { Text } from '../components/ui/Text.tsx'
 import { formatOrderNumber } from '../lib/formatters.ts'
-import { orderTotal } from '../lib/calculations.ts'
+import { cartItemCount, orderTotal } from '../lib/calculations.ts'
+import { TABLE_NUMBER } from '../config.ts'
 
 export interface WaitingScreenProps {
   order: Order
-  onBackToMenu: () => void
   onStartNewOrder: () => void
 }
 
@@ -61,12 +61,12 @@ function DecorativeBackground() {
 
 export function WaitingScreen({
   order,
-  onBackToMenu,
   onStartNewOrder,
 }: WaitingScreenProps) {
   const [secondsRemaining, setSecondsRemaining] = useState(TEN_MINUTES)
   const [timerSize, setTimerSize] = useState(220)
   const total = useMemo(() => orderTotal(order), [order])
+  const itemCount = useMemo(() => cartItemCount(order), [order])
   const elapsedSeconds = TEN_MINUTES - secondsRemaining
   const shouldReduceMotion = useReducedMotion()
 
@@ -94,7 +94,7 @@ export function WaitingScreen({
   }, [order.id])
 
   return (
-    <Layout onBack={onBackToMenu} title="Order confirmed">
+    <Layout title="Order confirmed">
       <DecorativeBackground />
 
       <Container size="md" className="relative z-10 py-6 sm:py-10">
@@ -176,9 +176,9 @@ export function WaitingScreen({
             />
           </StaggerItem>
 
-          <StaggerItem className="w-full">
+          <StaggerItem className="w-full max-w-2xl mx-auto">
             <Surface elevated className="w-full overflow-hidden">
-              <div className="border-b border-[var(--color-border-on-surface-subtle)] bg-[var(--color-surface-elevated)] p-4 sm:p-5">
+              <div className="border-b border-[var(--color-border-on-surface-subtle)] p-4 sm:p-5">
                 <Flex align="center" justify="between" gap={3}>
                   <Flex align="center" gap={3}>
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)]">
@@ -189,14 +189,13 @@ export function WaitingScreen({
                         Your order
                       </Heading>
                       <Text variant="body-sm" onSurface>
-                        {order.items.length}{' '}
-                        {order.items.length === 1 ? 'item' : 'items'}
+                        {itemCount} {itemCount === 1 ? 'item' : 'items'}
                       </Text>
                     </Stack>
                   </Flex>
 
-                  <Badge variant="default" className="hidden sm:inline-flex">
-                    Table 07
+                  <Badge variant="default">
+                    Table {TABLE_NUMBER}
                   </Badge>
                 </Flex>
               </div>
@@ -214,12 +213,12 @@ export function WaitingScreen({
                 </Stack>
               </div>
 
-              <div className="border-t border-[var(--color-border-on-surface-subtle)] bg-[var(--color-surface)] p-4 sm:p-5">
+              <div className="border-t border-[var(--color-border-on-surface-subtle)] p-4 sm:p-5">
                 <Flex justify="between" align="center">
                   <Text variant="label" onSurface>
                     Total
                   </Text>
-                  <Price amount={total} size="lg" onSurface />
+                  <Price amount={total} size="lg" />
                 </Flex>
               </div>
             </Surface>
@@ -239,7 +238,6 @@ export function WaitingScreen({
                     Call your waiter, ask for water, napkins, cutlery or the bill using the Service button.
                   </Text>
                 </Stack>
-                <div className="hidden sm:block" />
               </Flex>
             </Surface>
           </StaggerItem>

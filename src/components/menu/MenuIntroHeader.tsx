@@ -1,4 +1,5 @@
 import type { Restaurant } from '../../types.ts'
+import { TABLE_NUMBER } from '../../config.ts'
 import { Container } from '../ui/Container.tsx'
 import { Heading } from '../ui/Heading.tsx'
 import { Image } from '../ui/Image.tsx'
@@ -11,7 +12,7 @@ export interface MenuIntroHeaderProps {
 
 export function MenuIntroHeader({
   restaurant,
-  tableNumber = '07',
+  tableNumber = TABLE_NUMBER,
 }: MenuIntroHeaderProps) {
   const tagline = restaurant.tagline || restaurant.subtitle
 
@@ -31,7 +32,7 @@ export function MenuIntroHeader({
           <Heading
             level={1}
             variant="display"
-            className="mt-3 text-xl sm:mt-4 sm:text-2xl"
+            className="mt-3 sm:mt-4"
           >
             {restaurant.name}
           </Heading>

@@ -52,7 +52,6 @@ export function KioskFooter({
                     size="sm"
                     onClick={() => void exitFullscreen()}
                     iconLeft={<Minimize className="h-4 w-4" />}
-                    className="hidden sm:inline-flex"
                   >
                     <span className="hidden sm:inline">Fullscreen active</span>
                   </Button>

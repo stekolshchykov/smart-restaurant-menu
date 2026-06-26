@@ -45,7 +45,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           onChange={(event) => onChange(event.target.value)}
           placeholder={placeholder}
           aria-label={label}
-          className="h-12 w-full rounded-full border border-[var(--color-border)] bg-[var(--color-bg-elevated)]/60 pl-11 pr-11 text-base text-[var(--color-text)] placeholder-[var(--color-text-muted)] backdrop-blur-sm transition-colors duration-[var(--transition-fast)] focus:border-[var(--color-accent)] focus:bg-[var(--color-bg-elevated)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)]"
+          className="h-11 w-full rounded-full border border-[var(--color-border)] bg-[var(--color-bg-elevated)]/60 pl-11 pr-11 text-base text-[var(--color-text)] placeholder-[var(--color-text-muted)] backdrop-blur-sm transition-colors duration-[var(--transition-fast)] focus:border-[var(--color-accent)] focus:bg-[var(--color-bg-elevated)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)]"
         />
 
         {hasValue && (

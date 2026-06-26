@@ -17,10 +17,10 @@ export function CategoryNavigation({
 }: CategoryNavigationProps) {
   return (
     <nav
-      className="border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 py-3 backdrop-blur-sm"
+      className="py-3"
       aria-label="Category navigation"
     >
-      <Container size="full">
+      <Container size="xl">
         <div className="scrollbar-hide -mx-4 flex gap-2 overflow-x-auto px-4">
           <ToggleGroup
             items={categories.map((category) => ({

@@ -104,9 +104,8 @@ export function OrderTimer({
       <Text
         variant="body-lg"
         onSurface
-        className={`relative z-10 text-center font-medium ${
-          isReady ? 'text-[var(--color-success)]' : ''
-        }`}
+        aria-live="polite"
+        className={`relative z-10 text-center font-medium ${textColor}`}
       >
         {resolvedStatusText}
       </Text>

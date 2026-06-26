@@ -51,7 +51,7 @@ export function MenuItemCard({ item, onClick, onQuickAdd }: MenuItemCardProps) {
           </div>
         )}
 
-        <div className="absolute right-3 bottom-3 translate-y-2 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100">
+        <div className="absolute right-3 bottom-3 translate-y-2 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-90 [@media(hover:none)]:scale-90">
           <QuickAddButton onClick={onQuickAdd} label={`Quick add ${item.name}`} />
         </div>
       </div>
@@ -61,7 +61,7 @@ export function MenuItemCard({ item, onClick, onQuickAdd }: MenuItemCardProps) {
           <Heading level={3} variant="title" onSurface className="min-w-0 truncate">
             {item.name}
           </Heading>
-          <Price amount={item.price} onSurface className="shrink-0" />
+          <Price amount={item.price} className="shrink-0" />
         </div>
 
         <Text variant="body-sm" onSurface className="line-clamp-2">

@@ -20,8 +20,8 @@ export function ProductGalleryThumb({
       aria-pressed={selected}
       className={`group relative overflow-hidden rounded-[var(--radius-md)] border-2 transition-all duration-[var(--transition-fast)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] ${
         selected
-          ? 'border-[var(--color-accent)]'
-          : 'border-transparent hover:border-[var(--color-border-strong)]'
+          ? 'border-[var(--color-accent)] ring-2 ring-[var(--color-accent)] ring-offset-2 ring-offset-[var(--color-bg)]'
+          : 'border-transparent opacity-80 hover:border-[var(--color-border-strong)] hover:opacity-100'
       }`}
     >
       <Image

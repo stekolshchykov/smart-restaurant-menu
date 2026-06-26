@@ -22,12 +22,16 @@ export function DishBadges({ item, className = '' }: DishBadgesProps) {
   if (item.isVegan) badges.push({ label: 'Vegan', variant: 'default' })
   if (item.isGlutenFree) badges.push({ label: 'Gluten-free', variant: 'outline' })
 
+  item.tags?.slice(0, 3).forEach((tag) => {
+    badges.push({ label: tag, variant: 'outline' })
+  })
+
   if (badges.length === 0) return null
 
   return (
     <div className={`flex flex-wrap gap-2 ${className}`}>
-      {badges.map((badge) => (
-        <Badge key={badge.label} variant={badge.variant}>
+      {badges.map((badge, index) => (
+        <Badge key={`${badge.label}-${index}`} variant={badge.variant}>
           {badge.label}
         </Badge>
       ))}

@@ -214,7 +214,6 @@ export default function App() {
           <motion.div key="detail" {...pageTransition} className="w-full">
             <DetailScreen
               item={selectedItem}
-              menu={menu}
               onAddToOrder={addToOrder}
               onBack={backToMenu}
             />
@@ -236,7 +235,6 @@ export default function App() {
           <motion.div key="waiting" {...pageTransition} className="w-full">
             <WaitingScreen
               order={order}
-              onBackToMenu={backToMenu}
               onStartNewOrder={startNewOrder}
             />
           </motion.div>

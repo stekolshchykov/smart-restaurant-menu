@@ -151,7 +151,7 @@ export function MenuScreen({
 
       <div
         ref={stickyHeaderRef}
-        className="sticky top-[var(--safe-area-top)] z-40 bg-[var(--color-bg)]/95 backdrop-blur-sm"
+        className="sticky top-[var(--safe-area-top)] z-40 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur-sm"
       >
         <MenuFilterBar
           query={query}

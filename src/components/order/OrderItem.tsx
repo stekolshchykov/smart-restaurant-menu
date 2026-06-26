@@ -3,7 +3,7 @@ import { Trash2 } from 'lucide-react'
 import type { OrderLineItem } from '../../types.ts'
 import { lineItemTotal } from '../../lib/calculations.ts'
 import { Divider } from '../ui/Divider.tsx'
-import { Heading } from '../ui/Heading.tsx'
+
 import { IconButton } from '../ui/IconButton.tsx'
 import { Price } from '../ui/Price.tsx'
 import { Surface } from '../ui/Surface.tsx'
@@ -32,15 +32,14 @@ export function OrderItem({ item, onRemove }: OrderItemProps) {
       <Surface className="flex items-start gap-4 p-4">
         <div className="flex min-w-0 flex-1 flex-col gap-2">
           <div className="flex items-start justify-between gap-3">
-            <Heading level={3} variant="title" onSurface className="flex-1">
+            <Text variant="body" onSurface className="flex-1 font-medium">
               {item.quantity > 1 && (
                 <Text as="span" variant="body" className="mr-2 text-[var(--color-accent)]">
                   {item.quantity}×
                 </Text>
               )}
               {item.name}
-            </Heading>
-            <Price amount={item.basePrice * item.quantity} size="sm" onSurface className="shrink-0" />
+            </Text>
           </div>
 
           {item.addons.length > 0 && (
@@ -54,7 +53,7 @@ export function OrderItem({ item, onRemove }: OrderItemProps) {
                     {addon.quantity > 1 ? `${addon.quantity}× ` : '+ '}
                     {addon.name}
                   </Text>
-                  <Price amount={addon.price * addon.quantity} size="sm" onSurface />
+                  <Price amount={addon.price * addon.quantity} size="sm" />
                 </div>
               ))}
             </div>
@@ -66,7 +65,7 @@ export function OrderItem({ item, onRemove }: OrderItemProps) {
             <Text variant="label" onSurface>
               Line total
             </Text>
-            <Price amount={lineTotal} size="md" onSurface />
+            <Price amount={lineTotal} size="md" />
           </div>
         </div>
 

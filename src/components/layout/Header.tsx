@@ -35,9 +35,9 @@ export function Header({ title, restaurantName, onBack }: HeaderProps) {
 
         <div className="flex-1 px-2 text-center">
           <Heading
-            level={5}
+            level={2}
             variant="title"
-            className="truncate text-sm sm:text-base"
+            className="truncate"
           >
             {displayTitle}
           </Heading>

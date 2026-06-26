@@ -17,9 +17,9 @@ export function OrderLineItemReadOnly({ item }: OrderLineItemReadOnlyProps) {
     <div className="py-3">
       <Flex align="start" justify="between" gap={4}>
         <Flex gap={3} align="start" className="min-w-0 flex-1">
-          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)] text-xs font-semibold text-[var(--color-accent)]">
-            {item.quantity}
-          </span>
+          <Text as="span" variant="body" className="mt-0.5 shrink-0 text-[var(--color-accent)]">
+            {item.quantity}×
+          </Text>
 
           <Stack gap={1} className="min-w-0 text-left">
             <Text
