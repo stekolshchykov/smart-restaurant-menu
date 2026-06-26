@@ -24,9 +24,14 @@ export function KioskFooter({
   } = useKiosk()
 
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/80 backdrop-blur-sm">
+    <footer className="text-[var(--color-text-muted)]">
       <Container size="full">
-        <div className="flex min-h-[var(--kiosk-footer-height)] items-center justify-between gap-3 py-3">
+        <div
+          className="flex min-h-[var(--kiosk-footer-height)] items-center justify-between gap-3 pt-3"
+          style={{
+            paddingBottom: 'calc(var(--safe-area-bottom) + 0.75rem)',
+          }}
+        >
           <Flex gap={3} align="center" className="min-w-0">
             <Text variant="caption" className="truncate">
               {restaurantName}
@@ -44,7 +49,7 @@ export function KioskFooter({
                 {isFullscreen ? (
                   <Button
                     variant="ghost-inverse"
-                    size="md"
+                    size="sm"
                     onClick={() => void exitFullscreen()}
                     iconLeft={<Minimize className="h-4 w-4" />}
                     className="hidden sm:inline-flex"
@@ -54,7 +59,7 @@ export function KioskFooter({
                 ) : (
                   <Button
                     variant="ghost-inverse"
-                    size="md"
+                    size="sm"
                     onClick={() => void enterFullscreen()}
                     iconLeft={<Maximize className="h-4 w-4" />}
                   >
@@ -66,7 +71,7 @@ export function KioskFooter({
                   onClick={openAdminModal}
                   aria-label="Admin unlock"
                   variant="ghost-inverse"
-                  size="md"
+                  size="sm"
                 >
                   <Lock className="h-4 w-4" />
                 </IconButton>

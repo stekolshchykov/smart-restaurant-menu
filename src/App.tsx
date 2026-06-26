@@ -201,7 +201,7 @@ export default function App() {
         <Stack gap={0} className="relative flex-1 overflow-hidden">
         <AnimatePresence mode="wait">
           {screen === 'menu' && (
-            <motion.div key="menu" {...pageTransition} className="min-h-svh">
+            <motion.div key="menu" {...pageTransition} className="w-full">
               <MenuScreen
                 menu={menu}
                 onItemClick={openDetail}
@@ -211,7 +211,7 @@ export default function App() {
           )}
 
         {screen === 'detail' && selectedItem && (
-          <motion.div key="detail" {...pageTransition} className="min-h-svh">
+          <motion.div key="detail" {...pageTransition} className="w-full">
             <DetailScreen
               item={selectedItem}
               menu={menu}
@@ -222,7 +222,7 @@ export default function App() {
         )}
 
         {screen === 'cart' && (
-          <motion.div key="cart" {...pageTransition} className="min-h-svh">
+          <motion.div key="cart" {...pageTransition} className="w-full">
             <CartScreen
               order={order}
               onRemoveItem={removeFromOrder}
@@ -233,7 +233,7 @@ export default function App() {
         )}
 
         {screen === 'waiting' && orderNumber && (
-          <motion.div key="waiting" {...pageTransition} className="min-h-svh">
+          <motion.div key="waiting" {...pageTransition} className="w-full">
             <WaitingScreen
               order={order}
               onBackToMenu={backToMenu}
