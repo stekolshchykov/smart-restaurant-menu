@@ -26,6 +26,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     sqlx::migrate!().run(&db).await?;
 
+    tokio::fs::create_dir_all("uploads").await?;
+
     let state = AppState::new(db, config.clone());
     let app = create_app(state, &config);
 

@@ -49,6 +49,33 @@ pub enum AppError {
     #[error("Invalid project status")]
     InvalidProjectStatus,
 
+    #[error("Category not found")]
+    CategoryNotFound,
+
+    #[error("Menu item not found")]
+    MenuItemNotFound,
+
+    #[error("Modifier group not found")]
+    ModifierGroupNotFound,
+
+    #[error("Modifier option not found")]
+    ModifierOptionNotFound,
+
+    #[error("Allergen not found")]
+    AllergenNotFound,
+
+    #[error("Tag not found")]
+    TagNotFound,
+
+    #[error("Invalid price")]
+    InvalidPrice,
+
+    #[error("Invalid selection count")]
+    InvalidSelection,
+
+    #[error("Invalid upload")]
+    InvalidUpload,
+
     #[error("Validation error")]
     ValidationError(HashMap<String, Vec<String>>),
 }
@@ -67,6 +94,15 @@ impl AppError {
             AppError::ProjectNotFound => StatusCode::NOT_FOUND,
             AppError::SlugTaken => StatusCode::CONFLICT,
             AppError::InvalidSlug | AppError::InvalidMode | AppError::InvalidProjectStatus => {
+                StatusCode::BAD_REQUEST
+            }
+            AppError::CategoryNotFound => StatusCode::NOT_FOUND,
+            AppError::MenuItemNotFound => StatusCode::NOT_FOUND,
+            AppError::ModifierGroupNotFound => StatusCode::NOT_FOUND,
+            AppError::ModifierOptionNotFound => StatusCode::NOT_FOUND,
+            AppError::AllergenNotFound => StatusCode::NOT_FOUND,
+            AppError::TagNotFound => StatusCode::NOT_FOUND,
+            AppError::InvalidPrice | AppError::InvalidSelection | AppError::InvalidUpload => {
                 StatusCode::BAD_REQUEST
             }
             AppError::ValidationError(_) => StatusCode::BAD_REQUEST,
@@ -88,6 +124,15 @@ impl AppError {
             AppError::InvalidSlug => "INVALID_SLUG",
             AppError::InvalidMode => "INVALID_MODE",
             AppError::InvalidProjectStatus => "INVALID_PROJECT_STATUS",
+            AppError::CategoryNotFound => "CATEGORY_NOT_FOUND",
+            AppError::MenuItemNotFound => "MENU_ITEM_NOT_FOUND",
+            AppError::ModifierGroupNotFound => "MODIFIER_GROUP_NOT_FOUND",
+            AppError::ModifierOptionNotFound => "MODIFIER_OPTION_NOT_FOUND",
+            AppError::AllergenNotFound => "ALLERGEN_NOT_FOUND",
+            AppError::TagNotFound => "TAG_NOT_FOUND",
+            AppError::InvalidPrice => "INVALID_PRICE",
+            AppError::InvalidSelection => "INVALID_SELECTION",
+            AppError::InvalidUpload => "INVALID_UPLOAD",
             AppError::ValidationError(_) => "VALIDATION_ERROR",
         }
     }

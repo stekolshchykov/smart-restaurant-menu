@@ -111,3 +111,163 @@ export interface ApiError {
 export interface HealthResponse {
   status: string;
 }
+
+export type AvailabilityStatus = 'available' | 'unavailable' | 'hidden';
+
+export interface Category {
+  id: string;
+  projectId: string;
+  name: string;
+  sortOrder: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CategoryWithItems extends Category {
+  items: MenuItem[];
+}
+
+export interface MenuItem {
+  id: string;
+  categoryId: string;
+  name: string;
+  shortDescription: string | null;
+  description: string | null;
+  price: string;
+  imageUrl: string | null;
+  images: string[];
+  ingredients: string[];
+  status: AvailabilityStatus;
+  quickAdd: boolean;
+  sortOrder: number;
+  allergens: Allergen[];
+  tags: Tag[];
+  modifierGroups: ModifierGroup[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type MenuItemResponse = MenuItem;
+
+export interface ModifierGroup {
+  id: string;
+  itemId: string;
+  name: string;
+  required: boolean;
+  minOptions: number;
+  maxOptions: number;
+  sortOrder: number;
+  options: ModifierOption[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ModifierOption {
+  id: string;
+  groupId: string;
+  name: string;
+  price: string;
+  sortOrder: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Allergen {
+  id: string;
+  projectId: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Tag {
+  id: string;
+  projectId: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface MenuTreeResponse {
+  categories: CategoryWithItems[];
+}
+
+export interface CreateCategoryRequest {
+  name: string;
+  sortOrder?: number;
+}
+
+export interface UpdateCategoryRequest {
+  name?: string;
+  sortOrder?: number;
+}
+
+export interface CreateMenuItemRequest {
+  name: string;
+  shortDescription?: string;
+  description?: string;
+  price: string;
+  imageUrl?: string;
+  images?: string[];
+  ingredients?: string[];
+  status?: AvailabilityStatus;
+  quickAdd?: boolean;
+  sortOrder?: number;
+  allergenIds?: string[];
+  tagIds?: string[];
+}
+
+export interface UpdateMenuItemRequest {
+  name?: string;
+  shortDescription?: string | null;
+  description?: string | null;
+  price?: string;
+  imageUrl?: string | null;
+  images?: string[];
+  ingredients?: string[];
+  status?: AvailabilityStatus;
+  quickAdd?: boolean;
+  sortOrder?: number;
+  allergenIds?: string[];
+  tagIds?: string[];
+}
+
+export interface CreateModifierGroupRequest {
+  name: string;
+  required?: boolean;
+  minOptions?: number;
+  maxOptions?: number;
+  sortOrder?: number;
+}
+
+export interface UpdateModifierGroupRequest {
+  name?: string;
+  required?: boolean;
+  minOptions?: number;
+  maxOptions?: number;
+  sortOrder?: number;
+}
+
+export interface CreateModifierOptionRequest {
+  name: string;
+  price: string;
+  sortOrder?: number;
+}
+
+export interface UpdateModifierOptionRequest {
+  name?: string;
+  price?: string;
+  sortOrder?: number;
+}
+
+export interface CreateAllergenRequest {
+  name: string;
+}
+
+export interface CreateTagRequest {
+  name: string;
+}
+
+export interface ImageUploadResponse {
+  url: string;
+}

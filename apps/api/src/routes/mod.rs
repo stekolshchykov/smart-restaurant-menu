@@ -4,14 +4,19 @@ use axum::{
     Router,
 };
 use tower_cookies::CookieManagerLayer;
-use tower_http::cors::{Any, CorsLayer};
+use tower_http::{
+    cors::{Any, CorsLayer},
+    services::ServeDir,
+};
 
 use crate::config::AppConfig;
 use crate::state::AppState;
 
 pub mod auth;
 pub mod health;
+pub mod menu;
 pub mod projects;
+pub mod uploads;
 
 pub fn create_app(state: AppState, config: &AppConfig) -> Router {
     Router::new()
@@ -23,6 +28,9 @@ pub fn create_app(state: AppState, config: &AppConfig) -> Router {
         .route("/auth/logout", post(auth::logout))
         .route("/auth/me", get(auth::me))
         .nest("/projects", projects::router())
+        .merge(menu::router())
+        .route("/uploads/image", post(uploads::upload_image))
+        .nest_service("/uploads", ServeDir::new("uploads"))
         .layer(CookieManagerLayer::new())
         .layer(cors_layer(config))
         .with_state(state)
