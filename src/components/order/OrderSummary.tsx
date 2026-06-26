@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, ShoppingBag, UtensilsCrossed } from 'lucide-react'
+import { ShoppingBag, UtensilsCrossed } from 'lucide-react'
 import type { Order } from '../../types.ts'
 import { orderTotal } from '../../lib/calculations.ts'
 import { Button } from '../ui/Button.tsx'
@@ -7,7 +7,6 @@ import { Divider } from '../ui/Divider.tsx'
 import { EmptyState } from '../ui/EmptyState.tsx'
 import { Flex } from '../ui/Flex.tsx'
 import { Heading } from '../ui/Heading.tsx'
-import { IconButton } from '../ui/IconButton.tsx'
 import { Price } from '../ui/Price.tsx'
 import { StaggerContainer, StaggerItem } from '../ui/StaggerContainer.tsx'
 import { Stack } from '../ui/Stack.tsx'
@@ -19,44 +18,32 @@ export interface OrderSummaryProps {
   order: Order
   onRemoveItem: (id: string) => void
   onPlaceOrder: () => void
-  onBackToMenu: () => void
 }
 
 export function OrderSummary({
   order,
   onRemoveItem,
   onPlaceOrder,
-  onBackToMenu,
 }: OrderSummaryProps) {
   const total = orderTotal(order)
   const hasItems = order.items.length > 0
 
   return (
     <Surface className="grid min-h-[calc(100vh-var(--header-total-height)-theme(spacing.8))] grid-cols-1 lg:min-h-0 lg:grid-cols-[1fr_22rem] lg:grid-rows-[auto_1fr]">
-      <Flex align="center" justify="between" className="col-span-full p-4 pb-2">
-        <Flex align="center" gap={3} className="flex-1">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)]">
-            <ShoppingBag size={24} className="text-[var(--color-accent)]" />
-          </div>
-          <Stack gap={0}>
-            <Heading level={2} variant="section" onSurface>
-              Your Order
-            </Heading>
-            <Text variant="body-sm" onSurface>
-              {hasItems
-                ? `${order.items.length} item${order.items.length === 1 ? '' : 's'}`
-                : 'Nothing selected yet'}
-            </Text>
-          </Stack>
-        </Flex>
-
-        <IconButton
-          aria-label="Back to menu"
-          onClick={onBackToMenu}
-          variant="ghost"
-        >
-          <ArrowLeft size={20} />
-        </IconButton>
+      <Flex align="center" gap={3} className="col-span-full p-4 pb-2">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-bg)]">
+          <ShoppingBag size={24} className="text-[var(--color-accent)]" />
+        </div>
+        <Stack gap={0}>
+          <Heading level={2} variant="section" onSurface>
+            Your Order
+          </Heading>
+          <Text variant="body-sm" onSurface>
+            {hasItems
+              ? `${order.items.length} item${order.items.length === 1 ? '' : 's'}`
+              : 'Nothing selected yet'}
+          </Text>
+        </Stack>
       </Flex>
 
       <div className="overflow-y-auto px-4 scrollbar-hide lg:max-h-[calc(100vh-var(--header-total-height)-theme(spacing.20))]">
@@ -88,11 +75,6 @@ export function OrderSummary({
                 icon={<UtensilsCrossed size={32} className="text-[var(--color-accent)]" />}
                 title="Your cart is empty"
                 description="Browse the menu and add your favourite dishes to get started."
-                action={
-                  <Button onClick={onBackToMenu} variant="primary">
-                    Browse Menu
-                  </Button>
-                }
               />
             </motion.div>
           )}
@@ -134,24 +116,14 @@ export function OrderSummary({
               </motion.div>
             </Flex>
 
-            <Stack gap={3}>
-              <Button
-                onClick={onPlaceOrder}
-                variant="primary"
-                size="lg"
-                fullWidth
-              >
-                Place Order
-              </Button>
-              <Button
-                onClick={onBackToMenu}
-                variant="outline"
-                size="md"
-                fullWidth
-              >
-                Back to Menu
-              </Button>
-            </Stack>
+            <Button
+              onClick={onPlaceOrder}
+              variant="primary"
+              size="lg"
+              fullWidth
+            >
+              Place Order
+            </Button>
           </Surface>
         </motion.div>
       )}

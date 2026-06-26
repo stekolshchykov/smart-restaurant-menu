@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import {
-  ArrowLeft,
   Bell,
   CheckCircle,
   ChefHat,
@@ -236,30 +235,16 @@ export function WaitingScreen({
           </StaggerItem>
 
           <StaggerItem className="w-full">
-            <Stack
-              direction="row"
-              gap={3}
-              className="w-full max-w-lg flex-col sm:flex-row"
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
+              onClick={onStartNewOrder}
+              iconLeft={<UtensilsCrossed className="h-4 w-4" />}
+              className="w-full max-w-lg"
             >
-              <Button
-                variant="outline-inverse"
-                size="lg"
-                fullWidth
-                onClick={onBackToMenu}
-                iconLeft={<ArrowLeft className="h-4 w-4" />}
-              >
-                Back to menu
-              </Button>
-              <Button
-                variant="primary"
-                size="lg"
-                fullWidth
-                onClick={onStartNewOrder}
-                iconLeft={<UtensilsCrossed className="h-4 w-4" />}
-              >
-                Start new order
-              </Button>
-            </Stack>
+              Start new order
+            </Button>
           </StaggerItem>
         </StaggerContainer>
       </Container>

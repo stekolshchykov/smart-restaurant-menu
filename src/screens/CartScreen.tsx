@@ -27,7 +27,6 @@ export function CartScreen({
               order={order}
               onRemoveItem={onRemoveItem}
               onPlaceOrder={onPlaceOrder}
-              onBackToMenu={onBackToMenu}
             />
           </Stack>
         </SlideUp>

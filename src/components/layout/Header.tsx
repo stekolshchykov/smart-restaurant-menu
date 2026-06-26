@@ -20,13 +20,13 @@ export function Header({ title, restaurantName, onBack }: HeaderProps) {
       <SkipToContent target="#main-content" />
 
       <div className="flex h-[var(--header-height)] items-center px-4 sm:px-6">
-        <div className="flex w-10 items-center justify-start">
+        <div className="flex w-11 items-center justify-start">
           {onBack && (
             <IconButton
               onClick={onBack}
-              aria-label="Go back"
+              aria-label="Back to menu"
               variant="ghost-inverse"
-              size="sm"
+              size="md"
             >
               <ArrowLeft className="h-5 w-5" />
             </IconButton>
@@ -43,7 +43,7 @@ export function Header({ title, restaurantName, onBack }: HeaderProps) {
           </Heading>
         </div>
 
-        <div className="w-10" />
+        <div className="w-11" />
       </div>
     </header>
   )
