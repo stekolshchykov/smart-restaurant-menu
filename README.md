@@ -6,9 +6,11 @@ A responsive, themeable digital restaurant menu prototype built with React, Type
 
 ## Features
 
-- **Menu from JSON** — categories, dishes, ingredients, allergens, tags and add-ons are driven by a single JSON file.
+- **Menu from JSON** — categories, dishes, ingredients, allergens, tags, add-ons, chef notes, pairings, related dishes and badges are driven by a single JSON file.
 - **Search & dietary filters** — search by dish name or ingredient, and filter by spicy, vegetarian, vegan and gluten-free.
-- **Dish detail with add-ons** — tap any dish to see details, choose extras and add the configured item to the cart.
+- **Dish detail with add-ons** — tap any dish to see details, choose extras, read the chef's note, see recommended pairings and related dishes, and add the configured item to the cart.
+- **Quick-add** — hover or focus any dish card to add it to the cart in one tap; dishes with required add-ons open detail first.
+- **Toast feedback** — subtle confirmation appears after quick-add actions.
 - **Cart** — review selected items, remove lines and see a running total.
 - **Order timer** — after placing an order, the waiting screen shows a live countdown until the estimated ready time.
 - **Responsive** — optimised for phone, tablet and desktop viewports.
@@ -33,7 +35,7 @@ src/
 │   ├── ui/          # Reusable UI kit (Button, Card, Badge, Price, Stepper, IconButton, SearchInput, FilterChip, ...)
 │   ├── menu/        # Menu feature components (MenuItemCard, CategorySection, CategoryNavigation, MenuItemDetails, AddonSelector, MenuFilterBar)
 │   ├── order/       # Order feature components (OrderSummary, OrderItem, OrderTimer)
-│   └── layout/      # Layout shell and header (Layout, Header, Hero, FloatingCartButton)
+│   └── layout/      # Layout shell and header (Layout, Header, MenuHeader, FloatingCartButton, ToastProvider)
 ├── screens/         # Top-level screens (MenuScreen, DetailScreen, CartScreen, WaitingScreen)
 ├── lib/             # Pure helpers and hooks (calculations, formatters, useMenuFilters)
 ├── data/            # Fallback menu.json used during development
@@ -68,7 +70,12 @@ The JSON structure follows the `MenuData` type in `src/types.ts`:
         {
           id, name, description, price, image, ingredients, allergens,
           addons: [{ id, name, price }],
-          tags, isSpicy, isVegetarian, isVegan, isGlutenFree
+          tags, isSpicy, isVegetarian, isVegan, isGlutenFree,
+          featured?: boolean,
+          badges?: string[],
+          chefNote?: string,
+          perfectWith?: [{ id, name, image }],
+          relatedIds?: string[]
         }
       ]
     }

@@ -8,11 +8,13 @@ import { MenuItemCard } from './MenuItemCard'
 export interface CategorySectionProps {
   category: Category
   onItemClick: (item: MenuItem) => void
+  onQuickAdd: (item: MenuItem) => void
 }
 
 export function CategorySection({
   category,
   onItemClick,
+  onQuickAdd,
 }: CategorySectionProps) {
   return (
     <Section
@@ -33,6 +35,7 @@ export function CategorySection({
               <MenuItemCard
                 item={item}
                 onClick={() => onItemClick(item)}
+                onQuickAdd={() => onQuickAdd(item)}
               />
             </StaggerItem>
           ))}

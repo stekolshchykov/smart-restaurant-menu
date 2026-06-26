@@ -8,17 +8,19 @@ import {
 import type { MenuData, MenuItem } from '../types.ts'
 import { useMenuFilters } from '../lib/useMenuFilters.ts'
 import { Layout } from '../components/layout/Layout.tsx'
-import { Hero } from '../components/layout/Hero.tsx'
+import { useToast } from '../lib/useToast.ts'
 import { CategoryNavigation } from '../components/menu/CategoryNavigation.tsx'
 import { CategorySection } from '../components/menu/CategorySection.tsx'
 import { FilteredEmptyState } from '../components/menu/FilteredEmptyState.tsx'
 import { MenuFilterBar } from '../components/menu/MenuFilterBar.tsx'
+import { MenuHeader } from '../components/menu/MenuHeader.tsx'
 import { Container } from '../components/ui/Container.tsx'
 import { Section } from '../components/ui/Section.tsx'
 
 export interface MenuScreenProps {
   menu: MenuData
   onItemClick: (item: MenuItem) => void
+  onQuickAdd: (item: MenuItem) => void
   cartItemCount: number
   onCartClick: () => void
 }
@@ -26,9 +28,11 @@ export interface MenuScreenProps {
 export function MenuScreen({
   menu,
   onItemClick,
+  onQuickAdd,
   cartItemCount,
   onCartClick,
 }: MenuScreenProps) {
+  const { show } = useToast()
   const {
     query,
     setQuery,
@@ -102,6 +106,13 @@ export function MenuScreen({
     return () => observer.disconnect()
   }, [filteredCategories, visibleCategoryIds])
 
+  const handleQuickAdd = (item: MenuItem) => {
+    onQuickAdd(item)
+    if (item.addons.length === 0) {
+      show(`Added ${item.name} to order`)
+    }
+  }
+
   return (
     <Layout
       showCartButton
@@ -110,11 +121,7 @@ export function MenuScreen({
       restaurantName={menu.restaurant.name}
       restaurantLogo={menu.restaurant.logo}
     >
-      <Hero
-        title={menu.restaurant.subtitle}
-        subtitle={menu.restaurant.welcomeText}
-        description={menu.restaurant.description}
-      />
+      <MenuHeader restaurant={menu.restaurant} />
 
       <MenuFilterBar
         query={query}
@@ -146,6 +153,7 @@ export function MenuScreen({
             key={category.id}
             category={category}
             onItemClick={onItemClick}
+            onQuickAdd={handleQuickAdd}
           />
         ))
       )}

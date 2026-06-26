@@ -18,6 +18,17 @@ export interface MenuItem {
   isVegetarian?: boolean
   isVegan?: boolean
   isGlutenFree?: boolean
+  featured?: boolean
+  badges?: string[]
+  chefNote?: string
+  perfectWith?: ParingItem[]
+  relatedIds?: string[]
+}
+
+export interface ParingItem {
+  id: string
+  name: string
+  image: string
 }
 
 export interface Category {

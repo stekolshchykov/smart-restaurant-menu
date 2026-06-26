@@ -33,7 +33,24 @@
               "price": 0.8
             }
           ],
-          "image": "images/soup-of-the-day.jpg"
+          "image": "images/soup-of-the-day.jpg",
+          "chefNote": "A rotating favourite — ask your server for today’s selection.",
+          "relatedIds": [
+            "seafood-chowder",
+            "minestrone-soup"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         },
         {
           "id": "seafood-chowder",
@@ -55,7 +72,25 @@
             "Wheat"
           ],
           "addons": [],
-          "image": "images/seafood-chowder.jpg"
+          "image": "images/seafood-chowder.jpg",
+          "chefNote": "Creamy, rich and loaded with local seafood.",
+          "featured": true,
+          "relatedIds": [
+            "soup-of-the-day",
+            "minestrone-soup"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         },
         {
           "id": "minestrone-soup",
@@ -80,7 +115,24 @@
               "price": 0.8
             }
           ],
-          "image": "images/minestrone-soup.jpg"
+          "image": "images/minestrone-soup.jpg",
+          "chefNote": "Finished with a swirl of cream and fresh herbs.",
+          "relatedIds": [
+            "seafood-chowder",
+            "tomato-basil-soup"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         },
         {
           "id": "tomato-basil-soup",
@@ -105,7 +157,24 @@
               "price": 0.8
             }
           ],
-          "image": "images/tomato-basil-soup.jpg"
+          "image": "images/tomato-basil-soup.jpg",
+          "chefNote": "Served piping hot with our freshly baked bread roll.",
+          "relatedIds": [
+            "seafood-chowder",
+            "minestrone-soup"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         }
       ]
     },
@@ -135,7 +204,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/garlic-bread.jpg"
+          "image": "images/garlic-bread.jpg",
+          "chefNote": "Warm, buttery and impossible to resist.",
+          "relatedIds": [
+            "breaded-scampi",
+            "golden-wings"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "golden-wings",
@@ -155,7 +241,7 @@
             {
               "id": "wings-blue-cheese",
               "name": "Blue cheese dip",
-              "price": 1.0
+              "price": 1
             },
             {
               "id": "wings-extra-sauce",
@@ -164,7 +250,28 @@
             }
           ],
           "isSpicy": true,
-          "image": "images/golden-wings.jpg"
+          "image": "images/golden-wings.jpg",
+          "chefNote": "Tossed in our secret house glaze for the perfect sweet-heat balance.",
+          "featured": true,
+          "badges": [
+            "Popular"
+          ],
+          "relatedIds": [
+            "breaded-scampi",
+            "garlic-bread"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "deep-fried-brie",
@@ -181,12 +288,30 @@
             "Wheat"
           ],
           "addons": [],
-          "image": "images/deep-fried-brie.jpg"
+          "image": "images/deep-fried-brie.jpg",
+          "chefNote": "Crisp outside, molten inside — a real crowd-pleaser.",
+          "featured": true,
+          "relatedIds": [
+            "golden-wings",
+            "vol-au-vent"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "vol-au-vent",
           "name": "Vol au Vent",
-          "description": "Saut\u00e9ed chicken strips and bacon in a light puff-pastry case with a creamy sauce.",
+          "description": "Sautéed chicken strips and bacon in a light puff-pastry case with a creamy sauce.",
           "price": 8.95,
           "ingredients": [
             "chicken",
@@ -200,7 +325,24 @@
             "Wheat"
           ],
           "addons": [],
-          "image": "images/vol-au-vent.jpg"
+          "image": "images/vol-au-vent.jpg",
+          "chefNote": "A retro classic done the proper way.",
+          "relatedIds": [
+            "breaded-scampi",
+            "garlic-bread"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "bbq-golden-ribs",
@@ -227,7 +369,24 @@
               "price": 0.8
             }
           ],
-          "image": "images/bbq-golden-ribs.jpg"
+          "image": "images/bbq-golden-ribs.jpg",
+          "chefNote": "Ideal for sharing or enjoying all to yourself.",
+          "relatedIds": [
+            "vol-au-vent",
+            "breaded-scampi"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "breaded-scampi",
@@ -252,7 +411,24 @@
               "price": 0.8
             }
           ],
-          "image": "images/breaded-scampi.jpg"
+          "image": "images/breaded-scampi.jpg",
+          "chefNote": "One of our most requested opening dishes.",
+          "relatedIds": [
+            "garlic-bread",
+            "golden-wings"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         }
       ]
     },
@@ -281,10 +457,27 @@
             {
               "id": "goat-cheese-chicken",
               "name": "Grilled chicken",
-              "price": 3.0
+              "price": 3
             }
           ],
-          "image": "images/goat-cheese-salad.jpg"
+          "image": "images/goat-cheese-salad.jpg",
+          "chefNote": "Light, fresh and full of texture.",
+          "relatedIds": [
+            "bacon-avocado-salad",
+            "caesar-salad"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "caesar-salad",
@@ -306,7 +499,24 @@
             "Wheat"
           ],
           "addons": [],
-          "image": "images/caesar-salad.jpg"
+          "image": "images/caesar-salad.jpg",
+          "chefNote": "Dressed with our house vinaigrette just before serving.",
+          "relatedIds": [
+            "bacon-avocado-salad",
+            "goat-cheese-salad"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "house-garden-salad",
@@ -332,11 +542,28 @@
             {
               "id": "garden-chicken",
               "name": "Grilled chicken",
-              "price": 3.0
+              "price": 3
             }
           ],
           "isVegetarian": true,
-          "image": "images/house-garden-salad.jpg"
+          "image": "images/house-garden-salad.jpg",
+          "chefNote": "A bright, balanced plate from the garden.",
+          "relatedIds": [
+            "greek-salad",
+            "bacon-avocado-salad"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "greek-salad",
@@ -358,11 +585,28 @@
             {
               "id": "greek-chicken",
               "name": "Grilled chicken",
-              "price": 3.0
+              "price": 3
             }
           ],
           "isVegetarian": true,
-          "image": "images/greek-salad.jpg"
+          "image": "images/greek-salad.jpg",
+          "chefNote": "Light, fresh and full of texture.",
+          "relatedIds": [
+            "goat-cheese-salad",
+            "caesar-salad"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "bacon-avocado-salad",
@@ -383,7 +627,24 @@
             "Wheat"
           ],
           "addons": [],
-          "image": "images/bacon-avocado-salad.jpg"
+          "image": "images/bacon-avocado-salad.jpg",
+          "chefNote": "Dressed with our house vinaigrette just before serving.",
+          "relatedIds": [
+            "caesar-salad",
+            "house-garden-salad"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         }
       ]
     },
@@ -422,7 +683,7 @@
             {
               "id": "jobber-bacon",
               "name": "Bacon",
-              "price": 2.0
+              "price": 2
             },
             {
               "id": "jobber-garlic",
@@ -430,12 +691,33 @@
               "price": 0.8
             }
           ],
-          "image": "images/the-jobber.jpg"
+          "image": "images/the-jobber.jpg",
+          "chefNote": "Our signature burger: stacked, juicy and built for appetite.",
+          "featured": true,
+          "badges": [
+            "House favourite"
+          ],
+          "relatedIds": [
+            "steak-of-the-day",
+            "southern-fried-chicken-burger"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "valley-steak-sandwich",
           "name": "The Valley Steak Sandwich",
-          "description": "Saut\u00e9ed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter.",
+          "description": "Sautéed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter.",
           "price": 19.95,
           "ingredients": [
             "sirloin steak",
@@ -456,12 +738,29 @@
               "price": 1.5
             }
           ],
-          "image": "images/valley-steak-sandwich.jpg"
+          "image": "images/valley-steak-sandwich.jpg",
+          "chefNote": "A hearty, satisfying plate for the hungry guest.",
+          "relatedIds": [
+            "southern-fried-chicken-burger",
+            "thai-red-curry-chicken"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "steak-of-the-day",
           "name": "Steak of the Day",
-          "description": "Sirloin, ribeye or fillet from our specials board, served with chips, mash, saut\u00e9ed onions and mushrooms, pepper sauce or garlic butter.",
+          "description": "Sirloin, ribeye or fillet from our specials board, served with chips, mash, sautéed onions and mushrooms, pepper sauce or garlic butter.",
           "price": 29.95,
           "ingredients": [
             "steak",
@@ -484,10 +783,28 @@
             {
               "id": "steak-mushrooms",
               "name": "Garlic mushrooms",
-              "price": 2.0
+              "price": 2
             }
           ],
-          "image": "images/steak-of-the-day.jpg"
+          "image": "images/steak-of-the-day.jpg",
+          "chefNote": "Ask your server for today’s cut and cooking recommendation.",
+          "featured": true,
+          "relatedIds": [
+            "southern-fried-chicken-burger",
+            "thai-red-curry-chicken"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "southern-fried-chicken-burger",
@@ -518,10 +835,27 @@
             {
               "id": "sfc-bacon",
               "name": "Bacon",
-              "price": 2.0
+              "price": 2
             }
           ],
-          "image": "images/southern-fried-chicken-burger.jpg"
+          "image": "images/southern-fried-chicken-burger.jpg",
+          "chefNote": "Cooked to order and served with our signature sides.",
+          "relatedIds": [
+            "steak-of-the-day",
+            "thai-red-curry-chicken"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "thai-red-curry-chicken",
@@ -545,7 +879,7 @@
             {
               "id": "thai-rice",
               "name": "Steamed rice",
-              "price": 2.0
+              "price": 2
             },
             {
               "id": "thai-naan",
@@ -554,7 +888,24 @@
             }
           ],
           "isSpicy": true,
-          "image": "images/thai-red-curry-chicken.jpg"
+          "image": "images/thai-red-curry-chicken.jpg",
+          "chefNote": "Fragrant, creamy and gently spiced.",
+          "relatedIds": [
+            "valley-steak-sandwich",
+            "steak-of-the-day"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "half-roast-duck",
@@ -576,7 +927,24 @@
             "Wheat"
           ],
           "addons": [],
-          "image": "images/half-roast-duck.jpg"
+          "image": "images/half-roast-duck.jpg",
+          "chefNote": "Slow-roasted until the skin is crisp and the meat is tender.",
+          "relatedIds": [
+            "the-jobber",
+            "valley-steak-sandwich"
+          ],
+          "perfectWith": [
+            {
+              "id": "guinness",
+              "name": "Guinness Draught",
+              "image": "images/guinness.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         }
       ]
     },
@@ -613,7 +981,28 @@
               "price": 0.8
             }
           ],
-          "image": "images/fish-and-chips.jpg"
+          "image": "images/fish-and-chips.jpg",
+          "chefNote": "Beer-battered haddock served with twice-cooked chips and mushy peas.",
+          "featured": true,
+          "badges": [
+            "Pub classic"
+          ],
+          "relatedIds": [
+            "seafood-linguine",
+            "garlic-king-prawns"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "grilled-salmon",
@@ -638,7 +1027,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/grilled-salmon.jpg"
+          "image": "images/grilled-salmon.jpg",
+          "chefNote": "Simply grilled and finished with lemon butter.",
+          "relatedIds": [
+            "fish-and-chips",
+            "seafood-linguine"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "seafood-linguine",
@@ -664,10 +1070,27 @@
             {
               "id": "linguine-prawns",
               "name": "Extra king prawns",
-              "price": 3.0
+              "price": 3
             }
           ],
-          "image": "images/seafood-linguine.jpg"
+          "image": "images/seafood-linguine.jpg",
+          "chefNote": "Served with lemon and our house tartare.",
+          "relatedIds": [
+            "grilled-salmon",
+            "garlic-king-prawns"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "garlic-king-prawns",
@@ -693,7 +1116,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/garlic-king-prawns.jpg"
+          "image": "images/garlic-king-prawns.jpg",
+          "chefNote": "Sourced responsibly and cooked simply to let the fish shine.",
+          "relatedIds": [
+            "seafood-linguine",
+            "fish-and-chips"
+          ],
+          "perfectWith": [
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         }
       ]
     },
@@ -704,7 +1144,7 @@
         {
           "id": "penne-carbonara",
           "name": "Penne Carbonara",
-          "description": "Saut\u00e9ed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread.",
+          "description": "Sautéed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread.",
           "price": 16.95,
           "ingredients": [
             "penne",
@@ -730,10 +1170,28 @@
             {
               "id": "carbonara-parmesan",
               "name": "Extra parmesan",
-              "price": 1.0
+              "price": 1
             }
           ],
-          "image": "images/penne-carbonara.jpg"
+          "image": "images/penne-carbonara.jpg",
+          "chefNote": "Silky sauce, crispy pancetta and plenty of parmesan.",
+          "featured": true,
+          "relatedIds": [
+            "lasagne",
+            "creamy-chicken-pasta"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "spaghetti-bolognese",
@@ -759,7 +1217,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/spaghetti-bolognese.jpg"
+          "image": "images/spaghetti-bolognese.jpg",
+          "chefNote": "A slow-cooked ragu that tastes like Sunday.",
+          "relatedIds": [
+            "penne-carbonara",
+            "penne-arrabbiata"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "penne-arrabbiata",
@@ -781,22 +1256,39 @@
             {
               "id": "arrabbiata-chicken",
               "name": "Grilled chicken",
-              "price": 3.0
+              "price": 3
             }
           ],
           "isSpicy": true,
           "isVegan": true,
-          "image": "images/penne-arrabbiata.jpg"
+          "image": "images/penne-arrabbiata.jpg",
+          "chefNote": "One of our kitchen favourites any night of the week.",
+          "relatedIds": [
+            "lasagne",
+            "creamy-chicken-pasta"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "lasagne",
           "name": "Lasagne al Forno",
-          "description": "Layers of pasta with slow-cooked beef ragu, b\u00e9chamel sauce and melted cheese.",
+          "description": "Layers of pasta with slow-cooked beef ragu, béchamel sauce and melted cheese.",
           "price": 16.5,
           "ingredients": [
             "lasagne sheets",
             "beef ragu",
-            "b\u00e9chamel",
+            "béchamel",
             "cheese"
           ],
           "allergens": [
@@ -811,7 +1303,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/lasagne.jpg"
+          "image": "images/lasagne.jpg",
+          "chefNote": "Made with slow-simmered sauces and al dente pasta.",
+          "relatedIds": [
+            "spaghetti-bolognese",
+            "penne-arrabbiata"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         },
         {
           "id": "creamy-chicken-pasta",
@@ -837,7 +1346,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/creamy-chicken-pasta.jpg"
+          "image": "images/creamy-chicken-pasta.jpg",
+          "chefNote": "A generous bowl of comfort, finished with parmesan.",
+          "relatedIds": [
+            "spaghetti-bolognese",
+            "penne-arrabbiata"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "heineken",
+              "name": "Heineken",
+              "image": "images/heineken.jpg"
+            }
+          ]
         }
       ]
     },
@@ -849,7 +1375,7 @@
           "id": "margherita",
           "name": "Margherita",
           "description": "Neapolitan tomato sauce and melted mozzarella on a stone-baked base.",
-          "price": 15.0,
+          "price": 15,
           "ingredients": [
             "pizza dough",
             "tomato sauce",
@@ -863,17 +1389,34 @@
             {
               "id": "pizza-toppings",
               "name": "Extra toppings",
-              "price": 2.0
+              "price": 2
             }
           ],
           "isVegetarian": true,
-          "image": "images/margherita.jpg"
+          "image": "images/margherita.jpg",
+          "chefNote": "Stone-baked until crisp and blistered.",
+          "relatedIds": [
+            "nduja",
+            "pepperoni"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "triple-cheese",
           "name": "Triple Cheese",
           "description": "Red cheddar, mozzarella and goat's cheese on a rich tomato base.",
-          "price": 16.0,
+          "price": 16,
           "ingredients": [
             "pizza dough",
             "tomato sauce",
@@ -889,17 +1432,34 @@
             {
               "id": "pizza-toppings-2",
               "name": "Extra toppings",
-              "price": 2.0
+              "price": 2
             }
           ],
           "isVegetarian": true,
-          "image": "images/triple-cheese.jpg"
+          "image": "images/triple-cheese.jpg",
+          "chefNote": "Topped with quality ingredients and plenty of cheese.",
+          "relatedIds": [
+            "bmc",
+            "nduja"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "bmc",
           "name": "The BMC",
           "description": "Bacon, mushroom and cheese on our house tomato base.",
-          "price": 16.0,
+          "price": 16,
           "ingredients": [
             "pizza dough",
             "tomato sauce",
@@ -915,16 +1475,33 @@
             {
               "id": "pizza-toppings-3",
               "name": "Extra toppings",
-              "price": 2.0
+              "price": 2
             }
           ],
-          "image": "images/bmc.jpg"
+          "image": "images/bmc.jpg",
+          "chefNote": "Best enjoyed fresh from the oven.",
+          "relatedIds": [
+            "triple-cheese",
+            "nduja"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "nduja",
           "name": "Nduja",
           "description": "Spicy Italian sausage, tomato, peppers and mozzarella.",
-          "price": 16.0,
+          "price": 16,
           "ingredients": [
             "pizza dough",
             "tomato sauce",
@@ -940,17 +1517,34 @@
             {
               "id": "pizza-toppings-4",
               "name": "Extra toppings",
-              "price": 2.0
+              "price": 2
             }
           ],
           "isSpicy": true,
-          "image": "images/nduja.jpg"
+          "image": "images/nduja.jpg",
+          "chefNote": "Stone-baked until crisp and blistered.",
+          "relatedIds": [
+            "margherita",
+            "triple-cheese"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "pepperoni",
           "name": "Classic Pepperoni",
           "description": "Pepperoni and mozzarella on a classic tomato base.",
-          "price": 16.0,
+          "price": 16,
           "ingredients": [
             "pizza dough",
             "tomato sauce",
@@ -965,10 +1559,27 @@
             {
               "id": "pizza-toppings-5",
               "name": "Extra toppings",
-              "price": 2.0
+              "price": 2
             }
           ],
-          "image": "images/pepperoni.jpg"
+          "image": "images/pepperoni.jpg",
+          "chefNote": "A classic done right with cup-and-char pepperoni.",
+          "relatedIds": [
+            "veggie-delight",
+            "margherita"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         },
         {
           "id": "veggie-delight",
@@ -992,11 +1603,28 @@
             {
               "id": "pizza-toppings-6",
               "name": "Extra toppings",
-              "price": 2.0
+              "price": 2
             }
           ],
           "isVegetarian": true,
-          "image": "images/veggie-delight.jpg"
+          "image": "images/veggie-delight.jpg",
+          "chefNote": "Best enjoyed fresh from the oven.",
+          "relatedIds": [
+            "margherita",
+            "triple-cheese"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orchard-thieves",
+              "name": "Orchard Thieves Cider",
+              "image": "images/orchard-thieves.jpg"
+            }
+          ]
         }
       ]
     },
@@ -1029,7 +1657,25 @@
             }
           ],
           "isVegan": true,
-          "image": "images/chickpea-curry.jpg"
+          "image": "images/chickpea-curry.jpg",
+          "chefNote": "Hearty, aromatic and completely plant-based.",
+          "featured": true,
+          "relatedIds": [
+            "vegetable-lasagne",
+            "halloumi-wrap"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         },
         {
           "id": "mixed-veg-stir-fry",
@@ -1047,7 +1693,24 @@
           "addons": [],
           "isGlutenFree": true,
           "isVegan": true,
-          "image": "images/mixed-veg-stir-fry.jpg"
+          "image": "images/mixed-veg-stir-fry.jpg",
+          "chefNote": "Fresh vegetables in a light ginger-soy glaze.",
+          "relatedIds": [
+            "mixed-veg-curry",
+            "vegetable-lasagne"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         },
         {
           "id": "mixed-veg-curry",
@@ -1066,17 +1729,34 @@
           "addons": [],
           "isGlutenFree": true,
           "isVegan": true,
-          "image": "images/mixed-veg-curry.jpg"
+          "image": "images/mixed-veg-curry.jpg",
+          "chefNote": "One of the most colourful plates on the menu.",
+          "relatedIds": [
+            "chickpea-curry",
+            "mixed-veg-stir-fry"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         },
         {
           "id": "vegetable-lasagne",
           "name": "Roasted Vegetable Lasagne",
-          "description": "Layers of roasted vegetables, tomato sauce, b\u00e9chamel and cheese baked until golden.",
+          "description": "Layers of roasted vegetables, tomato sauce, béchamel and cheese baked until golden.",
           "price": 15.95,
           "ingredients": [
             "lasagne sheets",
             "roasted vegetables",
-            "b\u00e9chamel",
+            "béchamel",
             "cheese",
             "tomato sauce"
           ],
@@ -1094,7 +1774,24 @@
             }
           ],
           "isVegetarian": true,
-          "image": "images/vegetable-lasagne.jpg"
+          "image": "images/vegetable-lasagne.jpg",
+          "chefNote": "Packed with flavour and built around seasonal vegetables.",
+          "relatedIds": [
+            "halloumi-wrap",
+            "chickpea-curry"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         },
         {
           "id": "halloumi-wrap",
@@ -1115,7 +1812,24 @@
           ],
           "addons": [],
           "isVegetarian": true,
-          "image": "images/halloumi-wrap.jpg"
+          "image": "images/halloumi-wrap.jpg",
+          "chefNote": "A satisfying plant-based option that does not compromise.",
+          "relatedIds": [
+            "chickpea-curry",
+            "mixed-veg-stir-fry"
+          ],
+          "perfectWith": [
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            },
+            {
+              "id": "sparkling-water",
+              "name": "Sparkling Water",
+              "image": "images/sparkling-water.jpg"
+            }
+          ]
         }
       ]
     },
@@ -1136,13 +1850,19 @@
             "Sulphites"
           ],
           "addons": [],
-          "image": "images/guinness.jpg"
+          "image": "images/guinness.jpg",
+          "chefNote": "The perfect pint: creamy, bitter and iconic.",
+          "featured": true,
+          "relatedIds": [
+            "sparkling-water",
+            "heineken"
+          ]
         },
         {
           "id": "heineken",
           "name": "Heineken",
           "description": "Crisp, refreshing draught lager.",
-          "price": 6.0,
+          "price": 6,
           "ingredients": [
             "lager"
           ],
@@ -1150,7 +1870,12 @@
             "Barley"
           ],
           "addons": [],
-          "image": "images/heineken.jpg"
+          "image": "images/heineken.jpg",
+          "chefNote": "The perfect pour to accompany your meal.",
+          "relatedIds": [
+            "sparkling-water",
+            "guinness"
+          ]
         },
         {
           "id": "orchard-thieves",
@@ -1164,7 +1889,12 @@
             "Sulphites"
           ],
           "addons": [],
-          "image": "images/orchard-thieves.jpg"
+          "image": "images/orchard-thieves.jpg",
+          "chefNote": "A refreshing choice from our drinks selection.",
+          "relatedIds": [
+            "orange-juice",
+            "sparkling-water"
+          ]
         },
         {
           "id": "coke",
@@ -1176,7 +1906,12 @@
           ],
           "allergens": [],
           "addons": [],
-          "image": "images/coke.jpg"
+          "image": "images/coke.jpg",
+          "chefNote": "Served ice-cold, exactly as it should be.",
+          "relatedIds": [
+            "orange-juice",
+            "sparkling-water"
+          ]
         },
         {
           "id": "orange-juice",
@@ -1188,20 +1923,30 @@
           ],
           "allergens": [],
           "addons": [],
-          "image": "images/orange-juice.jpg"
+          "image": "images/orange-juice.jpg",
+          "chefNote": "The perfect pour to accompany your meal.",
+          "relatedIds": [
+            "heineken",
+            "orchard-thieves"
+          ]
         },
         {
           "id": "sparkling-water",
           "name": "Sparkling Water",
           "description": "Chilled sparkling water with a slice of lemon.",
-          "price": 2.0,
+          "price": 2,
           "ingredients": [
             "sparkling water",
             "lemon"
           ],
           "allergens": [],
           "addons": [],
-          "image": "images/sparkling-water.jpg"
+          "image": "images/sparkling-water.jpg",
+          "chefNote": "A refreshing choice from our drinks selection.",
+          "relatedIds": [
+            "coke",
+            "orange-juice"
+          ]
         }
       ]
     },
@@ -1231,7 +1976,28 @@
               "price": 1.5
             }
           ],
-          "image": "images/chocolate-fudge-cake.jpg"
+          "image": "images/chocolate-fudge-cake.jpg",
+          "chefNote": "Decadent, warm and best shared — if you can.",
+          "featured": true,
+          "badges": [
+            "Must-try"
+          ],
+          "relatedIds": [
+            "cheesecake",
+            "sticky-toffee"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "apple-crumble",
@@ -1252,10 +2018,27 @@
             {
               "id": "crumble-custard",
               "name": "Extra custard",
-              "price": 1.0
+              "price": 1
             }
           ],
-          "image": "images/apple-crumble.jpg"
+          "image": "images/apple-crumble.jpg",
+          "chefNote": "Prepared in-house and served with pride.",
+          "relatedIds": [
+            "ice-cream",
+            "chocolate-fudge-cake"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "cheesecake",
@@ -1278,7 +2061,24 @@
               "price": 0.8
             }
           ],
-          "image": "images/cheesecake.jpg"
+          "image": "images/cheesecake.jpg",
+          "chefNote": "Best paired with a strong coffee.",
+          "relatedIds": [
+            "ice-cream",
+            "chocolate-fudge-cake"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "sticky-toffee",
@@ -1304,7 +2104,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/sticky-toffee.jpg"
+          "image": "images/sticky-toffee.jpg",
+          "chefNote": "A proper pud with butterscotch sauce and vanilla ice cream.",
+          "relatedIds": [
+            "ice-cream",
+            "chocolate-fudge-cake"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         },
         {
           "id": "ice-cream",
@@ -1326,7 +2143,24 @@
               "price": 1.5
             }
           ],
-          "image": "images/ice-cream.jpg"
+          "image": "images/ice-cream.jpg",
+          "chefNote": "Prepared in-house and served with pride.",
+          "relatedIds": [
+            "chocolate-fudge-cake",
+            "apple-crumble"
+          ],
+          "perfectWith": [
+            {
+              "id": "coke",
+              "name": "Coca-Cola",
+              "image": "images/coke.jpg"
+            },
+            {
+              "id": "orange-juice",
+              "name": "Fresh Orange Juice",
+              "image": "images/orange-juice.jpg"
+            }
+          ]
         }
       ]
     }

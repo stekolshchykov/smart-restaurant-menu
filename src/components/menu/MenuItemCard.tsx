@@ -1,24 +1,21 @@
-import { useState } from 'react'
-import { ArrowRight } from 'lucide-react'
-import { motion } from 'framer-motion'
 import type { MenuItem } from '../../types'
 import { Badge } from '../ui/Badge'
 import { Card } from '../ui/Card'
 import { Heading } from '../ui/Heading'
 import { Image } from '../ui/Image'
 import { Price } from '../ui/Price'
+import { QuickAddButton } from '../ui/QuickAddButton'
 import { Stack } from '../ui/Stack'
 import { Text } from '../ui/Text'
 
 export interface MenuItemCardProps {
   item: MenuItem
   onClick: () => void
+  onQuickAdd: () => void
 }
 
-export function MenuItemCard({ item, onClick }: MenuItemCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
-
-  const badges = [
+export function MenuItemCard({ item, onClick, onQuickAdd }: MenuItemCardProps) {
+  const dietaryBadges = [
     item.isSpicy && { label: 'Spicy', variant: 'accent' as const },
     item.isVegetarian && { label: 'Vegetarian', variant: 'default' as const },
     item.isVegan && { label: 'Vegan', variant: 'default' as const },
@@ -33,12 +30,8 @@ export function MenuItemCard({ item, onClick }: MenuItemCardProps) {
   )
 
   return (
-    <motion.div
-      className="h-full"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-    >
-      <Card onClick={onClick} hover className="flex h-full flex-col">
+    <Card onClick={onClick} hover className="group flex h-full flex-col">
+      <div className="relative">
         <Image
           src={item.image}
           alt={item.name}
@@ -47,48 +40,49 @@ export function MenuItemCard({ item, onClick }: MenuItemCardProps) {
           className="rounded-none"
         />
 
-        <Stack gap={3} className="flex-1 p-4">
-          <div className="flex items-start justify-between gap-2">
-            <Heading level={3} variant="title" onSurface>
-              {item.name}
-            </Heading>
-            <Price amount={item.price} onSurface />
+        {(item.featured || item.badges?.length) && (
+          <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+            {item.featured && <Badge variant="featured">Chef's choice</Badge>}
+            {item.badges?.slice(0, 2).map((badge) => (
+              <Badge key={badge} variant="featured">
+                {badge}
+              </Badge>
+            ))}
           </div>
+        )}
 
-          <Text variant="body-sm" onSurface className="line-clamp-2">
-            {item.description}
-          </Text>
+        <div className="absolute right-3 bottom-3 translate-y-2 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+          <QuickAddButton onClick={onQuickAdd} label={`Quick add ${item.name}`} />
+        </div>
+      </div>
 
-          <motion.div
-            className="mt-auto flex items-center gap-1"
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -8 }}
-            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <Text variant="caption" onSurface>
-              View
-            </Text>
-            <Text variant="caption" onSurface as="span">
-              <ArrowRight className="h-4 w-4" />
-            </Text>
-          </motion.div>
+      <Stack gap={3} className="flex-1 p-4">
+        <div className="flex items-start justify-between gap-2">
+          <Heading level={3} variant="title" onSurface>
+            {item.name}
+          </Heading>
+          <Price amount={item.price} onSurface />
+        </div>
 
-          {(badges.length > 0 || item.tags?.length) && (
-            <div className="flex flex-wrap gap-1.5">
-              {badges.map((badge) => (
-                <Badge key={badge.label} variant={badge.variant}>
-                  {badge.label}
-                </Badge>
-              ))}
-              {item.tags?.slice(0, 2).map((tag) => (
-                <Badge key={tag} variant="outline">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          )}
-        </Stack>
-      </Card>
-    </motion.div>
+        <Text variant="body-sm" onSurface className="line-clamp-2">
+          {item.description}
+        </Text>
+
+        {(dietaryBadges.length > 0 || item.tags?.length) && (
+          <div className="mt-auto flex flex-wrap gap-1.5">
+            {dietaryBadges.map((badge) => (
+              <Badge key={badge.label} variant={badge.variant}>
+                {badge.label}
+              </Badge>
+            ))}
+            {item.tags?.slice(0, 2).map((tag) => (
+              <Badge key={tag} variant="outline">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </Stack>
+    </Card>
   )
 }

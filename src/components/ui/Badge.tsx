@@ -10,6 +10,7 @@ export interface BadgeProps {
     | 'success'
     | 'warning'
     | 'error'
+    | 'featured'
   className?: string
 }
 
@@ -27,6 +28,8 @@ export function Badge({
     success: 'bg-[var(--color-success-bg)] text-[var(--color-success)]',
     warning: 'bg-[var(--color-warning-bg)] text-[var(--color-warning)]',
     error: 'bg-[var(--color-error-bg)] text-[var(--color-error)]',
+    featured:
+      'bg-[var(--color-accent)] text-[var(--color-surface)] border border-[var(--color-accent-light)] shadow-[var(--shadow-sm)]',
   }
 
   return (

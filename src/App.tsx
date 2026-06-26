@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { MenuData, MenuItem, Order, OrderAddon, Screen } from './types.ts'
 import fallbackMenu from './data/menu.json'
 import { LoadingScreen } from './components/layout/LoadingScreen.tsx'
 import { FloatingCartButton } from './components/layout/FloatingCartButton.tsx'
+import { ToastProvider } from './components/layout/ToastProvider.tsx'
 import { MenuScreen } from './screens/MenuScreen.tsx'
 import { DetailScreen } from './screens/DetailScreen.tsx'
 import { CartScreen } from './screens/CartScreen.tsx'
@@ -68,10 +69,29 @@ export default function App() {
     localStorage.setItem(CART_KEY, JSON.stringify(order))
   }, [order])
 
+  const allItems = useMemo(
+    () => menu?.categories.flatMap((category) => category.items) ?? [],
+    [menu],
+  )
+
   const openDetail = useCallback((item: MenuItem) => {
     setSelectedItem(item)
     setScreen('detail')
   }, [])
+
+  const handleRelatedItemClick = useCallback((item: MenuItem) => {
+    setSelectedItem(item)
+  }, [])
+
+  const handlePairingClick = useCallback(
+    (id: string) => {
+      const item = allItems.find((i) => i.id === id)
+      if (item) {
+        setSelectedItem(item)
+      }
+    },
+    [allItems],
+  )
 
   const addToOrder = useCallback(
     (item: MenuItem, quantity: number, selectedAddons: Record<string, number>) => {
@@ -97,6 +117,29 @@ export default function App() {
     },
     [],
   )
+
+  const quickAddToOrder = useCallback((item: MenuItem) => {
+    if (item.addons.length > 0) {
+      setSelectedItem(item)
+      setScreen('detail')
+      return
+    }
+
+    const newItem: Order['items'][number] = {
+      id: lineItemId(item.id, []),
+      menuItemId: item.id,
+      name: item.name,
+      basePrice: item.price,
+      addons: [],
+      quantity: 1,
+    }
+
+    setOrder((prev) => ({
+      ...prev,
+      items: [...prev.items, newItem],
+      createdAt: new Date().toISOString(),
+    }))
+  }, [])
 
   const removeFromOrder = useCallback((lineItemId: string) => {
     setOrder((prev) => ({
@@ -127,24 +170,29 @@ export default function App() {
   }
 
   return (
-    <Stack gap={0} className="relative flex-1 overflow-hidden">
-      <AnimatePresence mode="wait">
-        {screen === 'menu' && (
-          <motion.div key="menu" {...pageTransition} className="min-h-svh">
-            <MenuScreen
-              menu={menu}
-              onItemClick={openDetail}
-              cartItemCount={cartItemCount(order)}
-              onCartClick={() => setScreen('cart')}
-            />
-          </motion.div>
-        )}
+    <ToastProvider>
+      <Stack gap={0} className="relative flex-1 overflow-hidden">
+        <AnimatePresence mode="wait">
+          {screen === 'menu' && (
+            <motion.div key="menu" {...pageTransition} className="min-h-svh">
+              <MenuScreen
+                menu={menu}
+                onItemClick={openDetail}
+                onQuickAdd={quickAddToOrder}
+                cartItemCount={cartItemCount(order)}
+                onCartClick={() => setScreen('cart')}
+              />
+            </motion.div>
+          )}
 
         {screen === 'detail' && selectedItem && (
           <motion.div key="detail" {...pageTransition} className="min-h-svh">
             <DetailScreen
               item={selectedItem}
+              menu={menu}
               onAddToOrder={addToOrder}
+              onRelatedItemClick={handleRelatedItemClick}
+              onPairingClick={handlePairingClick}
               onBack={backToMenu}
             />
           </motion.div>
@@ -172,12 +220,13 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <FloatingCartButton
-        itemCount={cartItemCount(order)}
-        total={orderTotal(order)}
-        onClick={() => setScreen('cart')}
-        hidden={screen === 'cart' || screen === 'waiting'}
-      />
-    </Stack>
+        <FloatingCartButton
+          itemCount={cartItemCount(order)}
+          total={orderTotal(order)}
+          onClick={() => setScreen('cart')}
+          hidden={screen === 'cart' || screen === 'waiting'}
+        />
+      </Stack>
+    </ToastProvider>
   )
 }

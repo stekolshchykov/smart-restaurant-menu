@@ -4,14 +4,16 @@
 Build a polished, presentation-ready digital restaurant menu prototype that feels like a premium in-venue kiosk experience — not an e-commerce site. Every screen, card, button and transition must look appetising, expensive and intentional.
 
 ## Functional Requirements
-1. **Home / Menu Screen**: restaurant hero, sticky category navigation, large appetising dish cards built from JSON.
-2. **Dish Detail Screen**: full-screen presentation with large image, name, price, description, ingredients, allergens, optional add-ons, quantity selector, and "Add to Order".
-3. **Cart / Order Screen**: clean list of selected items with add-ons, quantities, per-line prices, total, remove, back to menu, and "Place Order".
-4. **Waiting Screen**: elegant order confirmation with order number, 10-minute countdown timer, ordered dishes, and navigation buttons.
-5. **Data**: all menu content comes from a single local JSON file; easy to edit categories and dishes.
-6. **Theming**: colour scheme, typography, radii and shadows configurable via CSS variables for quick re-skinning.
-7. **Search & dietary filters**: guests can search by dish/ingredient and filter by spicy, vegetarian, vegan, and gluten-free.
-8. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
+1. **Home / Menu Screen**: compact branded header, sticky category navigation, large appetising dish cards built from JSON.
+2. **Dish Cards**: each card shows image, name, price, short description, dietary tags and, on hover/focus, a quick-add button that adds the dish to the order in one tap.
+3. **Dish Detail Screen**: two-column presentation with hero image/gallery, name, price, description, chef's note, "Perfect with" pairings, related dishes, dietary/allergen info, ingredients, optional add-ons, quantity selector, and "Add to Order".
+4. **Cart / Order Screen**: clean list of selected items with add-ons, quantities, per-line prices, total, remove, back to menu, and "Place Order".
+5. **Waiting Screen**: elegant order confirmation with order number, 10-minute countdown timer, ordered dishes, and navigation buttons.
+6. **Data**: all menu content comes from a single local JSON file; easy to edit categories and dishes.
+7. **Theming**: colour scheme, typography, radii and shadows configurable via CSS variables for quick re-skinning.
+8. **Search & dietary filters**: guests can search by dish/ingredient and filter by spicy, vegetarian, vegan, and gluten-free.
+9. **Toast feedback**: subtle confirmation toasts appear after quick-add actions.
+10. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
 
 ## Non-Functional Requirements
 - Target device: tablet (landscape and portrait), but must also work on desktop and mobile.
@@ -40,7 +42,7 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 - No inline one-off elements inside screens; everything must be a reusable component or UI Kit primitive.
 
 ## Current Focus
-Complete the discoverability and accessibility pass: inline search, dietary filter chips, reduced-motion support, keyboard/screen-reader affordances, and updated documentation.
+Finish the "real restaurant menu" feel: compact header, quick-add on cards, richer detail page with chef notes, pairings, related dishes and badges, then update documentation and verify the live deployment.
 
 ## Decisions Log
 - 2026-06-26: Chose React + Vite + Tailwind for fast prototyping and easy theming. Rationale: widely known, no build complexity, CSS variables enable quick re-skinning for other venues.
@@ -49,3 +51,6 @@ Complete the discoverability and accessibility pass: inline search, dietary filt
 - 2026-06-26: Added inline search and dietary filter chips rather than a full-screen search overlay or sidebar filters. Rationale: keeps category context visible, works across mobile/tablet/desktop, and reuses existing sticky category nav pattern.
 - 2026-06-26: Centralised filter logic in `src/lib/useMenuFilters.ts`. Rationale: keeps `MenuScreen` focused on wiring and makes the filtering algorithm testable and reusable.
 - 2026-06-26: Added `prefers-reduced-motion` support to all motion primitives via Framer Motion's `useReducedMotion()`. Rationale: inclusive kiosk/tablet experience; avoids vestibular discomfort while preserving functionality.
+- 2026-06-26: Replaced the tall landing-page hero with a compact `MenuHeader` to focus on browsing dishes. Rationale: a real menu should get guests to food faster, not feel like a marketing page.
+- 2026-06-26: Added quick-add button on dish cards plus toast confirmation. Rationale: regulars and tablet users can order fast without opening the detail screen.
+- 2026-06-26: Expanded dish detail with chef notes, "Perfect with" pairings, related dishes, featured badges and card badges. Rationale: increases appetite appeal and helps guests discover combinations.
