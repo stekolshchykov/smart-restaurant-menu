@@ -6,6 +6,7 @@ export interface HeadingProps {
   variant?: 'display' | 'section' | 'title' | 'card'
   onSurface?: boolean
   className?: string
+  id?: string
 }
 
 const levelClasses = {
@@ -45,12 +46,14 @@ export function Heading({
   variant = 'section',
   onSurface = false,
   className = '',
+  id,
 }: HeadingProps) {
   const Component = `h${level}` as const
   const colors = onSurface ? colorSchemes.onSurface : colorSchemes.canvas
 
   return (
     <Component
+      id={id}
       className={`leading-tight ${levelClasses[level]} ${variantClasses[variant]} ${colors[variant]} ${className}`}
     >
       {children}

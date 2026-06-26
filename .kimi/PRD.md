@@ -8,12 +8,13 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 2. **Dish Cards**: each card shows image, name, price, short description, dietary tags and, on hover/focus, a quick-add button that adds the dish to the order in one tap.
 3. **Dish Detail Screen**: two-column presentation with hero image/gallery, name, price, description, chef's note, "Perfect with" pairings, related dishes, dietary/allergen info, ingredients, optional add-ons, quantity selector, and "Add to Order".
 4. **Cart / Order Screen**: clean list of selected items with add-ons, quantities, per-line prices, total, remove, back to menu, and "Place Order".
-5. **Waiting Screen**: elegant order confirmation with order number, 10-minute countdown timer, ordered dishes, and navigation buttons.
-6. **Data**: all menu content comes from a single local JSON file; easy to edit categories and dishes.
-7. **Theming**: colour scheme, typography, radii and shadows configurable via CSS variables for quick re-skinning.
-8. **Search & dietary filters**: guests can search by dish/ingredient and filter by spicy, vegetarian, vegan, and gluten-free.
-9. **Toast feedback**: subtle confirmation toasts appear after quick-add actions.
-10. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
+5. **Waiting Screen**: premium order-confirmation screen with large circular countdown timer, live preparation status, order number, beautiful order summary with add-ons, total, and navigation buttons.
+6. **Service Requests**: a floating Service button available on every main screen opens a panel of quick actions (call waiter, water, napkins, cutlery, bill, help) with toast feedback and a temporary "Requested" state.
+7. **Data**: all menu content comes from a single local JSON file; easy to edit categories and dishes.
+8. **Theming**: colour scheme, typography, radii and shadows configurable via CSS variables for quick re-skinning.
+9. **Search & dietary filters**: guests can search by dish/ingredient and filter by spicy, vegetarian, vegan, and gluten-free.
+10. **Toast feedback**: subtle confirmation toasts appear after quick-add and service-request actions.
+11. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
 
 ## Non-Functional Requirements
 - Target device: tablet (landscape and portrait), but must also work on desktop and mobile.
@@ -42,7 +43,7 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 - No inline one-off elements inside screens; everything must be a reusable component or UI Kit primitive.
 
 ## Current Focus
-Finish the "real restaurant menu" feel: compact header, quick-add on cards, richer detail page with chef notes, pairings, related dishes and badges, then update documentation and verify the live deployment.
+Ship the in-venue service layer and elevate the post-order experience: add the global Service request button/panel and redesign the Waiting screen to feel like a premium restaurant confirmation, then update documentation and verify the live deployment.
 
 ## Decisions Log
 - 2026-06-26: Chose React + Vite + Tailwind for fast prototyping and easy theming. Rationale: widely known, no build complexity, CSS variables enable quick re-skinning for other venues.
@@ -54,3 +55,5 @@ Finish the "real restaurant menu" feel: compact header, quick-add on cards, rich
 - 2026-06-26: Replaced the tall landing-page hero with a compact `MenuHeader` to focus on browsing dishes. Rationale: a real menu should get guests to food faster, not feel like a marketing page.
 - 2026-06-26: Added quick-add button on dish cards plus toast confirmation. Rationale: regulars and tablet users can order fast without opening the detail screen.
 - 2026-06-26: Expanded dish detail with chef notes, "Perfect with" pairings, related dishes, featured badges and card badges. Rationale: increases appetite appeal and helps guests discover combinations.
+- 2026-06-26: Added a global floating Service button connected at `Layout` level with a `ServiceRequestPanel` for quick in-venue requests. Rationale: tablets in a restaurant must let guests call for help without leaving the current screen.
+- 2026-06-26: Redesigned the Waiting screen with a large circular timer, preparation-status stepper, elevated order-summary card and refined typography. Rationale: the post-order moment should reassure guests and feel as premium as the rest of the experience.

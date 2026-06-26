@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Stack } from '../ui/Stack'
 import { Header } from './Header'
+import { ServiceRequestButton } from './ServiceRequestButton'
 
 export interface LayoutProps {
   children: ReactNode
@@ -49,6 +50,8 @@ export function Layout({
       >
         {children}
       </main>
+
+      <ServiceRequestButton />
     </Stack>
   )
 }

@@ -31,6 +31,12 @@ export interface ParingItem {
   image: string
 }
 
+export interface ServiceRequest {
+  id: string
+  label: string
+  message: string
+}
+
 export interface Category {
   id: string
   name: string

@@ -12,7 +12,8 @@ A responsive, themeable digital restaurant menu prototype built with React, Type
 - **Quick-add** — hover or focus any dish card to add it to the cart in one tap; dishes with required add-ons open detail first.
 - **Toast feedback** — subtle confirmation appears after quick-add actions.
 - **Cart** — review selected items, remove lines and see a running total.
-- **Order timer** — after placing an order, the waiting screen shows a live countdown until the estimated ready time.
+- **Premium waiting screen** — after placing an order, see a large circular countdown, live preparation status, order number, and a polished summary of ordered dishes with add-ons and total.
+- **Service requests** — a floating Service button on every main screen opens quick actions (call waiter, water, napkins, cutlery, bill, help) with elegant toast feedback.
 - **Responsive** — optimised for phone, tablet and desktop viewports.
 - **Themeable** — colours, fonts, shadows and radii are controlled by CSS variables for easy re-skinning.
 - **Accessible** — skip-to-content link, visible focus rings, and reduced-motion support.
@@ -34,8 +35,8 @@ src/
 ├── components/
 │   ├── ui/          # Reusable UI kit (Button, Card, Badge, Price, Stepper, IconButton, SearchInput, FilterChip, ...)
 │   ├── menu/        # Menu feature components (MenuItemCard, CategorySection, CategoryNavigation, MenuItemDetails, AddonSelector, MenuFilterBar)
-│   ├── order/       # Order feature components (OrderSummary, OrderItem, OrderTimer)
-│   └── layout/      # Layout shell and header (Layout, Header, MenuHeader, FloatingCartButton, ToastProvider)
+│   ├── order/       # Order feature components (OrderSummary, OrderItem, OrderTimer, PreparationStatus, OrderLineItemReadOnly)
+│   └── layout/      # Layout shell and header (Layout, Header, MenuHeader, FloatingCartButton, ToastProvider, ServiceRequestButton, ServiceRequestPanel)
 ├── screens/         # Top-level screens (MenuScreen, DetailScreen, CartScreen, WaitingScreen)
 ├── lib/             # Pure helpers and hooks (calculations, formatters, useMenuFilters)
 ├── data/            # Fallback menu.json used during development
@@ -56,6 +57,8 @@ npm run preview  # preview the production build locally
 ## How to customize the menu
 
 Edit `public/menu.json` (this is what the deployed app fetches). During development, if the fetch fails, the app falls back to `src/data/menu.json`.
+
+Service-request actions are configured in `src/data/serviceRequests.json` and rendered by `ServiceRequestPanel`.
 
 The JSON structure follows the `MenuData` type in `src/types.ts`:
 

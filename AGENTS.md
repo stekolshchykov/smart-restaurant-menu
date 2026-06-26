@@ -41,6 +41,7 @@ Rules:
 - Keep files under 300 lines.
 - No inline one-off elements inside screens.
 - Use Tailwind utility classes only; theme values must come from `src/theme.css` CSS variables.
+- Global chrome (header, cart button, service button, toasts) is owned by `Layout` and `App.tsx`; individual screens do not re-implement it.
 
 ## State
 
@@ -71,6 +72,8 @@ Rich fields available on each item:
 ```
 
 Images live in `public/images/` and are referenced as `images/<file>.jpg` in the JSON.
+
+Service-request actions live in `src/data/serviceRequests.json` and are consumed by `ServiceRequestButton` / `ServiceRequestPanel`.
 
 ## Theming
 

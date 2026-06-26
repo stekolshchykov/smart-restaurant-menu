@@ -1,0 +1,32 @@
+[
+  {
+    "id": "waiter",
+    "label": "Call Waiter",
+    "message": "A waiter will be with you shortly"
+  },
+  {
+    "id": "water",
+    "label": "Ask for Water",
+    "message": "Water is on its way"
+  },
+  {
+    "id": "napkins",
+    "label": "Ask for Napkins",
+    "message": "Napkins are on their way"
+  },
+  {
+    "id": "cutlery",
+    "label": "Ask for Cutlery",
+    "message": "Cutlery is on its way"
+  },
+  {
+    "id": "bill",
+    "label": "Ask for the Bill",
+    "message": "The bill will be brought to your table"
+  },
+  {
+    "id": "help",
+    "label": "Need Help",
+    "message": "Help is on the way"
+  }
+]
