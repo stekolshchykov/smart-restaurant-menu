@@ -2,14 +2,18 @@
 
 A responsive, themeable digital restaurant menu prototype built with React, TypeScript and Vite.
 
+**Live demo:** https://stekolshchykov.github.io/smart-restaurant-menu/
+
 ## Features
 
 - **Menu from JSON** — categories, dishes, ingredients, allergens, tags and add-ons are driven by a single JSON file.
+- **Search & dietary filters** — search by dish name or ingredient, and filter by spicy, vegetarian, vegan and gluten-free.
 - **Dish detail with add-ons** — tap any dish to see details, choose extras and add the configured item to the cart.
 - **Cart** — review selected items, remove lines and see a running total.
 - **Order timer** — after placing an order, the waiting screen shows a live countdown until the estimated ready time.
 - **Responsive** — optimised for phone, tablet and desktop viewports.
 - **Themeable** — colours, fonts, shadows and radii are controlled by CSS variables for easy re-skinning.
+- **Accessible** — skip-to-content link, visible focus rings, and reduced-motion support.
 - **Persistent cart** — the current order is saved to `localStorage` and restored on reload (optional, can be disabled).
 
 ## Tech stack
@@ -26,12 +30,12 @@ A responsive, themeable digital restaurant menu prototype built with React, Type
 ```
 src/
 ├── components/
-│   ├── ui/          # Reusable UI kit (Button, Card, Badge, Price, QuantitySelector, IconButton)
-│   ├── menu/        # Menu feature components (MenuItemCard, CategorySection, CategoryNavigation, MenuItemDetails, AddonSelector)
+│   ├── ui/          # Reusable UI kit (Button, Card, Badge, Price, Stepper, IconButton, SearchInput, FilterChip, ...)
+│   ├── menu/        # Menu feature components (MenuItemCard, CategorySection, CategoryNavigation, MenuItemDetails, AddonSelector, MenuFilterBar)
 │   ├── order/       # Order feature components (OrderSummary, OrderItem, OrderTimer)
-│   └── layout/      # Layout shell and header (Layout, Header)
+│   └── layout/      # Layout shell and header (Layout, Header, Hero, FloatingCartButton)
 ├── screens/         # Top-level screens (MenuScreen, DetailScreen, CartScreen, WaitingScreen)
-├── lib/             # Pure helpers (calculations, formatters)
+├── lib/             # Pure helpers and hooks (calculations, formatters, useMenuFilters)
 ├── data/            # Fallback menu.json used during development
 ├── types.ts         # Shared TypeScript interfaces
 ├── theme.css        # CSS variables for theming
@@ -74,8 +78,8 @@ The JSON structure follows the `MenuData` type in `src/types.ts`:
 
 ## How to re-skin for another venue
 
-Edit the CSS variables in `src/theme.css`. Changing `--color-primary`, `--color-accent`, `--font-sans`, `--font-heading`, `--radius-*` and `--shadow-*` is usually enough to give the app a new look. Dark-mode colours are defined in the same file under `prefers-color-scheme: dark`.
+Edit the CSS variables in `src/theme.css`. Changing `--color-primary`, `--color-accent`, `--font-sans`, `--font-heading`, `--radius-*` and `--shadow-*` is usually enough to give the app a new look.
 
-## Screenshots
+## Deployment
 
-UI screenshots for desktop and iPad are available in `.kimi/output/screenshots/`.
+The project is deployed automatically to GitHub Pages via the workflow in `.github/workflows/deploy.yml`. On every push to `main` the pipeline installs dependencies, runs the linter, builds the project, and publishes the `dist/` folder.
