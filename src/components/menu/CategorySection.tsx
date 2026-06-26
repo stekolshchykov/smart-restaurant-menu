@@ -19,7 +19,7 @@ export function CategorySection({
   return (
     <Section
       id={category.id}
-      className="scroll-mt-[calc(var(--safe-area-top)+3.5rem)]"
+      className="scroll-mt-[calc(var(--safe-area-top)+var(--sticky-header-height,7rem))]"
       aria-labelledby={`category-heading-${category.id}`}
     >
       <Container size="xl">

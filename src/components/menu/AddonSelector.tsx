@@ -40,27 +40,29 @@ export function AddonSelector({
             <Stack gap={1} className="min-w-0 flex-1">
               <Text
                 variant="body"
-                className={`font-medium ${
+                className={`truncate font-medium ${
                   isSelected ? 'text-[var(--color-accent)]' : ''
                 }`}
               >
                 {addon.name}
               </Text>
               {addonWithDescription.description && (
-                <Text variant="body-sm">
+                <Text variant="body-sm" className="truncate">
                   {addonWithDescription.description}
                 </Text>
               )}
               <Price amount={addon.price} size="sm" />
             </Stack>
-            <Stepper
-              value={quantity}
-              min={0}
-              max={5}
-              onChange={(value) => onChange(addon.id, value)}
-              size="sm"
-              onSurface={false}
-            />
+            <div className="shrink-0">
+              <Stepper
+                value={quantity}
+                min={0}
+                max={5}
+                onChange={(value) => onChange(addon.id, value)}
+                size="md"
+                onSurface={false}
+              />
+            </div>
           </Flex>
         )
       })}

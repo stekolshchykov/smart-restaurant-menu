@@ -44,21 +44,21 @@ export function KioskFooter({
                 {isFullscreen ? (
                   <Button
                     variant="ghost-inverse"
-                    size="sm"
+                    size="md"
                     onClick={() => void exitFullscreen()}
                     iconLeft={<Minimize className="h-4 w-4" />}
                     className="hidden sm:inline-flex"
                   >
-                    Fullscreen active
+                    <span className="hidden sm:inline">Fullscreen active</span>
                   </Button>
                 ) : (
                   <Button
                     variant="ghost-inverse"
-                    size="sm"
+                    size="md"
                     onClick={() => void enterFullscreen()}
                     iconLeft={<Maximize className="h-4 w-4" />}
                   >
-                    Open fullscreen
+                    <span className="hidden sm:inline">Open fullscreen</span>
                   </Button>
                 )}
 
@@ -66,7 +66,7 @@ export function KioskFooter({
                   onClick={openAdminModal}
                   aria-label="Admin unlock"
                   variant="ghost-inverse"
-                  size="sm"
+                  size="md"
                 >
                   <Lock className="h-4 w-4" />
                 </IconButton>

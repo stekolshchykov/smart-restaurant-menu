@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
 } from 'react'
+
 import type { MenuData, MenuItem } from '../types.ts'
 import { useMenuFilters } from '../lib/useMenuFilters.ts'
 import { Layout } from '../components/layout/Layout.tsx'
@@ -44,6 +45,27 @@ export function MenuScreen({
   )
   const observerRef = useRef<IntersectionObserver | null>(null)
   const isManualScroll = useRef(false)
+  const stickyHeaderRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const element = stickyHeaderRef.current
+    if (!element) return
+
+    const updateHeight = () => {
+      document.documentElement.style.setProperty(
+        '--sticky-header-height',
+        `${element.offsetHeight}px`,
+      )
+    }
+
+    updateHeight()
+    const observer = new ResizeObserver(updateHeight)
+    observer.observe(element)
+    return () => {
+      observer.disconnect()
+      document.documentElement.style.removeProperty('--sticky-header-height')
+    }
+  }, [])
 
   const visibleCategoryIds = useMemo(
     () => new Set(filteredCategories.map((category) => category.id)),
@@ -124,26 +146,31 @@ export function MenuScreen({
   )
 
   return (
-    <Layout showHeader={false} restaurantName={menu.restaurant.name} isMenuScreen>
+    <Layout showHeader={false} restaurantName={menu.restaurant.name}>
       <MenuIntroHeader restaurant={menu.restaurant} />
 
-      <MenuFilterBar
-        query={query}
-        onQueryChange={setQuery}
-        activeFilters={activeFilters}
-        onToggleFilter={toggleFilter}
-        resultCount={resultCount}
-        onClear={clearFilters}
-      />
-
-      {resultCount > 0 && (
-        <CategoryNavigation
-          categories={menu.categories}
-          activeCategory={activeCategory}
-          onSelect={handleCategorySelect}
-          visibleCategoryIds={visibleCategoryIds}
+      <div
+        ref={stickyHeaderRef}
+        className="sticky top-[var(--safe-area-top)] z-40 bg-[var(--color-bg)]/95 backdrop-blur-sm"
+      >
+        <MenuFilterBar
+          query={query}
+          onQueryChange={setQuery}
+          activeFilters={activeFilters}
+          onToggleFilter={toggleFilter}
+          resultCount={resultCount}
+          onClear={clearFilters}
         />
-      )}
+
+        {resultCount > 0 && (
+          <CategoryNavigation
+            categories={menu.categories}
+            activeCategory={activeCategory}
+            onSelect={handleCategorySelect}
+            visibleCategoryIds={visibleCategoryIds}
+          />
+        )}
+      </div>
 
       {resultCount === 0 ? (
         <Section className="py-12">

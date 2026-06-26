@@ -65,9 +65,19 @@ export function WaitingScreen({
   onStartNewOrder,
 }: WaitingScreenProps) {
   const [secondsRemaining, setSecondsRemaining] = useState(TEN_MINUTES)
+  const [timerSize, setTimerSize] = useState(220)
   const total = useMemo(() => orderTotal(order), [order])
   const elapsedSeconds = TEN_MINUTES - secondsRemaining
   const shouldReduceMotion = useReducedMotion()
+
+  useEffect(() => {
+    const updateSize = () => {
+      setTimerSize(window.innerWidth < 640 ? 180 : 220)
+    }
+    updateSize()
+    window.addEventListener('resize', updateSize)
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
 
   useEffect(() => {
     setSecondsRemaining(TEN_MINUTES)
@@ -148,7 +158,7 @@ export function WaitingScreen({
               secondsRemaining={secondsRemaining}
               totalSeconds={TEN_MINUTES}
               label="Estimated waiting time"
-              size={220}
+              size={timerSize}
               statusText={(seconds) =>
                 seconds === 0
                   ? 'Your order is ready'
@@ -234,17 +244,18 @@ export function WaitingScreen({
             </Surface>
           </StaggerItem>
 
-          <StaggerItem className="w-full">
-            <Button
-              variant="primary"
-              size="lg"
-              fullWidth
-              onClick={onStartNewOrder}
-              iconLeft={<UtensilsCrossed className="h-4 w-4" />}
-              className="w-full max-w-lg"
-            >
-              Start new order
-            </Button>
+          <StaggerItem className="w-full pb-[calc(var(--safe-area-bottom)+var(--floating-chrome-bottom))]">
+            <div className="mx-auto w-full max-w-lg">
+              <Button
+                variant="primary"
+                size="lg"
+                fullWidth
+                onClick={onStartNewOrder}
+                iconLeft={<UtensilsCrossed className="h-4 w-4" />}
+              >
+                Start new order
+              </Button>
+            </div>
           </StaggerItem>
         </StaggerContainer>
       </Container>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { MenuData, MenuItem, Order, OrderAddon, Screen } from './types.ts'
 import fallbackMenu from './data/menu.json'
@@ -54,6 +54,26 @@ export default function App() {
   const [orderNumber, setOrderNumber] = useState<string | null>(null)
   const [menu, setMenu] = useState<MenuData | null>(null)
   const [loading, setLoading] = useState(true)
+  const didRestoreScreen = useRef(false)
+
+  useEffect(() => {
+    if (didRestoreScreen.current) return
+    didRestoreScreen.current = true
+
+    const hash = window.location.hash.replace(/^#\/?/, '')
+    const validScreens: Screen[] = ['menu', 'detail', 'cart', 'waiting']
+    if (!validScreens.includes(hash as Screen)) return
+
+    const restored = hash as Screen
+    if (restored === 'detail' && !selectedItem) return
+    if (restored === 'cart' && order.items.length === 0) return
+    if (restored === 'waiting' && !order.id) return
+
+    setScreen(restored)
+    if (restored === 'waiting' && order.id) {
+      setOrderNumber(order.id)
+    }
+  }, [order.id, order.items.length, selectedItem])
 
   useEffect(() => {
     fetch('menu.json')
@@ -67,8 +87,27 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem(CART_KEY, JSON.stringify(order))
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(order))
+    } catch {
+      // Ignore private-mode / quota errors; the cart simply won't persist.
+    }
   }, [order])
+
+  useEffect(() => {
+    const nextHash = screen === 'menu' ? '' : `#/${screen}`
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash
+    }
+  }, [screen])
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+    const main = document.getElementById('main-content')
+    if (main) {
+      main.focus({ preventScroll: true })
+    }
+  }, [screen])
 
   const openDetail = useCallback((item: MenuItem) => {
     setSelectedItem(item)
@@ -208,7 +247,7 @@ export default function App() {
           itemCount={cartItemCount(order)}
           total={orderTotal(order)}
           onClick={() => setScreen('cart')}
-          hidden={screen === 'cart' || screen === 'waiting'}
+          hidden={screen === 'cart' || screen === 'waiting' || screen === 'detail'}
         />
       </Stack>
       </KioskProvider>

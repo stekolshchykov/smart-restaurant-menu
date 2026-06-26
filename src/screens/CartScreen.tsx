@@ -3,7 +3,6 @@ import { Layout } from '../components/layout/Layout.tsx'
 import { OrderSummary } from '../components/order/OrderSummary.tsx'
 import { Container } from '../components/ui/Container.tsx'
 import { SlideUp } from '../components/ui/SlideUp.tsx'
-import { Stack } from '../components/ui/Stack.tsx'
 
 export interface CartScreenProps {
   order: Order
@@ -20,15 +19,13 @@ export function CartScreen({
 }: CartScreenProps) {
   return (
     <Layout onBack={onBackToMenu} title="Your order">
-      <Container size="lg" className="pb-8 pt-4">
-        <SlideUp duration={0.45}>
-          <Stack gap={4}>
-            <OrderSummary
-              order={order}
-              onRemoveItem={onRemoveItem}
-              onPlaceOrder={onPlaceOrder}
-            />
-          </Stack>
+      <Container size="lg" className="flex h-full flex-col pt-4">
+        <SlideUp duration={0.45} className="flex-1 min-h-0">
+          <OrderSummary
+            order={order}
+            onRemoveItem={onRemoveItem}
+            onPlaceOrder={onPlaceOrder}
+          />
         </SlideUp>
       </Container>
     </Layout>

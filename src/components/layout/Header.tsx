@@ -33,11 +33,11 @@ export function Header({ title, restaurantName, onBack }: HeaderProps) {
           )}
         </div>
 
-        <div className="flex-1 text-center">
+        <div className="flex-1 px-2 text-center">
           <Heading
             level={5}
             variant="title"
-            className="text-sm sm:text-base"
+            className="truncate text-sm sm:text-base"
           >
             {displayTitle}
           </Heading>

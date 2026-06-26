@@ -12,11 +12,6 @@ export interface LayoutProps {
   title?: string
   restaurantName?: string
   onBack?: () => void
-  /**
-   * When true, the page is a content-flow menu screen: no fixed header
-   * and no extra bottom safe-area padding reserved for fixed chrome.
-   */
-  isMenuScreen?: boolean
 }
 
 export function Layout({
@@ -25,7 +20,6 @@ export function Layout({
   title,
   restaurantName,
   onBack,
-  isMenuScreen = false,
 }: LayoutProps) {
   return (
     <Stack direction="column" gap={0} className="min-h-svh">
@@ -39,14 +33,14 @@ export function Layout({
 
       <main
         id="main-content"
-        className="flex-1"
+        tabIndex={-1}
+        className="flex-1 outline-none"
         style={{
           paddingTop: showHeader
             ? 'var(--header-total-height)'
             : 'var(--safe-area-top)',
-          paddingBottom: isMenuScreen
-            ? 'var(--safe-area-bottom)'
-            : 'calc(var(--safe-area-bottom) + 1rem)',
+          paddingBottom:
+            'calc(var(--safe-area-bottom) + var(--floating-chrome-bottom))',
         }}
       >
         {children}

@@ -154,7 +154,12 @@ export function MenuItemDetails({
           </Stack>
         </FadeIn>
 
-        <FadeIn delay={0.3} direction="up">
+        <div
+          className="sticky -mx-4 bg-[var(--color-surface)] p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] sm:-mx-6 sm:p-6 lg:static lg:mx-0 lg:bg-transparent lg:p-0 lg:shadow-none"
+          style={{
+            bottom: 'calc(var(--safe-area-bottom) + var(--floating-chrome-bottom))',
+          }}
+        >
           <Button
             variant="primary"
             size="lg"
@@ -186,7 +191,7 @@ export function MenuItemDetails({
               </motion.span>
             </AnimatePresence>
           </Button>
-        </FadeIn>
+        </div>
       </Stack>
     </Surface>
   )

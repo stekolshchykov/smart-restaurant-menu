@@ -107,6 +107,7 @@
   --safe-area-bottom: env(safe-area-inset-bottom);
   --header-total-height: calc(var(--header-height) + var(--safe-area-top));
   --kiosk-footer-height: 3rem;
+  --floating-chrome-bottom: 5rem;
   --max-content-width: 1280px;
   --spacing-section: 3rem;
   --spacing-card: 1.5rem;

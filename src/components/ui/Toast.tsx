@@ -1,5 +1,5 @@
 import { X } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { IconButton } from './IconButton.tsx'
 import { Text } from './Text.tsx'
 
@@ -9,13 +9,15 @@ export interface ToastProps {
 }
 
 export function Toast({ message, onDismiss }: ToastProps) {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      layout={!shouldReduceMotion}
+      initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 24, scale: shouldReduceMotion ? 1 : 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 12, scale: 0.96 }}
-      transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+      exit={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 12, scale: shouldReduceMotion ? 1 : 0.96 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: [0.4, 0, 0.2, 1] }}
       className="pointer-events-auto flex min-w-[16rem] max-w-xs items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 shadow-[var(--shadow-lg)]"
     >
       <Text variant="body-sm" className="flex-1">
@@ -23,7 +25,7 @@ export function Toast({ message, onDismiss }: ToastProps) {
       </Text>
       {onDismiss && (
         <IconButton
-          size="sm"
+          size="md"
           variant="ghost-inverse"
           aria-label="Dismiss"
           onClick={onDismiss}

@@ -51,7 +51,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         {hasValue && (
           <span className="absolute right-2">
             <IconButton
-              size="sm"
+              size="md"
               variant="ghost-inverse"
               aria-label={clearLabel}
               onClick={() => onChange('')}

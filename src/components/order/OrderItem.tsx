@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Trash2 } from 'lucide-react'
 import type { OrderLineItem } from '../../types.ts'
 import { lineItemTotal } from '../../lib/calculations.ts'
@@ -16,15 +16,16 @@ export interface OrderItemProps {
 
 export function OrderItem({ item, onRemove }: OrderItemProps) {
   const lineTotal = lineItemTotal(item)
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, y: 12 }}
+      layout={!shouldReduceMotion}
+      initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 12 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, x: -28, scale: 0.98 }}
+      exit={{ opacity: 0, x: shouldReduceMotion ? 0 : -12, scale: shouldReduceMotion ? 1 : 0.98 }}
       transition={{
-        duration: 0.25,
+        duration: shouldReduceMotion ? 0 : 0.25,
         ease: [0.4, 0, 0.2, 1],
       }}
     >

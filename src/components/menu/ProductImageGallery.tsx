@@ -27,7 +27,7 @@ export function ProductImageGallery({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-bg-elevated)] lg:aspect-[3/4] lg:max-h-[80vh]">
+      <div className="relative aspect-[4/3] max-h-[55svh] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-bg-elevated)] lg:aspect-[3/4] lg:max-h-[80vh]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={mainImage}

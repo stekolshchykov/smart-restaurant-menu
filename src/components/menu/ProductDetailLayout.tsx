@@ -8,7 +8,7 @@ export interface ProductDetailLayoutProps {
 export function ProductDetailLayout({ visual, info }: ProductDetailLayoutProps) {
   return (
     <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6 xl:gap-8">
-      <div className="lg:sticky lg:top-[calc(var(--header-total-height)+1rem)] lg:max-h-[calc(100vh-var(--header-total-height)-2rem)] lg:self-start lg:overflow-y-auto scrollbar-hide">
+      <div className="lg:sticky lg:top-[calc(var(--header-total-height)+1rem)] lg:max-h-[calc(100svh-var(--header-total-height)-2rem)] lg:self-start lg:overflow-y-auto scrollbar-hide">
         {visual}
       </div>
       <div className="w-full">

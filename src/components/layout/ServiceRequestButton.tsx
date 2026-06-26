@@ -19,11 +19,10 @@ export function ServiceRequestButton() {
       setIsOpen(false)
       show(`${action.label} — ${action.message}`)
       setRequestedId(null)
-    }, 900)
+    }, 300)
   }
 
   const handleClose = () => {
-    if (requestedId) return
     setIsOpen(false)
   }
 
@@ -41,7 +40,10 @@ export function ServiceRequestButton() {
         style={{ bottom: 'calc(env(safe-area-inset-bottom) + 1.25rem)' }}
       >
         <Button
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            setRequestedId(null)
+            setIsOpen(true)
+          }}
           aria-label="Service"
           variant="secondary-inverse"
           size="lg"

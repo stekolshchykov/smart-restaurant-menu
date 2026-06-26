@@ -51,17 +51,17 @@ export function MenuItemCard({ item, onClick, onQuickAdd }: MenuItemCardProps) {
           </div>
         )}
 
-        <div className="absolute right-3 bottom-3 translate-y-2 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute right-3 bottom-3 translate-y-2 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100">
           <QuickAddButton onClick={onQuickAdd} label={`Quick add ${item.name}`} />
         </div>
       </div>
 
       <Stack gap={3} className="flex-1 p-4">
-        <div className="flex items-start justify-between gap-2">
-          <Heading level={3} variant="title" onSurface>
+        <div className="flex min-w-0 items-start justify-between gap-2">
+          <Heading level={3} variant="title" onSurface className="min-w-0 truncate">
             {item.name}
           </Heading>
-          <Price amount={item.price} onSurface />
+          <Price amount={item.price} onSurface className="shrink-0" />
         </div>
 
         <Text variant="body-sm" onSurface className="line-clamp-2">
