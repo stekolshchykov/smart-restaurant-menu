@@ -9,12 +9,10 @@ import { useKiosk } from '../../lib/useKiosk.ts'
 
 export interface KioskFooterProps {
   restaurantName?: string
-  tableNumber?: string
 }
 
 export function KioskFooter({
   restaurantName = 'The Golden Nugget',
-  tableNumber = '07',
 }: KioskFooterProps) {
   const {
     isFullscreen,
@@ -26,19 +24,13 @@ export function KioskFooter({
   } = useKiosk()
 
   return (
-    <footer
-      className="fixed right-0 bottom-0 left-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/90 backdrop-blur-md"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
-    >
+    <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/80 backdrop-blur-sm">
       <Container size="full">
-        <div
-          className="flex h-[var(--kiosk-footer-height)] items-center justify-between gap-3"
-        >
+        <div className="flex min-h-[var(--kiosk-footer-height)] items-center justify-between gap-3 py-3">
           <Flex gap={3} align="center" className="min-w-0">
-            <Text variant="body-sm" className="hidden truncate sm:inline">
+            <Text variant="caption" className="truncate">
               {restaurantName}
             </Text>
-            <Badge variant="outline">Table {tableNumber}</Badge>
             {isFullscreen && (
               <Badge variant="success" className="hidden sm:inline-flex">
                 Digital menu active
@@ -66,7 +58,7 @@ export function KioskFooter({
                     onClick={() => void enterFullscreen()}
                     iconLeft={<Maximize className="h-4 w-4" />}
                   >
-                    Fullscreen
+                    Open fullscreen
                   </Button>
                 )}
 

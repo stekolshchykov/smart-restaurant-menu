@@ -4,11 +4,11 @@
 Build a polished, presentation-ready digital restaurant menu prototype that feels like a premium in-venue kiosk experience — not an e-commerce site. Every screen, card, button and transition must look appetising, expensive and intentional.
 
 ## Functional Requirements
-1. **Home / Menu Screen**: compact branded header, sticky category navigation, large appetising dish cards built from JSON.
+1. **Home / Menu Screen**: compact centered menu intro (logo, restaurant name, short tagline, table number), no fixed chrome on top, sticky category navigation, large appetising dish cards built from JSON.
 2. **Dish Cards**: each card shows image, name, price, short description, dietary tags and, on hover/focus, a quick-add button that adds the dish to the order in one tap.
-3. **Dish Detail Screen**: two-column presentation with hero image/gallery, name, price, description, chef's note, "Perfect with" pairings, related dishes, dietary/allergen info, ingredients, optional add-ons, quantity selector, and "Add to Order".
+3. **Dish Detail Screen**: two-column presentation with a focused visual panel on the left (large main image + thumbnail gallery for switching views, no navigation CTAs) and an information/order panel on the right containing name, price, description, chef's note, dietary/allergen info, ingredients, optional add-ons, quantity selector and "Add to Order".
 4. **Cart / Order Screen**: clean list of selected items with add-ons, quantities, per-line prices, total, remove, back to menu, and "Place Order".
-5. **Waiting Screen**: premium order-confirmation screen with large circular countdown timer, live preparation status, order number, beautiful order summary with add-ons, total, and navigation buttons.
+5. **Waiting Screen**: premium full-screen confirmation with animated success mark, order-number badge, large circular countdown timer as the visual centerpiece, live preparation stepper, receipt-style order summary card showing items, add-ons, quantities and total, a "Need anything else?" service block, and back-to-menu / start-new-order actions.
 6. **Service Requests**: a floating Service button available on every main screen opens a panel of quick actions (call waiter, water, napkins, cutlery, bill, help) with toast feedback and a temporary "Requested" state.
 7. **Data**: all menu content comes from a single local JSON file; easy to edit categories and dishes.
 8. **Theming**: colour scheme, typography, radii and shadows configurable via CSS variables for quick re-skinning.
@@ -16,7 +16,8 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 10. **Premium empty state**: when filters or search yield no results, guests see a polished `EmptyMenuState` block with category suggestions, reset filters, and show-all actions instead of a bare "not found" message.
 11. **Toast feedback**: subtle confirmation toasts appear after quick-add and service-request actions.
 12. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
-13. **Kiosk / tablet mode**: a fixed footer with a fullscreen toggle, locked-state indicator, and an admin unlock modal (PIN `123123`) so staff can exit fullscreen or reset the order; a graceful notice appears if a guest leaves fullscreen via a system gesture.
+13. **Kiosk / tablet mode**: a regular footer at the bottom of the page with a fullscreen toggle and an admin unlock modal (PIN `123123`) so staff can exit fullscreen or reset the order; a graceful notice appears if a guest leaves fullscreen via a system gesture.
+14. **Cart**: a floating bottom cart bar appears only when items are in the order; the header is minimal and never turns the top of the menu into an e-commerce interface.
 
 ## Non-Functional Requirements
 - Target device: tablet (landscape and portrait), but must also work on desktop and mobile.
@@ -45,7 +46,7 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 - No inline one-off elements inside screens; everything must be a reusable component or UI Kit primitive.
 
 ## Current Focus
-Ship the in-venue kiosk layer: a fixed `KioskFooter`, fullscreen toggle, admin unlock modal (PIN `123123`), graceful fullscreen-exit notice, and updated documentation; verify lint, build, and the live GitHub Pages deployment.
+Refine the menu presentation so the top of the page feels like a real restaurant menu: replace the fixed header and bar-style menu header with a compact centered `MenuIntroHeader`, make the `Header` a minimal navigation bar used only on detail/cart/waiting screens, convert `KioskFooter` into a regular footer at the bottom of the page, and keep the cart as a floating bottom bar that appears only when needed. Update documentation and verify lint, build, and the live GitHub Pages deployment.
 
 > **Production note:** real restaurant tablets should use the device's operating-system kiosk lockdown (iPad Guided Access, Android Screen Pinning, Windows Assigned Access, ChromeOS kiosk app mode) in addition to the web-app fullscreen mode.
 
@@ -63,3 +64,4 @@ Ship the in-venue kiosk layer: a fixed `KioskFooter`, fullscreen toggle, admin u
 - 2026-06-26: Redesigned the Waiting screen with a large circular timer, preparation-status stepper, elevated order-summary card and refined typography. Rationale: the post-order moment should reassure guests and feel as premium as the rest of the experience.
 - 2026-06-26: Replaced the bare filtered-empty state with a reusable `EmptyMenuState` component that offers category shortcuts and reset/show-all actions. Rationale: empty states are still part of the restaurant experience and should guide guests back to food, not feel like errors.
 - 2026-06-26: Added a kiosk/tablet mode layer (`KioskFooter`, `useFullscreen`, `KioskProvider`, `AdminUnlockModal`, `FullscreenExitNotice`) and a reusable `TextInput` UI Kit primitive. Rationale: a real in-venue tablet needs fullscreen lockdown cues and a staff override, while keeping the web-app honest about what it cannot block (system gestures, hardware buttons).
+- 2026-06-26: Replaced the bar-style `MenuHeader` and prominent fixed `Header` with a compact centered `MenuIntroHeader` and a minimal navigation `Header` used only on detail/cart/waiting screens. Converted `KioskFooter` from a fixed bar to a regular footer. Rationale: a digital restaurant menu should read like a real menu, not a landing page or online shop; the chrome must stay out of the guest's way.

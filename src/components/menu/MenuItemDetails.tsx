@@ -1,67 +1,45 @@
-import { useRef } from 'react'
 import {
   AnimatePresence,
   motion,
   useReducedMotion,
-  useScroll,
-  useTransform,
 } from 'framer-motion'
-import type { MenuItem, OrderAddon } from '../../types'
-import { formatCurrency } from '../../lib/formatters'
-import { AddonSelector } from './AddonSelector'
-import { ChefNote } from './ChefNote'
-import { DishBadges } from './DishBadges'
-import { DishGallery } from './DishGallery'
-import { PerfectWith } from './PerfectWith'
-import { RelatedDishes } from './RelatedDishes'
-import { Badge } from '../ui/Badge'
-import { Button } from '../ui/Button'
-import { Divider } from '../ui/Divider'
-import { FadeIn } from '../ui/FadeIn'
-import { Flex } from '../ui/Flex'
-import { Heading } from '../ui/Heading'
-import { Image } from '../ui/Image'
-import { Price } from '../ui/Price'
-import { Stack } from '../ui/Stack'
-import { Stepper } from '../ui/Stepper'
-import { Surface } from '../ui/Surface'
-import { Text } from '../ui/Text'
+import type { MenuItem, OrderAddon } from '../../types.ts'
+import { formatCurrency } from '../../lib/formatters.ts'
+import { AddonSelector } from './AddonSelector.tsx'
+import { ChefNote } from './ChefNote.tsx'
+import { DishBadges } from './DishBadges.tsx'
+import { ProductDetailLayout } from './ProductDetailLayout.tsx'
+import { ProductVisualPanel } from './ProductVisualPanel.tsx'
+import { Badge } from '../ui/Badge.tsx'
+import { Button } from '../ui/Button.tsx'
+import { Divider } from '../ui/Divider.tsx'
+import { FadeIn } from '../ui/FadeIn.tsx'
+import { Flex } from '../ui/Flex.tsx'
+import { Heading } from '../ui/Heading.tsx'
+import { Price } from '../ui/Price.tsx'
+import { Stack } from '../ui/Stack.tsx'
+import { Stepper } from '../ui/Stepper.tsx'
+import { Surface } from '../ui/Surface.tsx'
+import { Text } from '../ui/Text.tsx'
 
 export interface MenuItemDetailsProps {
   item: MenuItem
-  relatedItems: MenuItem[]
   quantity: number
   onQuantityChange: (quantity: number) => void
   selectedAddons: Record<string, number>
   onAddonChange: (addonId: string, quantity: number) => void
   onAddToOrder: () => void
-  onRelatedItemClick: (item: MenuItem) => void
-  onPairingClick?: (id: string) => void
 }
 
 export function MenuItemDetails({
   item,
-  relatedItems,
   quantity,
   onQuantityChange,
   selectedAddons,
   onAddonChange,
   onAddToOrder,
-  onRelatedItemClick,
-  onPairingClick,
 }: MenuItemDetailsProps) {
   const shouldReduceMotion = useReducedMotion()
-  const imageRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: imageRef,
-    offset: ['start end', 'end start'],
-  })
-  const imageScale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    shouldReduceMotion ? [1, 1] : [1, 1.08],
-  )
-
   const addonsTotal = item.addons.reduce(
     (sum, addon) => sum + addon.price * (selectedAddons[addon.id] || 0),
     0,
@@ -73,45 +51,9 @@ export function MenuItemDetails({
     .filter((addon) => (selectedAddons[addon.id] || 0) > 0)
     .map((addon) => ({ ...addon, quantity: selectedAddons[addon.id] }))
 
-  const visualBlock = (
-    <FadeIn delay={0} direction="up">
-      <motion.div
-        ref={imageRef}
-        className="overflow-hidden rounded-[var(--radius-lg)]"
-        style={{ scale: imageScale }}
-      >
-        <Image
-          src={item.image}
-          alt={item.name}
-          aspectRatio="video"
-          priority
-          className="max-h-[55vh] w-full object-cover"
-        />
-      </motion.div>
+  const visualPanel = <ProductVisualPanel item={item} />
 
-      <DishGallery item={item} perfectWith={item.perfectWith} className="mt-4" />
-
-      {item.perfectWith && item.perfectWith.length > 0 && (
-        <div className="mt-6">
-          <PerfectWith
-            items={item.perfectWith}
-            onSelect={onPairingClick}
-          />
-        </div>
-      )}
-
-      {relatedItems.length > 0 && (
-        <div className="mt-6">
-          <RelatedDishes
-            items={relatedItems}
-            onItemClick={onRelatedItemClick}
-          />
-        </div>
-      )}
-    </FadeIn>
-  )
-
-  const infoBlock = (
+  const infoPanel = (
     <Surface className="p-4 sm:p-6">
       <Stack gap={6}>
         <FadeIn delay={0.05} direction="up">
@@ -250,11 +192,6 @@ export function MenuItemDetails({
   )
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-      <div className="lg:sticky lg:top-[calc(var(--header-total-height)+1rem)] lg:self-start">
-        {visualBlock}
-      </div>
-      {infoBlock}
-    </div>
+    <ProductDetailLayout visual={visualPanel} info={infoPanel} />
   )
 }

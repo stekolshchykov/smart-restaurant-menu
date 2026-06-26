@@ -17,7 +17,7 @@ export function CategoryNavigation({
 }: CategoryNavigationProps) {
   return (
     <nav
-      className="sticky top-[var(--header-total-height)] z-40 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 py-3 backdrop-blur-sm"
+      className="sticky top-[var(--safe-area-top)] z-40 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 py-3 backdrop-blur-sm"
       aria-label="Category navigation"
     >
       <Container size="full">

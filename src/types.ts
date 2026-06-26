@@ -10,6 +10,8 @@ export interface MenuItem {
   description: string
   price: number
   image: string
+  /** Optional additional images for the detail-page gallery. */
+  images?: string[]
   ingredients: string[]
   allergens: string[]
   addons: Addon[]
@@ -49,6 +51,7 @@ export interface Restaurant {
   description: string
   welcomeText: string
   subtitle: string
+  tagline?: string
 }
 
 export interface MenuData {

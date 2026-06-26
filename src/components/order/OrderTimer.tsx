@@ -1,10 +1,10 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { Clock } from 'lucide-react'
-import { formatTimeMMSS } from '../../lib/formatters'
-import { CircularProgress } from '../ui/CircularProgress'
-import { Heading } from '../ui/Heading'
-import { Stack } from '../ui/Stack'
-import { Surface } from '../ui/Surface'
-import { Text } from '../ui/Text'
+import { formatTimeMMSS } from '../../lib/formatters.ts'
+import { CircularProgress } from '../ui/CircularProgress.tsx'
+import { Stack } from '../ui/Stack.tsx'
+import { Surface } from '../ui/Surface.tsx'
+import { Text } from '../ui/Text.tsx'
 
 export interface OrderTimerProps {
   secondsRemaining: number
@@ -17,65 +17,96 @@ export interface OrderTimerProps {
 export function OrderTimer({
   secondsRemaining,
   totalSeconds = secondsRemaining,
-  label = 'Time Remaining',
-  size = 140,
+  label = 'Estimated waiting time',
+  size = 220,
   statusText,
 }: OrderTimerProps) {
+  const shouldReduceMotion = useReducedMotion()
   const clamped = Math.max(0, Math.floor(secondsRemaining))
   const progress = totalSeconds > 0 ? clamped / totalSeconds : 0
-  const isLow = clamped < 60
-  const isCritical = clamped < 30
+  const isLow = clamped > 0 && clamped < 60
+  const isCritical = clamped > 0 && clamped < 30
+  const isReady = clamped === 0
 
-  const ringColor = isCritical
-    ? 'var(--color-error)'
-    : isLow
-      ? 'var(--color-warning)'
-      : 'var(--color-primary)'
+  const ringColor = isReady
+    ? 'var(--color-success)'
+    : isCritical
+      ? 'var(--color-error)'
+      : isLow
+        ? 'var(--color-warning)'
+        : 'var(--color-primary)'
 
-  const textColor = isCritical
-    ? 'text-[var(--color-error)]'
-    : isLow
-      ? 'text-[var(--color-warning)]'
-      : 'text-[var(--color-primary)]'
+  const textColor = isReady
+    ? 'text-[var(--color-success)]'
+    : isCritical
+      ? 'text-[var(--color-error)]'
+      : isLow
+        ? 'text-[var(--color-warning)]'
+        : 'text-[var(--color-primary)]'
 
   const resolvedStatusText =
     statusText !== undefined
       ? typeof statusText === 'function'
         ? statusText(clamped)
         : statusText
-      : clamped === 0
-        ? 'Time is up'
-        : isLow
-          ? 'Hurry, time is running out!'
-          : 'Time remaining to place your order'
+      : isReady
+        ? 'Your order is ready'
+        : clamped < 120
+          ? 'Almost ready'
+          : 'Preparing your order'
 
   return (
-    <Surface className="flex flex-col items-center gap-4 p-6">
-      <Heading level={2} variant="section" onSurface>
-        {label}
-      </Heading>
+    <Surface
+      elevated
+      className="relative flex flex-col items-center gap-5 overflow-hidden p-8"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          background:
+            'radial-gradient(circle at 50% 0%, var(--color-primary-bg), transparent 60%)',
+        }}
+      />
 
-      <CircularProgress
-        value={progress}
-        size={size}
-        strokeWidth={8}
-        color={ringColor}
-      >
-        <Stack align="center" gap={1}>
-          <Clock size={22} className={textColor} />
-          <span
-            className={`text-4xl font-bold tabular-nums tracking-tight ${textColor}`}
-            aria-live="polite"
-          >
-            {formatTimeMMSS(clamped)}
-          </span>
-        </Stack>
-      </CircularProgress>
+      <Text variant="label" onSurface className="relative z-10 tracking-widest">
+        {label}
+      </Text>
+
+      <div className="relative z-10">
+        <CircularProgress
+          value={progress}
+          size={size}
+          strokeWidth={10}
+          color={ringColor}
+          trackColor="var(--color-border-on-surface-subtle)"
+        >
+          <Stack align="center" gap={1}>
+            <motion.div
+              animate={isReady ? { scale: [1, 1.15, 1] } : {}}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }
+              }
+            >
+              <Clock size={26} className={textColor} />
+            </motion.div>
+            <span
+              className={`font-heading text-5xl font-bold tabular-nums tracking-tight ${textColor}`}
+              aria-live="polite"
+            >
+              {formatTimeMMSS(clamped)}
+            </span>
+          </Stack>
+        </CircularProgress>
+      </div>
 
       <Text
-        variant="body-sm"
+        variant="body-lg"
         onSurface
-        className={`text-center ${isLow ? '!text-[var(--color-error)]' : ''}`}
+        className={`relative z-10 text-center font-medium ${
+          isReady ? 'text-[var(--color-success)]' : ''
+        }`}
       >
         {resolvedStatusText}
       </Text>

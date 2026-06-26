@@ -1,57 +1,52 @@
 import type { ReactNode } from 'react'
-import { Stack } from '../ui/Stack'
-import { AdminUnlockModal } from './AdminUnlockModal'
-import { FullscreenExitNotice } from './FullscreenExitNotice'
-import { Header } from './Header'
-import { KioskFooter } from './KioskFooter'
-import { ServiceRequestButton } from './ServiceRequestButton'
+import { Stack } from '../ui/Stack.tsx'
+import { AdminUnlockModal } from './AdminUnlockModal.tsx'
+import { FullscreenExitNotice } from './FullscreenExitNotice.tsx'
+import { Header } from './Header.tsx'
+import { KioskFooter } from './KioskFooter.tsx'
+import { ServiceRequestButton } from './ServiceRequestButton.tsx'
 
 export interface LayoutProps {
   children: ReactNode
-  showCartButton?: boolean
-  cartItemCount?: number
-  onCartClick?: () => void
-  onLogoClick?: () => void
-  restaurantName?: string
-  restaurantLogo?: string
+  showHeader?: boolean
   title?: string
+  restaurantName?: string
   onBack?: () => void
-  showCart?: boolean
+  /**
+   * When true, the page is a content-flow menu screen: no fixed header
+   * and no extra bottom safe-area padding reserved for fixed chrome.
+   */
+  isMenuScreen?: boolean
 }
 
 export function Layout({
   children,
-  showCartButton,
-  cartItemCount = 0,
-  onCartClick,
-  onLogoClick,
-  restaurantName,
-  restaurantLogo,
+  showHeader = true,
   title,
+  restaurantName,
   onBack,
-  showCart,
+  isMenuScreen = false,
 }: LayoutProps) {
-  const showCartEffective = showCartButton ?? showCart ?? true
-
   return (
     <Stack direction="column" gap={0} className="min-h-svh">
-      <Header
-        itemCount={cartItemCount}
-        onCartClick={onCartClick}
-        onLogoClick={onLogoClick}
-        onBack={onBack}
-        restaurantName={restaurantName}
-        restaurantLogo={restaurantLogo}
-        title={title}
-        showCart={showCartEffective}
-      />
+      {showHeader && (
+        <Header
+          title={title}
+          restaurantName={restaurantName}
+          onBack={onBack}
+        />
+      )}
 
       <main
         id="main-content"
         className="flex-1"
         style={{
-          paddingTop: 'var(--header-total-height)',
-          paddingBottom: 'calc(var(--kiosk-footer-height) + env(safe-area-inset-bottom))',
+          paddingTop: showHeader
+            ? 'var(--header-total-height)'
+            : 'var(--safe-area-top)',
+          paddingBottom: isMenuScreen
+            ? 'var(--safe-area-bottom)'
+            : 'calc(var(--safe-area-bottom) + 1rem)',
         }}
       >
         {children}

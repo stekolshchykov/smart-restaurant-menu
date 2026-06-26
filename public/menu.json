@@ -4,7 +4,8 @@
     "logo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NiIgZmlsbD0iI2Q5NzcwNiIvPjx0ZXh0IHg9IjUwIiB5PSI2NCIgZm9udC1zaXplPSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5HTjwvdGV4dD48L3N2Zz4=",
     "description": "A cosy bar & restaurant in the heart of Fossa, Killarney, serving hearty Irish classics, fresh seafood, stone-baked pizza and a great pint.",
     "welcomeText": "Welcome to The Golden Nugget",
-    "subtitle": "Bar & Restaurant, Fossa, Killarney"
+    "subtitle": "Bar & Restaurant, Fossa, Killarney",
+    "tagline": "Freshly prepared dishes \u00b7 Table service"
   },
   "categories": [
     {
@@ -34,7 +35,7 @@
             }
           ],
           "image": "images/soup-of-the-day.jpg",
-          "chefNote": "A rotating favourite — ask your server for today’s selection.",
+          "chefNote": "A rotating favourite \u2014 ask your server for today\u2019s selection.",
           "relatedIds": [
             "seafood-chowder",
             "minestrone-soup"
@@ -289,7 +290,7 @@
           ],
           "addons": [],
           "image": "images/deep-fried-brie.jpg",
-          "chefNote": "Crisp outside, molten inside — a real crowd-pleaser.",
+          "chefNote": "Crisp outside, molten inside \u2014 a real crowd-pleaser.",
           "featured": true,
           "relatedIds": [
             "golden-wings",
@@ -311,7 +312,7 @@
         {
           "id": "vol-au-vent",
           "name": "Vol au Vent",
-          "description": "Sautéed chicken strips and bacon in a light puff-pastry case with a creamy sauce.",
+          "description": "Saut\u00e9ed chicken strips and bacon in a light puff-pastry case with a creamy sauce.",
           "price": 8.95,
           "ingredients": [
             "chicken",
@@ -717,7 +718,7 @@
         {
           "id": "valley-steak-sandwich",
           "name": "The Valley Steak Sandwich",
-          "description": "Sautéed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter.",
+          "description": "Saut\u00e9ed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter.",
           "price": 19.95,
           "ingredients": [
             "sirloin steak",
@@ -760,7 +761,7 @@
         {
           "id": "steak-of-the-day",
           "name": "Steak of the Day",
-          "description": "Sirloin, ribeye or fillet from our specials board, served with chips, mash, sautéed onions and mushrooms, pepper sauce or garlic butter.",
+          "description": "Sirloin, ribeye or fillet from our specials board, served with chips, mash, saut\u00e9ed onions and mushrooms, pepper sauce or garlic butter.",
           "price": 29.95,
           "ingredients": [
             "steak",
@@ -787,7 +788,7 @@
             }
           ],
           "image": "images/steak-of-the-day.jpg",
-          "chefNote": "Ask your server for today’s cut and cooking recommendation.",
+          "chefNote": "Ask your server for today\u2019s cut and cooking recommendation.",
           "featured": true,
           "relatedIds": [
             "southern-fried-chicken-burger",
@@ -1144,7 +1145,7 @@
         {
           "id": "penne-carbonara",
           "name": "Penne Carbonara",
-          "description": "Sautéed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread.",
+          "description": "Saut\u00e9ed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread.",
           "price": 16.95,
           "ingredients": [
             "penne",
@@ -1283,12 +1284,12 @@
         {
           "id": "lasagne",
           "name": "Lasagne al Forno",
-          "description": "Layers of pasta with slow-cooked beef ragu, béchamel sauce and melted cheese.",
+          "description": "Layers of pasta with slow-cooked beef ragu, b\u00e9chamel sauce and melted cheese.",
           "price": 16.5,
           "ingredients": [
             "lasagne sheets",
             "beef ragu",
-            "béchamel",
+            "b\u00e9chamel",
             "cheese"
           ],
           "allergens": [
@@ -1751,12 +1752,12 @@
         {
           "id": "vegetable-lasagne",
           "name": "Roasted Vegetable Lasagne",
-          "description": "Layers of roasted vegetables, tomato sauce, béchamel and cheese baked until golden.",
+          "description": "Layers of roasted vegetables, tomato sauce, b\u00e9chamel and cheese baked until golden.",
           "price": 15.95,
           "ingredients": [
             "lasagne sheets",
             "roasted vegetables",
-            "béchamel",
+            "b\u00e9chamel",
             "cheese",
             "tomato sauce"
           ],
@@ -1977,7 +1978,7 @@
             }
           ],
           "image": "images/chocolate-fudge-cake.jpg",
-          "chefNote": "Decadent, warm and best shared — if you can.",
+          "chefNote": "Decadent, warm and best shared \u2014 if you can.",
           "featured": true,
           "badges": [
             "Must-try"

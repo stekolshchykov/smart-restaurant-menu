@@ -24,7 +24,7 @@ export function Badge({
     primary: 'bg-[var(--color-accent)] text-[var(--color-surface)]',
     accent: 'bg-[var(--color-accent)] text-[var(--color-surface)]',
     outline:
-      'border border-[var(--color-border-on-surface)] text-[var(--color-text-on-surface-secondary)]',
+      'border border-[var(--color-border-on-surface)] bg-[var(--color-surface)] text-[var(--color-text-on-surface-secondary)]',
     success: 'bg-[var(--color-success-bg)] text-[var(--color-success)]',
     warning: 'bg-[var(--color-warning-bg)] text-[var(--color-warning)]',
     error: 'bg-[var(--color-error-bg)] text-[var(--color-error)]',

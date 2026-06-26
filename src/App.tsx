@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { MenuData, MenuItem, Order, OrderAddon, Screen } from './types.ts'
 import fallbackMenu from './data/menu.json'
@@ -70,29 +70,10 @@ export default function App() {
     localStorage.setItem(CART_KEY, JSON.stringify(order))
   }, [order])
 
-  const allItems = useMemo(
-    () => menu?.categories.flatMap((category) => category.items) ?? [],
-    [menu],
-  )
-
   const openDetail = useCallback((item: MenuItem) => {
     setSelectedItem(item)
     setScreen('detail')
   }, [])
-
-  const handleRelatedItemClick = useCallback((item: MenuItem) => {
-    setSelectedItem(item)
-  }, [])
-
-  const handlePairingClick = useCallback(
-    (id: string) => {
-      const item = allItems.find((i) => i.id === id)
-      if (item) {
-        setSelectedItem(item)
-      }
-    },
-    [allItems],
-  )
 
   const addToOrder = useCallback(
     (item: MenuItem, quantity: number, selectedAddons: Record<string, number>) => {
@@ -186,8 +167,6 @@ export default function App() {
                 menu={menu}
                 onItemClick={openDetail}
                 onQuickAdd={quickAddToOrder}
-                cartItemCount={cartItemCount(order)}
-                onCartClick={() => setScreen('cart')}
               />
             </motion.div>
           )}
@@ -198,8 +177,6 @@ export default function App() {
               item={selectedItem}
               menu={menu}
               onAddToOrder={addToOrder}
-              onRelatedItemClick={handleRelatedItemClick}
-              onPairingClick={handlePairingClick}
               onBack={backToMenu}
             />
           </motion.div>

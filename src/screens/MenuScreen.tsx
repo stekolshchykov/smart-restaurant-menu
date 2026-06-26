@@ -13,7 +13,7 @@ import { CategoryNavigation } from '../components/menu/CategoryNavigation.tsx'
 import { CategorySection } from '../components/menu/CategorySection.tsx'
 import { EmptyMenuState } from '../components/menu/EmptyMenuState.tsx'
 import { MenuFilterBar } from '../components/menu/MenuFilterBar.tsx'
-import { MenuHeader } from '../components/menu/MenuHeader.tsx'
+import { MenuIntroHeader } from '../components/menu/MenuIntroHeader.tsx'
 import { Container } from '../components/ui/Container.tsx'
 import { Section } from '../components/ui/Section.tsx'
 
@@ -21,16 +21,12 @@ export interface MenuScreenProps {
   menu: MenuData
   onItemClick: (item: MenuItem) => void
   onQuickAdd: (item: MenuItem) => void
-  cartItemCount: number
-  onCartClick: () => void
 }
 
 export function MenuScreen({
   menu,
   onItemClick,
   onQuickAdd,
-  cartItemCount,
-  onCartClick,
 }: MenuScreenProps) {
   const { show } = useToast()
   const {
@@ -128,14 +124,8 @@ export function MenuScreen({
   )
 
   return (
-    <Layout
-      showCartButton
-      cartItemCount={cartItemCount}
-      onCartClick={onCartClick}
-      restaurantName={menu.restaurant.name}
-      restaurantLogo={menu.restaurant.logo}
-    >
-      <MenuHeader restaurant={menu.restaurant} />
+    <Layout showHeader={false} restaurantName={menu.restaurant.name} isMenuScreen>
+      <MenuIntroHeader restaurant={menu.restaurant} />
 
       <MenuFilterBar
         query={query}
