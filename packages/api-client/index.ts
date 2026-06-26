@@ -1,9 +1,14 @@
 import type {
   ApiError,
   AuthResponse,
+  CreateProjectRequest,
   HealthResponse,
   LoginRequest,
+  ProjectResponse,
+  ProjectThemeResponse,
   RegisterRequest,
+  UpdateProjectRequest,
+  UpdateProjectThemeRequest,
   UserResponse,
 } from '@digital-menu/shared-types';
 export * from '@digital-menu/shared-types';
@@ -94,6 +99,39 @@ export class ApiClient {
 
   refresh(): Promise<AuthResponse> {
     return this.request<AuthResponse>('/auth/refresh', { method: 'POST' });
+  }
+
+  getProjects(): Promise<ProjectResponse[]> {
+    return this.request<ProjectResponse[]>('/projects');
+  }
+
+  getProject(id: string): Promise<ProjectResponse> {
+    return this.request<ProjectResponse>(`/projects/${id}`);
+  }
+
+  createProject(body: CreateProjectRequest): Promise<ProjectResponse> {
+    return this.request<ProjectResponse>('/projects', {
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+  }
+
+  updateProject(id: string, body: UpdateProjectRequest): Promise<ProjectResponse> {
+    return this.request<ProjectResponse>(`/projects/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(body),
+    });
+  }
+
+  deleteProject(id: string): Promise<void> {
+    return this.request<void>(`/projects/${id}`, { method: 'DELETE' });
+  }
+
+  updateProjectTheme(id: string, body: UpdateProjectThemeRequest): Promise<ProjectThemeResponse> {
+    return this.request<ProjectThemeResponse>(`/projects/${id}/theme`, {
+      method: 'PATCH',
+      body: JSON.stringify(body),
+    });
   }
 }
 

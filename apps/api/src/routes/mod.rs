@@ -11,6 +11,7 @@ use crate::state::AppState;
 
 pub mod auth;
 pub mod health;
+pub mod projects;
 
 pub fn create_app(state: AppState, config: &AppConfig) -> Router {
     Router::new()
@@ -21,6 +22,7 @@ pub fn create_app(state: AppState, config: &AppConfig) -> Router {
         .route("/auth/refresh", post(auth::refresh))
         .route("/auth/logout", post(auth::logout))
         .route("/auth/me", get(auth::me))
+        .nest("/projects", projects::router())
         .layer(CookieManagerLayer::new())
         .layer(cors_layer(config))
         .with_state(state)

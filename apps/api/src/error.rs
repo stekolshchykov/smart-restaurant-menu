@@ -34,6 +34,21 @@ pub enum AppError {
     #[error("Forbidden")]
     Forbidden,
 
+    #[error("Project not found")]
+    ProjectNotFound,
+
+    #[error("Slug already taken")]
+    SlugTaken,
+
+    #[error("Invalid slug")]
+    InvalidSlug,
+
+    #[error("Invalid project mode")]
+    InvalidMode,
+
+    #[error("Invalid project status")]
+    InvalidProjectStatus,
+
     #[error("Validation error")]
     ValidationError(HashMap<String, Vec<String>>),
 }
@@ -49,6 +64,11 @@ impl AppError {
             }
             AppError::UserAlreadyExists => StatusCode::CONFLICT,
             AppError::Forbidden => StatusCode::FORBIDDEN,
+            AppError::ProjectNotFound => StatusCode::NOT_FOUND,
+            AppError::SlugTaken => StatusCode::CONFLICT,
+            AppError::InvalidSlug | AppError::InvalidMode | AppError::InvalidProjectStatus => {
+                StatusCode::BAD_REQUEST
+            }
             AppError::ValidationError(_) => StatusCode::BAD_REQUEST,
         }
     }
@@ -63,6 +83,11 @@ impl AppError {
             AppError::TokenExpired => "TOKEN_EXPIRED",
             AppError::UserAlreadyExists => "USER_ALREADY_EXISTS",
             AppError::Forbidden => "FORBIDDEN",
+            AppError::ProjectNotFound => "PROJECT_NOT_FOUND",
+            AppError::SlugTaken => "SLUG_TAKEN",
+            AppError::InvalidSlug => "INVALID_SLUG",
+            AppError::InvalidMode => "INVALID_MODE",
+            AppError::InvalidProjectStatus => "INVALID_PROJECT_STATUS",
             AppError::ValidationError(_) => "VALIDATION_ERROR",
         }
     }
