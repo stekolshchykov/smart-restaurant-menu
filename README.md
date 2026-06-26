@@ -15,6 +15,7 @@ A responsive, themeable digital restaurant menu prototype built with React, Type
 - **Cart** — review selected items, remove lines and see a running total.
 - **Premium waiting screen** — after placing an order, see a large circular countdown, live preparation status, order number, and a polished summary of ordered dishes with add-ons and total.
 - **Service requests** — a floating Service button on every main screen opens quick actions (call waiter, water, napkins, cutlery, bill, help) with elegant toast feedback.
+- **Kiosk / tablet mode** — a fixed footer with a fullscreen toggle, locked-state indicator, and an admin unlock modal (PIN `123123`) so staff can exit fullscreen or reset the order. If a guest leaves fullscreen via a system gesture, a polite notice invites them back.
 - **Responsive** — optimised for phone, tablet and desktop viewports.
 - **Themeable** — colours, fonts, shadows and radii are controlled by CSS variables for easy re-skinning.
 - **Accessible** — skip-to-content link, visible focus rings, and reduced-motion support.
@@ -37,9 +38,9 @@ src/
 │   ├── ui/          # Reusable UI kit (Button, Card, Badge, Price, Stepper, IconButton, SearchInput, FilterChip, ...)
 │   ├── menu/        # Menu feature components (MenuItemCard, CategorySection, CategoryNavigation, MenuItemDetails, AddonSelector, MenuFilterBar, EmptyMenuState)
 │   ├── order/       # Order feature components (OrderSummary, OrderItem, OrderTimer, PreparationStatus, OrderLineItemReadOnly)
-│   └── layout/      # Layout shell and header (Layout, Header, MenuHeader, FloatingCartButton, ToastProvider, ServiceRequestButton, ServiceRequestPanel)
+│   └── layout/      # Layout shell and header (Layout, Header, MenuHeader, FloatingCartButton, ToastProvider, ServiceRequestButton, ServiceRequestPanel, KioskFooter, KioskProvider, FullscreenExitNotice, AdminUnlockModal)
 ├── screens/         # Top-level screens (MenuScreen, DetailScreen, CartScreen, WaitingScreen)
-├── lib/             # Pure helpers and hooks (calculations, formatters, useMenuFilters)
+├── lib/             # Pure helpers and hooks (calculations, formatters, useMenuFilters, useFullscreen, useKiosk, KioskContext)
 ├── data/            # Fallback menu.json used during development
 ├── types.ts         # Shared TypeScript interfaces
 ├── theme.css        # CSS variables for theming
@@ -60,6 +61,12 @@ npm run preview  # preview the production build locally
 Edit `public/menu.json` (this is what the deployed app fetches). During development, if the fetch fails, the app falls back to `src/data/menu.json`.
 
 Service-request actions are configured in `src/data/serviceRequests.json` and rendered by `ServiceRequestPanel`.
+
+### Kiosk mode
+
+The footer offers a one-tap fullscreen toggle. In fullscreen, the footer shows a locked-state badge. Staff can open the admin unlock modal from the footer and enter the prototype PIN (`123123`) to exit fullscreen, reset the current order, or return to the menu setup.
+
+> **Production note:** for a real deployment, complement this web-app kiosk mode with the device's operating-system kiosk lockdown (e.g. iPad Guided Access, Android Screen Pinning, Windows Assigned Access, or ChromeOS kiosk app mode). Browser fullscreen alone cannot block every system gesture or hardware button.
 
 The JSON structure follows the `MenuData` type in `src/types.ts`:
 

@@ -32,7 +32,8 @@ export function FloatingCartButton({
               ? { duration: 0 }
               : { type: 'spring', stiffness: 400, damping: 28 }
           }
-          className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2"
+          className="fixed left-1/2 z-50 -translate-x-1/2"
+          style={{ bottom: 'calc(var(--kiosk-footer-height) + env(safe-area-inset-bottom) + 1.5rem)' }}
         >
           <Button
             variant="primary"

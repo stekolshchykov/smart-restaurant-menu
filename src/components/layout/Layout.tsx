@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react'
 import { Stack } from '../ui/Stack'
+import { AdminUnlockModal } from './AdminUnlockModal'
+import { FullscreenExitNotice } from './FullscreenExitNotice'
 import { Header } from './Header'
+import { KioskFooter } from './KioskFooter'
 import { ServiceRequestButton } from './ServiceRequestButton'
 
 export interface LayoutProps {
@@ -46,11 +49,17 @@ export function Layout({
       <main
         id="main-content"
         className="flex-1"
-        style={{ paddingTop: 'var(--header-total-height)' }}
+        style={{
+          paddingTop: 'var(--header-total-height)',
+          paddingBottom: 'calc(var(--kiosk-footer-height) + env(safe-area-inset-bottom))',
+        }}
       >
         {children}
       </main>
 
+      <KioskFooter restaurantName={restaurantName} />
+      <FullscreenExitNotice />
+      <AdminUnlockModal />
       <ServiceRequestButton />
     </Stack>
   )

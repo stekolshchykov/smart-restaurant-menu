@@ -37,7 +37,8 @@ export function ServiceRequestButton() {
             ? { duration: 0 }
             : { type: 'spring', stiffness: 400, damping: 26 }
         }
-        className="fixed right-4 bottom-4 z-50 sm:right-6 sm:bottom-6"
+        className="fixed right-4 z-50 sm:right-6"
+        style={{ bottom: 'calc(var(--kiosk-footer-height) + env(safe-area-inset-bottom) + 1rem)' }}
       >
         <Button
           onClick={() => setIsOpen(true)}

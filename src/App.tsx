@@ -4,6 +4,7 @@ import type { MenuData, MenuItem, Order, OrderAddon, Screen } from './types.ts'
 import fallbackMenu from './data/menu.json'
 import { LoadingScreen } from './components/layout/LoadingScreen.tsx'
 import { FloatingCartButton } from './components/layout/FloatingCartButton.tsx'
+import { KioskProvider } from './components/layout/KioskProvider.tsx'
 import { ToastProvider } from './components/layout/ToastProvider.tsx'
 import { MenuScreen } from './screens/MenuScreen.tsx'
 import { DetailScreen } from './screens/DetailScreen.tsx'
@@ -169,9 +170,15 @@ export default function App() {
     return <LoadingScreen />
   }
 
+  const adminActions = {
+    onResetOrder: startNewOrder,
+    onBackToSetup: startNewOrder,
+  }
+
   return (
     <ToastProvider>
-      <Stack gap={0} className="relative flex-1 overflow-hidden">
+      <KioskProvider adminActions={adminActions}>
+        <Stack gap={0} className="relative flex-1 overflow-hidden">
         <AnimatePresence mode="wait">
           {screen === 'menu' && (
             <motion.div key="menu" {...pageTransition} className="min-h-svh">
@@ -227,6 +234,7 @@ export default function App() {
           hidden={screen === 'cart' || screen === 'waiting'}
         />
       </Stack>
+      </KioskProvider>
     </ToastProvider>
   )
 }

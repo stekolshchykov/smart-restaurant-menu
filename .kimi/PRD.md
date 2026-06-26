@@ -16,6 +16,7 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 10. **Premium empty state**: when filters or search yield no results, guests see a polished `EmptyMenuState` block with category suggestions, reset filters, and show-all actions instead of a bare "not found" message.
 11. **Toast feedback**: subtle confirmation toasts appear after quick-add and service-request actions.
 12. **Accessibility**: skip-to-content link, visible focus rings, and reduced-motion support throughout the UI Kit.
+13. **Kiosk / tablet mode**: a fixed footer with a fullscreen toggle, locked-state indicator, and an admin unlock modal (PIN `123123`) so staff can exit fullscreen or reset the order; a graceful notice appears if a guest leaves fullscreen via a system gesture.
 
 ## Non-Functional Requirements
 - Target device: tablet (landscape and portrait), but must also work on desktop and mobile.
@@ -44,7 +45,9 @@ Build a polished, presentation-ready digital restaurant menu prototype that feel
 - No inline one-off elements inside screens; everything must be a reusable component or UI Kit primitive.
 
 ## Current Focus
-Ship the in-venue service layer and elevate the post-order experience: add the global Service request button/panel and redesign the Waiting screen to feel like a premium restaurant confirmation, then update documentation and verify the live deployment.
+Ship the in-venue kiosk layer: a fixed `KioskFooter`, fullscreen toggle, admin unlock modal (PIN `123123`), graceful fullscreen-exit notice, and updated documentation; verify lint, build, and the live GitHub Pages deployment.
+
+> **Production note:** real restaurant tablets should use the device's operating-system kiosk lockdown (iPad Guided Access, Android Screen Pinning, Windows Assigned Access, ChromeOS kiosk app mode) in addition to the web-app fullscreen mode.
 
 ## Decisions Log
 - 2026-06-26: Chose React + Vite + Tailwind for fast prototyping and easy theming. Rationale: widely known, no build complexity, CSS variables enable quick re-skinning for other venues.
@@ -59,3 +62,4 @@ Ship the in-venue service layer and elevate the post-order experience: add the g
 - 2026-06-26: Added a global floating Service button connected at `Layout` level with a `ServiceRequestPanel` for quick in-venue requests. Rationale: tablets in a restaurant must let guests call for help without leaving the current screen.
 - 2026-06-26: Redesigned the Waiting screen with a large circular timer, preparation-status stepper, elevated order-summary card and refined typography. Rationale: the post-order moment should reassure guests and feel as premium as the rest of the experience.
 - 2026-06-26: Replaced the bare filtered-empty state with a reusable `EmptyMenuState` component that offers category shortcuts and reset/show-all actions. Rationale: empty states are still part of the restaurant experience and should guide guests back to food, not feel like errors.
+- 2026-06-26: Added a kiosk/tablet mode layer (`KioskFooter`, `useFullscreen`, `KioskProvider`, `AdminUnlockModal`, `FullscreenExitNotice`) and a reusable `TextInput` UI Kit primitive. Rationale: a real in-venue tablet needs fullscreen lockdown cues and a staff override, while keeping the web-app honest about what it cannot block (system gestures, hardware buttons).
