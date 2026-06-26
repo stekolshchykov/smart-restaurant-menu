@@ -7,11 +7,13 @@ export interface ProductDetailLayoutProps {
 
 export function ProductDetailLayout({ visual, info }: ProductDetailLayoutProps) {
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-      <div className="lg:sticky lg:top-[calc(var(--header-total-height)+1rem)] lg:self-start">
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6 xl:gap-8">
+      <div className="lg:sticky lg:top-[calc(var(--header-total-height)+1rem)] lg:max-h-[calc(100vh-var(--header-total-height)-2rem)] lg:self-start lg:overflow-y-auto scrollbar-hide">
         {visual}
       </div>
-      {info}
+      <div className="w-full">
+        {info}
+      </div>
     </div>
   )
 }

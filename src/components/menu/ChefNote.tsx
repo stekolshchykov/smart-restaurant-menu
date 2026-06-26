@@ -8,10 +8,10 @@ export interface ChefNoteProps {
 
 export function ChefNote({ note }: ChefNoteProps) {
   return (
-    <Surface className="border-l-4 border-l-[var(--color-accent)] p-4">
+    <Surface className="border-l-4 border-l-[var(--color-accent)] p-3">
       <div className="flex items-start gap-3">
-        <ChefHat className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-accent)]" />
-        <Text variant="body" onSurface>
+        <ChefHat className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
+        <Text variant="body-sm" onSurface>
           {note}
         </Text>
       </div>

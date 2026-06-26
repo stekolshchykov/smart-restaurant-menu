@@ -5,11 +5,11 @@ import {
 } from 'framer-motion'
 import type { MenuItem, OrderAddon } from '../../types.ts'
 import { formatCurrency } from '../../lib/formatters.ts'
-import { AddonSelector } from './AddonSelector.tsx'
 import { ChefNote } from './ChefNote.tsx'
 import { DishBadges } from './DishBadges.tsx'
 import { ProductDetailLayout } from './ProductDetailLayout.tsx'
 import { ProductVisualPanel } from './ProductVisualPanel.tsx'
+import { SelectedAddonSummary } from './SelectedAddonSummary.tsx'
 import { Badge } from '../ui/Badge.tsx'
 import { Button } from '../ui/Button.tsx'
 import { Divider } from '../ui/Divider.tsx'
@@ -51,19 +51,30 @@ export function MenuItemDetails({
     .filter((addon) => (selectedAddons[addon.id] || 0) > 0)
     .map((addon) => ({ ...addon, quantity: selectedAddons[addon.id] }))
 
-  const visualPanel = <ProductVisualPanel item={item} />
+  const visualPanel = (
+    <ProductVisualPanel
+      item={item}
+      selectedAddons={selectedAddons}
+      onAddonChange={onAddonChange}
+    />
+  )
 
   const infoPanel = (
     <Surface className="p-4 sm:p-6">
-      <Stack gap={6}>
+      <Stack gap={3}>
         <FadeIn delay={0.05} direction="up">
-          <Stack gap={3}>
+          <Stack gap={2}>
             <DishBadges item={item} />
-            <Heading level={1} variant="display" onSurface>
+            <Heading
+              level={1}
+              variant="display"
+              onSurface
+              className="text-3xl sm:text-4xl lg:text-5xl"
+            >
               {item.name}
             </Heading>
-            <Price amount={item.price} size="lg" onSurface />
-            <Text variant="body" onSurface>
+            <Price amount={item.price} size="xl" onSurface />
+            <Text variant="body" onSurface className="leading-snug">
               {item.description}
             </Text>
           </Stack>
@@ -75,61 +86,46 @@ export function MenuItemDetails({
           </FadeIn>
         )}
 
-        {item.ingredients.length > 0 && (
-          <FadeIn delay={0.15} direction="up">
-            <Stack gap={2}>
-              <Heading level={2} variant="section" onSurface>
-                Ingredients
-              </Heading>
-              <Flex gap={2} wrap>
-                {item.ingredients.map((ingredient) => (
-                  <Badge key={ingredient} variant="outline">
-                    {ingredient}
-                  </Badge>
-                ))}
-              </Flex>
-            </Stack>
-          </FadeIn>
-        )}
+        <FadeIn delay={0.15} direction="up">
+          <Stack gap={3}>
+            {item.ingredients.length > 0 && (
+              <Stack gap={2}>
+                <Text variant="label" onSurface>
+                  Ingredients
+                </Text>
+                <Flex gap={2} wrap>
+                  {item.ingredients.map((ingredient) => (
+                    <Badge key={ingredient} variant="outline">
+                      {ingredient}
+                    </Badge>
+                  ))}
+                </Flex>
+              </Stack>
+            )}
 
-        {item.allergens.length > 0 && (
-          <FadeIn delay={0.2} direction="up">
-            <Stack gap={2}>
-              <Heading level={2} variant="section" onSurface>
-                Allergens
-              </Heading>
-              <Flex gap={2} wrap>
-                {item.allergens.map((allergen) => (
-                  <Badge key={allergen} variant="error">
-                    {allergen}
-                  </Badge>
-                ))}
-              </Flex>
-            </Stack>
-          </FadeIn>
-        )}
-
-        {item.addons.length > 0 && (
-          <FadeIn delay={0.25} direction="up">
-            <Stack gap={3}>
-              <Heading level={2} variant="section" onSurface>
-                Extras
-              </Heading>
-              <AddonSelector
-                addons={item.addons}
-                selected={selectedAddons}
-                onChange={onAddonChange}
-              />
-            </Stack>
-          </FadeIn>
-        )}
-
-        <FadeIn delay={0.3} direction="up">
-          <Divider onSurface />
+            {item.allergens.length > 0 && (
+              <Stack gap={2}>
+                <Text variant="label" onSurface>
+                  Allergens
+                </Text>
+                <Flex gap={2} wrap>
+                  {item.allergens.map((allergen) => (
+                    <Badge key={allergen} variant="error">
+                      {allergen}
+                    </Badge>
+                  ))}
+                </Flex>
+              </Stack>
+            )}
+          </Stack>
         </FadeIn>
 
-        <FadeIn delay={0.35} direction="up">
-          <Stack gap={4}>
+        <FadeIn delay={0.2} direction="up">
+          <Divider onSurface className="bg-[var(--color-border-on-surface-subtle)]" />
+        </FadeIn>
+
+        <FadeIn delay={0.25} direction="up">
+          <Stack gap={3}>
             <Flex justify="between" align="center">
               <Text variant="body" onSurface className="font-medium">
                 Quantity
@@ -142,19 +138,11 @@ export function MenuItemDetails({
               />
             </Flex>
 
-            {selectedAddonList.length > 0 && (
-              <Text variant="body-sm" onSurface>
-                {selectedAddonList.map((addon) => (
-                  <span key={addon.id} className="mr-3">
-                    {addon.quantity}× {addon.name}
-                  </span>
-                ))}
-              </Text>
-            )}
+            <SelectedAddonSummary addons={selectedAddonList} />
           </Stack>
         </FadeIn>
 
-        <FadeIn delay={0.4} direction="up">
+        <FadeIn delay={0.3} direction="up">
           <Button
             variant="primary"
             size="lg"

@@ -18,10 +18,10 @@ export function ProductGalleryThumb({
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`group relative overflow-hidden rounded-[var(--radius-md)] transition-all duration-[var(--transition-fast)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] ${
+      className={`group relative overflow-hidden rounded-[var(--radius-md)] border-2 transition-all duration-[var(--transition-fast)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] ${
         selected
-          ? 'ring-2 ring-[var(--color-accent)] ring-offset-2 ring-offset-[var(--color-bg)]'
-          : 'opacity-80 hover:opacity-100 hover:ring-2 hover:ring-[var(--color-border-strong)]'
+          ? 'border-[var(--color-accent)]'
+          : 'border-transparent hover:border-[var(--color-border-strong)]'
       }`}
     >
       <Image

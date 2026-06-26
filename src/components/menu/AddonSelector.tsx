@@ -3,7 +3,6 @@ import { Flex } from '../ui/Flex'
 import { Price } from '../ui/Price'
 import { Stack } from '../ui/Stack'
 import { Stepper } from '../ui/Stepper'
-import { Surface } from '../ui/Surface'
 import { Text } from '../ui/Text'
 
 export interface AddonSelectorProps {
@@ -24,49 +23,45 @@ export function AddonSelector({
   }
 
   return (
-    <Stack gap={3}>
+    <Stack gap={0}>
       {addons.map((addon) => {
         const quantity = selected[addon.id] ?? 0
         const isSelected = quantity > 0
         const addonWithDescription = addon as AddonWithDescription
 
         return (
-          <Surface
+          <Flex
             key={addon.id}
-            className={`p-3 transition-colors duration-[var(--transition-fast)] ${
-              isSelected
-                ? '!border-[var(--color-accent)] !bg-[var(--color-accent-bg)]'
-                : ''
-            }`}
+            align="center"
+            justify="between"
+            gap={3}
+            className="border-b border-[var(--color-border)] py-3 last:border-b-0"
           >
-            <Flex align="center" justify="between" gap={3}>
-              <Stack gap={1} className="min-w-0 flex-1">
-                <Text
-                  variant="body"
-                  onSurface
-                  className={`font-medium ${
-                    isSelected ? '!text-[var(--color-accent-dark)]' : ''
-                  }`}
-                >
-                  {addon.name}
+            <Stack gap={1} className="min-w-0 flex-1">
+              <Text
+                variant="body"
+                className={`font-medium ${
+                  isSelected ? 'text-[var(--color-accent)]' : ''
+                }`}
+              >
+                {addon.name}
+              </Text>
+              {addonWithDescription.description && (
+                <Text variant="body-sm">
+                  {addonWithDescription.description}
                 </Text>
-                {addonWithDescription.description && (
-                  <Text variant="body-sm" onSurface>
-                    {addonWithDescription.description}
-                  </Text>
-                )}
-                <Price amount={addon.price} size="sm" onSurface />
-              </Stack>
-              <Stepper
-                value={quantity}
-                min={0}
-                max={5}
-                onChange={(value) => onChange(addon.id, value)}
-                size="md"
-                onSurface
-              />
-            </Flex>
-          </Surface>
+              )}
+              <Price amount={addon.price} size="sm" />
+            </Stack>
+            <Stepper
+              value={quantity}
+              min={0}
+              max={5}
+              onChange={(value) => onChange(addon.id, value)}
+              size="sm"
+              onSurface={false}
+            />
+          </Flex>
         )
       })}
     </Stack>
