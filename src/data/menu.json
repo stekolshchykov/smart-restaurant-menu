@@ -1,0 +1,1334 @@
+{
+  "restaurant": {
+    "name": "The Golden Nugget",
+    "logo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NiIgZmlsbD0iI2Q5NzcwNiIvPjx0ZXh0IHg9IjUwIiB5PSI2NCIgZm9udC1zaXplPSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5HTjwvdGV4dD48L3N2Zz4=",
+    "description": "A cosy bar & restaurant in the heart of Fossa, Killarney, serving hearty Irish classics, fresh seafood, stone-baked pizza and a great pint.",
+    "welcomeText": "Welcome to The Golden Nugget",
+    "subtitle": "Bar & Restaurant, Fossa, Killarney"
+  },
+  "categories": [
+    {
+      "id": "soups",
+      "name": "Soups",
+      "items": [
+        {
+          "id": "soup-of-the-day",
+          "name": "Soup of the Day",
+          "description": "Fresh creamy soup of the day served with a crusty white roll.",
+          "price": 5.95,
+          "ingredients": [
+            "seasonal vegetables",
+            "cream",
+            "crusty white roll"
+          ],
+          "allergens": [
+            "Celery",
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "soup-of-the-day-bread",
+              "name": "Extra bread roll",
+              "price": 0.8
+            }
+          ],
+          "image": "images/soup-of-the-day.jpg"
+        },
+        {
+          "id": "seafood-chowder",
+          "name": "Seafood Chowder",
+          "description": "Creamy seafood chowder with a hint of dill, served with a crusty roll.",
+          "price": 9.95,
+          "ingredients": [
+            "mixed seafood",
+            "cream",
+            "dill",
+            "crusty roll"
+          ],
+          "allergens": [
+            "Crustaceans",
+            "Dairy",
+            "Fish",
+            "Molluscs",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [],
+          "image": "images/seafood-chowder.jpg"
+        },
+        {
+          "id": "minestrone-soup",
+          "name": "Minestrone Soup",
+          "description": "Hearty Italian vegetable soup with pasta and fresh herbs.",
+          "price": 6.5,
+          "ingredients": [
+            "tomato",
+            "seasonal vegetables",
+            "pasta",
+            "herbs"
+          ],
+          "allergens": [
+            "Celery",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "minestrone-bread",
+              "name": "Extra bread roll",
+              "price": 0.8
+            }
+          ],
+          "image": "images/minestrone-soup.jpg"
+        },
+        {
+          "id": "tomato-basil-soup",
+          "name": "Tomato & Basil Soup",
+          "description": "Slow-roasted tomato soup finished with fresh basil and a swirl of cream.",
+          "price": 5.95,
+          "ingredients": [
+            "tomato",
+            "basil",
+            "cream",
+            "crusty roll"
+          ],
+          "allergens": [
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "tomato-basil-bread",
+              "name": "Extra bread roll",
+              "price": 0.8
+            }
+          ],
+          "image": "images/tomato-basil-soup.jpg"
+        }
+      ]
+    },
+    {
+      "id": "starters",
+      "name": "Starters",
+      "items": [
+        {
+          "id": "garlic-bread",
+          "name": "Garlic Bread",
+          "description": "Grilled ciabatta with seasonal garnish; add cheese for a little extra.",
+          "price": 5.5,
+          "ingredients": [
+            "ciabatta",
+            "garlic butter",
+            "seasonal garnish"
+          ],
+          "allergens": [
+            "Dairy",
+            "Mustard",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "garlic-bread-cheese",
+              "name": "Add cheese",
+              "price": 1.5
+            }
+          ],
+          "image": "images/garlic-bread.jpg"
+        },
+        {
+          "id": "golden-wings",
+          "name": "The Golden Wings",
+          "description": "Chicken wings tossed in our own special sauce. Gluten-free option available.",
+          "price": 8.95,
+          "ingredients": [
+            "chicken wings",
+            "special sauce"
+          ],
+          "allergens": [
+            "Mustard",
+            "Sesame",
+            "Soya Bean"
+          ],
+          "addons": [
+            {
+              "id": "wings-blue-cheese",
+              "name": "Blue cheese dip",
+              "price": 1.0
+            },
+            {
+              "id": "wings-extra-sauce",
+              "name": "Extra sauce",
+              "price": 0.8
+            }
+          ],
+          "isSpicy": true,
+          "image": "images/golden-wings.jpg"
+        },
+        {
+          "id": "deep-fried-brie",
+          "name": "Deep Fried Brie",
+          "description": "Crispy deep-fried brie served with berry compote and seasonal garnish.",
+          "price": 9.95,
+          "ingredients": [
+            "brie",
+            "breadcrumb coating",
+            "berry compote"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [],
+          "image": "images/deep-fried-brie.jpg"
+        },
+        {
+          "id": "vol-au-vent",
+          "name": "Vol au Vent",
+          "description": "Saut\u00e9ed chicken strips and bacon in a light puff-pastry case with a creamy sauce.",
+          "price": 8.95,
+          "ingredients": [
+            "chicken",
+            "bacon",
+            "puff pastry",
+            "cream sauce"
+          ],
+          "allergens": [
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [],
+          "image": "images/vol-au-vent.jpg"
+        },
+        {
+          "id": "bbq-golden-ribs",
+          "name": "BBQ Golden Ribs",
+          "description": "Tender BBQ ribs served with salad, chips and coleslaw.",
+          "price": 9.5,
+          "ingredients": [
+            "pork ribs",
+            "BBQ glaze",
+            "chips",
+            "coleslaw",
+            "salad"
+          ],
+          "allergens": [
+            "Mustard",
+            "Sesame",
+            "Soya Bean",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "ribs-extra-bbq",
+              "name": "Extra BBQ sauce",
+              "price": 0.8
+            }
+          ],
+          "image": "images/bbq-golden-ribs.jpg"
+        },
+        {
+          "id": "breaded-scampi",
+          "name": "Homemade Breaded Scampi",
+          "description": "Golden breaded scampi served with salad and a sweet chilli dip.",
+          "price": 9.95,
+          "ingredients": [
+            "scampi",
+            "breadcrumbs",
+            "salad",
+            "sweet chilli dip"
+          ],
+          "allergens": [
+            "Crustaceans",
+            "Mustard",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "scampi-tartare",
+              "name": "Tartare sauce",
+              "price": 0.8
+            }
+          ],
+          "image": "images/breaded-scampi.jpg"
+        }
+      ]
+    },
+    {
+      "id": "salads",
+      "name": "Salads",
+      "items": [
+        {
+          "id": "goat-cheese-salad",
+          "name": "Toasted Goat's Cheese Salad",
+          "description": "Toasted goat's cheese with beetroot, walnut and house salad.",
+          "price": 15.95,
+          "ingredients": [
+            "goat's cheese",
+            "beetroot",
+            "walnuts",
+            "mixed leaves",
+            "dressing"
+          ],
+          "allergens": [
+            "Dairy",
+            "Mustard",
+            "Tree Nuts"
+          ],
+          "addons": [
+            {
+              "id": "goat-cheese-chicken",
+              "name": "Grilled chicken",
+              "price": 3.0
+            }
+          ],
+          "image": "images/goat-cheese-salad.jpg"
+        },
+        {
+          "id": "caesar-salad",
+          "name": "Classic Caesar Salad",
+          "description": "Grilled chicken, strips of bacon, parmesan shavings and croutons on crisp romaine.",
+          "price": 15.95,
+          "ingredients": [
+            "chicken",
+            "bacon",
+            "parmesan",
+            "croutons",
+            "caesar dressing"
+          ],
+          "allergens": [
+            "Dairy",
+            "Eggs",
+            "Fish",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [],
+          "image": "images/caesar-salad.jpg"
+        },
+        {
+          "id": "house-garden-salad",
+          "name": "House Garden Salad",
+          "description": "Fresh mixed leaves, tomato, cucumber and red onion with our house dressing.",
+          "price": 8.95,
+          "ingredients": [
+            "mixed leaves",
+            "tomato",
+            "cucumber",
+            "red onion",
+            "house dressing"
+          ],
+          "allergens": [
+            "Mustard"
+          ],
+          "addons": [
+            {
+              "id": "garden-feta",
+              "name": "Feta cheese",
+              "price": 1.5
+            },
+            {
+              "id": "garden-chicken",
+              "name": "Grilled chicken",
+              "price": 3.0
+            }
+          ],
+          "isVegetarian": true,
+          "image": "images/house-garden-salad.jpg"
+        },
+        {
+          "id": "greek-salad",
+          "name": "Greek Salad",
+          "description": "Feta cheese, olives, tomato, cucumber and red onion with oregano dressing.",
+          "price": 10.95,
+          "ingredients": [
+            "feta cheese",
+            "olives",
+            "tomato",
+            "cucumber",
+            "red onion",
+            "oregano"
+          ],
+          "allergens": [
+            "Dairy"
+          ],
+          "addons": [
+            {
+              "id": "greek-chicken",
+              "name": "Grilled chicken",
+              "price": 3.0
+            }
+          ],
+          "isVegetarian": true,
+          "image": "images/greek-salad.jpg"
+        },
+        {
+          "id": "bacon-avocado-salad",
+          "name": "Bacon & Avocado Salad",
+          "description": "Crispy bacon, ripe avocado, cherry tomatoes and mixed leaves with honey-mustard dressing.",
+          "price": 12.95,
+          "ingredients": [
+            "bacon",
+            "avocado",
+            "cherry tomatoes",
+            "mixed leaves",
+            "honey-mustard dressing"
+          ],
+          "allergens": [
+            "Dairy",
+            "Eggs",
+            "Mustard",
+            "Wheat"
+          ],
+          "addons": [],
+          "image": "images/bacon-avocado-salad.jpg"
+        }
+      ]
+    },
+    {
+      "id": "meat",
+      "name": "Meat",
+      "items": [
+        {
+          "id": "the-jobber",
+          "name": "The Jobber",
+          "description": "8oz chargrilled house burger in a grilled bun with bacon, cheese, lettuce, tomato, onion and house sauce.",
+          "price": 17.95,
+          "ingredients": [
+            "beef burger",
+            "brioche bun",
+            "bacon",
+            "cheddar",
+            "lettuce",
+            "tomato",
+            "onion",
+            "house sauce"
+          ],
+          "allergens": [
+            "Dairy",
+            "Eggs",
+            "Mustard",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "jobber-cheese",
+              "name": "Extra cheese",
+              "price": 1.5
+            },
+            {
+              "id": "jobber-bacon",
+              "name": "Bacon",
+              "price": 2.0
+            },
+            {
+              "id": "jobber-garlic",
+              "name": "Garlic sauce",
+              "price": 0.8
+            }
+          ],
+          "image": "images/the-jobber.jpg"
+        },
+        {
+          "id": "valley-steak-sandwich",
+          "name": "The Valley Steak Sandwich",
+          "description": "Saut\u00e9ed onions and mushrooms with sliced steak, served in toasted bread with pepper sauce or garlic butter.",
+          "price": 19.95,
+          "ingredients": [
+            "sirloin steak",
+            "onions",
+            "mushrooms",
+            "bread",
+            "pepper sauce"
+          ],
+          "allergens": [
+            "Dairy",
+            "Lupin",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "valley-sauce",
+              "name": "Extra pepper sauce",
+              "price": 1.5
+            }
+          ],
+          "image": "images/valley-steak-sandwich.jpg"
+        },
+        {
+          "id": "steak-of-the-day",
+          "name": "Steak of the Day",
+          "description": "Sirloin, ribeye or fillet from our specials board, served with chips, mash, saut\u00e9ed onions and mushrooms, pepper sauce or garlic butter.",
+          "price": 29.95,
+          "ingredients": [
+            "steak",
+            "chips",
+            "mashed potato",
+            "onions",
+            "mushrooms",
+            "pepper sauce"
+          ],
+          "allergens": [
+            "Dairy",
+            "Mustard"
+          ],
+          "addons": [
+            {
+              "id": "steak-garlic",
+              "name": "Garlic butter",
+              "price": 1.5
+            },
+            {
+              "id": "steak-mushrooms",
+              "name": "Garlic mushrooms",
+              "price": 2.0
+            }
+          ],
+          "image": "images/steak-of-the-day.jpg"
+        },
+        {
+          "id": "southern-fried-chicken-burger",
+          "name": "Southern Fried Chicken Burger",
+          "description": "Crispy chicken fillet with lettuce, tomato, cheese, red onion and relish.",
+          "price": 16.95,
+          "ingredients": [
+            "chicken fillet",
+            "bun",
+            "lettuce",
+            "tomato",
+            "cheddar",
+            "red onion",
+            "relish"
+          ],
+          "allergens": [
+            "Dairy",
+            "Eggs",
+            "Mustard",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "sfc-cheese",
+              "name": "Extra cheese",
+              "price": 1.5
+            },
+            {
+              "id": "sfc-bacon",
+              "name": "Bacon",
+              "price": 2.0
+            }
+          ],
+          "image": "images/southern-fried-chicken-burger.jpg"
+        },
+        {
+          "id": "thai-red-curry-chicken",
+          "name": "Thai Red Curry Chicken",
+          "description": "Aromatic Thai red curry chicken served with basmati rice and naan bread.",
+          "price": 18.95,
+          "ingredients": [
+            "chicken",
+            "coconut milk",
+            "red curry paste",
+            "basmati rice",
+            "naan bread"
+          ],
+          "allergens": [
+            "Crustaceans",
+            "Dairy",
+            "Fish",
+            "Molluscs"
+          ],
+          "addons": [
+            {
+              "id": "thai-rice",
+              "name": "Steamed rice",
+              "price": 2.0
+            },
+            {
+              "id": "thai-naan",
+              "name": "Naan bread",
+              "price": 2.5
+            }
+          ],
+          "isSpicy": true,
+          "image": "images/thai-red-curry-chicken.jpg"
+        },
+        {
+          "id": "half-roast-duck",
+          "name": "Half Roast Duck",
+          "description": "Roast duck with orange and star anise sauce, mashed potatoes and mixed vegetables.",
+          "price": 19.95,
+          "ingredients": [
+            "duck",
+            "orange sauce",
+            "star anise",
+            "mashed potato",
+            "mixed vegetables"
+          ],
+          "allergens": [
+            "Dairy",
+            "Mustard",
+            "Sesame",
+            "Soya Bean",
+            "Wheat"
+          ],
+          "addons": [],
+          "image": "images/half-roast-duck.jpg"
+        }
+      ]
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "items": [
+        {
+          "id": "fish-and-chips",
+          "name": "Traditional Fish & Chips",
+          "description": "Fresh white fish in a homemade batter served with chips and peas. Gluten-free option available.",
+          "price": 18.95,
+          "ingredients": [
+            "white fish",
+            "batter",
+            "chips",
+            "mushy peas"
+          ],
+          "allergens": [
+            "Dairy",
+            "Fish",
+            "Mustard",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "fish-peas",
+              "name": "Mushy peas",
+              "price": 1.5
+            },
+            {
+              "id": "fish-tartare",
+              "name": "Tartare sauce",
+              "price": 0.8
+            }
+          ],
+          "image": "images/fish-and-chips.jpg"
+        },
+        {
+          "id": "grilled-salmon",
+          "name": "Grilled Salmon Fillet",
+          "description": "Lightly grilled salmon fillet with lemon butter, seasonal vegetables and potatoes.",
+          "price": 19.95,
+          "ingredients": [
+            "salmon fillet",
+            "lemon butter",
+            "seasonal vegetables",
+            "new potatoes"
+          ],
+          "allergens": [
+            "Dairy",
+            "Fish",
+            "Sulphites"
+          ],
+          "addons": [
+            {
+              "id": "salmon-sauce",
+              "name": "Extra lemon butter",
+              "price": 1.5
+            }
+          ],
+          "image": "images/grilled-salmon.jpg"
+        },
+        {
+          "id": "seafood-linguine",
+          "name": "Seafood Linguine",
+          "description": "Linguine pasta tossed with mixed seafood in a white wine, garlic and tomato sauce.",
+          "price": 18.5,
+          "ingredients": [
+            "linguine",
+            "mixed seafood",
+            "white wine",
+            "garlic",
+            "tomato"
+          ],
+          "allergens": [
+            "Crustaceans",
+            "Fish",
+            "Molluscs",
+            "Soya Bean",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "linguine-prawns",
+              "name": "Extra king prawns",
+              "price": 3.0
+            }
+          ],
+          "image": "images/seafood-linguine.jpg"
+        },
+        {
+          "id": "garlic-king-prawns",
+          "name": "Garlic King Prawns",
+          "description": "Sizzling king prawns in garlic butter, served with crusty bread and a fresh salad.",
+          "price": 16.95,
+          "ingredients": [
+            "king prawns",
+            "garlic butter",
+            "crusty bread",
+            "salad"
+          ],
+          "allergens": [
+            "Crustaceans",
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "prawns-bread",
+              "name": "Garlic bread",
+              "price": 1.5
+            }
+          ],
+          "image": "images/garlic-king-prawns.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "items": [
+        {
+          "id": "penne-carbonara",
+          "name": "Penne Carbonara",
+          "description": "Saut\u00e9ed chicken and strips of bacon in a creamy carbonara sauce with parmesan shavings and garlic bread.",
+          "price": 16.95,
+          "ingredients": [
+            "penne",
+            "chicken",
+            "bacon",
+            "cream",
+            "egg",
+            "parmesan",
+            "garlic bread"
+          ],
+          "allergens": [
+            "Dairy",
+            "Mustard",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "carbonara-garlic",
+              "name": "Garlic bread",
+              "price": 1.5
+            },
+            {
+              "id": "carbonara-parmesan",
+              "name": "Extra parmesan",
+              "price": 1.0
+            }
+          ],
+          "image": "images/penne-carbonara.jpg"
+        },
+        {
+          "id": "spaghetti-bolognese",
+          "name": "Spaghetti Bolognese",
+          "description": "Slow-cooked beef ragu with tomatoes and herbs tossed through spaghetti.",
+          "price": 15.95,
+          "ingredients": [
+            "spaghetti",
+            "beef mince",
+            "tomato",
+            "herbs",
+            "parmesan"
+          ],
+          "allergens": [
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "bolognese-garlic",
+              "name": "Garlic bread",
+              "price": 1.5
+            }
+          ],
+          "image": "images/spaghetti-bolognese.jpg"
+        },
+        {
+          "id": "penne-arrabbiata",
+          "name": "Penne Arrabbiata",
+          "description": "Penne in a spicy tomato sauce with garlic, chilli and fresh basil.",
+          "price": 14.95,
+          "ingredients": [
+            "penne",
+            "tomato",
+            "garlic",
+            "chilli",
+            "basil"
+          ],
+          "allergens": [
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "arrabbiata-chicken",
+              "name": "Grilled chicken",
+              "price": 3.0
+            }
+          ],
+          "isSpicy": true,
+          "isVegan": true,
+          "image": "images/penne-arrabbiata.jpg"
+        },
+        {
+          "id": "lasagne",
+          "name": "Lasagne al Forno",
+          "description": "Layers of pasta with slow-cooked beef ragu, b\u00e9chamel sauce and melted cheese.",
+          "price": 16.5,
+          "ingredients": [
+            "lasagne sheets",
+            "beef ragu",
+            "b\u00e9chamel",
+            "cheese"
+          ],
+          "allergens": [
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "lasagne-garlic",
+              "name": "Garlic bread",
+              "price": 1.5
+            }
+          ],
+          "image": "images/lasagne.jpg"
+        },
+        {
+          "id": "creamy-chicken-pasta",
+          "name": "Creamy Chicken & Mushroom Pasta",
+          "description": "Tender chicken and mushrooms in a creamy parmesan sauce with tagliatelle.",
+          "price": 16.95,
+          "ingredients": [
+            "tagliatelle",
+            "chicken",
+            "mushrooms",
+            "cream",
+            "parmesan"
+          ],
+          "allergens": [
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "chicken-pasta-garlic",
+              "name": "Garlic bread",
+              "price": 1.5
+            }
+          ],
+          "image": "images/creamy-chicken-pasta.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pizza",
+      "name": "Pizza",
+      "items": [
+        {
+          "id": "margherita",
+          "name": "Margherita",
+          "description": "Neapolitan tomato sauce and melted mozzarella on a stone-baked base.",
+          "price": 15.0,
+          "ingredients": [
+            "pizza dough",
+            "tomato sauce",
+            "mozzarella"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "pizza-toppings",
+              "name": "Extra toppings",
+              "price": 2.0
+            }
+          ],
+          "isVegetarian": true,
+          "image": "images/margherita.jpg"
+        },
+        {
+          "id": "triple-cheese",
+          "name": "Triple Cheese",
+          "description": "Red cheddar, mozzarella and goat's cheese on a rich tomato base.",
+          "price": 16.0,
+          "ingredients": [
+            "pizza dough",
+            "tomato sauce",
+            "red cheddar",
+            "mozzarella",
+            "goat's cheese"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "pizza-toppings-2",
+              "name": "Extra toppings",
+              "price": 2.0
+            }
+          ],
+          "isVegetarian": true,
+          "image": "images/triple-cheese.jpg"
+        },
+        {
+          "id": "bmc",
+          "name": "The BMC",
+          "description": "Bacon, mushroom and cheese on our house tomato base.",
+          "price": 16.0,
+          "ingredients": [
+            "pizza dough",
+            "tomato sauce",
+            "bacon",
+            "mushrooms",
+            "cheese"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "pizza-toppings-3",
+              "name": "Extra toppings",
+              "price": 2.0
+            }
+          ],
+          "image": "images/bmc.jpg"
+        },
+        {
+          "id": "nduja",
+          "name": "Nduja",
+          "description": "Spicy Italian sausage, tomato, peppers and mozzarella.",
+          "price": 16.0,
+          "ingredients": [
+            "pizza dough",
+            "tomato sauce",
+            "nduja sausage",
+            "peppers",
+            "mozzarella"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "pizza-toppings-4",
+              "name": "Extra toppings",
+              "price": 2.0
+            }
+          ],
+          "isSpicy": true,
+          "image": "images/nduja.jpg"
+        },
+        {
+          "id": "pepperoni",
+          "name": "Classic Pepperoni",
+          "description": "Pepperoni and mozzarella on a classic tomato base.",
+          "price": 16.0,
+          "ingredients": [
+            "pizza dough",
+            "tomato sauce",
+            "pepperoni",
+            "mozzarella"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "pizza-toppings-5",
+              "name": "Extra toppings",
+              "price": 2.0
+            }
+          ],
+          "image": "images/pepperoni.jpg"
+        },
+        {
+          "id": "veggie-delight",
+          "name": "Veggie Delight",
+          "description": "Mushrooms, peppers, red onion, sweetcorn and mozzarella.",
+          "price": 15.5,
+          "ingredients": [
+            "pizza dough",
+            "tomato sauce",
+            "mushrooms",
+            "peppers",
+            "red onion",
+            "sweetcorn",
+            "mozzarella"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "pizza-toppings-6",
+              "name": "Extra toppings",
+              "price": 2.0
+            }
+          ],
+          "isVegetarian": true,
+          "image": "images/veggie-delight.jpg"
+        }
+      ]
+    },
+    {
+      "id": "vegetarian",
+      "name": "Vegetarian",
+      "items": [
+        {
+          "id": "chickpea-curry",
+          "name": "Chickpea & Butterbean Curry",
+          "description": "Chickpea and butterbean curry served with rice and poppadom.",
+          "price": 15.95,
+          "ingredients": [
+            "chickpeas",
+            "butterbeans",
+            "curry spices",
+            "rice",
+            "poppadom"
+          ],
+          "allergens": [
+            "Mustard",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "chickpea-naan",
+              "name": "Naan bread",
+              "price": 2.5
+            }
+          ],
+          "isVegan": true,
+          "image": "images/chickpea-curry.jpg"
+        },
+        {
+          "id": "mixed-veg-stir-fry",
+          "name": "Mixed Vegetable Stir Fry",
+          "description": "Fresh mixed vegetable stir fry served with rice. Gluten-free.",
+          "price": 15.95,
+          "ingredients": [
+            "mixed vegetables",
+            "soy sauce",
+            "rice"
+          ],
+          "allergens": [
+            "Mustard"
+          ],
+          "addons": [],
+          "isGlutenFree": true,
+          "isVegan": true,
+          "image": "images/mixed-veg-stir-fry.jpg"
+        },
+        {
+          "id": "mixed-veg-curry",
+          "name": "Mixed Vegetable Curry",
+          "description": "Mixed vegetable curry served with rice and poppadom. Gluten-free.",
+          "price": 15.95,
+          "ingredients": [
+            "mixed vegetables",
+            "curry spices",
+            "rice",
+            "poppadom"
+          ],
+          "allergens": [
+            "Sulphites"
+          ],
+          "addons": [],
+          "isGlutenFree": true,
+          "isVegan": true,
+          "image": "images/mixed-veg-curry.jpg"
+        },
+        {
+          "id": "vegetable-lasagne",
+          "name": "Roasted Vegetable Lasagne",
+          "description": "Layers of roasted vegetables, tomato sauce, b\u00e9chamel and cheese baked until golden.",
+          "price": 15.95,
+          "ingredients": [
+            "lasagne sheets",
+            "roasted vegetables",
+            "b\u00e9chamel",
+            "cheese",
+            "tomato sauce"
+          ],
+          "allergens": [
+            "Celery",
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "veg-lasagne-garlic",
+              "name": "Garlic bread",
+              "price": 1.5
+            }
+          ],
+          "isVegetarian": true,
+          "image": "images/vegetable-lasagne.jpg"
+        },
+        {
+          "id": "halloumi-wrap",
+          "name": "Grilled Halloumi & Avocado Wrap",
+          "description": "Grilled halloumi, avocado, roasted peppers and hummus in a warm tortilla.",
+          "price": 14.95,
+          "ingredients": [
+            "halloumi",
+            "avocado",
+            "roasted peppers",
+            "hummus",
+            "tortilla"
+          ],
+          "allergens": [
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [],
+          "isVegetarian": true,
+          "image": "images/halloumi-wrap.jpg"
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "items": [
+        {
+          "id": "guinness",
+          "name": "Guinness Draught",
+          "description": "A creamy pint of the black stuff.",
+          "price": 5.5,
+          "ingredients": [
+            "stout"
+          ],
+          "allergens": [
+            "Barley",
+            "Sulphites"
+          ],
+          "addons": [],
+          "image": "images/guinness.jpg"
+        },
+        {
+          "id": "heineken",
+          "name": "Heineken",
+          "description": "Crisp, refreshing draught lager.",
+          "price": 6.0,
+          "ingredients": [
+            "lager"
+          ],
+          "allergens": [
+            "Barley"
+          ],
+          "addons": [],
+          "image": "images/heineken.jpg"
+        },
+        {
+          "id": "orchard-thieves",
+          "name": "Orchard Thieves Cider",
+          "description": "Refreshing Irish cider served ice-cold.",
+          "price": 6.5,
+          "ingredients": [
+            "cider"
+          ],
+          "allergens": [
+            "Sulphites"
+          ],
+          "addons": [],
+          "image": "images/orchard-thieves.jpg"
+        },
+        {
+          "id": "coke",
+          "name": "Coca-Cola",
+          "description": "Classic Coca-Cola served over ice.",
+          "price": 2.8,
+          "ingredients": [
+            "carbonated soft drink"
+          ],
+          "allergens": [],
+          "addons": [],
+          "image": "images/coke.jpg"
+        },
+        {
+          "id": "orange-juice",
+          "name": "Fresh Orange Juice",
+          "description": "Chilled freshly squeezed orange juice.",
+          "price": 2.8,
+          "ingredients": [
+            "orange juice"
+          ],
+          "allergens": [],
+          "addons": [],
+          "image": "images/orange-juice.jpg"
+        },
+        {
+          "id": "sparkling-water",
+          "name": "Sparkling Water",
+          "description": "Chilled sparkling water with a slice of lemon.",
+          "price": 2.0,
+          "ingredients": [
+            "sparkling water",
+            "lemon"
+          ],
+          "allergens": [],
+          "addons": [],
+          "image": "images/sparkling-water.jpg"
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "items": [
+        {
+          "id": "chocolate-fudge-cake",
+          "name": "Warm Chocolate Fudge Cake",
+          "description": "Rich chocolate fudge cake served warm with vanilla ice cream.",
+          "price": 7.5,
+          "ingredients": [
+            "chocolate sponge",
+            "fudge sauce",
+            "vanilla ice cream"
+          ],
+          "allergens": [
+            "Dairy",
+            "Eggs",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "cake-ice-cream",
+              "name": "Extra ice cream",
+              "price": 1.5
+            }
+          ],
+          "image": "images/chocolate-fudge-cake.jpg"
+        },
+        {
+          "id": "apple-crumble",
+          "name": "Apple Crumble",
+          "description": "Bramley apple crumble served with custard.",
+          "price": 6.95,
+          "ingredients": [
+            "apples",
+            "crumble topping",
+            "custard"
+          ],
+          "allergens": [
+            "Dairy",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "crumble-custard",
+              "name": "Extra custard",
+              "price": 1.0
+            }
+          ],
+          "image": "images/apple-crumble.jpg"
+        },
+        {
+          "id": "cheesecake",
+          "name": "New York Cheesecake",
+          "description": "Creamy vanilla cheesecake with a berry compote.",
+          "price": 7.5,
+          "ingredients": [
+            "cream cheese",
+            "biscuit base",
+            "berry compote"
+          ],
+          "allergens": [
+            "Dairy",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "cheesecake-compote",
+              "name": "Extra compote",
+              "price": 0.8
+            }
+          ],
+          "image": "images/cheesecake.jpg"
+        },
+        {
+          "id": "sticky-toffee",
+          "name": "Sticky Toffee Pudding",
+          "description": "Sticky date sponge with butterscotch sauce and vanilla ice cream.",
+          "price": 7.5,
+          "ingredients": [
+            "dates",
+            "sponge",
+            "butterscotch sauce",
+            "vanilla ice cream"
+          ],
+          "allergens": [
+            "Dairy",
+            "Eggs",
+            "Sulphites",
+            "Wheat"
+          ],
+          "addons": [
+            {
+              "id": "toffee-ice-cream",
+              "name": "Extra ice cream",
+              "price": 1.5
+            }
+          ],
+          "image": "images/sticky-toffee.jpg"
+        },
+        {
+          "id": "ice-cream",
+          "name": "Ice Cream Selection",
+          "description": "Three scoops of vanilla, chocolate and strawberry ice cream.",
+          "price": 5.95,
+          "ingredients": [
+            "vanilla ice cream",
+            "chocolate ice cream",
+            "strawberry ice cream"
+          ],
+          "allergens": [
+            "Dairy"
+          ],
+          "addons": [
+            {
+              "id": "ice-cream-scoop",
+              "name": "Extra scoop",
+              "price": 1.5
+            }
+          ],
+          "image": "images/ice-cream.jpg"
+        }
+      ]
+    }
+  ]
+}
