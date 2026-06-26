@@ -8,7 +8,7 @@ export interface LoadingScreenProps {
 
 export function LoadingScreen({ message = 'Loading menu…' }: LoadingScreenProps) {
   return (
-    <Stack gap={4} align="center" justify="center" className="min-h-svh">
+    <Stack gap={4} align="center" justify="center" className="min-h-svh" role="status" aria-live="polite">
       <Loader2 className="h-8 w-8 animate-spin text-[var(--color-primary)]" />
       <Text variant="muted">{message}</Text>
     </Stack>

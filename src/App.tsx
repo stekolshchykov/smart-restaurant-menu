@@ -1,79 +1,57 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import type { MenuData, MenuItem, Order, OrderAddon, Screen } from './types.ts'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import type { MenuData, MenuItem, Screen } from './types.ts'
 import fallbackMenu from './data/menu.json'
 import { LoadingScreen } from './components/layout/LoadingScreen.tsx'
 import { FloatingCartButton } from './components/layout/FloatingCartButton.tsx'
 import { KioskProvider } from './components/layout/KioskProvider.tsx'
-import { ToastProvider } from './components/layout/ToastProvider.tsx'
 import { MenuScreen } from './screens/MenuScreen.tsx'
 import { DetailScreen } from './screens/DetailScreen.tsx'
 import { CartScreen } from './screens/CartScreen.tsx'
 import { WaitingScreen } from './screens/WaitingScreen.tsx'
 import { cartItemCount, orderTotal } from './lib/calculations.ts'
+import { useOrder } from './lib/useOrder.ts'
+import { useToast } from './lib/useToast.ts'
 import { Stack } from './components/ui/Stack.tsx'
 
-const CART_KEY = 'digital-menu-cart'
+const SELECTED_ITEM_KEY = 'digital-menu-selected-item'
 
-const emptyOrder = (): Order => ({
-  id: '',
-  items: [],
-  createdAt: new Date().toISOString(),
-})
-
-const generateOrderId = (): string =>
-  `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
-
-const lineItemId = (menuItemId: string, addons: OrderAddon[]): string => {
-  const addonPart = addons
-    .filter((a) => a.quantity > 0)
-    .map((a) => `${a.id}:${a.quantity}`)
-    .sort()
-    .join('|')
-  return `${menuItemId}:${addonPart || 'default'}:${Date.now().toString(36)}`
-}
-
-const pageTransition = {
-  initial: { opacity: 0, x: 24 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -24 },
-  transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] as const },
+const findItemById = (menu: MenuData, id: string): MenuItem | undefined => {
+  for (const category of menu.categories) {
+    const item = category.items.find((i) => i.id === id)
+    if (item) return item
+  }
+  return undefined
 }
 
 export default function App() {
+  const { show } = useToast()
+  const shouldReduceMotion = useReducedMotion()
+
+  const pageTransition = {
+    initial: { opacity: shouldReduceMotion ? 1 : 0, x: shouldReduceMotion ? 0 : 24 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: shouldReduceMotion ? 1 : 0, x: shouldReduceMotion ? 0 : -24 },
+    transition: { duration: shouldReduceMotion ? 0 : 0.25, ease: [0.4, 0, 0.2, 1] as const },
+  }
+
   const [screen, setScreen] = useState<Screen>('menu')
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
-  const [order, setOrder] = useState<Order>(() => {
-    try {
-      const saved = localStorage.getItem(CART_KEY)
-      return saved ? (JSON.parse(saved) as Order) : emptyOrder()
-    } catch {
-      return emptyOrder()
-    }
-  })
   const [orderNumber, setOrderNumber] = useState<string | null>(null)
   const [menu, setMenu] = useState<MenuData | null>(null)
   const [loading, setLoading] = useState(true)
   const didRestoreScreen = useRef(false)
 
-  useEffect(() => {
-    if (didRestoreScreen.current) return
-    didRestoreScreen.current = true
-
-    const hash = window.location.hash.replace(/^#\/?/, '')
-    const validScreens: Screen[] = ['menu', 'detail', 'cart', 'waiting']
-    if (!validScreens.includes(hash as Screen)) return
-
-    const restored = hash as Screen
-    if (restored === 'detail' && !selectedItem) return
-    if (restored === 'cart' && order.items.length === 0) return
-    if (restored === 'waiting' && !order.id) return
-
-    setScreen(restored)
-    if (restored === 'waiting' && order.id) {
-      setOrderNumber(order.id)
-    }
-  }, [order.id, order.items.length, selectedItem])
+  const {
+    order,
+    addToOrder,
+    quickAddToOrder,
+    removeFromOrder,
+    updateOrderItemQuantity,
+    updateLineItemNote,
+    placeOrder,
+    resetOrder,
+  } = useOrder()
 
   useEffect(() => {
     fetch('menu.json')
@@ -87,12 +65,40 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    try {
-      localStorage.setItem(CART_KEY, JSON.stringify(order))
-    } catch {
-      // Ignore private-mode / quota errors; the cart simply won't persist.
+    if (didRestoreScreen.current || !menu) return
+    didRestoreScreen.current = true
+
+    const hash = window.location.hash.replace(/^#\/?/, '')
+    const validScreens: Screen[] = ['menu', 'detail', 'cart', 'waiting']
+    if (!validScreens.includes(hash as Screen)) return
+
+    const restored = hash as Screen
+    if (restored === 'detail') {
+      const savedId = localStorage.getItem(SELECTED_ITEM_KEY)
+      const resolved = savedId ? findItemById(menu, savedId) : undefined
+      if (!resolved) return
+      setSelectedItem(resolved)
     }
-  }, [order])
+    if (restored === 'cart' && order.items.length === 0) return
+    if (restored === 'waiting' && !order.id) return
+
+    setScreen(restored)
+    if (restored === 'waiting' && order.id) {
+      setOrderNumber(order.id)
+    }
+  }, [menu, order.id, order.items.length])
+
+  useEffect(() => {
+    try {
+      if (selectedItem) {
+        localStorage.setItem(SELECTED_ITEM_KEY, selectedItem.id)
+      } else {
+        localStorage.removeItem(SELECTED_ITEM_KEY)
+      }
+    } catch {
+      // Ignore private-mode / quota errors.
+    }
+  }, [selectedItem])
 
   useEffect(() => {
     const nextHash = screen === 'menu' ? '' : `#/${screen}`
@@ -114,80 +120,61 @@ export default function App() {
     setScreen('detail')
   }, [])
 
-  const addToOrder = useCallback(
-    (item: MenuItem, quantity: number, selectedAddons: Record<string, number>) => {
-      const addons: OrderAddon[] = item.addons
-        .filter((addon) => (selectedAddons[addon.id] || 0) > 0)
-        .map((addon) => ({ ...addon, quantity: selectedAddons[addon.id] }))
-
-      const newItem: Order['items'][number] = {
-        id: lineItemId(item.id, addons),
-        menuItemId: item.id,
-        name: item.name,
-        basePrice: item.price,
-        addons,
-        quantity,
+  const handleAddToOrder = useCallback(
+    (item: MenuItem, quantity: number, selectedAddons: Record<string, number>, note = '') => {
+      addToOrder(item, quantity, selectedAddons, note)
+      show(`Added ${item.name} to order`)
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        navigator.vibrate(18)
       }
-
-      setOrder((prev) => ({
-        ...prev,
-        items: [...prev.items, newItem],
-        createdAt: new Date().toISOString(),
-      }))
-      setScreen('menu')
     },
-    [],
+    [addToOrder, show],
   )
 
-  const quickAddToOrder = useCallback((item: MenuItem) => {
-    if (item.addons.length > 0) {
-      setSelectedItem(item)
-      setScreen('detail')
-      return
-    }
+  const handleQuickAdd = useCallback(
+    (item: MenuItem) => {
+      if (item.addons.length > 0) {
+        openDetail(item)
+        return
+      }
+      quickAddToOrder(item)
+      show(`Added ${item.name} to order`)
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        navigator.vibrate(18)
+      }
+    },
+    [openDetail, quickAddToOrder, show],
+  )
 
-    const newItem: Order['items'][number] = {
-      id: lineItemId(item.id, []),
-      menuItemId: item.id,
-      name: item.name,
-      basePrice: item.price,
-      addons: [],
-      quantity: 1,
-    }
-
-    setOrder((prev) => ({
-      ...prev,
-      items: [...prev.items, newItem],
-      createdAt: new Date().toISOString(),
-    }))
-  }, [])
-
-  const removeFromOrder = useCallback((lineItemId: string) => {
-    setOrder((prev) => ({
-      ...prev,
-      items: prev.items.filter((item) => item.id !== lineItemId),
-    }))
-  }, [])
-
-  const placeOrder = useCallback(() => {
-    const id = generateOrderId()
-    setOrder((prev) => ({ ...prev, id, createdAt: new Date().toISOString() }))
+  const handlePlaceOrder = useCallback(() => {
+    const id = placeOrder()
     setOrderNumber(id)
     setScreen('waiting')
-  }, [])
+  }, [placeOrder])
 
   const backToMenu = useCallback(() => {
     setScreen('menu')
   }, [])
 
   const startNewOrder = useCallback(() => {
-    setOrder(emptyOrder())
+    resetOrder()
     setOrderNumber(null)
     setScreen('menu')
-  }, [])
+  }, [resetOrder])
 
-  if (loading || !menu) {
+  if (loading) {
     return <LoadingScreen />
+  }
+
+  if (!menu) {
+    return (
+      <div className="flex min-h-svh flex-col items-center justify-center px-6 text-center">
+        <h1 className="font-heading text-2xl font-bold">Menu unavailable</h1>
+        <p className="mt-2 text-[var(--color-text-secondary)]">
+          We couldn’t load the menu right now. Please refresh the page to try again.
+        </p>
+      </div>
+    )
   }
 
   const adminActions = {
@@ -196,16 +183,15 @@ export default function App() {
   }
 
   return (
-    <ToastProvider>
-      <KioskProvider adminActions={adminActions}>
-        <Stack gap={0} className="relative flex-1 overflow-hidden">
+    <KioskProvider adminActions={adminActions}>
+      <Stack gap={0} className="relative flex-1 overflow-hidden">
         <AnimatePresence mode="wait">
           {screen === 'menu' && (
             <motion.div key="menu" {...pageTransition} className="w-full">
               <MenuScreen
                 menu={menu}
                 onItemClick={openDetail}
-                onQuickAdd={quickAddToOrder}
+                onQuickAdd={handleQuickAdd}
               />
             </motion.div>
           )}
@@ -214,7 +200,7 @@ export default function App() {
           <motion.div key="detail" {...pageTransition} className="w-full">
             <DetailScreen
               item={selectedItem}
-              onAddToOrder={addToOrder}
+              onAddToOrder={handleAddToOrder}
               onBack={backToMenu}
             />
           </motion.div>
@@ -223,10 +209,14 @@ export default function App() {
         {screen === 'cart' && (
           <motion.div key="cart" {...pageTransition} className="w-full">
             <CartScreen
+              menu={menu}
               order={order}
               onRemoveItem={removeFromOrder}
-              onPlaceOrder={placeOrder}
+              onUpdateQuantity={updateOrderItemQuantity}
+              onUpdateNote={updateLineItemNote}
+              onPlaceOrder={handlePlaceOrder}
               onBackToMenu={backToMenu}
+              onUpsellAdd={handleQuickAdd}
             />
           </motion.div>
         )}
@@ -235,6 +225,7 @@ export default function App() {
           <motion.div key="waiting" {...pageTransition} className="w-full">
             <WaitingScreen
               order={order}
+              onAddAnotherRound={backToMenu}
               onStartNewOrder={startNewOrder}
             />
           </motion.div>
@@ -245,10 +236,9 @@ export default function App() {
           itemCount={cartItemCount(order)}
           total={orderTotal(order)}
           onClick={() => setScreen('cart')}
-          hidden={screen === 'cart' || screen === 'waiting' || screen === 'detail'}
+          hidden={screen === 'cart' || screen === 'waiting'}
         />
       </Stack>
-      </KioskProvider>
-    </ToastProvider>
+    </KioskProvider>
   )
 }

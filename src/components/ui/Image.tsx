@@ -4,7 +4,7 @@ import { ImageIcon } from 'lucide-react'
 export interface ImageProps {
   src: string
   alt: string
-  aspectRatio?: 'video' | 'square' | '4/3' | 'auto'
+  aspectRatio?: 'video' | 'square' | '4/3' | 'auto' | '16/9'
   className?: string
   hoverZoom?: boolean
   priority?: boolean
@@ -15,6 +15,7 @@ const aspectClasses = {
   video: 'aspect-video',
   square: 'aspect-square',
   '4/3': 'aspect-[4/3]',
+  '16/9': 'aspect-video',
   auto: '',
 }
 
@@ -33,14 +34,14 @@ export function Image({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-bg-elevated)] ${aspectClasses[aspectRatio]} ${className}`}
+      className={`relative overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-surface-hover)] ${aspectClasses[aspectRatio]} ${className}`}
     >
       {!loaded && !showFallback && (
-        <div className="absolute inset-0 animate-pulse bg-[var(--color-border-subtle)]" />
+        <div className="absolute inset-0 animate-pulse bg-[var(--color-border-on-surface-subtle)]/40 backdrop-blur-[2px]" />
       )}
 
       {showFallback ? (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-[var(--color-text-muted)]">
+        <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-[var(--color-text-on-surface-muted)]">
           <ImageIcon className="h-8 w-8 opacity-50" />
           <span className="text-xs">Image unavailable</span>
         </div>

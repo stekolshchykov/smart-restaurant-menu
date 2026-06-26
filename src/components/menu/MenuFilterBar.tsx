@@ -72,7 +72,7 @@ export function MenuFilterBar({
           </div>
         </div>
 
-        <div className="mt-3">
+        <div className="mt-3" aria-live="polite" aria-atomic="true">
           <Text variant="caption">
             {resultCount} {resultCount === 1 ? 'dish' : 'dishes'} found
           </Text>

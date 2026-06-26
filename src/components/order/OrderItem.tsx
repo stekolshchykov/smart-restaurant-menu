@@ -3,18 +3,26 @@ import { Trash2 } from 'lucide-react'
 import type { OrderLineItem } from '../../types.ts'
 import { lineItemTotal } from '../../lib/calculations.ts'
 import { Divider } from '../ui/Divider.tsx'
-
 import { IconButton } from '../ui/IconButton.tsx'
 import { Price } from '../ui/Price.tsx'
+import { Stepper } from '../ui/Stepper.tsx'
 import { Surface } from '../ui/Surface.tsx'
 import { Text } from '../ui/Text.tsx'
+import { TextArea } from '../ui/TextArea.tsx'
 
 export interface OrderItemProps {
   item: OrderLineItem
   onRemove: () => void
+  onQuantityChange: (quantity: number) => void
+  onNoteChange?: (note: string) => void
 }
 
-export function OrderItem({ item, onRemove }: OrderItemProps) {
+export function OrderItem({
+  item,
+  onRemove,
+  onQuantityChange,
+  onNoteChange,
+}: OrderItemProps) {
   const lineTotal = lineItemTotal(item)
   const shouldReduceMotion = useReducedMotion()
 
@@ -53,19 +61,44 @@ export function OrderItem({ item, onRemove }: OrderItemProps) {
                     {addon.quantity > 1 ? `${addon.quantity}× ` : '+ '}
                     {addon.name}
                   </Text>
-                  <Price amount={addon.price * addon.quantity} size="sm" />
+                  <Price amount={addon.price * addon.quantity} size="sm" onSurface />
                 </div>
               ))}
             </div>
           )}
 
+          {item.note && (
+            <Text variant="caption" onSurface>
+              Note: {item.note}
+            </Text>
+          )}
+
+          {onNoteChange && (
+            <TextArea
+              value={item.note ?? ''}
+              onChange={onNoteChange}
+              placeholder="Special requests, e.g. no onions"
+              rows={2}
+              className="pt-1"
+            />
+          )}
+
           <Divider onSurface className="my-1" />
 
-          <div className="flex items-center justify-between">
-            <Text variant="label" onSurface>
-              Line total
-            </Text>
-            <Price amount={lineTotal} size="md" />
+          <div className="flex items-center justify-between gap-3">
+            <Stepper
+              value={item.quantity}
+              min={1}
+              onChange={onQuantityChange}
+              size="sm"
+              onSurface
+            />
+            <div className="flex items-center gap-2">
+              <Text variant="label" onSurface>
+                Line total
+              </Text>
+              <Price amount={lineTotal} size="md" onSurface />
+            </div>
           </div>
         </div>
 

@@ -25,19 +25,19 @@ export function IconButton({
 
   const variants = {
     primary:
-      'bg-[var(--color-accent)] text-[var(--color-surface)] hover:bg-[var(--color-accent-dark)]',
+      'bg-[var(--color-accent)] text-[var(--color-surface)] hover:bg-[var(--color-accent-dark)] disabled:hover:bg-[var(--color-accent)]',
     secondary:
-      'bg-[var(--color-surface)] text-[var(--color-text-on-surface)] border border-[var(--color-border-on-surface)] hover:bg-[var(--color-surface-hover)]',
+      'bg-[var(--color-surface)] text-[var(--color-text-on-surface)] border border-[var(--color-border-on-surface)] hover:bg-[var(--color-surface-hover)] disabled:hover:bg-[var(--color-surface)]',
     outline:
-      'bg-transparent text-[var(--color-text-on-surface)] border border-[var(--color-border-on-surface)] hover:bg-[var(--color-surface-hover)]',
+      'bg-transparent text-[var(--color-text-on-surface)] border border-[var(--color-border-on-surface)] hover:bg-[var(--color-surface-hover)] disabled:hover:bg-transparent',
     ghost:
-      'bg-transparent text-[var(--color-text-on-surface)] hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-heading-on-surface)]',
+      'bg-transparent text-[var(--color-text-on-surface)] hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-heading-on-surface)] disabled:hover:bg-transparent disabled:hover:text-[var(--color-text-on-surface)]',
     'secondary-inverse':
-      'bg-[var(--color-bg-elevated)] text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-border-subtle)]',
+      'bg-[var(--color-bg-elevated)] text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-border-subtle)] disabled:hover:bg-[var(--color-bg-elevated)]',
     'outline-inverse':
-      'bg-transparent text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-border-subtle)] hover:text-[var(--color-heading)]',
+      'bg-transparent text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-border-subtle)] hover:text-[var(--color-heading)] disabled:hover:bg-transparent disabled:hover:text-[var(--color-text)]',
     'ghost-inverse':
-      'bg-transparent text-[var(--color-text)] hover:bg-[var(--color-border-subtle)] hover:text-[var(--color-heading)]',
+      'bg-transparent text-[var(--color-text)] hover:bg-[var(--color-border-subtle)] hover:text-[var(--color-heading)] disabled:hover:bg-transparent disabled:hover:text-[var(--color-text)]',
   }
 
   const sizes = {

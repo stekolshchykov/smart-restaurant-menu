@@ -7,9 +7,17 @@ export interface HeaderProps {
   title?: string
   restaurantName?: string
   onBack?: () => void
+  backLabel?: string
+  titleLevel?: 1 | 2
 }
 
-export function Header({ title, restaurantName, onBack }: HeaderProps) {
+export function Header({
+  title,
+  restaurantName,
+  onBack,
+  backLabel = 'Back',
+  titleLevel = 2,
+}: HeaderProps) {
   const displayTitle = title || restaurantName || 'Menu'
 
   return (
@@ -24,7 +32,7 @@ export function Header({ title, restaurantName, onBack }: HeaderProps) {
           {onBack && (
             <IconButton
               onClick={onBack}
-              aria-label="Back to menu"
+              aria-label={backLabel}
               variant="ghost-inverse"
               size="md"
             >
@@ -35,7 +43,7 @@ export function Header({ title, restaurantName, onBack }: HeaderProps) {
 
         <div className="flex-1 px-2 text-center">
           <Heading
-            level={2}
+            level={titleLevel}
             variant="title"
             className="truncate"
           >

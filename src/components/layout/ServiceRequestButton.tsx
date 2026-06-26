@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Bell } from 'lucide-react'
 import serviceRequests from '../../data/serviceRequests.json'
+import { gentleHaptic } from '../../lib/haptics.ts'
 import { useToast } from '../../lib/useToast.ts'
+import type { ServiceRequest } from '../../types.ts'
 import { Button } from '../ui/Button.tsx'
 import { ServiceRequestPanel } from './ServiceRequestPanel.tsx'
 
@@ -12,8 +14,9 @@ export function ServiceRequestButton() {
   const { show } = useToast()
   const shouldReduceMotion = useReducedMotion()
 
-  const handleSelect = (action: { id: string; label: string; message: string }) => {
+  const handleSelect = (action: ServiceRequest) => {
     setRequestedId(action.id)
+    gentleHaptic()
 
     setTimeout(() => {
       setIsOpen(false)
@@ -37,7 +40,7 @@ export function ServiceRequestButton() {
             : { type: 'spring', stiffness: 400, damping: 26 }
         }
         className="fixed right-4 z-50 sm:right-6"
-        style={{ bottom: 'calc(env(safe-area-inset-bottom) + 1.25rem)' }}
+        style={{ bottom: 'calc(var(--safe-area-bottom) + 1.25rem)' }}
       >
         <Button
           onClick={() => {

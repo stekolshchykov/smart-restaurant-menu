@@ -25,6 +25,14 @@ export interface MenuItem {
   chefNote?: string
   perfectWith?: ParingItem[]
   relatedIds?: string[]
+  /** Typical preparation time in minutes. */
+  prepTimeMinutes: number
+  /** Average guest rating (1-5). */
+  rating?: number
+  /** Number of guest ratings. */
+  reviewCount?: number
+  /** Popularity score 0-100 used for "Guest favourite" badges. */
+  popularity?: number
 }
 
 export interface ParingItem {
@@ -70,6 +78,8 @@ export interface OrderLineItem {
   basePrice: number
   addons: OrderAddon[]
   quantity: number
+  /** Optional special request for this line item, e.g. "no onions". */
+  note?: string
 }
 
 export interface Order {

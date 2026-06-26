@@ -10,6 +10,7 @@ export interface DetailScreenProps {
     item: MenuItem,
     quantity: number,
     addons: Record<string, number>,
+    note: string,
   ) => void
   onBack: () => void
 }
@@ -23,17 +24,21 @@ export function DetailScreen({
   const [selectedAddons, setSelectedAddons] = useState<Record<string, number>>(
     {},
   )
+  const [note, setNote] = useState('')
 
   const handleAddonChange = (addonId: string, qty: number) => {
     setSelectedAddons((prev) => ({ ...prev, [addonId]: qty }))
   }
 
   const handleAddToOrder = () => {
-    onAddToOrder(item, quantity, selectedAddons)
+    onAddToOrder(item, quantity, selectedAddons, note)
+    setQuantity(1)
+    setSelectedAddons({})
+    setNote('')
   }
 
   return (
-    <Layout onBack={onBack} title={item.name}>
+    <Layout onBack={onBack} title={item.name} backLabel="Back to menu" titleLevel={1}>
       <Container size="lg" className="py-4 sm:py-6 pb-8">
         <MenuItemDetails
           item={item}
@@ -41,6 +46,8 @@ export function DetailScreen({
           onQuantityChange={setQuantity}
           selectedAddons={selectedAddons}
           onAddonChange={handleAddonChange}
+          note={note}
+          onNoteChange={setNote}
           onAddToOrder={handleAddToOrder}
         />
       </Container>

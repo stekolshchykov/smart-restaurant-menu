@@ -22,7 +22,7 @@ export function FullscreenExitNotice() {
               ? { duration: 0 }
               : { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
           }
-          className="fixed right-4 bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] left-4 z-[60] sm:left-auto sm:max-w-sm"
+          className="fixed right-4 bottom-[calc(var(--safe-area-bottom)+1.25rem)] left-4 z-[60] sm:left-auto sm:max-w-sm"
         >
           <div className="flex items-center justify-between gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 shadow-[var(--shadow-lg)]">
             <Text variant="body-sm">

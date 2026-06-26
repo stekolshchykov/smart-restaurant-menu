@@ -1,5 +1,3 @@
-import { VisuallyHidden } from './VisuallyHidden'
-
 export interface SkipToContentProps {
   target?: string
   children?: string
@@ -14,8 +12,7 @@ export function SkipToContent({
       href={target}
       className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-lg)] focus:bg-[var(--color-accent)] focus:px-4 focus:py-3 focus:text-[var(--color-surface)] focus:shadow-[var(--shadow-lg)]"
     >
-      <VisuallyHidden>{children}</VisuallyHidden>
-      <span aria-hidden="true">{children}</span>
+      {children}
     </a>
   )
 }

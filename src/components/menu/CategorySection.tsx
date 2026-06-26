@@ -9,12 +9,14 @@ export interface CategorySectionProps {
   category: Category
   onItemClick: (item: MenuItem) => void
   onQuickAdd: (item: MenuItem) => void
+  priorityItemIds?: Set<string>
 }
 
 export function CategorySection({
   category,
   onItemClick,
   onQuickAdd,
+  priorityItemIds,
 }: CategorySectionProps) {
   return (
     <Section
@@ -30,12 +32,13 @@ export function CategorySection({
         </span>
 
         <StaggerContainer className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-6">
-          {category.items.map((item) => (
+          {category.items.map((item, index) => (
             <StaggerItem key={item.id}>
               <MenuItemCard
                 item={item}
                 onClick={() => onItemClick(item)}
                 onQuickAdd={() => onQuickAdd(item)}
+                priority={priorityItemIds?.has(item.id) || index < 2}
               />
             </StaggerItem>
           ))}

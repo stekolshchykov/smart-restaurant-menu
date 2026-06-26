@@ -12,6 +12,8 @@ export interface LayoutProps {
   title?: string
   restaurantName?: string
   onBack?: () => void
+  backLabel?: string
+  titleLevel?: 1 | 2
 }
 
 export function Layout({
@@ -20,6 +22,8 @@ export function Layout({
   title,
   restaurantName,
   onBack,
+  backLabel,
+  titleLevel,
 }: LayoutProps) {
   return (
     <Stack direction="column" gap={0} className="min-h-svh">
@@ -28,6 +32,8 @@ export function Layout({
           title={title}
           restaurantName={restaurantName}
           onBack={onBack}
+          backLabel={backLabel}
+          titleLevel={titleLevel}
         />
       )}
 

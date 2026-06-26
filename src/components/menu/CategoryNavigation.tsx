@@ -23,12 +23,18 @@ export function CategoryNavigation({
       <Container size="xl">
         <div className="scrollbar-hide -mx-4 flex gap-2 overflow-x-auto px-4">
           <ToggleGroup
-            items={categories.map((category) => ({
-              value: category.id,
-              label: category.name,
-              disabled:
-                visibleCategoryIds && !visibleCategoryIds.has(category.id),
-            }))}
+            items={categories.map((category) => {
+              const disabled =
+                visibleCategoryIds && !visibleCategoryIds.has(category.id)
+              return {
+                value: category.id,
+                label: category.name,
+                disabled,
+                ariaLabel: disabled
+                  ? `${category.name}: no dishes match the current filters`
+                  : category.name,
+              }
+            })}
             value={activeCategory}
             onChange={onSelect}
             className="shrink-0"

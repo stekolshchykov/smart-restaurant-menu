@@ -93,7 +93,7 @@ export function OrderTimer({
             </motion.div>
             <span
               className={`font-heading text-5xl font-bold tabular-nums tracking-tight ${textColor}`}
-              aria-live="polite"
+              aria-hidden="true"
             >
               {formatTimeMMSS(clamped)}
             </span>
@@ -104,11 +104,14 @@ export function OrderTimer({
       <Text
         variant="body-lg"
         onSurface
-        aria-live="polite"
         className={`relative z-10 text-center font-medium ${textColor}`}
       >
         {resolvedStatusText}
       </Text>
+
+      <span className="sr-only" aria-live="polite" aria-atomic="true">
+        {resolvedStatusText}. {formatTimeMMSS(clamped)} remaining.
+      </span>
     </Surface>
   )
 }

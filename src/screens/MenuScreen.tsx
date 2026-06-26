@@ -9,11 +9,11 @@ import {
 import type { MenuData, MenuItem } from '../types.ts'
 import { useMenuFilters } from '../lib/useMenuFilters.ts'
 import { Layout } from '../components/layout/Layout.tsx'
-import { useToast } from '../lib/useToast.ts'
 import { CategoryNavigation } from '../components/menu/CategoryNavigation.tsx'
 import { CategorySection } from '../components/menu/CategorySection.tsx'
 import { EmptyMenuState } from '../components/menu/EmptyMenuState.tsx'
 import { MenuFilterBar } from '../components/menu/MenuFilterBar.tsx'
+import { ChefRecommends } from '../components/menu/ChefRecommends.tsx'
 import { MenuIntroHeader } from '../components/menu/MenuIntroHeader.tsx'
 import { Container } from '../components/ui/Container.tsx'
 import { Section } from '../components/ui/Section.tsx'
@@ -29,7 +29,6 @@ export function MenuScreen({
   onItemClick,
   onQuickAdd,
 }: MenuScreenProps) {
-  const { show } = useToast()
   const {
     query,
     setQuery,
@@ -71,6 +70,30 @@ export function MenuScreen({
     () => new Set(filteredCategories.map((category) => category.id)),
     [filteredCategories],
   )
+
+  const featuredItems = useMemo(
+    () =>
+      menu.categories
+        .flatMap((category) => category.items)
+        .filter((item) => item.featured)
+        .slice(0, 6),
+    [menu.categories],
+  )
+
+  const priorityItemIds = useMemo(() => {
+    const ids = new Set<string>()
+    let count = 0
+    for (const category of menu.categories) {
+      for (const item of category.items) {
+        if (count >= 8) break
+        ids.add(item.id)
+        count++
+      }
+      if (count >= 8) break
+    }
+    featuredItems.slice(0, 3).forEach((item) => ids.add(item.id))
+    return ids
+  }, [menu.categories, featuredItems])
 
   useEffect(() => {
     if (filteredCategories.length === 0) return
@@ -126,9 +149,6 @@ export function MenuScreen({
 
   const handleQuickAdd = (item: MenuItem) => {
     onQuickAdd(item)
-    if (item.addons.length === 0) {
-      show(`Added ${item.name} to order`)
-    }
   }
 
   const handleSuggestionClick = useCallback(
@@ -148,6 +168,8 @@ export function MenuScreen({
   return (
     <Layout showHeader={false} restaurantName={menu.restaurant.name}>
       <MenuIntroHeader restaurant={menu.restaurant} />
+
+      <ChefRecommends items={featuredItems} onItemClick={onItemClick} />
 
       <div
         ref={stickyHeaderRef}
@@ -195,6 +217,7 @@ export function MenuScreen({
             category={category}
             onItemClick={onItemClick}
             onQuickAdd={handleQuickAdd}
+            priorityItemIds={priorityItemIds}
           />
         ))
       )}

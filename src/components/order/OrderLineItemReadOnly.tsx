@@ -30,6 +30,12 @@ export function OrderLineItemReadOnly({ item }: OrderLineItemReadOnlyProps) {
               {item.name}
             </Text>
 
+            {item.note && (
+              <Text variant="caption" onSurface>
+                Note: {item.note}
+              </Text>
+            )}
+
             {hasAddons && (
               <Stack gap={1} className="gap-1">
                 {item.addons.map((addon) => (
@@ -47,6 +53,12 @@ export function OrderLineItemReadOnly({ item }: OrderLineItemReadOnlyProps) {
                   </Text>
                 ))}
               </Stack>
+            )}
+
+            {item.note && (
+              <Text variant="body-sm" onSurface className="italic text-[var(--color-text-on-surface-secondary)]">
+                “{item.note}”
+              </Text>
             )}
           </Stack>
         </Flex>

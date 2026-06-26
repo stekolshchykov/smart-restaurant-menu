@@ -1,12 +1,11 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-export interface FlexProps {
+export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
-  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12
+  gap?: 0 | 1 | 1.5 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
   justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
   wrap?: boolean
-  className?: string
 }
 
 const alignClasses = {
@@ -20,6 +19,7 @@ const alignClasses = {
 const gapClasses = {
   0: 'gap-0',
   1: 'gap-1',
+  1.5: 'gap-1.5',
   2: 'gap-2',
   3: 'gap-3',
   4: 'gap-4',
@@ -46,10 +46,12 @@ export function Flex({
   justify = 'start',
   wrap = false,
   className = '',
+  ...props
 }: FlexProps) {
   return (
     <div
       className={`flex flex-row ${gapClasses[gap]} ${alignClasses[align]} ${justifyClasses[justify]} ${wrap ? 'flex-wrap' : 'flex-nowrap'} ${className}`}
+      {...props}
     >
       {children}
     </div>

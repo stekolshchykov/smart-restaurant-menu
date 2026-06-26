@@ -30,7 +30,13 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   return (
     <ToastContext.Provider value={value}>
       {children}
-      <div className="pointer-events-none fixed right-4 left-4 z-[60] flex flex-col items-center gap-2 sm:bottom-6 sm:left-auto sm:items-end" style={{ bottom: 'calc(var(--safe-area-bottom) + 6rem)' }}>
+      <div
+        className="pointer-events-none fixed right-4 left-4 z-[60] flex flex-col items-center gap-2 sm:bottom-6 sm:left-auto sm:items-end"
+        style={{ bottom: 'calc(var(--safe-area-bottom) + 6rem)' }}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
         <AnimatePresence mode="popLayout">
           {toasts.map((toast) => (
             <Toast

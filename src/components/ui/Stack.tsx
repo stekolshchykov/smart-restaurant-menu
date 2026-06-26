@@ -1,12 +1,11 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-export interface StackProps {
+export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
   direction?: 'row' | 'column'
   gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12
   align?: 'start' | 'center' | 'end' | 'stretch'
   justify?: 'start' | 'center' | 'end' | 'between'
-  className?: string
 }
 
 const directionClasses = {
@@ -48,10 +47,12 @@ export function Stack({
   align = 'stretch',
   justify = 'start',
   className = '',
+  ...props
 }: StackProps) {
   return (
     <div
       className={`flex ${directionClasses[direction]} ${gapClasses[gap]} ${alignClasses[align]} ${justifyClasses[justify]} ${className}`}
+      {...props}
     >
       {children}
     </div>

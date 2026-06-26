@@ -1,7 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Category, MenuData, MenuItem } from '../types.ts'
 
 export type DietaryFilter = 'spicy' | 'vegetarian' | 'vegan' | 'glutenFree'
+
+const FILTERS_KEY = 'digital-menu-filters'
 
 export interface UseMenuFiltersResult {
   query: string
@@ -43,9 +45,37 @@ function matchesDietary(
   return activeFilters.every((filter) => Boolean(item[DIETARY_FIELDS[filter]]))
 }
 
+const VALID_FILTERS: DietaryFilter[] = ['spicy', 'vegetarian', 'vegan', 'glutenFree']
+
+function readSavedFilters(): { query: string; activeFilters: DietaryFilter[] } {
+  try {
+    const raw = localStorage.getItem(FILTERS_KEY)
+    if (!raw) return { query: '', activeFilters: [] }
+    const parsed = JSON.parse(raw) as { query?: string; activeFilters?: unknown[] }
+    const activeFilters = (parsed.activeFilters ?? []).filter((f): f is DietaryFilter =>
+      VALID_FILTERS.includes(f as DietaryFilter),
+    )
+    return { query: typeof parsed.query === 'string' ? parsed.query : '', activeFilters }
+  } catch {
+    return { query: '', activeFilters: [] }
+  }
+}
+
 export function useMenuFilters(menu: MenuData): UseMenuFiltersResult {
-  const [query, setQuery] = useState('')
-  const [activeFilters, setActiveFilters] = useState<DietaryFilter[]>([])
+  const saved = readSavedFilters()
+  const [query, setQuery] = useState(saved.query)
+  const [activeFilters, setActiveFilters] = useState<DietaryFilter[]>(saved.activeFilters)
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        FILTERS_KEY,
+        JSON.stringify({ query, activeFilters }),
+      )
+    } catch {
+      // ignore private-mode / quota errors
+    }
+  }, [query, activeFilters])
 
   const toggleFilter = (filter: DietaryFilter) => {
     setActiveFilters((prev) =>

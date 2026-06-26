@@ -33,7 +33,7 @@ export function FloatingCartButton({
               : { type: 'spring', stiffness: 400, damping: 28 }
           }
           className="fixed left-1/2 z-50 max-w-[calc(100%-6rem)] -translate-x-1/2"
-          style={{ bottom: 'calc(env(safe-area-inset-bottom) + 1.25rem)' }}
+          style={{ bottom: 'calc(var(--safe-area-bottom) + 1.25rem)' }}
         >
           <Button
             variant="primary"

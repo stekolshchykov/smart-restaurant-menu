@@ -10,6 +10,7 @@ import {
   X,
 } from 'lucide-react'
 import type { ServiceRequest } from '../../types.ts'
+import { useModalFocus } from '../../lib/useModalFocus.ts'
 import { Button } from '../ui/Button.tsx'
 import { Flex } from '../ui/Flex.tsx'
 import { Heading } from '../ui/Heading.tsx'
@@ -39,10 +40,14 @@ export function ServiceRequestPanel({
   onSelect,
   onClose,
 }: ServiceRequestPanelProps) {
+  const containerRef = useModalFocus(true, onClose)
+
   return (
     <Surface
+      ref={containerRef}
+      tabIndex={-1}
       elevated
-      className="w-full max-w-sm p-5 sm:p-6"
+      className="w-full max-w-sm p-5 sm:p-6 outline-none"
       role="dialog"
       aria-modal="true"
       aria-labelledby="service-panel-title"

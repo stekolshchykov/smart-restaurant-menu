@@ -8,6 +8,8 @@ import { formatCurrency } from '../../lib/formatters.ts'
 import { AddonSelector } from './AddonSelector.tsx'
 import { ChefNote } from './ChefNote.tsx'
 import { DishBadges } from './DishBadges.tsx'
+import { ItemTrustSignals } from './ItemTrustSignals.tsx'
+import { PrepTimeBadge } from './PrepTimeBadge.tsx'
 import { ProductDetailLayout } from './ProductDetailLayout.tsx'
 import { ProductVisualPanel } from './ProductVisualPanel.tsx'
 import { SelectedAddonSummary } from './SelectedAddonSummary.tsx'
@@ -22,6 +24,7 @@ import { Stack } from '../ui/Stack.tsx'
 import { Stepper } from '../ui/Stepper.tsx'
 import { Surface } from '../ui/Surface.tsx'
 import { Text } from '../ui/Text.tsx'
+import { TextArea } from '../ui/TextArea.tsx'
 
 export interface MenuItemDetailsProps {
   item: MenuItem
@@ -29,6 +32,8 @@ export interface MenuItemDetailsProps {
   onQuantityChange: (quantity: number) => void
   selectedAddons: Record<string, number>
   onAddonChange: (addonId: string, quantity: number) => void
+  note: string
+  onNoteChange: (note: string) => void
   onAddToOrder: () => void
 }
 
@@ -38,6 +43,8 @@ export function MenuItemDetails({
   onQuantityChange,
   selectedAddons,
   onAddonChange,
+  note,
+  onNoteChange,
   onAddToOrder,
 }: MenuItemDetailsProps) {
   const shouldReduceMotion = useReducedMotion()
@@ -55,20 +62,27 @@ export function MenuItemDetails({
   const visualPanel = <ProductVisualPanel item={item} />
 
   const infoPanel = (
-    <Surface className="p-4 sm:p-6">
-      <Stack gap={3}>
+    <Surface className="flex h-full flex-col p-4 sm:p-6">
+      <Stack gap={3} className="flex-1">
         <FadeIn delay={0.05} direction="up">
           <Stack gap={2}>
             <DishBadges item={item} />
             <Heading
-              level={1}
+              level={2}
               variant="display"
               onSurface
               className="text-3xl sm:text-4xl lg:text-5xl"
             >
               {item.name}
             </Heading>
-            <Price amount={item.price} size="xl" />
+
+            <Flex align="center" justify="between" gap={3} wrap>
+              <Price amount={item.price} size="xl" onSurface />
+              <PrepTimeBadge minutes={item.prepTimeMinutes} />
+            </Flex>
+
+            <ItemTrustSignals item={item} />
+
             <Text variant="body" onSurface className="leading-snug">
               {item.description}
             </Text>
@@ -110,6 +124,9 @@ export function MenuItemDetails({
                     </Badge>
                   ))}
                 </Flex>
+                <Text variant="caption" onSurface>
+                  Please inform your server of any allergies or intolerances.
+                </Text>
               </Stack>
             )}
           </Stack>
@@ -117,7 +134,7 @@ export function MenuItemDetails({
 
         {item.addons.length > 0 && (
           <FadeIn delay={0.2} direction="up">
-            <Surface inverse className="p-4 sm:p-5">
+            <Surface className="p-4 sm:p-5">
               <Stack gap={3}>
                 <Text variant="label" onSurface>
                   Extras
@@ -126,6 +143,7 @@ export function MenuItemDetails({
                   addons={item.addons}
                   selected={selectedAddons}
                   onChange={onAddonChange}
+                  onSurface
                 />
               </Stack>
             </Surface>
@@ -133,10 +151,21 @@ export function MenuItemDetails({
         )}
 
         <FadeIn delay={0.25} direction="up">
-          <Divider onSurface />
+          <TextArea
+            label="Special requests"
+            placeholder="e.g. no onions, well done, sauce on the side"
+            value={note}
+            onChange={onNoteChange}
+            rows={2}
+            maxLength={120}
+          />
         </FadeIn>
 
         <FadeIn delay={0.3} direction="up">
+          <Divider onSurface />
+        </FadeIn>
+
+        <FadeIn delay={0.35} direction="up">
           <Stack gap={3}>
             <Flex justify="between" align="center">
               <Text variant="body" onSurface className="font-medium">
@@ -153,46 +182,46 @@ export function MenuItemDetails({
             <SelectedAddonSummary addons={selectedAddonList} />
           </Stack>
         </FadeIn>
-
-        <div
-          className="sticky -mx-4 bg-[var(--color-surface)] p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] sm:-mx-6 sm:p-6 lg:static lg:mx-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-          style={{
-            bottom: 'calc(var(--safe-area-bottom) + var(--floating-chrome-bottom))',
-          }}
-        >
-          <Button
-            variant="primary"
-            size="lg"
-            fullWidth
-            onClick={onAddToOrder}
-            className="justify-between"
-          >
-            <span>Add to order</span>
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={total}
-                initial={{
-                  opacity: shouldReduceMotion ? 1 : 0,
-                  y: shouldReduceMotion ? 0 : -8,
-                }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{
-                  opacity: shouldReduceMotion ? 1 : 0,
-                  y: shouldReduceMotion ? 0 : 8,
-                }}
-                transition={
-                  shouldReduceMotion
-                    ? { duration: 0 }
-                    : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
-                }
-                className="inline-block"
-              >
-                {formatCurrency(total)}
-              </motion.span>
-            </AnimatePresence>
-          </Button>
-        </div>
       </Stack>
+
+      <div
+        className="mt-auto sticky -mx-4 bg-[var(--color-surface)] p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] sm:-mx-6 sm:p-6 lg:static lg:mx-0 lg:bg-transparent lg:p-0 lg:shadow-none"
+        style={{
+          bottom: 'calc(var(--safe-area-bottom) + var(--floating-chrome-bottom))',
+        }}
+      >
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
+          onClick={onAddToOrder}
+          className="justify-between"
+        >
+          <span>Add to order</span>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={total}
+              initial={{
+                opacity: shouldReduceMotion ? 1 : 0,
+                y: shouldReduceMotion ? 0 : -8,
+              }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{
+                opacity: shouldReduceMotion ? 1 : 0,
+                y: shouldReduceMotion ? 0 : 8,
+              }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
+              }
+              className="inline-block"
+            >
+              {formatCurrency(total)}
+            </motion.span>
+          </AnimatePresence>
+        </Button>
+      </div>
     </Surface>
   )
 

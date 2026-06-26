@@ -4,12 +4,15 @@ import {
   Bell,
   CheckCircle,
   ChefHat,
+  Plus,
   Receipt,
   Sparkles,
   UtensilsCrossed,
 } from 'lucide-react'
 import type { Order } from '../types.ts'
 import { Layout } from '../components/layout/Layout.tsx'
+import { CelebrationRing } from '../components/order/CelebrationRing.tsx'
+import { DecorativeBackground } from '../components/order/DecorativeBackground.tsx'
 import { OrderLineItemReadOnly } from '../components/order/OrderLineItemReadOnly.tsx'
 import { OrderTimer } from '../components/order/OrderTimer.tsx'
 import { PreparationStatus } from '../components/order/PreparationStatus.tsx'
@@ -33,38 +36,20 @@ import { TABLE_NUMBER } from '../config.ts'
 
 export interface WaitingScreenProps {
   order: Order
+  onAddAnotherRound: () => void
   onStartNewOrder: () => void
 }
 
 const TEN_MINUTES = 10 * 60
 
-function DecorativeBackground() {
-  return (
-    <div className="pointer-events-none fixed inset-0 overflow-hidden">
-      <div
-        className="absolute -top-1/4 left-1/2 h-[60rem] w-[60rem] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
-        style={{
-          background:
-            'radial-gradient(circle, var(--color-primary-bg) 0%, transparent 70%)',
-        }}
-      />
-      <div
-        className="absolute top-1/3 -right-1/4 h-[40rem] w-[40rem] rounded-full opacity-20 blur-3xl"
-        style={{
-          background:
-            'radial-gradient(circle, var(--color-success-bg) 0%, transparent 70%)',
-        }}
-      />
-    </div>
-  )
-}
-
 export function WaitingScreen({
   order,
+  onAddAnotherRound,
   onStartNewOrder,
 }: WaitingScreenProps) {
   const [secondsRemaining, setSecondsRemaining] = useState(TEN_MINUTES)
   const [timerSize, setTimerSize] = useState(220)
+  const [celebrate, setCelebrate] = useState(true)
   const total = useMemo(() => orderTotal(order), [order])
   const itemCount = useMemo(() => cartItemCount(order), [order])
   const elapsedSeconds = TEN_MINUTES - secondsRemaining
@@ -81,6 +66,8 @@ export function WaitingScreen({
 
   useEffect(() => {
     setSecondsRemaining(TEN_MINUTES)
+    setCelebrate(true)
+    const timer = setTimeout(() => setCelebrate(false), 1200)
     const interval = setInterval(() => {
       setSecondsRemaining((prev) => {
         if (prev <= 1) {
@@ -90,11 +77,14 @@ export function WaitingScreen({
         return prev - 1
       })
     }, 1000)
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(interval)
+      clearTimeout(timer)
+    }
   }, [order.id])
 
   return (
-    <Layout title="Order confirmed">
+    <Layout title="Order confirmed" backLabel="Back to menu" titleLevel={1}>
       <DecorativeBackground />
 
       <Container size="md" className="relative z-10 py-6 sm:py-10">
@@ -114,8 +104,11 @@ export function WaitingScreen({
               }
               className="relative inline-flex"
             >
-              <div className="rounded-full border border-[var(--color-success)]/20 bg-[var(--color-success-bg)] p-5 shadow-[var(--shadow-glow)]">
-                <CheckCircle className="h-12 w-12 text-[var(--color-success)]" />
+              <div className="relative rounded-full border border-[var(--color-success)]/20 bg-[var(--color-success-bg)] p-5 shadow-[var(--shadow-glow)]">
+                <CheckCircle className="relative z-10 h-12 w-12 text-[var(--color-success)]" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <CelebrationRing active={celebrate} />
+                </div>
               </div>
               <motion.div
                 animate={{ rotate: [0, 12, -12, 0] }}
@@ -136,7 +129,7 @@ export function WaitingScreen({
             </motion.div>
 
             <Stack gap={2} align="center">
-              <Heading level={1} variant="display" className="text-3xl sm:text-5xl">
+              <Heading level={2} variant="display" className="text-3xl sm:text-5xl">
                 Order confirmed
               </Heading>
 
@@ -148,6 +141,10 @@ export function WaitingScreen({
                 <Badge variant="outline" className="h-7 gap-1 px-3 text-xs">
                   <ChefHat className="h-3 w-3" />
                   Order #{formatOrderNumber(order.id)}
+                </Badge>
+                <Badge variant="success" className="h-7 gap-1 px-3 text-xs">
+                  <CheckCircle className="h-3 w-3" />
+                  Sent to kitchen
                 </Badge>
               </Flex>
             </Stack>
@@ -218,7 +215,7 @@ export function WaitingScreen({
                   <Text variant="label" onSurface>
                     Total
                   </Text>
-                  <Price amount={total} size="lg" />
+                  <Price amount={total} size="lg" onSurface />
                 </Flex>
               </div>
             </Surface>
@@ -242,17 +239,28 @@ export function WaitingScreen({
             </Surface>
           </StaggerItem>
 
-          <StaggerItem className="w-full pb-[calc(var(--safe-area-bottom)+var(--floating-chrome-bottom))]">
+          <StaggerItem className="w-full">
             <div className="mx-auto w-full max-w-lg">
-              <Button
-                variant="primary"
-                size="lg"
-                fullWidth
-                onClick={onStartNewOrder}
-                iconLeft={<UtensilsCrossed className="h-4 w-4" />}
-              >
-                Start new order
-              </Button>
+              <Stack gap={3}>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  fullWidth
+                  onClick={onAddAnotherRound}
+                  iconLeft={<Plus className="h-4 w-4" />}
+                >
+                  Add another round
+                </Button>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  fullWidth
+                  onClick={onStartNewOrder}
+                  iconLeft={<UtensilsCrossed className="h-4 w-4" />}
+                >
+                  Start new order
+                </Button>
+              </Stack>
             </div>
           </StaggerItem>
         </StaggerContainer>

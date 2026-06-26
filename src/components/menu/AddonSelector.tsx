@@ -10,6 +10,7 @@ export interface AddonSelectorProps {
   selected: Record<string, number>
   onChange: (id: string, quantity: number) => void
   max?: number
+  onSurface?: boolean
 }
 
 type AddonWithDescription = Addon & { description?: string }
@@ -19,6 +20,7 @@ export function AddonSelector({
   selected,
   onChange,
   max = 5,
+  onSurface = true,
 }: AddonSelectorProps) {
   if (addons.length === 0) {
     return null
@@ -42,6 +44,7 @@ export function AddonSelector({
             <Stack gap={1} className="min-w-0 flex-1">
               <Text
                 variant="body"
+                onSurface={onSurface}
                 className={`truncate font-medium ${
                   isSelected ? 'text-[var(--color-accent)]' : ''
                 }`}
@@ -49,11 +52,15 @@ export function AddonSelector({
                 {addon.name}
               </Text>
               {addonWithDescription.description && (
-                <Text variant="body-sm" className="truncate">
+                <Text
+                  variant="body-sm"
+                  onSurface={onSurface}
+                  className="truncate"
+                >
                   {addonWithDescription.description}
                 </Text>
               )}
-              <Price amount={addon.price} size="sm" />
+              <Price amount={addon.price} size="sm" onSurface={onSurface} />
             </Stack>
             <div className="shrink-0">
               <Stepper
@@ -62,7 +69,7 @@ export function AddonSelector({
                 max={max}
                 onChange={(value) => onChange(addon.id, value)}
                 size="md"
-                onSurface={false}
+                onSurface={onSurface}
                 aria-label={`Quantity of ${addon.name}`}
               />
             </div>

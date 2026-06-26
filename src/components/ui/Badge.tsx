@@ -20,7 +20,8 @@ export function Badge({
   className = '',
 }: BadgeProps) {
   const variants = {
-    default: 'bg-[var(--color-accent-bg)] text-[var(--color-accent)]',
+    default:
+      'bg-[var(--color-text-on-surface)]/10 text-[var(--color-heading-on-surface)]',
     primary: 'bg-[var(--color-accent)] text-[var(--color-surface)]',
     accent: 'bg-[var(--color-accent)] text-[var(--color-surface)]',
     outline:

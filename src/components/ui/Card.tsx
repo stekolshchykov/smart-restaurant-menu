@@ -7,6 +7,8 @@ export interface CardProps {
   className?: string
   hover?: boolean
   focusable?: boolean
+  'aria-label'?: string
+  'aria-labelledby'?: string
 }
 
 export function Card({
@@ -15,6 +17,8 @@ export function Card({
   className = '',
   hover = false,
   focusable = true,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
 }: CardProps) {
   const shouldReduceMotion = useReducedMotion()
 
@@ -31,6 +35,8 @@ export function Card({
       onKeyDown={handleKeyDown}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick && focusable ? 0 : undefined}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
       whileHover={
         hover && !shouldReduceMotion
           ? { y: -4, boxShadow: 'var(--shadow-lg)' }

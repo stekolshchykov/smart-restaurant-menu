@@ -5,6 +5,13 @@ import { Heading } from '../ui/Heading.tsx'
 import { Image } from '../ui/Image.tsx'
 import { Text } from '../ui/Text.tsx'
 
+function timeOfDayGreeting(): string {
+  const hour = new Date().getHours()
+  if (hour < 12) return 'Good morning'
+  if (hour < 18) return 'Good afternoon'
+  return 'Good evening'
+}
+
 export interface MenuIntroHeaderProps {
   restaurant: Restaurant
   tableNumber?: string
@@ -41,7 +48,7 @@ export function MenuIntroHeader({
             variant="muted"
             className="mt-1 max-w-md text-sm"
           >
-            {tagline} · Table {tableNumber}
+            {timeOfDayGreeting()}, table {tableNumber} · {tagline}
           </Text>
         </div>
       </Container>

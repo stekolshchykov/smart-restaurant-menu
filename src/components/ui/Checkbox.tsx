@@ -23,7 +23,7 @@ export function Checkbox({
 
   return (
     <Surface
-      className={`flex cursor-pointer items-center gap-3 p-4 transition-colors duration-[var(--transition-fast)] ${checked ? 'border-[var(--color-accent)] bg-[var(--color-accent-bg)]' : ''} ${className}`}
+      className={`flex cursor-pointer items-center gap-3 p-4 transition-colors duration-[var(--transition-fast)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] ${checked ? 'border-[var(--color-accent)] bg-[var(--color-accent-bg)]' : ''} ${className}`}
       role="checkbox"
       aria-checked={checked}
       tabIndex={0}
@@ -49,7 +49,7 @@ export function Checkbox({
       <div className="flex-1">
         <div className="flex items-center justify-between gap-2">
           <span className="font-medium text-[var(--color-text-on-surface)]">{label}</span>
-          {price !== undefined && <Price amount={price} size="sm" />}
+          {price !== undefined && <Price amount={price} size="sm" onSurface />}
         </div>
         {description && (
           <p className="mt-0.5 text-sm text-[var(--color-text-on-surface-secondary)]">

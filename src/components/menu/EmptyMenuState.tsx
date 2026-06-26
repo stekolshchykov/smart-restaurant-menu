@@ -25,8 +25,8 @@ export interface EmptyMenuStateProps {
 }
 
 export function EmptyMenuState({
-  title = 'No dishes found',
-  description = 'We couldn’t find anything in this selection. Try another category or reset filters.',
+  title = 'We couldn’t find a match',
+  description = 'Don’t worry — there’s plenty more on the menu. Reset your filters or jump to a category below.',
   icon,
   suggestions,
   onSuggestionClick,

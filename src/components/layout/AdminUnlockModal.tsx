@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Lock, LogOut, RotateCcw, Settings, ShieldCheck, X } from 'lucide-react'
+import { useModalFocus } from '../../lib/useModalFocus.ts'
 import { Button } from '../ui/Button.tsx'
 import { Flex } from '../ui/Flex.tsx'
 import { Heading } from '../ui/Heading.tsx'
@@ -24,11 +25,11 @@ export function AdminUnlockModal() {
   const [pin, setPin] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const shouldReduceMotion = useReducedMotion()
+  const containerRef = useModalFocus(isAdminModalOpen, closeAdminModal, inputRef)
 
   useEffect(() => {
     if (isAdminModalOpen) {
       setPin('')
-      setTimeout(() => inputRef.current?.focus(), 50)
     }
   }, [isAdminModalOpen])
 
@@ -75,7 +76,15 @@ export function AdminUnlockModal() {
               }
               className="w-full max-w-sm"
             >
-              <Surface elevated className="p-5 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="admin-modal-title">
+              <Surface
+                ref={containerRef}
+                tabIndex={-1}
+                elevated
+                className="p-5 sm:p-6 outline-none"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="admin-modal-title"
+              >
                 <Flex align="center" justify="between" className="mb-5">
                   <Flex align="center" gap={2}>
                     <Lock className="h-5 w-5 text-[var(--color-accent)]" />

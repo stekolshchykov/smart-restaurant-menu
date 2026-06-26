@@ -3,6 +3,7 @@ import { formatCurrency } from '../../lib/formatters'
 export interface PriceProps {
   amount: number
   size?: 'sm' | 'md' | 'lg' | 'xl'
+  onSurface?: boolean
   className?: string
 }
 
@@ -13,10 +14,19 @@ const sizeClasses = {
   xl: 'text-3xl',
 }
 
-export function Price({ amount, size = 'md', className = '' }: PriceProps) {
+export function Price({
+  amount,
+  size = 'md',
+  onSurface = false,
+  className = '',
+}: PriceProps) {
+  const colorClass = onSurface
+    ? 'text-[var(--color-heading-on-surface)]'
+    : 'text-[var(--color-primary)]'
+
   return (
     <span
-      className={`font-semibold text-[var(--color-primary)] ${sizeClasses[size]} ${className}`}
+      className={`font-semibold ${colorClass} ${sizeClasses[size]} ${className}`}
     >
       {formatCurrency(amount)}
     </span>
