@@ -44,6 +44,17 @@ apps/web/.env
 # Agent artifacts
 .kimi/tmp
 .kimi/output
+*.verify.sh
+apps/api/verify_public_venue.sh
+.playwright-mcp/
+
+# E2E / verification screenshots
+/screenshots/
+screenshots-audit/
+e2e-*.png
+
+# Runtime uploads
+uploads/
 
 # Legacy prototype assets (kept in repo but ignored from tooling)
 prototype/node_modules

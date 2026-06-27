@@ -1,0 +1,35 @@
+# Git
+.git
+.github
+.gitignore
+
+# Node.js
+node_modules
+npm-debug.log
+.svelte-kit
+build
+dist
+.vite
+
+# Rust
+target
+Cargo.lock
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.idea
+.vscode
+.DS_Store
+
+# Logs
+*.log
+
+# Prototype (legacy, not part of SaaS build)
+prototype
+
+# Uploads (runtime data)
+uploads

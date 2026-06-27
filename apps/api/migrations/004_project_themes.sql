@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS project_themes (
     project_id UUID PRIMARY KEY REFERENCES projects(id) ON DELETE CASCADE,
     appearance TEXT DEFAULT 'dark',
     accent_color TEXT DEFAULT '#c9a227',
-    card_style TEXT DEFAULT 'editorial',
+    card_style TEXT DEFAULT 'elevated',
     button_shape TEXT DEFAULT 'rounded',
     show_large_photos BOOLEAN DEFAULT true,
     use_promo_page BOOLEAN DEFAULT true,

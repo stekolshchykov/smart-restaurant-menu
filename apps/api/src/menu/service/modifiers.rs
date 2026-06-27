@@ -7,7 +7,7 @@ use crate::menu::models::{
     UpdateModifierGroupRequest, UpdateModifierOptionRequest,
 };
 use crate::menu::repository::{items, modifiers as repo};
-use crate::menu::service::helpers::{ensure_project_owner, validate_price, validate_selection};
+use crate::menu::service::helpers::{ensure_project_owner, validate_name, validate_price, validate_selection};
 use crate::state::AppState;
 
 pub async fn create_group(
@@ -20,6 +20,7 @@ pub async fn create_group(
         .await?
         .ok_or(AppError::MenuItemNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
+    validate_name(&req.name)?;
     validate_selection(req.min_select, req.max_select)?;
 
     repo::create_group(&state.db, menu_item_id, &req).await
@@ -36,6 +37,9 @@ pub async fn update_group(
         .ok_or(AppError::ModifierGroupNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
 
+    if let Some(name) = &req.name {
+        validate_name(name)?;
+    }
     let min = req.min_select.unwrap_or(0);
     let max = req.max_select.unwrap_or(min.max(1));
     if req.min_select.is_some() || req.max_select.is_some() {
@@ -63,6 +67,7 @@ pub async fn create_option(
         .await?
         .ok_or(AppError::ModifierGroupNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
+    validate_name(&req.name)?;
     validate_price(&req.price)?;
 
     repo::create_option(&state.db, modifier_group_id, &req).await
@@ -79,6 +84,9 @@ pub async fn update_option(
         .ok_or(AppError::ModifierOptionNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
 
+    if let Some(name) = &req.name {
+        validate_name(name)?;
+    }
     if let Some(price) = &req.price {
         validate_price(price)?;
     }

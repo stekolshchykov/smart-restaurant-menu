@@ -8,6 +8,7 @@
 		download?: boolean | string;
 		class?: string;
 		disabled?: boolean;
+		ariaLabel?: string;
 		children: Snippet;
 		onclick?: (event: MouseEvent) => void;
 	}
@@ -19,12 +20,13 @@
 		download,
 		class: className = '',
 		disabled = false,
+		ariaLabel,
 		children,
 		onclick
 	}: Props = $props();
 
 	const base =
-		'inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] disabled:cursor-not-allowed disabled:opacity-50';
+		'inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] disabled:cursor-not-allowed disabled:opacity-50 min-h-11 min-w-11';
 
 	const variants = {
 		primary:
@@ -35,12 +37,16 @@
 	};
 </script>
 
-{#if href}
-	<a {href} {download} class="{base} {variants[variant]} {className}" aria-disabled={disabled}>
+{#if href && !disabled}
+	<a {href} {download} class="{base} {variants[variant]} {className}" aria-label={ariaLabel}>
 		{@render children()}
 	</a>
+{:else if href && disabled}
+	<span class="{base} {variants[variant]} {className}" aria-disabled="true" aria-label={ariaLabel}>
+		{@render children()}
+	</span>
 {:else}
-	<button {type} {onclick} {disabled} class="{base} {variants[variant]} {className}">
+	<button {type} {onclick} {disabled} class="{base} {variants[variant]} {className}" aria-label={ariaLabel}>
 		{@render children()}
 	</button>
 {/if}

@@ -23,8 +23,14 @@ static EMAIL_RE: LazyLock<Regex> = LazyLock::new(|| {
         .expect("email regex is valid")
 });
 
+static PASSWORD_SPECIAL_RE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]").expect("special char regex is valid")
+});
+
 const REFRESH_COOKIE_NAME: &str = "refresh_token";
 const REFRESH_TOKEN_BYTES: usize = 64;
+const MIN_PASSWORD_LEN: usize = 8;
+const MAX_PASSWORD_LEN: usize = 128;
 
 pub async fn register(
     state: &AppState,
@@ -36,7 +42,8 @@ pub async fn register(
         .await?
         .is_some()
     {
-        return Err(AppError::UserAlreadyExists);
+        // Return a generic error to avoid leaking whether the email is registered.
+        return Err(AppError::RegistrationFailed);
     }
 
     let password_hash = password::hash_password(&req.password)?;
@@ -54,7 +61,7 @@ pub async fn register(
         &state.config.jwt_secret,
         state.config.jwt_access_expiry_minutes,
     )?;
-    let refresh_cookie = issue_refresh_cookie(state, user.id, &state.db).await?;
+    let refresh_cookie = issue_refresh_cookie(state, user.id, None, &state.db).await?;
 
     Ok((
         AuthResponse {
@@ -84,7 +91,7 @@ pub async fn login(
         &state.config.jwt_secret,
         state.config.jwt_access_expiry_minutes,
     )?;
-    let refresh_cookie = issue_refresh_cookie(state, user.id, &state.db).await?;
+    let refresh_cookie = issue_refresh_cookie(state, user.id, None, &state.db).await?;
 
     Ok((
         AuthResponse {
@@ -103,36 +110,49 @@ pub async fn refresh(
     let token = cookie.value();
     let token_hash = hash_refresh_token(token);
 
-    let row = repository::get_refresh_token(&state.db, &token_hash)
-        .await?
-        .ok_or(AppError::Unauthorized)?;
+    let mut tx = state.db.begin().await?;
 
-    if row.expires_at < Utc::now() {
-        return Err(AppError::TokenExpired);
+    let row = repository::get_refresh_token_for_update(&mut *tx, &token_hash).await?;
+
+    if let Some(row) = row {
+        if row.expires_at < Utc::now() {
+            return Err(AppError::TokenExpired);
+        }
+
+        let user = repository::get_user_by_id(&state.db, row.user_id)
+            .await?
+            .ok_or(AppError::Unauthorized)?;
+
+        let new_refresh_cookie =
+            issue_refresh_cookie(state, user.id, Some(&token_hash), &mut *tx).await?;
+        repository::delete_refresh_token(&mut *tx, &token_hash).await?;
+        tx.commit().await?;
+
+        let access_token = jwt::create_access_token(
+            &user,
+            &state.config.jwt_secret,
+            state.config.jwt_access_expiry_minutes,
+        )?;
+
+        return Ok((
+            AuthResponse {
+                access_token,
+                user: UserResponse::from(&user),
+            },
+            new_refresh_cookie,
+        ));
     }
 
-    let user = repository::get_user_by_id(&state.db, row.user_id)
-        .await?
-        .ok_or(AppError::Unauthorized)?;
+    // Token hash was not found. Check whether it is a previously rotated token
+    // (refresh-token reuse detection).
+    if let Some(row) = repository::get_refresh_token_by_previous_hash(&state.db, &token_hash).await?
+    {
+        tracing::warn!(user_id = %row.user_id, "refresh token reuse detected; revoking all user refresh tokens");
+        repository::delete_user_refresh_tokens(&state.db, row.user_id).await?;
+        return Err(AppError::TokenReused);
+    }
 
-    let mut tx = state.db.begin().await?;
-    let new_refresh_cookie = issue_refresh_cookie(state, user.id, &mut *tx).await?;
-    repository::delete_refresh_token(&mut *tx, &token_hash).await?;
-    tx.commit().await?;
-
-    let access_token = jwt::create_access_token(
-        &user,
-        &state.config.jwt_secret,
-        state.config.jwt_access_expiry_minutes,
-    )?;
-
-    Ok((
-        AuthResponse {
-            access_token,
-            user: UserResponse::from(&user),
-        },
-        new_refresh_cookie,
-    ))
+    Err(AppError::Unauthorized)
 }
 
 pub async fn logout(
@@ -157,11 +177,20 @@ fn validate_registration(req: &RegisterRequest) -> Result<(), AppError> {
             .push("Invalid email format".to_string());
     }
 
-    if req.password.len() < 8 {
+    if req.password.len() < MIN_PASSWORD_LEN
+        || req.password.len() > MAX_PASSWORD_LEN
+        || !req.password.chars().any(|c| c.is_ascii_lowercase())
+        || !req.password.chars().any(|c| c.is_ascii_uppercase())
+        || !req.password.chars().any(|c| c.is_ascii_digit())
+        || !PASSWORD_SPECIAL_RE.is_match(&req.password)
+    {
         errors
             .entry("password".to_string())
             .or_default()
-            .push("Password must be at least 8 characters".to_string());
+            .push(
+                "Password must be 8-128 characters and contain uppercase, lowercase, number and special character"
+                    .to_string(),
+            );
     }
 
     if errors.is_empty() {
@@ -198,6 +227,7 @@ fn validate_login(req: &LoginRequest) -> Result<(), AppError> {
 async fn issue_refresh_cookie<'e, E>(
     state: &AppState,
     user_id: uuid::Uuid,
+    previous_token_hash: Option<&str>,
     executor: E,
 ) -> Result<Cookie<'static>, AppError>
 where
@@ -207,7 +237,14 @@ where
     let token_hash = hash_refresh_token(&token);
     let expires_at = Utc::now() + Duration::days(state.config.jwt_refresh_expiry_days);
 
-    repository::save_refresh_token(executor, &token_hash, user_id, expires_at).await?;
+    repository::save_refresh_token(
+        executor,
+        &token_hash,
+        user_id,
+        expires_at,
+        previous_token_hash,
+    )
+    .await?;
 
     Ok(build_refresh_cookie(token, &state.config))
 }

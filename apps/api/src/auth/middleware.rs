@@ -10,6 +10,7 @@ use crate::error::AppError;
 use crate::state::AppState;
 
 #[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct CurrentUser {
     pub id: Uuid,
     pub email: String,

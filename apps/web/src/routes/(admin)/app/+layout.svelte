@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import { auth } from '$lib/stores/auth.svelte';
@@ -12,14 +11,8 @@
 
 	let { children }: Props = $props();
 
-	onMount(() => {
-		if (!auth.user && !auth.loading) {
-			goto('/login');
-		}
-	});
-
 	$effect(() => {
-		if (!auth.user && !auth.loading) {
+		if (auth.initialized && !auth.user && !auth.loading) {
 			goto('/login');
 		}
 	});
@@ -31,6 +24,8 @@
 		{ href: '/app', label: 'Заведения', section: 'projects' },
 		...(projectRoot
 			? [
+					{ href: `${projectRoot}/orders`, label: 'Заказы', section: 'orders' },
+					{ href: `${projectRoot}/service-requests`, label: 'Запросы', section: 'service' },
 					{ href: `${projectRoot}/menu`, label: 'Меню', section: 'menu' },
 					{ href: `${projectRoot}/tables`, label: 'Столики', section: 'tables' },
 					{ href: `${projectRoot}/publish`, label: 'Публикация', section: 'publish' },
@@ -75,7 +70,7 @@
 						<li>
 							<a
 								href={item.href}
-								class="block rounded-md px-3 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)]"
+								class="flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] min-h-11"
 								class:bg-[var(--color-primary-bg)]={isActive(item.href)}
 								class:text-[var(--color-primary-light)]={isActive(item.href)}
 								class:text-[var(--color-text-secondary)]={!isActive(item.href)}

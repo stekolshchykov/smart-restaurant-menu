@@ -1,4 +1,4 @@
-name: Build and deploy to GitHub Pages
+name: Build release artifacts and Docker images
 
 on:
   push:
@@ -7,15 +7,14 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: release-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-web:
+    name: Build web release artifact
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,25 +30,60 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: npm run lint
+        run: npm run lint:web
 
       - name: Build for production
         run: npm run build
         env:
-          GITHUB_PAGES: 'true'
+          PUBLIC_API_ORIGIN: ${{ vars.PUBLIC_API_ORIGIN || 'http://localhost:3001' }}
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload web artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: ./dist
+          name: web-build
+          path: apps/web/build
+          if-no-files-found: error
 
-  deploy:
-    needs: build
+  build-api:
+    name: Build API release artifact
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/api
+
+      - name: Release build
+        run: cd apps/api && cargo build --release
+
+      - name: Upload API artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-release
+          path: apps/api/target/release/digital-menu-api
+          if-no-files-found: error
+
+  build-images:
+    name: Build Docker images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build API image
+        run: docker build -t digital-menu-api ./apps/api
+
+      - name: Build web image
+        run: docker build -t digital-menu-web -f ./apps/web/Dockerfile .
+
+      - name: Validate compose config
+        run: docker compose config

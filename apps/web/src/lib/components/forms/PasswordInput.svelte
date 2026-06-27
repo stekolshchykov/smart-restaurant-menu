@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Eye, EyeOff } from '@lucide/svelte';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	interface Props {
 		id?: string;
@@ -9,6 +10,7 @@
 		placeholder?: string;
 		required?: boolean;
 		disabled?: boolean;
+		autocomplete?: HTMLInputAttributes['autocomplete'];
 		error?: string;
 		oninput?: (value: string) => void;
 	}
@@ -21,6 +23,7 @@
 		placeholder,
 		required = false,
 		disabled = false,
+		autocomplete,
 		error,
 		oninput
 	}: Props = $props();
@@ -55,12 +58,13 @@
 	</label>
 	<div class="relative">
 		<input
-			{id}
+			id={inputId}
 			{name}
 			{type}
 			{placeholder}
 			{required}
 			{disabled}
+			{autocomplete}
 			aria-invalid={error ? 'true' : undefined}
 			aria-describedby={error ? `${inputId}-error` : undefined}
 			class="{base} {error ? borderError : border}"

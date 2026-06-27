@@ -21,6 +21,27 @@ pub async fn list_by_project(pool: &PgPool, project_id: Uuid) -> Result<Vec<Menu
     .map_err(AppError::from)
 }
 
+pub async fn list_public_by_project(
+    pool: &PgPool,
+    project_id: Uuid,
+) -> Result<Vec<MenuItem>, AppError> {
+    query_as::<_, MenuItem>(
+        "SELECT i.id, i.category_id, i.name, i.short_description, i.description,
+                i.price, i.currency, i.image_url, i.images, i.ingredients,
+                i.availability_status, i.quick_add_enabled, i.sort_order,
+                i.created_at, i.updated_at
+         FROM menu_items i
+         JOIN categories c ON c.id = i.category_id
+         WHERE c.project_id = $1
+           AND i.availability_status = 'available'
+         ORDER BY i.sort_order, i.name",
+    )
+    .bind(project_id)
+    .fetch_all(pool)
+    .await
+    .map_err(AppError::from)
+}
+
 pub async fn count_visible_by_project(pool: &PgPool, project_id: Uuid) -> Result<i64, AppError> {
     query_scalar::<_, i64>(
         "SELECT COUNT(*)

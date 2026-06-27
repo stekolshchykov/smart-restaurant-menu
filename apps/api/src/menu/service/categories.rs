@@ -4,7 +4,7 @@ use crate::auth::middleware::CurrentUser;
 use crate::error::AppError;
 use crate::menu::models::{Category, CreateCategoryRequest, UpdateCategoryRequest};
 use crate::menu::repository::categories as repo;
-use crate::menu::service::helpers::ensure_project_owner;
+use crate::menu::service::helpers::{ensure_project_owner, validate_name};
 use crate::state::AppState;
 
 pub async fn create(
@@ -14,6 +14,7 @@ pub async fn create(
     req: CreateCategoryRequest,
 ) -> Result<Category, AppError> {
     ensure_project_owner(state, user, project_id).await?;
+    validate_name(&req.name)?;
     repo::create(&state.db, project_id, &req).await
 }
 
@@ -27,6 +28,9 @@ pub async fn update(
         .await?
         .ok_or(AppError::CategoryNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
+    if let Some(name) = &req.name {
+        validate_name(name)?;
+    }
     repo::update(&state.db, id, &req).await
 }
 

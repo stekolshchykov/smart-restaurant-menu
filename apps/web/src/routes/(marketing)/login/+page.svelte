@@ -38,6 +38,7 @@
 				name="email"
 				placeholder="you@example.com"
 				required
+				autocomplete="email"
 				bind:value={email}
 			/>
 			<PasswordInput
@@ -45,6 +46,7 @@
 				name="password"
 				placeholder="••••••••"
 				required
+				autocomplete="current-password"
 				bind:value={password}
 			/>
 

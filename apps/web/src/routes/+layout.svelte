@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { auth } from '$lib/stores/auth.svelte';
+	import ToastProvider from '$lib/components/layout/ToastProvider.svelte';
 	import '../app.css';
 
 	onMount(() => {
@@ -14,3 +15,5 @@
 </svelte:head>
 
 <slot />
+
+<ToastProvider />

@@ -31,3 +31,13 @@ bigdecimal = { version = "0.4", features = ["serde"] }
 qrcode = "0.14.1"
 image = "0.25.10"
 printpdf = { version = "0.9.1", features = ["images"] }
+
+[[bin]]
+name = "seed"
+path = "src/bin/seed.rs"
+
+[dev-dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json", "cookies"] }
+serial_test = { version = "3", features = ["file_locks"] }
+bigdecimal = { version = "0.4", features = ["serde"] }
+fs2 = "0.4"

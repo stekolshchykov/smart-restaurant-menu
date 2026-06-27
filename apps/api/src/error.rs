@@ -31,6 +31,9 @@ pub enum AppError {
     #[error("User already exists")]
     UserAlreadyExists,
 
+    #[error("Registration failed")]
+    RegistrationFailed,
+
     #[error("Forbidden")]
     Forbidden,
 
@@ -55,6 +58,9 @@ pub enum AppError {
     #[error("Menu item not found")]
     MenuItemNotFound,
 
+    #[error("Menu item unavailable")]
+    MenuItemUnavailable,
+
     #[error("Modifier group not found")]
     ModifierGroupNotFound,
 
@@ -69,6 +75,36 @@ pub enum AppError {
 
     #[error("Table not found")]
     TableNotFound,
+
+    #[error("Project not published")]
+    ProjectNotPublished,
+
+    #[error("Cart session not found")]
+    CartSessionNotFound,
+
+    #[error("Cart item not found")]
+    CartItemNotFound,
+
+    #[error("Order not found")]
+    OrderNotFound,
+
+    #[error("Invalid order status transition")]
+    InvalidOrderStatusTransition,
+
+    #[error("Invalid service request type")]
+    InvalidServiceRequestType,
+
+    #[error("Service request not found")]
+    ServiceRequestNotFound,
+
+    #[error("Invalid service request status transition")]
+    InvalidServiceRequestStatusTransition,
+
+    #[error("Invalid addon selection")]
+    InvalidAddon,
+
+    #[error("Cart is empty")]
+    EmptyCart,
 
     #[error("Invalid table range")]
     InvalidTableRange,
@@ -88,6 +124,18 @@ pub enum AppError {
     #[error("Invalid upload")]
     InvalidUpload,
 
+    #[error("Invalid file type")]
+    InvalidFileType,
+
+    #[error("File too large")]
+    FileTooLarge,
+
+    #[error("Rate limit exceeded")]
+    RateLimited,
+
+    #[error("Refresh token reused")]
+    TokenReused,
+
     #[error("Validation error")]
     ValidationError(HashMap<String, Vec<String>>),
 }
@@ -102,6 +150,7 @@ impl AppError {
                 StatusCode::UNAUTHORIZED
             }
             AppError::UserAlreadyExists => StatusCode::CONFLICT,
+            AppError::RegistrationFailed => StatusCode::BAD_REQUEST,
             AppError::Forbidden => StatusCode::FORBIDDEN,
             AppError::ProjectNotFound => StatusCode::NOT_FOUND,
             AppError::SlugTaken => StatusCode::CONFLICT,
@@ -110,18 +159,33 @@ impl AppError {
             }
             AppError::CategoryNotFound => StatusCode::NOT_FOUND,
             AppError::MenuItemNotFound => StatusCode::NOT_FOUND,
+            AppError::MenuItemUnavailable => StatusCode::NOT_FOUND,
             AppError::ModifierGroupNotFound => StatusCode::NOT_FOUND,
             AppError::ModifierOptionNotFound => StatusCode::NOT_FOUND,
             AppError::AllergenNotFound => StatusCode::NOT_FOUND,
             AppError::TagNotFound => StatusCode::NOT_FOUND,
             AppError::TableNotFound => StatusCode::NOT_FOUND,
+            AppError::ProjectNotPublished => StatusCode::NOT_FOUND,
+            AppError::CartSessionNotFound => StatusCode::NOT_FOUND,
+            AppError::CartItemNotFound => StatusCode::NOT_FOUND,
+            AppError::OrderNotFound => StatusCode::NOT_FOUND,
+            AppError::InvalidOrderStatusTransition => StatusCode::BAD_REQUEST,
+            AppError::InvalidServiceRequestType => StatusCode::BAD_REQUEST,
+            AppError::ServiceRequestNotFound => StatusCode::NOT_FOUND,
+            AppError::InvalidServiceRequestStatusTransition => StatusCode::BAD_REQUEST,
+            AppError::InvalidAddon => StatusCode::BAD_REQUEST,
+            AppError::EmptyCart => StatusCode::BAD_REQUEST,
             AppError::InvalidTableRange => StatusCode::BAD_REQUEST,
             AppError::QrGenerationError | AppError::PdfGenerationError => {
                 StatusCode::INTERNAL_SERVER_ERROR
             }
-            AppError::InvalidPrice | AppError::InvalidSelection | AppError::InvalidUpload => {
-                StatusCode::BAD_REQUEST
-            }
+            AppError::InvalidPrice
+            | AppError::InvalidSelection
+            | AppError::InvalidUpload
+            | AppError::InvalidFileType
+            | AppError::FileTooLarge => StatusCode::BAD_REQUEST,
+            AppError::RateLimited => StatusCode::TOO_MANY_REQUESTS,
+            AppError::TokenReused => StatusCode::UNAUTHORIZED,
             AppError::ValidationError(_) => StatusCode::BAD_REQUEST,
         }
     }
@@ -135,6 +199,7 @@ impl AppError {
             AppError::Unauthorized => "UNAUTHORIZED",
             AppError::TokenExpired => "TOKEN_EXPIRED",
             AppError::UserAlreadyExists => "USER_ALREADY_EXISTS",
+            AppError::RegistrationFailed => "REGISTRATION_FAILED",
             AppError::Forbidden => "FORBIDDEN",
             AppError::ProjectNotFound => "PROJECT_NOT_FOUND",
             AppError::SlugTaken => "SLUG_TAKEN",
@@ -143,17 +208,32 @@ impl AppError {
             AppError::InvalidProjectStatus => "INVALID_PROJECT_STATUS",
             AppError::CategoryNotFound => "CATEGORY_NOT_FOUND",
             AppError::MenuItemNotFound => "MENU_ITEM_NOT_FOUND",
+            AppError::MenuItemUnavailable => "MENU_ITEM_UNAVAILABLE",
             AppError::ModifierGroupNotFound => "MODIFIER_GROUP_NOT_FOUND",
             AppError::ModifierOptionNotFound => "MODIFIER_OPTION_NOT_FOUND",
             AppError::AllergenNotFound => "ALLERGEN_NOT_FOUND",
             AppError::TagNotFound => "TAG_NOT_FOUND",
             AppError::TableNotFound => "TABLE_NOT_FOUND",
+            AppError::ProjectNotPublished => "PROJECT_NOT_PUBLISHED",
+            AppError::CartSessionNotFound => "CART_SESSION_NOT_FOUND",
+            AppError::CartItemNotFound => "CART_ITEM_NOT_FOUND",
+            AppError::OrderNotFound => "ORDER_NOT_FOUND",
+            AppError::InvalidOrderStatusTransition => "INVALID_ORDER_STATUS_TRANSITION",
+            AppError::InvalidServiceRequestType => "INVALID_SERVICE_REQUEST_TYPE",
+            AppError::ServiceRequestNotFound => "SERVICE_REQUEST_NOT_FOUND",
+            AppError::InvalidServiceRequestStatusTransition => "INVALID_SERVICE_REQUEST_STATUS_TRANSITION",
+            AppError::InvalidAddon => "INVALID_ADDON",
+            AppError::EmptyCart => "EMPTY_CART",
             AppError::InvalidTableRange => "INVALID_TABLE_RANGE",
             AppError::QrGenerationError => "QR_GENERATION_ERROR",
             AppError::PdfGenerationError => "PDF_GENERATION_ERROR",
             AppError::InvalidPrice => "INVALID_PRICE",
             AppError::InvalidSelection => "INVALID_SELECTION",
             AppError::InvalidUpload => "INVALID_UPLOAD",
+            AppError::InvalidFileType => "INVALID_FILE_TYPE",
+            AppError::FileTooLarge => "FILE_TOO_LARGE",
+            AppError::RateLimited => "RATE_LIMITED",
+            AppError::TokenReused => "TOKEN_REUSED",
             AppError::ValidationError(_) => "VALIDATION_ERROR",
         }
     }

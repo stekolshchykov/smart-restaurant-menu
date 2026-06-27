@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { HTMLInputAttributes } from 'svelte/elements';
+
 	interface Props {
 		id?: string;
 		label: string;
@@ -8,6 +10,8 @@
 		placeholder?: string;
 		required?: boolean;
 		disabled?: boolean;
+		autofocus?: boolean;
+		autocomplete?: HTMLInputAttributes['autocomplete'];
 		error?: string;
 		oninput?: (value: string) => void;
 	}
@@ -21,6 +25,8 @@
 		placeholder,
 		required = false,
 		disabled = false,
+		autofocus = false,
+		autocomplete,
 		error,
 		oninput
 	}: Props = $props();
@@ -47,13 +53,16 @@
 			<span aria-hidden="true" class="text-[var(--color-error)]">*</span>
 		{/if}
 	</label>
+	<!-- svelte-ignore a11y_autofocus -->
 	<input
-		{id}
+		id={inputId}
 		{name}
 		{type}
 		{placeholder}
 		{required}
 		{disabled}
+		{autofocus}
+		{autocomplete}
 		aria-invalid={error ? 'true' : undefined}
 		aria-describedby={error ? `${inputId}-error` : undefined}
 		class="{base} {error ? borderError : border}"

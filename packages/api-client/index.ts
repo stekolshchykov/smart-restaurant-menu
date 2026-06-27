@@ -1,8 +1,10 @@
 import type {
+  AddToCartRequest,
   Allergen,
   ApiError,
   AuthResponse,
   BulkCreateTablesRequest,
+  CartSessionResponse,
   Category,
   CategoryWithItems,
   CreateAllergenRequest,
@@ -11,6 +13,7 @@ import type {
   CreateModifierGroupRequest,
   CreateModifierOptionRequest,
   CreateProjectRequest,
+  CreateServiceRequestRequest,
   CreateTableRequest,
   CreateTagRequest,
   HealthResponse,
@@ -21,18 +24,33 @@ import type {
   MenuTreeResponse,
   ModifierGroup,
   ModifierOption,
+  OrderDetailResponse,
+  OrderListItemResponse,
+  OrderResponse,
+  OrderStatus,
+  PlaceOrderResponse,
   ProjectResponse,
   ProjectThemeResponse,
+  PublicMenuResponse,
+  PublicProjectResponse,
   PublicationStatusResponse,
+  PublicTableResponse,
   RegisterRequest,
+  ServiceRequestDetailResponse,
+  ServiceRequestListItemResponse,
+  ServiceRequestResponse,
+  ServiceRequestStatus,
+  ServiceRequestType,
   Table,
   Tag,
   UpdateCategoryRequest,
   UpdateMenuItemRequest,
   UpdateModifierGroupRequest,
   UpdateModifierOptionRequest,
+  UpdateOrderStatusRequest,
   UpdateProjectRequest,
   UpdateProjectThemeRequest,
+  UpdateServiceRequestStatusRequest,
   UpdateTableRequest,
   UserResponse,
 } from '@digital-menu/shared-types';
@@ -160,8 +178,8 @@ export class ApiClient {
     return this.request<void>(`/projects/${id}`, { method: 'DELETE' });
   }
 
-  updateProjectTheme(id: string, body: UpdateProjectThemeRequest): Promise<ProjectThemeResponse> {
-    return this.request<ProjectThemeResponse>(`/projects/${id}/theme`, {
+  updateProjectTheme(id: string, body: UpdateProjectThemeRequest): Promise<ProjectResponse> {
+    return this.request<ProjectResponse>(`/projects/${id}/theme`, {
       method: 'PATCH',
       body: JSON.stringify(body),
     });
@@ -313,7 +331,7 @@ export class ApiClient {
   }
 
   getTableQrPdfUrl(id: string): string {
-    return `${this.baseUrl}/tables/${id}/qr/pdf`;
+    return `${this.baseUrl}/tables/${id}/qr-pdf`;
   }
 
   publishProject(projectId: string): Promise<PublicationStatusResponse> {
@@ -330,6 +348,100 @@ export class ApiClient {
 
   getPublicationStatus(projectId: string): Promise<PublicationStatusResponse> {
     return this.request<PublicationStatusResponse>(`/projects/${projectId}/publication-status`);
+  }
+
+  getPublicProject(slug: string): Promise<PublicProjectResponse> {
+    return this.request<PublicProjectResponse>(`/public/projects/${slug}`);
+  }
+
+  getPublicMenu(slug: string): Promise<PublicMenuResponse> {
+    return this.request<PublicMenuResponse>(`/public/projects/${slug}/menu`);
+  }
+
+  getPublicTable(token: string): Promise<PublicTableResponse> {
+    return this.request<PublicTableResponse>(`/public/tables/${token}`);
+  }
+
+  getCart(token: string): Promise<CartSessionResponse> {
+    return this.request<CartSessionResponse>(`/public/tables/${token}/cart`);
+  }
+
+  addToCart(token: string, body: AddToCartRequest): Promise<CartSessionResponse> {
+    return this.request<CartSessionResponse>(`/public/tables/${token}/cart/items`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+  }
+
+  updateCartItem(token: string, itemId: string, quantity: number): Promise<CartSessionResponse> {
+    return this.request<CartSessionResponse>(`/public/tables/${token}/cart/items/${itemId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ quantity }),
+    });
+  }
+
+  removeCartItem(token: string, itemId: string): Promise<CartSessionResponse> {
+    return this.request<CartSessionResponse>(`/public/tables/${token}/cart/items/${itemId}`, {
+      method: 'DELETE',
+    });
+  }
+
+  placeOrder(token: string): Promise<PlaceOrderResponse> {
+    return this.request<PlaceOrderResponse>(`/public/tables/${token}/orders`, {
+      method: 'POST',
+    });
+  }
+
+  getOrder(orderToken: string): Promise<OrderResponse> {
+    return this.request<OrderResponse>(`/public/orders/${orderToken}`);
+  }
+
+  getOrders(projectId: string, status?: OrderStatus): Promise<OrderListItemResponse[]> {
+    const query = status ? `?status=${encodeURIComponent(status)}` : '';
+    return this.request<OrderListItemResponse[]>(`/projects/${projectId}/orders${query}`);
+  }
+
+  getProjectOrder(projectId: string, orderId: string): Promise<OrderDetailResponse> {
+    return this.request<OrderDetailResponse>(`/projects/${projectId}/orders/${orderId}`);
+  }
+
+  updateOrderStatus(projectId: string, orderId: string, status: OrderStatus): Promise<OrderDetailResponse> {
+    return this.request<OrderDetailResponse>(`/projects/${projectId}/orders/${orderId}/status`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status } satisfies UpdateOrderStatusRequest),
+    });
+  }
+
+  createServiceRequest(
+    token: string,
+    body: CreateServiceRequestRequest,
+  ): Promise<ServiceRequestResponse> {
+    return this.request<ServiceRequestResponse>(`/public/tables/${token}/service-requests`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+  }
+
+  getServiceRequests(
+    projectId: string,
+    status?: ServiceRequestStatus,
+  ): Promise<ServiceRequestListItemResponse[]> {
+    const query = status ? `?status=${encodeURIComponent(status)}` : '';
+    return this.request<ServiceRequestListItemResponse[]>(`/projects/${projectId}/service-requests${query}`);
+  }
+
+  updateServiceRequestStatus(
+    projectId: string,
+    requestId: string,
+    status: ServiceRequestStatus,
+  ): Promise<ServiceRequestDetailResponse> {
+    return this.request<ServiceRequestDetailResponse>(
+      `/projects/${projectId}/service-requests/${requestId}/status`,
+      {
+        method: 'PATCH',
+        body: JSON.stringify({ status } satisfies UpdateServiceRequestStatusRequest),
+      },
+    );
   }
 }
 

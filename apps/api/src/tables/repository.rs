@@ -9,19 +9,21 @@ pub async fn create<'e, E>(
     project_id: Uuid,
     label: &str,
     token: &str,
+    active: bool,
     sort_order: i32,
 ) -> Result<Table, AppError>
 where
     E: Executor<'e, Database = sqlx::Postgres>,
 {
     query_as::<_, Table>(
-        "INSERT INTO tables (project_id, label, token, sort_order)
-         VALUES ($1, $2, $3, $4)
+        "INSERT INTO tables (project_id, label, token, active, sort_order)
+         VALUES ($1, $2, $3, $4, $5)
          RETURNING id, project_id, label, token, active, sort_order, created_at, updated_at",
     )
     .bind(project_id)
     .bind(label)
     .bind(token)
+    .bind(active)
     .bind(sort_order)
     .fetch_one(executor)
     .await

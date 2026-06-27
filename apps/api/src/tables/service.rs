@@ -69,8 +69,9 @@ pub async fn create_table(
 
     let token = generate_unique_token(&state.db).await?;
     let sort_order = req.sort_order.unwrap_or(0);
+    let active = req.active.unwrap_or(true);
 
-    let table = repository::create(&state.db, project_id, &label, &token, sort_order).await?;
+    let table = repository::create(&state.db, project_id, &label, &token, active, sort_order).await?;
     Ok(to_response(
         table,
         state.config.web_origin(),
@@ -108,7 +109,7 @@ pub async fn bulk_create_tables(
     for (idx, token) in tokens.into_iter().enumerate() {
         let number = req.start + idx as i32;
         let label = format!("{prefix}{number}");
-        let table = repository::create(&mut *tx, project_id, &label, &token, 0).await?;
+        let table = repository::create(&mut *tx, project_id, &label, &token, true, 0).await?;
         tables.push(table);
     }
 

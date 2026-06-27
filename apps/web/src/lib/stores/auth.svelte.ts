@@ -37,16 +37,31 @@ function getErrorMessage(err: unknown): string {
   return 'Что-то пошло не так. Попробуйте ещё раз.';
 }
 
+function isRetryable(err: unknown): boolean {
+  const code = (err as ApiError | undefined)?.code;
+  return code === 'rate_limited' || code === 'http_429' || code === 'http_503' || code === 'http_502';
+}
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function createAuthStore() {
   let user = $state<UserResponse | null>(null);
   let loading = $state(false);
   let error = $state<string | null>(null);
+  let initialized = $state(false);
 
   async function loadUser() {
+    if (initialized) {
+      return;
+    }
+
     const token = readStoredToken();
     if (!token) {
       user = null;
       applyToken(null);
+      initialized = true;
       return;
     }
 
@@ -58,6 +73,17 @@ function createAuthStore() {
       const me = await api.getMe();
       user = me;
     } catch (err) {
+      if (isRetryable(err)) {
+        try {
+          await delay(1200);
+          const me = await api.getMe();
+          user = me;
+          return;
+        } catch (retryErr) {
+          err = retryErr;
+        }
+      }
+
       user = null;
       saveToken(null);
       applyToken(null);
@@ -66,6 +92,7 @@ function createAuthStore() {
       }
     } finally {
       loading = false;
+      initialized = true;
     }
   }
 
@@ -78,6 +105,7 @@ function createAuthStore() {
       user = response.user;
       saveToken(response.accessToken);
       applyToken(response.accessToken);
+      initialized = true;
       await goto('/app');
     } catch (err) {
       user = null;
@@ -96,6 +124,7 @@ function createAuthStore() {
       user = response.user;
       saveToken(response.accessToken);
       applyToken(response.accessToken);
+      initialized = true;
       await goto('/app');
     } catch (err) {
       user = null;
@@ -117,6 +146,7 @@ function createAuthStore() {
       user = null;
       saveToken(null);
       applyToken(null);
+      initialized = false;
       loading = false;
       await goto('/login');
     }
@@ -136,6 +166,9 @@ function createAuthStore() {
     get error() {
       return error;
     },
+    get initialized() {
+      return initialized;
+    },
     loadUser,
     register,
     login,
@@ -143,5 +176,9 @@ function createAuthStore() {
     clearError,
   };
 }
+
+// Apply any previously stored token immediately so the first API calls
+// before root layout onMount still carry credentials.
+applyToken(readStoredToken());
 
 export const auth = createAuthStore();

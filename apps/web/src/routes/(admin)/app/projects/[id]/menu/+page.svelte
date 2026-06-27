@@ -3,7 +3,9 @@
 	import { onMount } from 'svelte';
 	import { ArrowLeft, Plus, Pencil, Trash2, UtensilsCrossed } from '@lucide/svelte';
 	import type { CreateCategoryRequest, UpdateCategoryRequest } from '@digital-menu/api-client';
+	import { formatMoney } from '$lib/stores/cart.svelte';
 	import { menu } from '$lib/stores/menu.svelte';
+	import { projects } from '$lib/stores/projects.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import EmptyState from '$lib/components/EmptyState.svelte';
 	import FormError from '$lib/components/forms/FormError.svelte';
@@ -12,9 +14,11 @@
 	import ItemInspector from '$lib/components/menu/ItemInspector.svelte';
 
 	const id = $derived(page.params.id ?? '');
+	const project = $derived(projects.currentProject);
 
 	onMount(() => {
 		if (id) {
+			void projects.selectProject(id);
 			void menu.loadMenu(id);
 			void menu.loadAllergens(id);
 			void menu.loadTags(id);
@@ -92,7 +96,7 @@
 		</div>
 	{/if}
 
-	{#if menu.menuTree && sortedCategories.length === 0 && !menu.loading}
+	{#if menu.menuTree && sortedCategories.length === 0 && !menu.loading && !showCategoryForm}
 		<EmptyState
 			icon={UtensilsCrossed}
 			title="Меню пока пусто"
@@ -157,7 +161,7 @@
 							<div class="flex items-center gap-1 px-2">
 								<button
 									type="button"
-									class="rounded p-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
+									class="flex h-11 w-11 items-center justify-center rounded p-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
 									aria-label="Редактировать категорию {category.name}"
 									onclick={() => startEditCategory(category.id)}
 								>
@@ -165,7 +169,7 @@
 								</button>
 								<button
 									type="button"
-									class="rounded p-1 text-[var(--color-text-secondary)] hover:text-[var(--color-error)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
+									class="flex h-11 w-11 items-center justify-center rounded p-1 text-[var(--color-text-secondary)] hover:text-[var(--color-error)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
 									aria-label="Удалить категорию {category.name}"
 									onclick={() => menu.deleteCategory(category.id)}
 								>
@@ -192,7 +196,7 @@
 						<div class="w-full sm:w-32">
 							<TextInput label="Цена" name="new-item-price" placeholder="Цена" bind:value={newItemPrice} />
 						</div>
-						<Button type="button" onclick={handleCreateItem} disabled={!newItemName.trim() || !newItemPrice.trim()}>
+						<Button type="button" ariaLabel="Добавить блюдо" onclick={handleCreateItem} disabled={!newItemName.trim() || !newItemPrice.trim()}>
 							<Plus class="h-4 w-4" aria-hidden="true" />
 						</Button>
 					</div>
@@ -217,7 +221,7 @@
 												{item.status === 'available' ? 'Доступно' : item.status === 'unavailable' ? 'Недоступно' : 'Скрыто'}
 											</p>
 										</div>
-										<span class="text-sm font-medium text-[var(--color-text)]">{item.price}</span>
+										<span class="text-sm font-medium text-[var(--color-text)]">{formatMoney(item.price, project?.currency ?? '€')}</span>
 									</button>
 								</li>
 							{/each}

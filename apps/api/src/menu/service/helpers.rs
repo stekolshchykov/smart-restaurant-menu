@@ -13,6 +13,14 @@ use crate::menu::repository::{allergens_tags, items, modifiers};
 use crate::projects::repository as project_repository;
 use crate::state::AppState;
 
+const MAX_NAME_LEN: usize = 100;
+const MAX_SHORT_DESCRIPTION_LEN: usize = 300;
+const MAX_DESCRIPTION_LEN: usize = 2000;
+const MAX_URL_LEN: usize = 2048;
+const MAX_INGREDIENT_LEN: usize = 100;
+const MAX_INGREDIENTS_COUNT: usize = 100;
+const MAX_IMAGES_COUNT: usize = 10;
+
 pub async fn ensure_project_owner(
     state: &AppState,
     user: &CurrentUser,
@@ -39,6 +47,74 @@ pub fn validate_price(price: &BigDecimal) -> Result<(), AppError> {
 pub fn validate_selection(min_select: i32, max_select: i32) -> Result<(), AppError> {
     if min_select < 0 || max_select < min_select {
         return Err(AppError::InvalidSelection);
+    }
+    Ok(())
+}
+
+pub fn validate_name(name: &str) -> Result<(), AppError> {
+    let trimmed = name.trim();
+    if trimmed.is_empty() || trimmed.len() > MAX_NAME_LEN {
+        return Err(AppError::ValidationError(Default::default()));
+    }
+    Ok(())
+}
+
+pub fn validate_short_description(value: Option<&str>) -> Result<(), AppError> {
+    if let Some(value) = value {
+        if value.len() > MAX_SHORT_DESCRIPTION_LEN {
+            return Err(AppError::ValidationError(Default::default()));
+        }
+    }
+    Ok(())
+}
+
+pub fn validate_description(value: Option<&str>) -> Result<(), AppError> {
+    if let Some(value) = value {
+        if value.len() > MAX_DESCRIPTION_LEN {
+            return Err(AppError::ValidationError(Default::default()));
+        }
+    }
+    Ok(())
+}
+
+pub fn validate_image_url(value: Option<&str>) -> Result<(), AppError> {
+    if let Some(url) = value {
+        if url.len() > MAX_URL_LEN {
+            return Err(AppError::ValidationError(Default::default()));
+        }
+        if url.is_empty() {
+            return Ok(());
+        }
+        if url.starts_with("http://") || url.starts_with("https://") {
+            return Ok(());
+        }
+        return Err(AppError::ValidationError(Default::default()));
+    }
+    Ok(())
+}
+
+pub fn validate_images(images: Option<&[String]>) -> Result<(), AppError> {
+    if let Some(images) = images {
+        if images.len() > MAX_IMAGES_COUNT {
+            return Err(AppError::ValidationError(Default::default()));
+        }
+        for url in images {
+            validate_image_url(Some(url))?;
+        }
+    }
+    Ok(())
+}
+
+pub fn validate_ingredients(ingredients: Option<&[String]>) -> Result<(), AppError> {
+    if let Some(ingredients) = ingredients {
+        if ingredients.len() > MAX_INGREDIENTS_COUNT {
+            return Err(AppError::ValidationError(Default::default()));
+        }
+        for ingredient in ingredients {
+            if ingredient.trim().is_empty() || ingredient.len() > MAX_INGREDIENT_LEN {
+                return Err(AppError::ValidationError(Default::default()));
+            }
+        }
     }
     Ok(())
 }

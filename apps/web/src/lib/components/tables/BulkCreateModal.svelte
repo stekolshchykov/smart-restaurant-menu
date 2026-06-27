@@ -63,6 +63,7 @@
 					bind:value={prefix}
 					placeholder="Стол"
 					required
+					autofocus
 				/>
 				<div class="grid grid-cols-2 gap-4">
 					<div class="flex flex-col gap-1.5">

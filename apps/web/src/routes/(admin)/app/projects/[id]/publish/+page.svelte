@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { ArrowLeft, Share2, Globe, Copy, CheckCircle2 } from '@lucide/svelte';
 	import { projects } from '$lib/stores/projects.svelte';
@@ -11,9 +12,10 @@
 
 	const id = $derived(page.params.id ?? '');
 	const project = $derived(projects.currentProject);
-	const publicUrl = $derived(publish.status?.url ?? (project ? `/venue/${project.slug}` : ''));
-	const allReady = $derived((publish.status?.readiness ?? []).every((c) => c.passed));
-	const isPublished = $derived(publish.status?.published ?? false);
+	const origin = $derived(browser && typeof window !== 'undefined' ? window.location.origin : '');
+	const publicUrl = $derived(project && origin ? `${origin}/venue/${project.slug}` : '');
+	const isPublished = $derived(publish.status?.status === 'published');
+	const allReady = $derived(publish.status?.ready ?? false);
 
 	let copied = $state(false);
 
@@ -27,11 +29,13 @@
 	async function handlePublish() {
 		if (!id) return;
 		await publish.publish(id);
+		void projects.selectProject(id);
 	}
 
 	async function handleUnpublish() {
 		if (!id) return;
 		await publish.unpublish(id);
+		void projects.selectProject(id);
 	}
 
 	async function copyUrl() {
@@ -81,9 +85,7 @@
 								Статус публикации
 							</h2>
 							<p class="text-sm" style="color: var(--color-text-muted);">
-								{publish.status.publishedAt
-									? `Опубликовано ${new Date(publish.status.publishedAt).toLocaleDateString('ru-RU')}`
-									: 'Ещё не публиковалось'}
+								{project?.status === 'published' ? 'Опубликовано' : 'Ещё не публиковалось'}
 							</p>
 						</div>
 						<Badge variant={isPublished ? 'success' : 'default'}>
@@ -134,8 +136,8 @@
 						Готовность к публикации
 					</h2>
 					<div class="mt-4">
-						{#if publish.status.readiness.length > 0}
-							<ReadinessChecklist checks={publish.status.readiness} />
+						{#if publish.status.checklist.length > 0}
+							<ReadinessChecklist checks={publish.status.checklist} />
 						{:else}
 							<p class="text-sm" style="color: var(--color-text-muted);">
 								Нет проверок готовности.

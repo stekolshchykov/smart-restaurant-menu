@@ -15,6 +15,8 @@ pub struct AppConfig {
     pub web_origin: String,
     #[serde(default = "default_api_origin")]
     pub api_origin: String,
+    #[serde(default = "default_upload_dir")]
+    pub upload_dir: String,
 }
 
 fn default_app_env() -> String {
@@ -26,7 +28,11 @@ fn default_web_origin() -> String {
 }
 
 fn default_api_origin() -> String {
-    "http://localhost:3000".to_string()
+    "http://localhost:3001".to_string()
+}
+
+fn default_upload_dir() -> String {
+    "uploads".to_string()
 }
 
 impl AppConfig {
@@ -42,6 +48,29 @@ impl AppConfig {
     pub fn validate(&self) -> anyhow::Result<()> {
         if self.jwt_secret.len() < 32 {
             anyhow::bail!("JWT_SECRET must be at least 32 characters long");
+        }
+        if self.jwt_access_expiry_minutes <= 0 || self.jwt_access_expiry_minutes > 1440 {
+            anyhow::bail!(
+                "JWT_ACCESS_EXPIRY_MINUTES must be between 1 and 1440 (got {})",
+                self.jwt_access_expiry_minutes
+            );
+        }
+        if self.jwt_refresh_expiry_days <= 0 || self.jwt_refresh_expiry_days > 90 {
+            anyhow::bail!(
+                "JWT_REFRESH_EXPIRY_DAYS must be between 1 and 90 (got {})",
+                self.jwt_refresh_expiry_days
+            );
+        }
+        if self.app_env == "production" {
+            if self.allowed_origins.trim().is_empty() {
+                anyhow::bail!("ALLOWED_ORIGINS must not be empty in production");
+            }
+            if self.allowed_origins().contains(&"*") {
+                anyhow::bail!("Wildcard CORS origin (*) is not allowed in production");
+            }
+        }
+        if self.upload_dir.is_empty() || self.upload_dir.contains('\0') {
+            anyhow::bail!("UPLOAD_DIR must be a non-empty path");
         }
         Ok(())
     }

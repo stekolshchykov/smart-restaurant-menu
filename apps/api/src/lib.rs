@@ -3,6 +3,8 @@ pub mod config;
 pub mod error;
 pub mod menu;
 pub mod projects;
+pub mod rate_limit;
 pub mod routes;
 pub mod state;
 pub mod tables;
+pub mod venue;

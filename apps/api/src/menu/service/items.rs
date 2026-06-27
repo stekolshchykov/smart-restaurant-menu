@@ -6,10 +6,13 @@ use crate::menu::models::{CreateMenuItemRequest, MenuItemResponse, UpdateMenuIte
 use crate::menu::repository::{categories, items as repo};
 use crate::menu::service::helpers::{
     build_item_response, ensure_allergens_belong_to_project, ensure_project_owner,
-    ensure_tags_belong_to_project, validate_price,
+    ensure_tags_belong_to_project, validate_description, validate_image_url, validate_images,
+    validate_ingredients, validate_name, validate_price, validate_short_description,
 };
 use crate::projects::repository as project_repository;
 use crate::state::AppState;
+
+const VALID_AVAILABILITY_STATUSES: &[&str] = &["available", "unavailable", "hidden"];
 
 pub async fn create(
     state: &AppState,
@@ -21,12 +24,16 @@ pub async fn create(
         .await?
         .ok_or(AppError::CategoryNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
+    validate_menu_item_fields(&req)?;
     validate_price(&req.price)?;
 
     let project = project_repository::get_project(&state.db, project_id)
         .await?
         .ok_or(AppError::ProjectNotFound)?;
 
+    if let Some(status) = req.availability_status.as_deref() {
+        validate_availability_status(status)?;
+    }
     if let Some(ids) = req.allergen_ids.as_deref() {
         ensure_allergens_belong_to_project(&state.db, project_id, ids).await?;
     }
@@ -79,8 +86,12 @@ pub async fn update(
         .ok_or(AppError::MenuItemNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
 
+    validate_update_menu_item_fields(&req)?;
     if let Some(price) = &req.price {
         validate_price(price)?;
+    }
+    if let Some(status) = req.availability_status.as_deref() {
+        validate_availability_status(status)?;
     }
     if let Some(ids) = req.allergen_ids.as_deref() {
         ensure_allergens_belong_to_project(&state.db, project_id, ids).await?;
@@ -120,4 +131,34 @@ pub async fn delete(state: &AppState, user: &CurrentUser, id: Uuid) -> Result<()
         .ok_or(AppError::MenuItemNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
     repo::delete(&state.db, id).await
+}
+
+fn validate_menu_item_fields(req: &CreateMenuItemRequest) -> Result<(), AppError> {
+    validate_name(&req.name)?;
+    validate_short_description(req.short_description.as_deref())?;
+    validate_description(req.description.as_deref())?;
+    validate_image_url(req.image_url.as_deref())?;
+    validate_images(req.images.as_deref())?;
+    validate_ingredients(req.ingredients.as_deref())?;
+    Ok(())
+}
+
+fn validate_update_menu_item_fields(req: &UpdateMenuItemRequest) -> Result<(), AppError> {
+    if let Some(name) = &req.name {
+        validate_name(name)?;
+    }
+    validate_short_description(req.short_description.as_deref())?;
+    validate_description(req.description.as_deref())?;
+    validate_image_url(req.image_url.as_deref())?;
+    validate_images(req.images.as_deref())?;
+    validate_ingredients(req.ingredients.as_deref())?;
+    Ok(())
+}
+
+fn validate_availability_status(status: &str) -> Result<(), AppError> {
+    if VALID_AVAILABILITY_STATUSES.contains(&status) {
+        Ok(())
+    } else {
+        Err(AppError::ValidationError(Default::default()))
+    }
 }

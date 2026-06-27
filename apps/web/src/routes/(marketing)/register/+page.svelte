@@ -9,9 +9,45 @@
 	let email = $state('');
 	let password = $state('');
 
+	function hasMinLength(value: string) {
+		return value.length >= 8;
+	}
+
+	function hasUppercase(value: string) {
+		return /[A-Z]/.test(value);
+	}
+
+	function hasLowercase(value: string) {
+		return /[a-z]/.test(value);
+	}
+
+	function hasDigit(value: string) {
+		return /\d/.test(value);
+	}
+
+	function hasSpecialChar(value: string) {
+		return /[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(value);
+	}
+
+	const requirements = $derived([
+		{ label: 'Не менее 8 символов', met: hasMinLength(password) },
+		{ label: 'Заглавная буква', met: hasUppercase(password) },
+		{ label: 'Строчная буква', met: hasLowercase(password) },
+		{ label: 'Цифра', met: hasDigit(password) },
+		{ label: 'Специальный символ', met: hasSpecialChar(password) }
+	]);
+
+	const passwordValid = $derived(requirements.every((r) => r.met));
+	let clientError = $state<string | null>(null);
+
 	async function handleSubmit(event: SubmitEvent) {
 		event.preventDefault();
 		auth.clearError();
+		clientError = null;
+		if (!passwordValid) {
+			clientError = 'Пароль не соответствует требованиям безопасности';
+			return;
+		}
 		await auth.register(name, email, password);
 	}
 </script>
@@ -21,7 +57,9 @@
 </svelte:head>
 
 <section class="mx-auto max-w-md px-4 py-16">
-	<div class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 shadow-lg">
+	<div
+		class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 shadow-lg"
+	>
 		<h1
 			class="text-3xl font-bold"
 			style="font-family: var(--font-heading); color: var(--color-heading);"
@@ -38,6 +76,7 @@
 				name="name"
 				placeholder="Иван Иванов"
 				required
+				autocomplete="name"
 				bind:value={name}
 			/>
 			<TextInput
@@ -46,6 +85,7 @@
 				name="email"
 				placeholder="you@example.com"
 				required
+				autocomplete="email"
 				bind:value={email}
 			/>
 			<PasswordInput
@@ -53,10 +93,30 @@
 				name="password"
 				placeholder="••••••••"
 				required
+				autocomplete="new-password"
 				bind:value={password}
 			/>
 
-			<FormError message={auth.error} />
+			<div class="flex flex-col gap-1.5 text-sm" aria-label="Требования к паролю">
+				{#each requirements as requirement}
+					<div class="flex items-center gap-2">
+						<span
+							class="h-2 w-2 rounded-full"
+							class:bg-[var(--color-success)]={requirement.met}
+							class:bg-[var(--color-text-on-surface-muted)]={!requirement.met}
+							aria-hidden="true"
+						></span>
+						<span
+							class:text-[var(--color-text)]={requirement.met}
+							class:text-[var(--color-text-on-surface-muted)]={!requirement.met}
+						>
+							{requirement.label}
+						</span>
+					</div>
+				{/each}
+			</div>
+
+			<FormError message={clientError ?? auth.error} />
 
 			<Button type="submit" class="w-full" disabled={auth.loading}>
 				{auth.loading ? 'Создаём аккаунт...' : 'Создать аккаунт'}

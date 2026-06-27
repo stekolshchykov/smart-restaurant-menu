@@ -8,11 +8,13 @@
 		UpdateModifierGroupRequest,
 		UpdateModifierOptionRequest,
 	} from '@digital-menu/api-client';
+	import { formatMoney } from '$lib/stores/cart.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import TextInput from '$lib/components/forms/TextInput.svelte';
 
 	interface Props {
 		groups: ModifierGroup[];
+		currency?: string;
 		onCreateGroup: (body: CreateModifierGroupRequest) => void;
 		onUpdateGroup: (id: string, body: UpdateModifierGroupRequest) => void;
 		onDeleteGroup: (id: string) => void;
@@ -23,6 +25,7 @@
 
 	let {
 		groups,
+		currency = '€',
 		onCreateGroup,
 		onUpdateGroup,
 		onDeleteGroup,
@@ -189,7 +192,7 @@
 								<div class="flex items-center justify-between gap-2">
 									<div>
 										<span class="text-sm text-[var(--color-text)]">{option.name}</span>
-										<span class="ml-2 text-sm text-[var(--color-text-secondary)]">+{option.price}</span>
+										<span class="ml-2 text-sm text-[var(--color-text-secondary)]">+{formatMoney(option.price, currency)}</span>
 									</div>
 									<div class="flex items-center gap-1">
 										<button

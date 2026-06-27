@@ -1,0 +1,36 @@
+{
+	"name": "Digital Menu",
+	"short_name": "DigitalMenu",
+	"id": "/",
+	"scope": "/",
+	"start_url": "/",
+	"display": "standalone",
+	"display_override": ["standalone", "browser"],
+	"background_color": "#0f172a",
+	"theme_color": "#0f172a",
+	"orientation": "portrait-primary",
+	"categories": ["food", "business"],
+	"icons": [
+		{
+			"src": "/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "/screenshots/menu.png",
+			"sizes": "1280x720",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Digital Menu browse view"
+		}
+	]
+}

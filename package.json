@@ -11,12 +11,15 @@
     "dev": "npm run dev --workspaces --if-present",
     "build": "npm run build --workspaces --if-present",
     "check": "npm run check --workspaces --if-present",
-    "lint": "npm run lint --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present && (cd apps/api && cargo clippy -- -D warnings)",
+    "lint:web": "npm run lint --workspace=apps/web",
+    "lint:api": "cd apps/api && cargo clippy -- -D warnings",
     "test": "npm run test --workspaces --if-present",
     "api:dev": "npm run dev --workspace=apps/api",
     "web:dev": "npm run dev --workspace=apps/web",
     "db:up": "docker compose up -d postgres",
-    "db:down": "docker compose down"
+    "db:down": "docker compose down",
+    "db:seed": "cd apps/api && cargo run --bin seed"
   },
   "engines": {
     "node": ">=22.0.0"

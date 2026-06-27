@@ -21,7 +21,6 @@ pub fn router() -> Router<AppState> {
         .route("/tables/{id}", patch(update_table).delete(delete_table))
         .route("/tables/{id}/qr", get(qr_code))
         .route("/tables/{id}/qr-pdf", get(qr_pdf))
-        .route("/public/tables/{token}", get(get_public_table))
 }
 
 async fn list_tables(
@@ -109,20 +108,6 @@ async fn qr_pdf(
     let qr_png = service::generate_qr_png(&url)?;
     let pdf = service::generate_table_pdf(&table, &project, &qr_png)?;
     Ok(image_response(pdf, "application/pdf"))
-}
-
-async fn get_public_table(
-    State(state): State<AppState>,
-    Path(token): Path<String>,
-) -> Result<Json<crate::tables::models::TableResponse>, AppError> {
-    let table = service::get_public_table_by_token(&state.db, &token)
-        .await?
-        .ok_or(AppError::TableNotFound)?;
-    Ok(Json(crate::tables::models::to_response(
-        table,
-        state.config.web_origin(),
-        state.config.api_origin(),
-    )))
 }
 
 fn image_response(body: Vec<u8>, content_type: &'static str) -> Response {

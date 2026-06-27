@@ -52,14 +52,14 @@
 	</label>
 	<div class="relative">
 		<select
-			{id}
+			id={inputId}
 			{name}
 			{required}
 			{disabled}
 			aria-invalid={error ? 'true' : undefined}
 			aria-describedby={error ? `${inputId}-error` : undefined}
 			class="{base} {error ? borderError : border} pr-10"
-			{value}
+			bind:value
 			onchange={handleChange}
 		>
 			{#each options as option}

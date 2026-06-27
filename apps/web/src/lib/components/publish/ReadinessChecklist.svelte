@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { Check, X, AlertCircle } from '@lucide/svelte';
-	import type { ReadinessCheck } from '@digital-menu/api-client';
+	import type { PublicationCheck } from '@digital-menu/api-client';
 
 	interface Props {
-		checks: ReadinessCheck[];
+		checks: PublicationCheck[];
 	}
 
 	let { checks }: Props = $props();
 </script>
 
 <ul class="flex flex-col gap-3" role="list" aria-label="Чеклист готовности">
-	{#each checks as check (check.id)}
+	{#each checks as check (check.key)}
 		<li class="flex items-start gap-3">
 			<div class="mt-0.5 shrink-0">
 				{#if check.passed}
@@ -27,11 +27,6 @@
 				<p class="text-sm font-medium" class:text-[var(--color-text)]={check.passed} class:text-[var(--color-text-secondary)]={!check.passed}>
 					{check.label}
 				</p>
-				{#if check.message}
-					<p class="mt-0.5 text-sm" style="color: var(--color-text-muted);">
-						{check.message}
-					</p>
-				{/if}
 			</div>
 			{#if !check.passed}
 				<AlertCircle class="h-4 w-4 shrink-0 text-[var(--color-warning)]" aria-hidden="true" />

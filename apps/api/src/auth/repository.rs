@@ -11,6 +11,7 @@ pub struct RefreshTokenRow {
     pub user_id: Uuid,
     pub expires_at: DateTime<Utc>,
     pub created_at: DateTime<Utc>,
+    pub previous_token_hash: Option<String>,
 }
 
 pub async fn create_user<'e, E>(
@@ -72,19 +73,24 @@ pub async fn save_refresh_token<'e, E>(
     token_hash: &str,
     user_id: Uuid,
     expires_at: DateTime<Utc>,
+    previous_token_hash: Option<&str>,
 ) -> Result<(), AppError>
 where
     E: Executor<'e, Database = sqlx::Postgres>,
 {
     query(
-        "INSERT INTO refresh_tokens (token_hash, user_id, expires_at)
-         VALUES ($1, $2, $3)
+        "INSERT INTO refresh_tokens (token_hash, user_id, expires_at, previous_token_hash)
+         VALUES ($1, $2, $3, $4)
          ON CONFLICT (token_hash)
-         DO UPDATE SET user_id = EXCLUDED.user_id, expires_at = EXCLUDED.expires_at",
+         DO UPDATE SET
+             user_id = EXCLUDED.user_id,
+             expires_at = EXCLUDED.expires_at,
+             previous_token_hash = EXCLUDED.previous_token_hash",
     )
     .bind(token_hash)
     .bind(user_id)
     .bind(expires_at)
+    .bind(previous_token_hash)
     .execute(executor)
     .await?;
 
@@ -99,9 +105,47 @@ where
     E: Executor<'e, Database = sqlx::Postgres>,
 {
     query_as::<_, RefreshTokenRow>(
-        "SELECT token_hash, user_id, expires_at, created_at
+        "SELECT token_hash, user_id, expires_at, created_at, previous_token_hash
          FROM refresh_tokens
          WHERE token_hash = $1",
+    )
+    .bind(token_hash)
+    .fetch_optional(executor)
+    .await
+    .map_err(AppError::from)
+}
+
+pub async fn get_refresh_token_for_update<'e, E>(
+    executor: E,
+    token_hash: &str,
+) -> Result<Option<RefreshTokenRow>, AppError>
+where
+    E: Executor<'e, Database = sqlx::Postgres>,
+{
+    query_as::<_, RefreshTokenRow>(
+        "SELECT token_hash, user_id, expires_at, created_at, previous_token_hash
+         FROM refresh_tokens
+         WHERE token_hash = $1
+         FOR UPDATE",
+    )
+    .bind(token_hash)
+    .fetch_optional(executor)
+    .await
+    .map_err(AppError::from)
+}
+
+pub async fn get_refresh_token_by_previous_hash<'e, E>(
+    executor: E,
+    token_hash: &str,
+) -> Result<Option<RefreshTokenRow>, AppError>
+where
+    E: Executor<'e, Database = sqlx::Postgres>,
+{
+    query_as::<_, RefreshTokenRow>(
+        "SELECT token_hash, user_id, expires_at, created_at, previous_token_hash
+         FROM refresh_tokens
+         WHERE previous_token_hash = $1
+         LIMIT 1",
     )
     .bind(token_hash)
     .fetch_optional(executor)

@@ -8,11 +8,13 @@ use crate::auth::models::User;
 use crate::error::AppError;
 
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Claims {
     pub sub: String,
     pub email: String,
     pub role: String,
     pub exp: usize,
+    pub jti: String,
 }
 
 pub fn create_access_token(
@@ -26,6 +28,7 @@ pub fn create_access_token(
         email: user.email.clone(),
         role: user.role.clone(),
         exp: exp.timestamp() as usize,
+        jti: uuid::Uuid::new_v4().to_string(),
     };
 
     encode(

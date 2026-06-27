@@ -25,7 +25,7 @@ where
     .bind(req.required)
     .bind(req.min_select)
     .bind(req.max_select)
-    .bind(req.sort_order)
+    .bind(req.sort_order.unwrap_or(0))
     .fetch_one(executor)
     .await
     .map_err(AppError::from)
@@ -80,7 +80,7 @@ where
     .bind(req.required)
     .bind(req.min_select)
     .bind(req.max_select)
-    .bind(req.sort_order)
+    .bind(req.sort_order.unwrap_or(0))
     .fetch_one(executor)
     .await
     .map_err(AppError::from)
@@ -134,7 +134,7 @@ where
     .bind(modifier_group_id)
     .bind(&req.name)
     .bind(&req.price)
-    .bind(req.sort_order)
+    .bind(req.sort_order.unwrap_or(0))
     .fetch_one(executor)
     .await
     .map_err(AppError::from)
@@ -186,7 +186,7 @@ where
     .bind(id)
     .bind(&req.name)
     .bind(&req.price)
-    .bind(req.sort_order)
+    .bind(req.sort_order.unwrap_or(0))
     .fetch_one(executor)
     .await
     .map_err(AppError::from)

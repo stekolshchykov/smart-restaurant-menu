@@ -139,7 +139,7 @@ where
             $1,
             COALESCE($2, 'dark'),
             COALESCE($3, '#c9a227'),
-            COALESCE($4, 'editorial'),
+            COALESCE($4, 'elevated'),
             COALESCE($5, 'rounded'),
             COALESCE($6, true),
             COALESCE($7, true),

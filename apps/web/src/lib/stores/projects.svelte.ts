@@ -111,19 +111,19 @@ function createProjectsStore() {
     }
   }
 
-  async function updateTheme(id: string, body: UpdateProjectThemeRequest): Promise<ProjectThemeResponse> {
+  async function updateTheme(id: string, body: UpdateProjectThemeRequest): Promise<ProjectResponse> {
     loading = true;
     error = null;
 
     try {
-      const theme = await api.updateProjectTheme(id, body);
+      const project = await api.updateProjectTheme(id, body);
       projects = projects.map((p) =>
-        p.id === id ? { ...p, theme } : p,
+        p.id === id ? project : p,
       );
       if (currentProject?.id === id) {
-        currentProject = { ...currentProject, theme };
+        currentProject = project;
       }
-      return theme;
+      return project;
     } catch (err) {
       error = getErrorMessage(err);
       throw err;

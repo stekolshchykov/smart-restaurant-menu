@@ -4,6 +4,7 @@ use sqlx::FromRow;
 use uuid::Uuid;
 
 #[derive(Debug, Clone, FromRow, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Table {
     pub id: Uuid,
     pub project_id: Uuid,
@@ -16,12 +17,15 @@ pub struct Table {
 }
 
 #[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct CreateTableRequest {
     pub label: String,
+    pub active: Option<bool>,
     pub sort_order: Option<i32>,
 }
 
 #[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct UpdateTableRequest {
     pub label: Option<String>,
     pub active: Option<bool>,
@@ -29,6 +33,7 @@ pub struct UpdateTableRequest {
 }
 
 #[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct BulkCreateRequest {
     pub prefix: Option<String>,
     pub start: i32,
@@ -36,6 +41,7 @@ pub struct BulkCreateRequest {
 }
 
 #[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct TableResponse {
     pub id: Uuid,
     pub project_id: Uuid,
