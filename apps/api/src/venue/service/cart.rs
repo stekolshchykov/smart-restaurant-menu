@@ -191,7 +191,7 @@ pub async fn add_to_cart(
             }
         }
     }
-    addons.sort_by(|a, b| a.id.cmp(&b.id));
+    addons.sort_by_key(|a| a.id);
 
     let cart_item_id = generate_cart_item_id(req.menu_item_id, &final_addon_ids, &req.note);
     let session = repository::get_or_create_cart_session(&state.db, table.id).await?;

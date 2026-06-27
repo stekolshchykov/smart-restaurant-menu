@@ -1,6 +1,9 @@
 use std::net::SocketAddr;
+use std::sync::Arc;
 
-use digital_menu_api::{config::AppConfig, error::AppError, routes::create_app, state::AppState};
+use digital_menu_api::{
+    config::AppConfig, error::AppError, routes::create_app, state::AppState, storage,
+};
 use sqlx::postgres::PgPoolOptions;
 use tokio::signal;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
@@ -28,7 +31,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     tokio::fs::create_dir_all(&config.upload_dir).await?;
 
-    let state = AppState::new(db, config.clone());
+    let storage = storage::StorageConfig::from_env()
+        .map(|cfg| storage::StorageClient::new(&cfg))
+        .transpose()?
+        .map(Arc::new);
+
+    let state = AppState::new(db, config.clone(), storage);
     let app = create_app(state, &config);
 
     let addr = SocketAddr::from(([0, 0, 0, 0], config.port));

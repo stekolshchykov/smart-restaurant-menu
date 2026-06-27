@@ -75,6 +75,13 @@ pub async fn upload_image(
     }
 
     let filename = format!("{uuid}.{ext}", uuid = Uuid::new_v4());
+
+    if let Some(storage) = &state.storage {
+        let key = format!("images/{filename}");
+        let url = storage.upload(&key, data, content_type).await?;
+        return Ok((StatusCode::CREATED, Json(UploadResponse { url })));
+    }
+
     let upload_dir = PathBuf::from(&state.config.upload_dir);
     let path = upload_dir.join(&filename);
 

@@ -8,6 +8,7 @@ use crate::auth::middleware::CurrentUser;
 use crate::error::AppError;
 pub mod publication;
 
+use crate::menu::repository::items as item_repo;
 use crate::projects::models::{
     CreateProjectRequest, Project, ProjectResponse, ProjectTheme, ProjectThemeResponse,
     UpdateProjectRequest, UpdateProjectThemeRequest,
@@ -164,7 +165,34 @@ pub async fn delete_project(
 
     ensure_owner(&project, current_user)?;
 
-    repository::delete_project(&state.db, id).await
+    let theme = repository::get_theme(&state.db, id).await?;
+    let items = item_repo::list_by_project(&state.db, id).await?;
+
+    repository::delete_project(&state.db, id).await?;
+
+    if let Some(storage) = &state.storage {
+        let mut urls: Vec<&str> = Vec::new();
+
+        if let Some(theme) = &theme {
+            if let Some(url) = theme.logo_url.as_deref() {
+                urls.push(url);
+            }
+            if let Some(url) = theme.hero_url.as_deref() {
+                urls.push(url);
+            }
+        }
+
+        for item in &items {
+            if let Some(url) = item.image_url.as_deref() {
+                urls.push(url);
+            }
+            urls.extend(item.images.iter().map(String::as_str));
+        }
+
+        storage.delete_urls(urls).await;
+    }
+
+    Ok(())
 }
 
 pub async fn update_theme(
@@ -180,7 +208,30 @@ pub async fn update_theme(
     ensure_owner(&project, current_user)?;
     validate_theme(&req)?;
 
+    let old_theme = repository::get_theme(&state.db, id).await?;
     let theme = repository::create_or_update_theme(&state.db, id, &req).await?;
+
+    if let Some(storage) = &state.storage {
+        let mut urls_to_delete: Vec<&str> = Vec::new();
+
+        if let Some(new_url) = req.logo_url.as_deref() {
+            if let Some(old_url) = old_theme.as_ref().and_then(|t| t.logo_url.as_deref()) {
+                if !old_url.is_empty() && old_url != new_url {
+                    urls_to_delete.push(old_url);
+                }
+            }
+        }
+
+        if let Some(new_url) = req.hero_url.as_deref() {
+            if let Some(old_url) = old_theme.as_ref().and_then(|t| t.hero_url.as_deref()) {
+                if !old_url.is_empty() && old_url != new_url {
+                    urls_to_delete.push(old_url);
+                }
+            }
+        }
+
+        storage.delete_urls(urls_to_delete).await;
+    }
 
     Ok(to_response(project, theme))
 }

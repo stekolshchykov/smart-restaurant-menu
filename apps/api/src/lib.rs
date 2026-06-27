@@ -6,5 +6,6 @@ pub mod projects;
 pub mod rate_limit;
 pub mod routes;
 pub mod state;
+pub mod storage;
 pub mod tables;
 pub mod venue;

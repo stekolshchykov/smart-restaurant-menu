@@ -111,7 +111,7 @@ Modules:
 - `menu` — categories, menu items, modifier groups/options, allergens, tags.
 - `tables` — tables, public tokens, QR code/PDF generation.
 - `venue` — public venue endpoints, cart sessions, orders, service requests.
-- `uploads` — image upload to local disk (`/uploads`) for MVP.
+- `uploads` — image upload. When `STORAGE_ENDPOINT` is set, images go to a MinIO/S3-compatible bucket and public URLs are returned; otherwise they fall back to local disk (`/uploads`).
 
 Auth: JWT access token + httpOnly refresh cookie. Argon2id password hashing.
 
@@ -174,6 +174,15 @@ Required API variables:
 - `JWT_ACCESS_EXPIRY_MINUTES`, `JWT_REFRESH_EXPIRY_DAYS` — token lifetimes.
 - `ALLOWED_ORIGINS`, `WEB_ORIGIN`, `API_ORIGIN` — CORS and link generation.
 - `APP_ENV` — set to `production` for deployed environments.
+
+Optional object-storage variables (MinIO/S3-compatible):
+- `STORAGE_ENDPOINT` — S3 API endpoint, e.g. `http://185.237.204.37:9000`. When unset, uploads stay on local disk.
+- `STORAGE_BUCKET` — bucket name (default: `digital-menu-uploads`).
+- `STORAGE_ACCESS_KEY`, `STORAGE_SECRET_KEY` — bucket credentials.
+- `STORAGE_REGION` — region for signing (default: `us-east-1`).
+- `STORAGE_USE_PATH_STYLE` — `true` for MinIO path-style URLs (default: `true`).
+
+When storage is configured, deleting or replacing menu-item images, category images, and project theme logo/hero images removes the corresponding objects from the bucket.
 
 Healthcheck endpoints:
 - API: `GET /health`

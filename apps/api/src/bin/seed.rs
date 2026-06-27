@@ -40,7 +40,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     sqlx::migrate!().run(&db).await?;
 
-    let state = AppState::new(db, config);
+    let state = AppState::new(db, config, None);
 
     let demo_email = "demo@digitalmenu.local";
     let demo_password = "DemoPass123!";

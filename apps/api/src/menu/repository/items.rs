@@ -4,6 +4,22 @@ use uuid::Uuid;
 use crate::error::AppError;
 use crate::menu::models::{CreateMenuItemRequest, MenuItem, UpdateMenuItemRequest};
 
+pub async fn list_by_category(pool: &PgPool, category_id: Uuid) -> Result<Vec<MenuItem>, AppError> {
+    query_as::<_, MenuItem>(
+        "SELECT id, category_id, name, short_description, description,
+                price, currency, image_url, images, ingredients,
+                availability_status, quick_add_enabled, sort_order,
+                created_at, updated_at
+         FROM menu_items
+         WHERE category_id = $1
+         ORDER BY sort_order, name",
+    )
+    .bind(category_id)
+    .fetch_all(pool)
+    .await
+    .map_err(AppError::from)
+}
+
 pub async fn list_by_project(pool: &PgPool, project_id: Uuid) -> Result<Vec<MenuItem>, AppError> {
     query_as::<_, MenuItem>(
         "SELECT i.id, i.category_id, i.name, i.short_description, i.description,

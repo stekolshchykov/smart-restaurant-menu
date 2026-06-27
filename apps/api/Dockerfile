@@ -3,7 +3,7 @@
 # Multi-stage build for the Rust axum API.
 # Build context: apps/api
 
-FROM rust:1.88-slim-bookworm AS builder
+FROM rust:1.96-slim-bookworm AS builder
 
 WORKDIR /app
 

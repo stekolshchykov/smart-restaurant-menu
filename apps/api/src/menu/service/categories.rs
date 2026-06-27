@@ -3,7 +3,7 @@ use uuid::Uuid;
 use crate::auth::middleware::CurrentUser;
 use crate::error::AppError;
 use crate::menu::models::{Category, CreateCategoryRequest, UpdateCategoryRequest};
-use crate::menu::repository::categories as repo;
+use crate::menu::repository::{categories as repo, items as item_repo};
 use crate::menu::service::helpers::{ensure_project_owner, validate_name};
 use crate::state::AppState;
 
@@ -39,5 +39,21 @@ pub async fn delete(state: &AppState, user: &CurrentUser, id: Uuid) -> Result<()
         .await?
         .ok_or(AppError::CategoryNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
-    repo::delete(&state.db, id).await
+
+    let items = item_repo::list_by_category(&state.db, id).await?;
+
+    repo::delete(&state.db, id).await?;
+
+    if let Some(storage) = &state.storage {
+        let mut urls: Vec<&str> = Vec::new();
+        for item in &items {
+            if let Some(url) = item.image_url.as_deref() {
+                urls.push(url);
+            }
+            urls.extend(item.images.iter().map(String::as_str));
+        }
+        storage.delete_urls(urls).await;
+    }
+
+    Ok(())
 }

@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use uuid::Uuid;
 
 use crate::auth::middleware::CurrentUser;
@@ -86,6 +88,10 @@ pub async fn update(
         .ok_or(AppError::MenuItemNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
 
+    let old = repo::get(&state.db, id)
+        .await?
+        .ok_or(AppError::MenuItemNotFound)?;
+
     validate_update_menu_item_fields(&req)?;
     if let Some(price) = &req.price {
         validate_price(price)?;
@@ -99,6 +105,8 @@ pub async fn update(
     if let Some(ids) = req.tag_ids.as_deref() {
         ensure_tags_belong_to_project(&state.db, project_id, ids).await?;
     }
+
+    let removed_urls = collect_removed_image_urls(&old.image_url, &old.images, &req);
 
     let mut tx = state.db.begin().await?;
     let item = repo::update(&mut *tx, id, &req).await?;
@@ -122,6 +130,11 @@ pub async fn update(
     }
 
     tx.commit().await?;
+
+    if let Some(storage) = &state.storage {
+        storage.delete_urls(removed_urls.iter().map(String::as_str)).await;
+    }
+
     build_item_response(&state.db, item).await
 }
 
@@ -130,7 +143,22 @@ pub async fn delete(state: &AppState, user: &CurrentUser, id: Uuid) -> Result<()
         .await?
         .ok_or(AppError::MenuItemNotFound)?;
     ensure_project_owner(state, user, project_id).await?;
-    repo::delete(&state.db, id).await
+
+    let old = repo::get(&state.db, id)
+        .await?
+        .ok_or(AppError::MenuItemNotFound)?;
+
+    repo::delete(&state.db, id).await?;
+
+    if let Some(storage) = &state.storage {
+        let mut urls: Vec<&str> = old.images.iter().map(String::as_str).collect();
+        if let Some(url) = old.image_url.as_deref() {
+            urls.push(url);
+        }
+        storage.delete_urls(urls).await;
+    }
+
+    Ok(())
 }
 
 fn validate_menu_item_fields(req: &CreateMenuItemRequest) -> Result<(), AppError> {
@@ -161,4 +189,31 @@ fn validate_availability_status(status: &str) -> Result<(), AppError> {
     } else {
         Err(AppError::ValidationError(Default::default()))
     }
+}
+
+fn collect_removed_image_urls(
+    old_image_url: &Option<String>,
+    old_images: &[String],
+    req: &UpdateMenuItemRequest,
+) -> Vec<String> {
+    let mut removed = Vec::new();
+
+    if let Some(new_url) = req.image_url.as_deref() {
+        if let Some(old_url) = old_image_url.as_deref() {
+            if !old_url.is_empty() && old_url != new_url {
+                removed.push(old_url.to_string());
+            }
+        }
+    }
+
+    if let Some(new_images) = req.images.as_deref() {
+        let new_set: HashSet<&str> = new_images.iter().map(String::as_str).collect();
+        for old_url in old_images {
+            if !old_url.is_empty() && !new_set.contains(old_url.as_str()) {
+                removed.push(old_url.clone());
+            }
+        }
+    }
+
+    removed
 }
